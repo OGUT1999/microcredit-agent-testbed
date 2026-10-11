@@ -92,9 +92,17 @@ snapshots, not a claim that pending work has finished.
   noreply author AND committer for protected writes. Connector commits remain
   blocked by the known privacy/CAS uncertainty. Lock activity stays off main;
   owner-only release and no stale takeover remain. Do not hold it while waiting.
-- If a scheduled Codex run lacks that path, finish its analysis and exact patch,
-  post one append-only handoff to Claude, and track the publication receipt.
-  Leave protected cursors unchanged. This is not permission to bypass a lock.
+- If Codex is blocked from completing an authorized GitHub operation (repository
+  edits, commits, merges, PR maintenance, issue or comment updates, publication
+  updates), it does not stop at the blocker. It hands the exact operation to Claude
+  Code, which completes it through its Git-shell noreply path and returns a
+  verifiable receipt: a commit or merge SHA, a comment id or a URL. Codex stays
+  responsible for verifying the result and integrating the receipt. A GitHub access
+  or tooling blocker is a routing problem, not a terminal project state (operator
+  standing rule, 2026-10-11, board 15 comment 6111721411). The handoff carries the
+  exact operation and its authorization; Claude does not widen either, and the
+  usual non-author review still applies before a merge. Leave protected cursors
+  unchanged. This is not permission to bypass a lock or a missing authorization.
 - If Hermes is offline or at a channel limit, Claude/Codex continue local work
   and queue prepared messages. They do not impersonate Hermes or duplicate
   outside contact. Track deadline risk and report a consequential failure once.

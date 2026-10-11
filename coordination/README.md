@@ -26,7 +26,9 @@ cover only that repo's code, build, and publication requirements.
    a GitHub merge that exposes the operator's personal email.
 5. Open a focused PR and post one material handoff to the board. Claude owns
    maintainer integration; Codex reviews Claude's work. A request, a green test,
-   and a recipient's acceptance are different states.
+   and a recipient's acceptance are different states. If Codex is blocked on an
+   authorized GitHub operation, it routes the exact operation to Claude and verifies
+   Claude's receipt ([team-structure.md](team-structure.md#capability-and-failure-rules)).
 
 ## North star and resource focus
 
