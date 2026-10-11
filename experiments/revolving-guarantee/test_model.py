@@ -53,22 +53,22 @@ class Ruin(unittest.TestCase):
 
 
 class WorkerNet(unittest.TestCase):
-    def test_insurance_variant_at_break_even_reduces_to_caused_gain_minus_cost(self):
-        p, q, G, c, w = 0.05, 0.7, 60, 2, 60
-        k = model.break_even(p, q, G, c)
-        for a, s in [(0, 1), (0.3, 0.5), (1, 1)]:
-            got = model.worker_net_per_job(p, q, G, c, k, w, a, s, refunds_to_workers=True)
-            self.assertAlmostEqual(got, a * (1 - p) * s * w - c, places=9)
+    def test_closed_form_at_break_even(self):
+        # Both versions, G = w: a * w * (s - p) - c.
+        for p in (0.05, 0.18):
+            q, c, w = 0.7, 2, 60
+            k = model.break_even(p, q, w, c)
+            for a, s in [(0, 0.5), (0.25, 0.5), (0.5, 0.5), (1, 1)]:
+                got = model.worker_net_per_job(p, q, w, c, k, w, a, s)
+                self.assertAlmostEqual(got, a * w * (s - p) - c, places=9)
 
-    def test_client_refund_variant_threshold(self):
-        p, q, G, c, w = 0.18, 0.7, 60, 2, 60
-        k = model.break_even(p, q, G, c)
-        threshold = (p * G + c) / ((1 - p) * w)
-        self.assertAlmostEqual(threshold, 0.26, places=2)
-        below = model.worker_net_per_job(p, q, G, c, k, w, 0.5, 0.5, refunds_to_workers=False)
-        above = model.worker_net_per_job(p, q, G, c, k, w, 0.6, 0.5, refunds_to_workers=False)
-        self.assertLess(below, 0)
-        self.assertGreater(above, 0)
+    def test_threshold(self):
+        p, q, c, w, s = 0.18, 0.7, 2, 60, 0.5
+        k = model.break_even(p, q, w, c)
+        threshold = c / (w * (s - p))
+        self.assertAlmostEqual(threshold, 0.104, places=3)
+        self.assertLess(model.worker_net_per_job(p, q, w, c, k, w, 0.10, s), 0)
+        self.assertGreater(model.worker_net_per_job(p, q, w, c, k, w, 0.11, s), 0)
 
 
 if __name__ == "__main__":

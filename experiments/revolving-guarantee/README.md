@@ -1,6 +1,6 @@
 # Revolving first-hire guarantee: can $100 back first jobs indefinitely?
 
-**Draft: scenario figures and critic fixes pending; not for citation yet.** Analysis only, by Claude Code (AI agent), 2026-10-11, answering the controller's request on board 15
+**Independent cross-check, not the record.** The steward session answered the same request first in microcredit-theory `revolving-first-hire-guarantee/DRAFT.md` (board 15 comment 6111297730); that draft is the record. This model checks its figures and was corrected after an adversarial review. Analysis only, by Claude Code (AI agent), 2026-10-11, answering the controller's request on board 15
 (comment 6111178929). No money moves and no one is contacted. Every figure below comes from
 [model.py](model.py) (stdlib, fixed seeds): `python3 experiments/revolving-guarantee/model.py`.
 Tests: `python3 -m unittest discover -s experiments/revolving-guarantee -p "test_*.py"`.
@@ -8,8 +8,9 @@ Tests: `python3 -m unittest discover -s experiments/revolving-guarantee -p "test
 **Answer in one line.** Pricing that only breaks even keeps the pool's expected value intact but
 still empties it. A $100 pool backing $60 first jobs has a large chance of stopping after its first
 claim, whatever it charges. And a pool that workers fund themselves helps them only if the guarantee
-causes hires that would not otherwise happen. That share, a, has never been measured, and the
-version as proposed (paying the worker when a client does not pay) gives clients no reason to hire.
+causes hires that would not otherwise happen: at break-even, workers gain a·w·(s − p) − c per job.
+That share, a, has never been measured, and the version as proposed (paying the worker when a
+client does not pay) gives clients no reason to hire.
 
 ## The mechanism, as modelled
 
@@ -36,7 +37,7 @@ If workers who received G also owe the contribution, add p·q′·k to the inflo
 
 | Scenario | p | q | G | c | Break-even k\* (share of wage) | Ruined within 1,000 jobs at k\* | Stops at its first claim, whatever k | k for at most 5% ruin on $100 (with correlated shocks) | Capital for at most 5% ruin at 1.25·k\* (with shocks) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Platform nonpayment, low | 2% | 0.9 | $60 | $1 | $2.49 (4%) | 83% | 2.2% | $13.25 ($15.75) | $310 ($340) |
+| Platform nonpayment, low | 2% | 0.9 | $60 | $1 | $2.49 (4%) | 83% | 2.2% | about $15 to $23, poorly identified ($15 to $23) | $310 ($340) |
 | Platform nonpayment, mid | 5% | 0.7 | $60 | $2 | $7.52 (13%) | 89% | 7.0% | none possible | $370 ($460) |
 | Failed first job (Pallais 18%) | 18% | 0.7 | $60 | $2 | $22.30 (37%) | 95% | 24% | none possible | $560 ($1,040) |
 | Same, weak remittance | 18% | 0.5 | $60 | $2 | $31.22 (52%) | 95% | 31% | none possible | $640 ($1,150) |
@@ -44,7 +45,10 @@ If workers who received G also owe the contribution, add p·q′·k to the inflo
 | Partial guarantee | 18% | 0.7 | $20 | $2 | $9.76 (16%) | 80% | not applicable | $16.50 ($33.25) | $190 ($330) |
 
 "None possible": the chance of stopping at the first claim alone is above 5%, so no contribution
-reaches the target. Simulations use 2,000 runs per point; searches are to $0.25 and $10.
+reaches the target. In the first row ruin is nearly flat in k between about $12 and $22, so a
+2,000-run search lands anywhere in that range; it drops to the 2.2% floor once one contribution lets
+the pool absorb a later claim, k ≥ 2G + 3c − capital = $23. Do not read the gap between the two
+figures in that row as the effect of correlation. The capital figures are stable across seeds. Simulations use 2,000 runs per point; searches are to $0.25 and $10.
 
 "Correlated" adds shocks: jobs come in blocks of ten, and one block in ten has three times the
 covered-event rate (a bad client posting several jobs, a fraud ring, a platform rule change). The
@@ -63,7 +67,7 @@ expectation.
 - **Solvency needs a loading, capital, or a smaller G.** The table gives the contribution that holds
   ruin within 1,000 jobs to 5% on $100, and the capital needed at 1.25 times break-even. Correlated
   failures raise both.
-- **Concurrency.** Fully reserved, $100 backs one open $60 job at a time, or five open $20 jobs.
+- **Concurrency.** Fully reserved, $100 backs one open $60 job at a time, or four open $20 jobs (five if c is paid outside the pool).
   Throughput is limited by how long a job stays open.
 
 ## 4. Fixed dollars or a share of the wage?
@@ -84,29 +88,44 @@ because off-platform collection raises c and lowers q.
   insurance activity in many places. That needs a legal check before any real money moves.
 - **The client-refund version is a performance bond** posted for the worker, paid for by the worker's
   later contribution. When workers fund it, their contributions pay for the clients' refunds.
-- **A worker-paid fee for access to work** is the pattern the "employer pays" principle in fair
-  recruitment (ILO Convention 181, article 7, for employment agencies) is meant to stop. Whether it
-  applies here is a legal question, but the design should keep the fee small, transparent, taken only
-  from wages actually received, and refundable if the job is not paid.
+- **A worker-paid fee for access to work.** ILO Convention 181, article 7(1), says private
+  employment agencies "shall not charge directly or indirectly, in whole or in part, any fees or costs
+  to workers", with exceptions only under article 7(2). If it or the "employer pays" principle
+  applies, no worker-borne contribution is compliant, whatever its size or collection method. The
+  client-refund version funded by workers is the most exposed configuration, because workers then pay
+  for the employer's hiring risk. Whether a guarantor counts as such an agency is a legal question to
+  settle before any contribution is collected. The compliant alternative is a reserve funded by the
+  sponsor or the client.
 
 ## 6. Does it meet the operator's multiplier rule?
 
 Let a be the share of guaranteed jobs the guarantee causes, and s the worker's net share of the wage
-after valuing their time. At break-even pricing, the expected net gain to workers per job,
-compared with what is otherwise available, is:
+after valuing their time. Take G = w, and for the client-refund version case A: the client pays
+every wage and the pool refunds the client on failure, so a worker whose job fails keeps the wage.
+At break-even pricing, the expected net gain to workers per job, compared with what is otherwise
+available, is the same for both versions:
 
-| Version | Net to workers per job at k\* |
-| --- | --- |
-| As proposed (pool pays the worker) | **a·(1 − p)·s·w − c** |
-| Client refund (pool refunds the client) | **a·(1 − p)·s·w − p·G − c** |
+> **a·w·(s − p) − c**
+
+A caused job is worth s·w net of time (counted in every state, because time is spent on jobs that
+end unpaid too). On a job the worker would have had anyway, the covered event pays G instead of
+nothing. Contributions at k\* total p·G + c. The payouts and contributions cancel apart from c.
 
 - **As proposed:** if the guarantee changes no client's hiring decision (a = 0), workers as a group
   lose c on every job, because the insurance is fair and the costs are theirs. Insurance against
   nonpayment does not address the barrier the evidence identifies. Clients pass over newcomers
   because they cannot judge an unrated worker (Pallais, NBER w18917), not because workers fear
   nonpayment.
-- **Client refund:** workers gain only if a·s > (p·G + c) / ((1 − p)·w) = 0.26 at p = 18%,
-  G = w = $60, c = $2. For example, a = s = 0.5 gives 0.25, just short of the threshold.
+- **Both versions:** workers gain only if a > c / (w·(s − p)): 0.10 at s = 0.5, p = 18%, c = $2,
+  and 0.074 at p = 5%. The versions differ in a, not in the accounting: a refund to the client acts on
+  the hiring decision, insurance for the worker does not.
+- **Not in the records:** fair insurance has value to risk-averse workers with little wealth, of the
+  same order as c on a $60 job. The multiplier leaves it out because records cannot show it, but it
+  is not zero.
+- **Sponsor-funded client refund (not revolving):** M ≈ a·s/f + (1 − a) per sponsor dollar before
+  costs, with f the failure rate: 1.89 at a = s = 0.5 and 1.44 at a = 0.25, s = 0.5, at f = 18%. The
+  (1 − a) part is a one-for-one transfer to newcomers whose work failed on jobs they would have had
+  anyway, so M > 1 needs a·(s − f) > c/G.
 - **The donor's multiplier** is the workers' total net gain over the pool's life divided by the $100
   (plus any admin the sponsor pays). It exceeds one only if the per-job figure above is positive and
   the pool survives long enough. A self-funded pool does not create benefit by surviving. It creates
@@ -121,29 +140,34 @@ Before any claim of self-sustainability, measure these on real jobs:
 | p, the covered-event rate | sets k\* and ruin | about 230 at p near 18% (±5 points); about 460 at p near 5% (±2 points) |
 | q, remittance after payment | k\* scales with 1/q; low q starts a spiral where honest payers carry defaulters | measurable only with real contributions |
 | c, all-in cost per job | at $60 jobs, a $2 to $5 cost is 3% to 8% of the wage | the first 20 jobs |
-| a, hires caused | the only source of benefit | a randomized offer: a seeded random half of eligible applications carry the guarantee, the other half do not |
+| a, hires caused | the only source of benefit | a randomized offer by job or client (a seeded random half of eligible jobs or clients), never by application, because applicants to the same job compete; report displacement of other freelancers separately |
 | s, net share of wage | turns wages into benefit | hours and prior earnings per worker |
 | correlation | ruin under shocks | client concentration, disputes by client |
 
-A pilot that can run now, with **no capital at risk**: a **shadow pool**. A partner programme's
-newcomer jobs are recorded as if guaranteed: p from actual nonpayment or rejection, c from the
-actual effort, a from a randomized offer of an unfunded letter of support. Nothing is paid or
-collected. Money moves only once p, c and a are known, and then with G small enough that one claim
-cannot end the pool (G no more than a quarter of capital), co-insurance (the pool pays part of G), and
-contributions taken at the source.
+A pilot needing **no capital**, which can start once the operator authorizes contacting a partner
+programme: a **shadow pool**. The programme's newcomer jobs are recorded as if guaranteed, giving p
+from actual nonpayment or rejection and c from the actual effort. The shadow p is a lower bound,
+because without a payout there is no incentive for strategic rejection, fake clients or slack effort.
+A shadow pool cannot measure a: an unfunded letter is a different treatment (Pallais found a costless
+endorsement had no effect), and a letter that promised a refund would be broken. So a needs a small
+funded phase, randomized by job or client, with fraud controls (independently verified clients, one
+claim per client), G no more than a quarter of capital, co-insurance and contributions taken at the
+source.
 
 ## The strongest reason to reject, and the modification
 
 **Reject the version as proposed.** It insures the worker against client nonpayment. On a platform
-with funded escrow, the residual risk on small jobs is mostly a disputed result, because arbitration
-fees exceed a small job's value. Paying the worker on a disputed result invites moral hazard (paid for
-failed work) and collusion: a fake client posts a job, does not pay, and the "worker" collects G. Above
-all, it does not change the client's decision to hire a newcomer, so a ≈ 0, and a self-funded pool
-then costs workers c per job.
+with funded escrow, the residual risk on small jobs is reportedly a disputed result: arbitration fees
+reported on the community forum exceed a small job's value for both sides, and an unresolved dispute
+reportedly leaves the escrow with the client. The deciding reason is that it does not change the
+client's decision to hire a newcomer, so a ≈ 0, and a self-funded pool then costs workers c per job.
+Moral hazard (pay for failed work) and collusion (a fake client who does not pay) apply to both
+versions; the client-refund version pays the worker k\* more on a failed job than on an accepted one
+under self-funding. Both need verified independent clients and one claim per client.
 
-**Modify it into a client-side guarantee with a capped, at-source success fee**, sized by the shadow
-pool's measured p, c and a. It counts as a multiplier only if the randomized offer shows a·s above the
-threshold in section 6.
+**Modify it into a client-side guarantee**, funded by the sponsor or the client unless the legal
+check in section 5 clears a worker contribution, and sized by measured p and c. It counts as a
+multiplier only if a randomized offer by job or client shows a above the threshold in section 6.
 
 ## Sources
 

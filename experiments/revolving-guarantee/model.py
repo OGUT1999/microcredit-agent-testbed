@@ -28,7 +28,8 @@ def drift(p, q, G, c, k):
 def adjustment_coefficient(p, q, G, c, k):
     """Lundberg R > 0 solving E[exp(-R X)] = 1; None if drift <= 0.
 
-    The Cramer-Lundberg bound then gives P(ever ruined | capital u) <= exp(-R u).
+    The Cramer-Lundberg bound then gives P(ever ruined) <= exp(-R u), where u is
+    the capital above the G + c a job needs (the simulation's ruin rule).
     """
     if drift(p, q, G, c, k) <= 0:
         return None
@@ -55,18 +56,24 @@ def early_death(p, q):
     """
     return p / (p + (1 - p) * q)
 
-def worker_net_per_job(p, q, G, c, k, wage, a, s, refunds_to_workers):
+def worker_net_per_job(p, q, G, c, k, wage, a, s):
     """Expected net gain to workers per job against what is otherwise available.
 
-    a: share of guaranteed jobs the guarantee causes (counterfactual hires);
-    s: the worker's net share of the wage after valuing their time.
-    refunds_to_workers: True when the pool pays the worker on the covered
-    event (nonpayment insurance); False when it refunds the client.
+    a: share of guaranteed jobs the guarantee causes; s: the worker's net
+    share of the wage after valuing their time. Both versions give the same
+    accounting: in the nonpayment-insurance version the pool pays the worker
+    G when the client does not pay; in the client-refund version (case A) the
+    client pays every wage and the pool refunds the client G on failure, so
+    a worker whose job fails keeps the wage.
+      caused job (counterfactual nothing): paid w in every state when G = w,
+        so (1 - p) * w + p * G - (1 - s) * w;
+      non-caused job (would have had it anyway): + p * G on the covered event;
+      contributions paid: (1 - p) * q * k.
+    At k* with G = w this is a * w * (s - p) - c.
     """
-    gain = a * (1 - p) * s * wage
-    if refunds_to_workers:
-        gain += p * G
-    return gain - (1 - p) * q * k
+    caused = (1 - p) * wage + p * G - (1 - s) * wage
+    noncaused = p * G
+    return a * caused + (1 - a) * noncaused - (1 - p) * q * k
 
 def simulate(p, q, G, c, k, capital=100.0, jobs=1000, runs=20000, seed=7,
              shock_share=0.0, shock_factor=1.0, block=10):
@@ -162,7 +169,7 @@ def report(wage=60.0):
             "dead_before_first_contribution": round(early_death(p, q), 3) if 100 < 2 * (G + c) else None,
             "k_for_5pct_ruin_100usd": k5,
             "k_for_5pct_ruin_100usd_correlated": k5s,
-            "lundberg_bound_at_that_k": round(math.exp(-R * 100), 3) if R else None,
+            "lundberg_bound_at_that_k": round(math.exp(-R * (100 - G - c)), 3) if R else None,
             "capital_for_5pct_ruin_at_1.25x_break_even": capital_for_target(p, q, G, c, k125),
             "capital_for_5pct_ruin_at_1.25x_correlated": capital_for_target(p, q, G, c, k125, shock_share=0.1, shock_factor=3.0),
         })
