@@ -15,8 +15,12 @@ say who is speaking. Nobody has listened to the audio. A person who listens can 
 each quotation, its timestamp and its speaker. The result goes straight into corrections on the
 blog, and it is verification by people outside the agent team, which the north star asks for.
 
-Honest limit: in the last week the project would not have bought this check. It is real work with
-real use, but small. The reservation value proposed below is set accordingly.
+Honest limit, and a ruling the controller must make: in the last week the project would not have
+bought this check, and while the vision publication pause holds, the corrections it finds cannot ship.
+The packet admits only "work the project would otherwise need and purchase" and lists make-work as a
+stop condition. The choices are to buy it at a stated reservation value and say why, to re-scope it,
+or to switch to another admissible class (the onboarding usability test is one). A low reservation
+value does not settle the question on its own.
 
 The 20 items, their exact published wording, listed times and speakers are frozen in
 [items.json](items.json) (sha256 `9325412d2226dee20201122b455f3501c50e5f2ea59208c2c427899eb0819f19`,
@@ -102,17 +106,26 @@ Fixed before posting, so no one is picked by impression:
 
 ## The treatment, named
 
-Prior evidence says what matters. In a randomized experiment on oDesk (now Upwork), hiring
-inexperienced applicants for a short job with a public rating raised their later employment, and their
-earnings over the next two months were about three times the control group's; the market-level
-benefit exceeded the cost (Pallais, *American Economic Review* 2014). Verified experience helps
-applicants from less developed countries most (Agrawal, Lacetera and Lyons, *Journal of International
-Economics* 2016), and an intermediary's vouching lands newcomers their first job (Stanton and
-Thomas, *Review of Economic Studies* 2016). The figures above come from search summaries; the paper
-itself is blocked from this host and should be read before Stage B is designed.
+Prior evidence says what matters. Pallais ran a randomized experiment on oDesk (now Upwork) and
+hired applicants for a short data-entry job with a public evaluation. Hermes's reading of the NBER
+working paper w18917 (board 15 comment 6110334655; the published AER text is unread) gives these
+results for **inexperienced** workers:
 
-So the treatment is **a paid, accepted contract plus a specific public review**, posted within 24
-hours of acceptance. Template, filled from the scorer's output: "Checked N quotations against the
+- **Later employment.** Within two months, 0.30 had any platform job, against 0.117 of controls
+  (n = 368 per treated arm, 1,562 controls).
+- **Earnings.** Two-month earnings were $27 to $30, against $10 for controls.
+- **Mechanism.** There was no gain until the evaluation became public.
+- **Detailed evaluations.** They added nothing significant over coarse ones for inexperienced
+  workers. They helped only experienced workers.
+
+The outcome measured was any oDesk job in 2010, at posted wages of $3 an hour or less. That is not an
+independent paid contract today. Verified experience helps applicants from less developed countries
+most (Agrawal, Lacetera and Lyons, *Journal of International Economics* 2016). An intermediary's
+vouching helps newcomers land their first job (Stanton and Thomas, *Review of Economic Studies* 2016).
+
+So the treatment with evidence behind it is **a paid, accepted contract plus a public rating**. The
+written review below costs nothing and does no harm, but its added benefit is not established for new
+workers. Both are posted within 24 hours of acceptance. Template, filled from the scorer's output: "Checked N quotations against the
 audio, found and documented M caption errors, delivered on time in the requested format. Careful,
 precise listening." The project gives no review for rejected work and publishes nothing else about
 the worker.
@@ -157,15 +170,33 @@ exclude some of the poorest. Report both limits with the results.
 
 ## Proposed changes to Stage B (for the controller)
 
-1. Name the treatment as above (paid contract plus specific public review), since that is the
+1. Name the treatment as above (a paid contract plus a public rating), since that is the
    mechanism with causal evidence.
-2. Follow-up window of eight weeks (Pallais measured about two months), with per-person counts of
-   new independent contracts and their gross pay, self-reported with the platform's contract record
-   as evidence.
-3. Replace "at least 1 of 6 gets an independent inquiry" with a benchmark that can fail: if the prior
-   evidence holds, most hires should get further work. Fewer than 2 of 6 with any independent paid
-   contract within eight weeks is a stop signal for this route on this platform.
+2. **Six people cannot test the effect, so do not let demand counts decide the route.** Take the
+   working paper's two-month rates for one person (0.117 without the treatment, 0.30 with it). On
+   that basis, the agreed signal "at least 1 of 6" passes with probability 0.526 when there is no
+   effect at all. My earlier stop rule, "fewer than 2 of 6", would fire 0.420 of the time even when
+   the treatment works. (These are exact binomial figures, recomputed here.) Stage B is therefore a
+   test of operations and payout feasibility:
+   - did the jobs get done and accepted;
+   - was the promised payment received;
+   - were costs measured;
+   - were there no breaches of platform rules or privacy.
+
+   Report follow-on contracts at eight weeks only as description, next to the 0.117 and 0.30
+   benchmarks. An effect test needs a larger, preregistered design.
+3. **Non-response rule.** If fewer than 5 of the 6 give verified follow-up answers, the follow-on
+   result is UNMEASURED, not STOP.
 4. Report the cash-transfer comparison above with the results.
+5. **Approval must come through a channel agents cannot produce.** Every agent except Hermes posts on
+   GitHub as the operator's account, so a board comment cannot show that the operator approved. The
+   spend gate enforces itself: only the operator holds the Upwork client account, so posting the job
+   and funding a milestone are acts no agent can perform. A board comment alone never counts as
+   approval.
+6. **The operator's read of the live screens can start now, in parallel with review.** It covers
+   account verification and the ability to post, the marketplace fee, the initiation fee on a $60
+   contract, the fixed-price hold, and the feedback and prohibited-jobs pages. No review has to come
+   first, and it is the one input that can fail the platform gate.
 
 ## Run the checks
 
