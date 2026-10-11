@@ -1,11 +1,28 @@
-# Paid first job: Stage A fill (proposed)
+# Paid first job: Stage A scaffold (blocked, not executable)
 
-Status: **proposed** by Claude Code (AI agent), 2026-10-11, to fill the "next executable action" of
-[paid-first-job-stage-a.md](../paid-first-job-stage-a.md). No one has been contacted and nothing
-has been spent. Nothing here is approved: the cost card below goes to the operator, who alone can
-approve posting, recruiting or spending.
+Status: **blocked scaffold**, by Claude Code (AI agent), 2026-10-11. The controller rejected the
+quotation check as the work for this pilot (PR 52, review 5483796242). The project had not
+independently decided to buy or use it, and it fails the Stage A requirement in
+[paid-first-job-stage-a.md](../paid-first-job-stage-a.md) that the work be something the project
+"would otherwise need and purchase". **This is not the next paid pilot.** No one has been contacted
+and nothing has been spent, and no operator action is requested.
 
-## The work: listen to 20 quotations the blog published from video
+What stays reusable:
+
+- the scorer design, in which pay never rests on peer disagreement and disputed items go to a person
+  who listens;
+- the selection rule, the consent text and the cost-card template;
+- the Stage B feasibility design.
+
+The quotation check remains below as a worked example only.
+
+The scaffold becomes executable only when a deliverable replaces the example, and that deliverable
+needs two things on record: evidence that the project had **already decided to buy or use it**,
+independently of this pilot, and a reservation value fixed before the pilot. Until then it stays
+blocked. A switch to the onboarding usability test is not automatic. It needs a current public flow
+with a committed release or use decision.
+
+## Worked example (rejected as the pilot task): listen to 20 quotations the blog published from video
 
 Work class 2 of the packet (source-check of a published claim set), narrowed to the one check our
 agents cannot do. The blog has published 20 direct quotations from four videos. Every one was taken
@@ -15,12 +32,9 @@ say who is speaking. Nobody has listened to the audio. A person who listens can 
 each quotation, its timestamp and its speaker. The result goes straight into corrections on the
 blog, and it is verification by people outside the agent team, which the north star asks for.
 
-Honest limit, and a ruling the controller must make: in the last week the project would not have
-bought this check, and while the vision publication pause holds, the corrections it finds cannot ship.
-The packet admits only "work the project would otherwise need and purchase" and lists make-work as a
-stop condition. The choices are to buy it at a stated reservation value and say why, to re-scope it,
-or to switch to another admissible class (the onboarding usability test is one). A low reservation
-value does not settle the question on its own.
+Ruled out: the project would not otherwise have bought this check, and while the vision publication
+pause holds, the corrections it finds could not ship. The controller rejected it on that ground (PR 52,
+review 5483796242).
 
 The 20 items, their exact published wording, listed times and speakers are frozen in
 [items.json](items.json) (sha256 `9325412d2226dee20201122b455f3501c50e5f2ea59208c2c427899eb0819f19`,
@@ -44,7 +58,7 @@ anything but EXACT or the workers differ, likely errors first. The blog is corre
 adjudicated items. The third check per set is quality control, so the project values each set once
 (see the fair value line of the cost card).
 
-## Exact job post
+## Example job post (for the rejected task; a template only)
 
 > **Title:** Listen to 9 to 11 short quotations in English podcasts and check them word for word
 >
@@ -138,7 +152,7 @@ the worker.
 > stop at any time. Your payment and review do not depend on it. We never publish your name, handle,
 > location or messages; we publish only totals across all participants.
 
-## Cost card (for the operator's approval)
+## Cost card template (figures for the rejected example)
 
 Figures marked *live* must be read from the operator's own account screens before approval. The
 others come from public pages read on 2026-10-11 and may be out of date.
@@ -193,10 +207,9 @@ exclude some of the poorest. Report both limits with the results.
    spend gate enforces itself: only the operator holds the Upwork client account, so posting the job
    and funding a milestone are acts no agent can perform. A board comment alone never counts as
    approval.
-6. **The operator's read of the live screens can start now, in parallel with review.** It covers
-   account verification and the ability to post, the marketplace fee, the initiation fee on a $60
-   contract, the fixed-price hold, and the feedback and prohibited-jobs pages. No review has to come
-   first, and it is the one input that can fail the platform gate.
+6. **The operator's read of the live screens waits for an admissible task.** The controller ruled
+   that the operator should not be asked to read the Upwork screens for a task that failed the cheaper
+   admissibility gate.
 
 ## Run the checks
 
