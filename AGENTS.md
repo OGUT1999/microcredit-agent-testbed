@@ -17,15 +17,20 @@ At the start of each work cycle, answer four questions before selecting work:
 
 1. What measurable human outcome or decision does this action serve?
 2. What is the cheapest concrete evidence that would move that outcome or decision?
-3. Is credit actually necessary, or do prepayment, sponsorship, existing resources,
-   direct funding or NO_LOAN dominate it?
+3. Does it multiply what already exists rather than donate to it, and is credit
+   actually necessary, or do prepayment, sponsorship, existing resources, direct
+   funding or NO_LOAN dominate it?
 4. What result would make us stop or change direction?
 
-Current priority is the bounded qualification experiment in NORTH_STAR.md: one
-independently funded buyer assignment, exact mandatory prepaid input, real liquidity
-gap, and evidence cheaper alternatives do not solve it. NONE QUALIFIES is a valid
-result. Broad 501(c)(3) discovery for organizations willing to invest direct
-time/resources is exhausted; do not restart it without a new specific lead.
+The active candidate path in NORTH_STAR.md is a revolving first-job payment
+guarantee: a sponsor-funded reserve pays a first-time worker if the client does
+not pay, and paid workers return a small capped contribution. Every cycle considers
+it explicitly, compares it with NO_LOAN, client prepayment or funding and any better
+route, and advances its cheapest next evidence (a qualified channel, p, take-up, q,
+c, exposure) or switches to the best unblocked action; a blocked test never stalls
+work. The lending qualification (NONE QUALIFIES) and the stopped bounty scan remain
+evidence and fallback. Broad 501(c)(3) discovery is exhausted; do not restart it
+without a new specific lead.
 
 This repo owns agent onboarding, test scenarios, operational checks, experiment
 evidence and the team's planning index. Start with `README.md` for the code map,
