@@ -6,7 +6,8 @@ before anything happens: the outreach, and the guarantee fund. The operator has 
 backlog (`question:first-hire-guarantee-authorization-20261011`). The model is explained publicly in the
 vision post "A dollar that backs a first job" (vision main d8279aa), which commits the project to
 nothing. The route is scored against the operator's multiplier rule in
-[NORTH_STAR.md](../../coordination/NORTH_STAR.md).
+[NORTH_STAR.md](../../coordination/NORTH_STAR.md). Since 2026-10-11 this client-refund design is the **sibling** of the active candidate path there, a
+revolving first-job payment guarantee that protects the worker against client nonpayment.
 
 ## The route
 
@@ -33,8 +34,9 @@ any independent client hire a newcomer because of the guarantee?
   - a registered trial giving mentoring and application credits to African professionals.
 - **The project cannot be the channel on a marketplace.** Upwork's terms forbid a client and freelancer
   who met there from moving the relationship or payment off the platform (circumvention). Our
-  guarantee would be a separate agreement between the sponsor and a client. Even so, the project has
-  no legitimate way to approach a marketplace's clients directly.
+  guarantee would be a separate agreement between the sponsor and a client, but no clause of the
+  terms has been read that permits a third party to refund a client for work contracted there, so
+  that is unverified. The project has no legitimate way to approach a marketplace's clients directly.
 - **So the channel is a placement programme** that already sends graduates to clients and can offer
   the guarantee to those clients itself.
 
@@ -42,12 +44,12 @@ any independent client hire a newcomer because of the guarantee?
 
 | Field | Value |
 | --- | --- |
-| Target 1 | Learn2Earn: the Sierra Leone Ministry of Communication, Technology and Innovation with UNICEF; a 30-person pilot launched 2025-12-17 whose trainees apply to live projects on Upwork. Contact check, 2026-10-11: the programme publishes no address of its own; its online hub is a participant community, not an organisational contact. The organisational channel to confirm before sending is the ministry's or UNICEF Sierra Leone's published contact. No individual is to be named or written to |
+| Target 1 | Learn2Earn: the Sierra Leone Ministry of Communication, Technology and Innovation with UNICEF; a 30-person pilot launched 2025-12-17 whose trainees apply to live projects on Upwork. Contact check, 2026-10-11: the programme publishes no address of its own; its online hub is a participant community, not an organisational contact. The organisational channel to confirm before sending is the ministry's or UNICEF Sierra Leone's published contact. No individual is to be named or written to. **Status: not qualified** (independent check, PR 53 comment 6111219156). Learn2Earn trainees apply to Upwork projects themselves, so the clients are marketplace clients met on the marketplace, the setting ruled out above. It qualifies only if a terms clause permitting a third-party client guarantee is cited, or if the programme places graduates with clients through its own relationships. |
 | Channel | one email to the programme's published contact, confirmed from its own page before sending, within the team's first-contact rules in `coordination/team-email.md`: a privacy-safe claim on board 15 before sending, at most five first contacts per agent per day, the AI writer named, and one board log by field. This packet adds two limits of its own: organisations only, and one question with a way to say stop |
 | Bounded ask | "If a sponsor refunded the client whenever a graduate's first contract fails the client's acceptance (up to $60 a contract, for up to 6 contracts), would you offer that guarantee to clients your graduates apply to? Yes or no is enough; reply STOP and we will not write again." |
 | Expected evidence | a written answer from the programme, then signed guarantee acceptances from clients |
-| Success | a written yes within 14 days, then at least 1 independent client accepting the guarantee and hiring a graduate with no completed jobs within 30 days |
-| Failure | a written no; or no signed client within 30 days of a yes |
+| Success | a written yes within 14 days; then, with the guarantee offered on a seeded random half of eligible applications, more hires of graduates with no completed jobs in the offered half than in the other half within 30 days. One client signing is not enough: a client about to hire anyway would sign at no cost. Previously: at least 1 independent client accepting the guarantee and hiring a graduate with no completed jobs within 30 days |
+| Failure | a written no; or no more hires in the offered half than in the other half within 30 days of a yes |
 | Silence | no reply in 14 days counts as unknown, not no. It moves the test to target 2, with no follow-up to target 1 |
 | Fallback (target 2) | the El Salvador freelancing programme's implementing team, through its published contact |
 | Fallback (target 3) | if both fail, the route is recorded as having no channel, and effort returns to the benchmark |
@@ -60,7 +62,11 @@ any independent client hire a newcomer because of the guarantee?
 - **Who pays:** refunds come from the operator's own account, so no agent can trigger one.
 - **No contact without a decision:** nothing about the worker is collected beyond what the programme
   chooses to share.
-- **Measurement:**
+- **Measurement** (added after the independent check: the comparison group and the multiplier's
+  numerator and denominator):
+  - applications offered and not offered the guarantee, by a seeded random draw, and hires in each;
+  - contract gross, worker fees, spendable pay, hours worked and prior earnings for each hire;
+  - refunds, operator time and every other sponsor cost;
   - clients offered the guarantee, and clients accepting it;
   - hires of workers with no completed jobs;
   - first-contract acceptance rate;

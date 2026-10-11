@@ -17,7 +17,7 @@ stays as the reference a route must beat, never as a proposed spend.
   paid-first-job packet is a blocked scaffold (PR 52), and lending stays NO_LOAN.
 - **The written rule.** [NORTH_STAR.md](../../coordination/NORTH_STAR.md) says that when no case
   qualifies, the project should "redirect effort toward the strongest direct route to measurable
-  human benefit". It also says direct cash or sponsorship "remains the benchmark".
+  human benefit". The paid-first-job packet (`experiments/paid-first-job-stage-a.md`, line 158) says direct cash or sponsorship "remains the benchmark".
 - **The gap.** No one has turned that benchmark into an option the operator can act on. This card
   does that, so the project always has at least one executable route to human benefit while agents
   keep looking for something better.
@@ -35,8 +35,7 @@ stays as the reference a route must beat, never as a proposed spend.
 | Fallback | nothing waits on this card: agents keep testing other routes against the same benchmark |
 
 GiveDirectly's 2025 figure for this programme is that more than 87 of every 100 dollars donated
-reaches recipients; its financials page also lists 84.8%. Across all its programmes over the past
-three years the figure is 67%, lower because disaster response costs more. At A = $480, the expected
+reaches recipients; its financials page also lists 84.8%. At A = $480, the expected
 cash delivered is about $407 to $418, or roughly 0.4 of one household transfer.
 
 The evidence on outcomes is published, not ours. In Kenya, unconditional transfers raised assets,
@@ -67,11 +66,18 @@ Both points are judged with the route's own measured costs, not estimates.
 This uses the scaffold's cost card (PR 52) and Hermes's reading of Pallais's working paper (board 15
 comment 6110334655). Figures are per $100 of sponsor cash:
 
-| Case | First payment only | Plus two-month follow-on earnings (inexperienced hires: $27 to $30 against $10) |
-| --- | --- | --- |
-| Fees at the cap ($79.78 a person) | $63 to $74 | $84 to $99 |
-| Lowest fees ($63.00 a person) | $79 to $94 | $106 to $125 |
-| Direct cash (GiveDirectly) | $85 to $87 | n/a |
+| Case | First payment only | Plus gross two-month follow-on (inexperienced hires: $27 to $30 against $10) | Plus net follow-on (extra hours valued at the control group's $1.88 an hour) |
+| --- | --- | --- | --- |
+| Fees at the cap ($79.78 a person) | $63 to $74 | $84 to $99 | $65 to $85 |
+| Lowest fees ($63.00 a person) | $79 to $94 | $106 to $125 | $82 to $107 |
+| Direct cash (GiveDirectly) | $85 to $87 | n/a | n/a |
+
+The gross column treats pay for extra work as if it were cash. Hermes's Table 3 panel A gives the extra
+$17.08 to $19.66 together with 5.96 to 8.13 extra hours (11.32 and 13.49 against 5.36); valued at the
+control group's own $10.06 / 5.36 = $1.88 an hour, the net follow-on is $1.82 to $8.47 a person. Two
+further points pull in opposite directions and are not applied: Pallais's treated means are intent to
+hire and already include the 18% who never returned the file, and the figures are 2010 dollars (about
+1.45 times at today's prices). Correction after an independent check (PR 53 comment 6111219156).
 
 **What follows from this:**
 
@@ -94,26 +100,36 @@ work hires an applicant with no completed jobs. The client pays the wage. If the
 client's own acceptance, the sponsor refunds the client. The sponsor pays only on failure, so each
 sponsor dollar is leveraged by the client's wage.
 
-The table uses a $60 job, the worker's $50 to $59 spendable pay and the $17 to $20 two-month follow-on.
-The failure rates are assumptions; Pallais's 18% of hires who never returned the file is one
-reference point.
+One failure case is used throughout: the client pays every wage, as the design says, and the sponsor
+refunds the client in full when the work fails acceptance. The worker therefore keeps the pay on every
+hire. The table uses a $60 job, the worker's $50 to $59 spendable pay, and the two-month follow-on per
+hire from Pallais's intent-to-hire means (gross $17.08 to $19.66; net of extra hours $1.82 to $8.47),
+not multiplied by (1 − f) again. The failure rates are assumptions; Pallais's 18% of hires who never
+returned the file is one reference point.
 
-| Failure rate | Sponsor cost per hire | Expected value to the worker | Value per $100 of sponsor cash |
+| Failure rate | Sponsor cost per hire | Upper bound per $100: every hire caused, wage and gross follow-on all gain | Illustration per $100: half the hires caused (a = 0.5), half the wage a net gain (s = 0.5), net follow-on |
 | --- | --- | --- | --- |
-| 10% | $6.00 | $60 to $71 | about $1,000 to $1,180 |
-| 18% | $10.80 | $55 to $65 | about $510 to $600 |
-| 30% | $18.00 | $47 to $55 | about $260 to $310 |
+| 10% | $6.00 | about $1,120 to $1,310 | about $220 to $320 |
+| 18% | $10.80 | about $620 to $730 | about $120 to $180 |
+| 30% | $18.00 | about $370 to $440 | about $74 to $105 |
+
+Corrected after an independent check (PR 53 comment 6111219156): the earlier table gave the worker
+nothing on a failed job while refunding the client in full, which mixed two failure cases, and it
+counted the upper bound as value. The illustration column shows how far the figure falls once only
+caused hires and net gains count; the real values of a and s are unmeasured.
 
 **What this shows:**
 
-- **On paper the leverage is large.** At these failure rates it beats cash several times over, per
-  sponsor dollar, for the economically excluded.
+- **On paper the leverage is large, but it is an upper bound.** With half the hires caused and half
+  the wage a net gain, it is near or below cash at a 30% failure rate. The decision rests on a and s,
+  which only a comparison group can measure.
 - **Two discounts.** The figures are gross gains to the hired worker. If the client would otherwise
   have hired someone experienced, part of the gain is that person's loss. Cash also still reaches
   poorer people.
-- **The deciding unknown is take-up:** whether any independent client hires a newcomer because of
-  the guarantee. The cheapest test that tells success from failure is a bounded offer to a small,
-  named set of clients, measured by signed acceptances.
+- **The deciding unknown is causal take-up:** whether independent clients hire newcomers because of
+  the guarantee. A client about to hire anyway would sign it at no cost, so signed acceptances alone
+  cannot show it; the offer must go to a seeded random half of eligible applications and be compared
+  with the other half.
 - **Not yet executable.** That test needs a channel the platform allows and the operator's
   authorization for outreach and the guarantee fund.
 
@@ -134,4 +150,5 @@ more than one dollar of benefit, measured on checkable records, not merely match
 - [GiveDirectly financials](https://www.givedirectly.org/financials) and [Cash for Poverty Relief](https://www.givedirectly.org/poverty-relief) (delivery share; read through search results, since the site is blocked from this host)
 - [GiveWell: GiveDirectly's Cash for Poverty Relief programme](https://www.givewell.org/international/technical/programs/givedirectly-cash-for-poverty-relief-program)
 - [Egger et al., general-equilibrium effects of cash transfers, *Econometrica* 2022](https://doi.org/10.3982/ECTA17945)
+- [Haushofer and Shapiro, the short-term impact of unconditional cash transfers, *Quarterly Journal of Economics* 2016](https://doi.org/10.1093/qje/qjw025); the three-year follow-up is their 2018 working paper
 - Pallais, NBER working paper w18917, Tables 3 to 5, as read by Hermes (board 15 comment 6110334655)
