@@ -34,7 +34,17 @@ If workers who received G also owe the contribution, add p·q′·k to the inflo
 
 ## 2. Worked scenarios ($100 capital, w = $60, 1,000 sequential jobs)
 
-SCENARIO_TABLE
+| Scenario | p | q | G | c | Break-even k\* (share of wage) | Ruined within 1,000 jobs at k\* | Stops at its first claim, whatever k | k for at most 5% ruin on $100 (with correlated shocks) | Capital for at most 5% ruin at 1.25·k\* (with shocks) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Platform nonpayment, low | 2% | 0.9 | $60 | $1 | $2.49 (4%) | 83% | 2.2% | $13.25 ($15.75) | $310 ($340) |
+| Platform nonpayment, mid | 5% | 0.7 | $60 | $2 | $7.52 (13%) | 89% | 7.0% | none possible | $370 ($460) |
+| Failed first job (Pallais 18%) | 18% | 0.7 | $60 | $2 | $22.30 (37%) | 95% | 24% | none possible | $560 ($1,040) |
+| Same, weak remittance | 18% | 0.5 | $60 | $2 | $31.22 (52%) | 95% | 31% | none possible | $640 ($1,150) |
+| Failed first job, high | 30% | 0.7 | $60 | $2 | $40.82 (68%) | 97% | 38% | none possible | $730 ($1,870) |
+| Partial guarantee | 18% | 0.7 | $20 | $2 | $9.76 (16%) | 80% | not applicable | $16.50 ($33.25) | $190 ($330) |
+
+"None possible": the chance of stopping at the first claim alone is above 5%, so no contribution
+reaches the target. Simulations use 2,000 runs per point; searches are to $0.25 and $10.
 
 "Correlated" adds shocks: jobs come in blocks of ten, and one block in ten has three times the
 covered-event rate (a bad client posting several jobs, a fraud ring, a platform rule change). The
@@ -45,10 +55,10 @@ expectation.
 
 - **Break-even pricing is a zero-drift random walk.** A zero-drift walk with an absorbing floor is
   eventually absorbed with probability one. In the table, break-even pricing ends in ruin within
-  1,000 jobs in RUIN_RANGE of runs. Expected-value neutrality is not solvency.
+  1,000 jobs in 80% to 97% of runs. Expected-value neutrality is not solvency.
 - **The first claim can end the pool, whatever k is.** With $100 and G = $60, one claim leaves $38,
   which cannot back another $60 job. No job means no contribution. So the pool stops if its first claim
-  comes before its first contribution, with probability **p / (p + (1 − p)·q)**: EARLY_DEATH. No
+  comes before its first contribution, with probability **p / (p + (1 − p)·q)**: 2% at p = 2% and q = 0.9, 7% at p = 5% and q = 0.7, 24% at p = 18% and q = 0.7, and 38% at p = 30%. No
   contribution level changes that.
 - **Solvency needs a loading, capital, or a smaller G.** The table gives the contribution that holds
   ruin within 1,000 jobs to 5% on $100, and the capital needed at 1.25 times break-even. Correlated
@@ -95,7 +105,7 @@ compared with what is otherwise available, is:
   nonpayment does not address the barrier the evidence identifies. Clients pass over newcomers
   because they cannot judge an unrated worker (Pallais, NBER w18917), not because workers fear
   nonpayment.
-- **Client refund:** workers gain only if a·s > (p·G + c) / ((1 − p)·w) = THRESHOLD at p = 18%,
+- **Client refund:** workers gain only if a·s > (p·G + c) / ((1 − p)·w) = 0.26 at p = 18%,
   G = w = $60, c = $2. For example, a = s = 0.5 gives 0.25, just short of the threshold.
 - **The donor's multiplier** is the workers' total net gain over the pool's life divided by the $100
   (plus any admin the sponsor pays). It exceeds one only if the per-job figure above is positive and
