@@ -33,10 +33,12 @@ Estimated effort: 60 to 90 minutes per set for a careful listener.
 
 ## Assignment: two sets, three workers each
 
-Six contracts: three independent workers per set. Three listeners per quotation make the answer
-checkable without any staff member listening: the majority verdict is the reference, and a single
-dissent is reported but never penalised. The third check per set is quality control, so the project
-values each set once (see the fair value line of the cost card).
+Six contracts: three independent workers per set. Agreement among three listeners does not establish
+what was said, so it decides nothing about pay and nothing about the blog. It only orders the
+recheck queue: an item goes to a person on our side (the adjudicator) whenever any worker says
+anything but EXACT or the workers differ, likely errors first. The blog is corrected only from
+adjudicated items. The third check per set is quality control, so the project values each set once
+(see the fair value line of the cost card).
 
 ## Exact job post
 
@@ -49,12 +51,15 @@ values each set once (see the fair value line of the cost card).
 > You get a list of 9 to 11 quotations, the video link, and (for most items) the time in the video.
 > For each one, listen and fill in one row of a spreadsheet: what you hear, word for word; the start
 > and end time; who is speaking; and one verdict: EXACT, MINOR (small wording difference, same
-> meaning), MAJOR (meaning or speaker differs) or NOT_FOUND. Ignore um/uh, punctuation and
-> repeated words. Expected time: 60 to 90 minutes. No software beyond a browser and a spreadsheet.
+> meaning), MAJOR (meaning or speaker differs) or NOT_FOUND. If a quotation is not at the listed
+> time, write what is said there instead and choose NOT_FOUND; for the episode without times, say in
+> the note where you looked. Ignore um/uh, punctuation and repeated words. Expected time: 60 to 90
+> minutes. No software beyond a browser and a spreadsheet.
 >
 > Fixed price $60, one milestone, due 5 days after the contract starts. One round of revision if a
-> row is incomplete. We hire three people for the same list and compare answers, so you are paid for
-> careful, honest listening, not for agreeing with others. Please do not use AI transcription; we
+> row is incomplete. We hire three people for the same list, but your pay never depends on whether
+> the others agree with you. If you mark more than a quarter of the items NOT_FOUND, a person on our
+> side listens to those items before we approve the milestone. Please do not use AI transcription; we
 > already have the machine captions, and the point is a human ear.
 >
 > We are especially glad to hear from people new to the platform. Every completed contract gets a
@@ -63,18 +68,22 @@ values each set once (see the fair value line of the cost card).
 ## Deliverable and acceptance (frozen, applied by [score.py](score.py))
 
 One CSV per worker with the header `item_id,verdict,heard_text,start,end,speaker,note`, one row per
-item. `start` and `end` are `h:mm:ss` or `m:ss`. For `NOT_FOUND`, the text and times may be blank.
+item. `start` and `end` are `h:mm:ss` or `m:ss`. A `NOT_FOUND` on a timed item needs what is said at
+the listed time and a start within a minute of it; on an untimed item it needs a note saying where
+the worker looked.
 
 | Decision | When |
 | --- | --- |
-| ACCEPT | on time, every item answered in the required form, and fewer than two items where the worker reports the published wording while both other workers heard something else |
-| REVISE (once) | a row is missing or malformed: an unknown verdict, a blank transcript or speaker, an unreadable time, a span over two minutes, or a start more than a minute from the listed time with no note explaining it |
+| ACCEPT | on time and every item answered in the required form; for a held sheet, also after adjudication |
+| REVISE (once) | a row is missing or malformed (an unknown verdict, a blank transcript or speaker, an unreadable time, a span over two minutes, a start more than a minute from the listed time with no note, a NOT_FOUND without its evidence), or the adjudicator found two or more of a held sheet's NOT_FOUND items at the stated place |
+| HOLD_ADJUDICATION | more than a quarter of the sheet is NOT_FOUND: the adjudicator listens to those items within 3 days of submission, before the milestone is approved |
 | REJECT_INCOMPLETE | still incomplete after the one revision |
-| REJECT_UNHEARD | two or more items where the worker reports the published wording against two listeners who heard otherwise |
 | REJECT_LATE | submitted after the contract deadline (an extension agreed on the platform before the deadline moves the deadline) |
 
 Agreement with the majority and transcript corroboration (similarity of 0.85 or more to another
-worker's transcript) are reported for every worker as quality measures. They never decide payment.
+worker's transcript) are reported for every worker as quality measures. They never decide payment,
+and no decision rests on peer disagreement. The adjudicator writes `adjudication.json` after
+listening (or reading the publisher's own transcript where one exists); agents never write it.
 `score.py` reads only worker codes (`W1` to `W6`); the mapping to platform accounts stays with the
 operator and is never committed.
 
@@ -130,7 +139,8 @@ others come from public pages read on 2026-10-11 and may be out of date.
 | Freelancer service fee (borne by worker) | 0 to 15% of $60 | variable, shown on each offer; record it per contract. *live* |
 | Withdrawal (borne by worker, if reported) | from $0.99 | local bank outside the US, per the platform's payout page; method-dependent |
 | Worker spendable, all six | about $300 to $354 | $360 less 0 to 15% and about $1 per withdrawal |
-| Agent review time | about 1 hour Claude, 30 minutes Hermes | scorer is automatic; humans adjudicate nothing |
+| Agent review time | about 1 hour Claude, 30 minutes Hermes | the scorer is automatic; agents cannot listen and adjudicate nothing |
+| Adjudication (operator or another person who listens) | up to 60 minutes | about 3 minutes per recheck item, at most all 20 items; set A may be checked against the publisher's own transcript where one exists. **If no one can commit this time, the packet stays blocked** |
 | Operator time | about 2 to 3 hours | client verification (once), posting, draw, six offers, six payments, six reviews |
 | Fair value of accepted deliverables | $80 proposed | each set valued once at $40; the operator sets the reservation value |
 | Incremental subsidy at the cap | about $400 | $480 minus $80 |

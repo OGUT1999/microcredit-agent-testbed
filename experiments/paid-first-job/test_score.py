@@ -82,27 +82,69 @@ class ScoreTest(unittest.TestCase):
             self.assertEqual(result["workers"][code]["agreement"], 1.0)
         self.assertEqual(result["corrections"], [])
 
-    def test_majority_finds_a_caption_error_and_a_minority_is_not_penalised(self):
-        heard = {"B05": {"verdict": "MINOR", "heard": "as intelligence gets cheap, the coordination gets expensive"}}
-        self.submit("W1", "B", self.good_rows("B", heard))
-        self.submit("W2", "B", self.good_rows("B", heard))
-        self.submit("W3", "B", self.good_rows("B"))  # reports the published wording once: one flag only
-        result = score.score(ITEMS, self.dir)
-        self.assertEqual(result["consensus"]["B05"]["majority"], "MINOR")
-        self.assertEqual(result["corrections"], ["B05"])
-        self.assertEqual(result["workers"]["W3"]["copy_flags"], ["B05"])
-        self.assertEqual(result["workers"]["W3"]["decision"], "ACCEPT")
-        self.assertLess(result["workers"]["W3"]["agreement"], 1.0)
+    def adjudicate(self, items):
+        with open(os.path.join(self.dir, "adjudication.json"), "w") as f:
+            json.dump({"items": items}, f)
 
-    def test_published_wording_against_two_listeners_twice_is_rejected(self):
-        heard = {"B05": {"verdict": "MINOR", "heard": "as intelligence gets cheap, the coordination gets expensive"},
+    def test_a_correct_minority_is_paid_and_the_split_goes_to_a_person(self):
+        # Codex review 6110326408: the published wording is right on two items, W1 says so,
+        # W2 and W3 are wrong. Peer disagreement must not cost W1 anything.
+        wrong = {"B05": {"verdict": "MINOR", "heard": "as intelligence gets cheap, the coordination gets expensive"},
                  "B08": {"verdict": "MAJOR", "heard": "you're turning a dial into a switch"}}
-        self.submit("W1", "B", self.good_rows("B", heard))
-        self.submit("W2", "B", self.good_rows("B", heard))
-        self.submit("W3", "B", self.good_rows("B"))
+        self.submit("W1", "B", self.good_rows("B"))
+        self.submit("W2", "B", self.good_rows("B", wrong))
+        self.submit("W3", "B", self.good_rows("B", wrong))
         result = score.score(ITEMS, self.dir)
-        self.assertEqual(result["workers"]["W3"]["decision"], "REJECT_UNHEARD")
-        self.assertEqual(sorted(result["corrections"]), ["B05", "B08"])
+        self.assertEqual(result["workers"]["W1"]["decision"], "ACCEPT")
+        self.assertEqual(result["workers"]["W1"]["disputes"], ["B05", "B08"])
+        self.assertEqual(result["recheck"], ["B05", "B08"])
+        self.assertEqual(result["corrections"], [])  # a majority alone corrects nothing
+        self.adjudicate({"B05": {"verdict": "EXACT", "basis": "listened"}, "B08": {"verdict": "EXACT", "basis": "listened"}})
+        result = score.score(ITEMS, self.dir)
+        self.assertEqual(result["recheck"], [])
+        self.assertEqual(result["corrections"], [])
+        for code in ("W1", "W2", "W3"):
+            self.assertEqual(result["workers"][code]["decision"], "ACCEPT")
+
+    def test_blog_corrections_come_only_from_adjudication(self):
+        heard = {"B05": {"verdict": "MINOR", "heard": "as intelligence gets cheap, the coordination gets expensive"}}
+        for code in ("W1", "W2", "W3"):
+            self.submit(code, "B", self.good_rows("B", heard))
+        result = score.score(ITEMS, self.dir)
+        self.assertEqual((result["recheck"], result["corrections"]), (["B05"], []))
+        self.adjudicate({"B05": {"verdict": "MINOR", "basis": "listened"}})
+        self.assertEqual(score.score(ITEMS, self.dir)["corrections"], ["B05"])
+
+    def test_recheck_lists_likely_errors_before_splits_and_single_dissents(self):
+        self.submit("W1", "B", self.good_rows("B", {"B02": {"verdict": "MINOR"}, "B03": {"verdict": "MAJOR"},
+                                                     "B04": {"verdict": "MINOR"}}))
+        self.submit("W2", "B", self.good_rows("B", {"B02": {"verdict": "MAJOR"}, "B04": {"verdict": "MINOR"}}))
+        self.submit("W3", "B", self.good_rows("B"))
+        self.assertEqual(score.score(ITEMS, self.dir)["recheck"], ["B04", "B02", "B03"])
+
+    def test_a_sheet_of_unsupported_not_found_waits_for_a_listener(self):
+        nf = {i: {"verdict": "NOT_FOUND", "heard": "", "start": "", "end": "", "note": "searched the whole episode"}
+              for i in self.sets["A"]}
+        self.submit("W1", "A", self.good_rows("A", nf))
+        result = score.score(ITEMS, self.dir)
+        self.assertEqual(result["workers"]["W1"]["decision"], "HOLD_ADJUDICATION")
+        self.assertEqual(result["workers"]["W1"]["held_items"], sorted(self.sets["A"]))
+        found = {i: {"verdict": "EXACT", "basis": "listened"} for i in ("A01", "A02")}
+        self.adjudicate({**{i: {"verdict": "NOT_FOUND", "basis": "listened"} for i in self.sets["A"]}, **found})
+        result = score.score(ITEMS, self.dir)
+        self.assertEqual(result["workers"]["W1"]["decision"], "REVISE")
+        self.assertEqual(len(result["workers"]["W1"]["problems"]), 2)
+        self.adjudicate({i: {"verdict": "NOT_FOUND", "basis": "listened"} for i in self.sets["A"]})
+        self.assertEqual(score.score(ITEMS, self.dir)["workers"]["W1"]["decision"], "ACCEPT")
+
+    def test_not_found_on_a_timed_item_needs_what_was_said_there(self):
+        self.submit("W1", "B", self.good_rows("B", {"B08": {"verdict": "NOT_FOUND", "heard": "", "start": "", "end": ""}}))
+        problems = score.score(ITEMS, self.dir)["workers"]["W1"]["problems"]
+        self.assertTrue(any(p.startswith("B08: NOT_FOUND needs what is said") for p in problems))
+        self.assertTrue(any(p.startswith("B08: NOT_FOUND needs a start") for p in problems))
+        self.submit("W1", "B", self.good_rows("B", {"B08": {"verdict": "NOT_FOUND", "heard": "so that's the whole debate",
+                                                             "start": "55:19", "end": "55:22"}}))
+        self.assertEqual(score.score(ITEMS, self.dir)["workers"]["W1"]["decision"], "ACCEPT")
 
     def test_incomplete_work_gets_one_revision_then_rejection(self):
         rows = self.good_rows("A")[:-1]
@@ -130,8 +172,9 @@ class ScoreTest(unittest.TestCase):
                                                              "note": "said again later; the listed time is the first take"}}))
         self.assertEqual(score.score(ITEMS, self.dir)["workers"]["W5"]["decision"], "ACCEPT")
 
-    def test_not_found_needs_no_text_and_late_or_missing_work_is_not_accepted(self):
-        self.submit("W1", "A", self.good_rows("A", {"A06": {"verdict": "NOT_FOUND", "heard": "", "start": "", "end": ""}}))
+    def test_an_untimed_not_found_with_a_note_and_late_or_missing_work(self):
+        self.submit("W1", "A", self.good_rows("A", {"A06": {"verdict": "NOT_FOUND", "heard": "", "start": "", "end": "",
+                                                             "note": "listened to the whole episode"}}))
         self.submit("W2", "A", self.good_rows("A"), submitted_at="2026-10-21T09:00Z")
         self.assignment["W3"] = {"set": "A", "deadline": "2026-10-20T12:00Z"}
         self.write_assignment()

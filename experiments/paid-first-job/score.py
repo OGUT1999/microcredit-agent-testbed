@@ -13,11 +13,15 @@ assignment.json:
 
 CSV columns: item_id, verdict, heard_text, start, end, speaker, note
 
-The decision uses only what a worker controls: on time, every item answered in the
-required form, and no published wording reported as heard where the two other workers
-on the set heard something else. Agreement with the other workers is reported as a
-quality measure but never decides payment, so a worker who is right against a mistaken
-majority is not penalised.
+Optional adjudication.json, written by a person who listened (or read the publisher's own
+transcript); agents never write it:
+  {"items": {"B05": {"verdict": "MINOR", "heard_text": "...", "basis": "listened"}}}
+
+Payment depends only on what the worker controls and on independent evidence, never on
+the other workers: on time; every item answered in the required form; and, for a sheet
+with more than a quarter of its items NOT_FOUND, an adjudicator's listening of those items.
+Disagreement between workers decides nothing. It only queues items for a human recheck,
+and the blog is corrected only from adjudicated items.
 """
 import argparse
 import csv
@@ -35,7 +39,8 @@ FILLERS = {"uh", "um", "er", "ah", "erm", "hmm"}
 TIME_TOLERANCE_S = 60      # a found quotation must start within this of the listed time
 MAX_SPAN_S = 120           # one quotation is never longer than this
 SIMILAR = 0.85             # transcripts at or above this ratio corroborate each other
-COPY_FLAGS_TO_REJECT = 2   # published wording reported as heard against a two-worker majority
+NOT_FOUND_HOLD_SHARE = 0.25   # a sheet with more NOT_FOUND than this waits for an adjudicator
+FINDS_TO_REVISE = 2           # adjudicator finds this many of a held sheet's NOT_FOUND items: revise
 FIELDS = ("item_id", "verdict", "heard_text", "start", "end", "speaker", "note")
 
 
@@ -114,7 +119,17 @@ def check_rows(rows, items):
         issues = []
         if verdict not in VERDICTS:
             issues.append("verdict must be one of " + ", ".join(VERDICTS))
-        elif verdict != "NOT_FOUND":
+        elif verdict == "NOT_FOUND":
+            if items[iid].get("at"):
+                # Listening at the stated place is required: record what is said there instead.
+                start = parse_time(row["start"])
+                if not row["heard_text"]:
+                    issues.append("NOT_FOUND needs what is said at the listed time in heard_text")
+                if start is None or abs(start - parse_time(items[iid]["at"][0])) > TIME_TOLERANCE_S:
+                    issues.append("NOT_FOUND needs a start within a minute of the listed time")
+            elif not row["note"]:
+                issues.append("NOT_FOUND needs a note saying where in the episode you looked")
+        else:
             start, end = parse_time(row["start"]), parse_time(row["end"])
             if not row["heard_text"]:
                 issues.append("heard_text is empty")
@@ -166,44 +181,61 @@ def score(items_path, sub_dir):
             consensus[iid] = {"set": set_name, "quoted": item["quoted"], "answers": len(given),
                               "verdicts": dict(counts), "majority": majority}
 
+    adjudicated = {}
+    path = os.path.join(sub_dir, "adjudication.json")
+    if os.path.exists(path):
+        adjudicated = {i: a for i, a in load_json(path).get("items", {}).items() if a.get("verdict") in VERDICTS}
+
+    recheck = set()
     for code, w in workers.items():
         agree = resolved = corroborated = heard = 0
-        copy_flags = []
+        disputes = []
         for iid, ans in w["answers"].items():
             c = consensus[iid]
             others = [workers[o]["answers"][iid] for o in workers
                       if o != code and workers[o]["set"] == w["set"] and iid in workers[o]["answers"]]
-            other_verdicts = Counter(o["verdict"] for o in others)
             if c["majority"]:
                 resolved += 1
                 agree += ans["verdict"] == c["majority"]
+            if ans["verdict"] != c["majority"]:
+                disputes.append(iid)
             if ans["heard_text"] and any(o["heard_text"] for o in others):
                 heard += 1
                 corroborated += max(similarity(ans["heard_text"], o["heard_text"]) for o in others) >= SIMILAR
-            # Published wording reported as heard, while both other workers heard something else.
-            same_as_published = tokens(ans["heard_text"]) == tokens(c["quoted"])
-            differs = sum(n for v, n in other_verdicts.items() if v != "EXACT")
-            if ans["heard_text"] and same_as_published and differs >= 2:
-                copy_flags.append(iid)
+            if ans["verdict"] != "EXACT" or any(o["verdict"] != ans["verdict"] for o in others):
+                recheck.add(iid)
+        not_found = sorted(i for i, a in w["answers"].items() if a["verdict"] == "NOT_FOUND")
+        held = bool(w["answers"]) and len(not_found) > NOT_FOUND_HOLD_SHARE * len(sets[w["set"]])
         w["agreement"] = round(agree / resolved, 3) if resolved else None
         w["corroborated"] = round(corroborated / heard, 3) if heard else None
-        w["copy_flags"] = copy_flags
+        w["disputes"] = sorted(disputes)
+        w["held_items"] = not_found if held else []
+        found_by_adjudicator = [i for i in not_found if adjudicated.get(i, {}).get("verdict") not in (None, "NOT_FOUND")]
         if not w["submitted"]:
             decision = "NO_SUBMISSION"
         elif not w["on_time"]:
             decision = "REJECT_LATE"
-        elif len(copy_flags) >= COPY_FLAGS_TO_REJECT:
-            decision = "REJECT_UNHEARD"
         elif w["problems"]:
             decision = "REVISE" if w["revision_round"] == 0 else "REJECT_INCOMPLETE"
+        elif held and not all(i in adjudicated for i in not_found):
+            decision = "HOLD_ADJUDICATION"
+            recheck.update(not_found)
+        elif held and len(found_by_adjudicator) >= FINDS_TO_REVISE:
+            decision = "REVISE" if w["revision_round"] == 0 else "REJECT_INCOMPLETE"
+            w["problems"] = [f"{i}: the adjudicator found it at the stated place" for i in found_by_adjudicator]
         else:
             decision = "ACCEPT"
         w["decision"] = decision
     for w in workers.values():
         w.pop("answers")
 
+    def priority(iid):
+        c = consensus[iid]
+        return (0 if c["majority"] not in (None, "EXACT") else 1 if c["majority"] is None else 2, iid)
+
     return {"items_sha256": file_sha256(items_path), "workers": workers, "consensus": consensus,
-            "corrections": sorted(i for i, c in consensus.items() if c["majority"] in ("MINOR", "MAJOR", "NOT_FOUND"))}
+            "recheck": sorted((i for i in recheck if i not in adjudicated), key=priority),
+            "corrections": sorted(i for i, a in adjudicated.items() if a["verdict"] != "EXACT")}
 
 
 def main(argv=None):
@@ -219,10 +251,11 @@ def main(argv=None):
     print(f"items sha256 {result['items_sha256']}")
     for code, w in result["workers"].items():
         print(f"{code} set {w['set']}: {w['decision']}  agreement {w['agreement']}  corroborated {w['corroborated']}"
-              + (f"  copy flags {','.join(w['copy_flags'])}" if w["copy_flags"] else ""))
+              + (f"  held for adjudication {','.join(w['held_items'])}" if w["held_items"] else ""))
         for p in w["problems"]:
             print(f"   - {p}")
-    print("items the majority says the blog must correct: " + (", ".join(result["corrections"]) or "none"))
+    print("items a person must recheck, most likely errors first: " + (", ".join(result["recheck"]) or "none"))
+    print("adjudicated corrections for the blog: " + (", ".join(result["corrections"]) or "none"))
     return 0
 
 
