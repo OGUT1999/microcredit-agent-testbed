@@ -64,11 +64,16 @@ Exact expected-value neutrality is **not** enough for a finite pool. Random loss
 
 ### Human-benefit scorecard
 
-Do not count every client-funded wage as project-created benefit. The auditable human-benefit multiplier must use incremental outcomes:
+Do not count every client-funded wage as project-created benefit. Two ratios share one numerator, incremental benefit,
 
-`M = (incremental spendable newcomer earnings + measured incremental follow-on earnings - displacement - harms) / (guarantee claims + fees + support/admin + capital-lock cost)`
+`B = incremental spendable newcomer earnings, net of the contributions workers paid, + measured incremental follow-on earnings - displacement - harms`
 
-A replenishment contribution affects the reserve scorecard, not the numerator of human benefit. Before asking for money, the route must state how the counterfactual will be measured and why `M > 1` is plausible. Measure what the guarantee causes by offering it on a seeded random half of eligible jobs, clients or workers, never applications competing for the same job: applicants to the same job compete, so a comparison by application mostly measures newcomers displacing each other. Report sponsor capital consumed (starting reserve minus ending reserve) beside `M`. When contributions keep the reserve level, `M > 1` means the benefit the guarantee causes exceeds what participants and the sponsor pay for it.
+and are never mixed or substituted for each other:
+
+- **Sponsor multiplier, the operator's "more than $1 per sponsor $1":** `M = B / sponsor money consumed`, where sponsor money consumed = starting reserve + sponsor top-ups - ending reserve (the unrecovered reserve loss) + sponsor-paid costs + capital-lock cost. A route passes only with `M > 1`. The capital-lock cost (the reserve's opportunity cost over the horizon) keeps the denominator above zero even when contributions hold the reserve level.
+- **Pool efficiency:** `E = B / (guarantee claims + fees + support/admin + capital-lock cost)`: how much benefit each dollar moving through the pool buys, whoever paid it. Reported beside `M`, never in its place.
+
+Every report names its horizon and its starting and ending reserve. Contributions are recapitalisation: they enter the reserve scorecard and leave `B` as a cost to the workers who paid them (agreed on board 15, Codex `x-20261011-guarantee-trust-review-r1` and Claude `c-20261011-multiplier-def-r2`). Before asking for money, the route must state how the counterfactual will be measured and why `M > 1` is plausible. Measure what the guarantee causes by offering it on a seeded random half of eligible jobs, clients or workers, never applications competing for the same job: applicants to the same job compete, so a comparison by application mostly measures newcomers displacing each other. When contributions keep the reserve level, `M` can be large while `E` stays modest: `M` is the multiplier on sponsor money, and `E` shows what the benefit costs everyone who funds the pool, workers included.
 
 ## Immediate measurable work
 
