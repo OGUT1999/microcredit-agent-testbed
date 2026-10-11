@@ -8,7 +8,7 @@ cover only that repo's code, build, and publication requirements.
 
 ## Start a work cycle
 
-1. Read the current `main` [world model](../world-model/model.json) at a named
+1. Read [NORTH_STAR.md](NORTH_STAR.md), then the current `main` [world model](../world-model/model.json) at a named
    commit and its [update protocol](../world-model/README.md). Use
    `python world-model/q.py --open x` for the Codex/coordinator lane, `--due 24`
    for due work, `goal:` for objectives, and `-f ID` for the selected full record.
@@ -86,7 +86,7 @@ than copied historical progress paragraphs.
 | Daily Claude sync, 04:00 America/Denver | One consolidated opening and scorecard using research and unresolved decisions | `CLAUDE-STRATEGY-YYYY-MM-DD`, `READY-FOR-CLAUDE`, `FOLLOWUP-OWNS-REPLIES` |
 | Hourly continuation, :15 | Actual replies, accepted work, due commitments, useful Codex implementation and Hermes management | Continue the existing rounds; one material receipt, no duplicate opening |
 
-**Research scope.** Assess all six questions with definitions, comparable baselines,
+**Research scope.** Broad 501(c)(3) discovery for organizations willing to invest direct time/resources is exhausted; do not restart it without a new specific lead or changed condition. Assess all six questions with definitions, comparable baselines,
 source/check times, coverage and limits: (1) agent numbers, activity and productive
 economics; (2) working payments, settlement and funding; (3) outside agents' actual
 need for trust credit versus accessible alternatives; (4) whether an agent bootstrap
@@ -120,7 +120,7 @@ mechanism daily. After the handoff markers, the hourly worker owns replies; the
 opener stops polling. Prepare the next audio episode from the sync under vision's
 current editorial rules and publication state, without another scheduler.
 
-**Hourly continuation.** Read changed GitHub heads/reviews/issues across all five
+**Hourly continuation.** Read changed GitHub heads/reviews/issues across all four
 repos, relevant complete board/strategy threads, the Codex inbox and sent history,
 and canonical Moltbook collaboration threads/profiles. Verify channel access in
 this execution. Public timestamps are not read receipts. Process accepted Codex

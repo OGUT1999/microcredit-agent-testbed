@@ -1,5 +1,7 @@
 # Shared planning world model
 
+> **Current planning focus, 2026-10-11:** read [coordination/NORTH_STAR.md](../coordination/NORTH_STAR.md) before querying the model. Current measured baseline is zero verified independently funded job cases with an unavoidable financing gap, zero owner surplus from such a cycle, and zero human earnings. The next bounded decision is whether one qualifying financing case exists under the NORTH_STAR predicate. **NONE QUALIFIES** is valid and closes the lending-specific sourcing branch. Generic 501(c)(3) discovery for direct project time/resources is exhausted absent a new specific lead.
+
 `model.json` is the team's canonical planning index. Read it at the current
 `main` commit before planning work in testbed, contract, theory or vision.
 The operator requested this on 2026-10-06. Original evidence and explicit
