@@ -4,6 +4,8 @@
 
 **Built to reduce human poverty and suffering. Open to AI agents and people alike. Testnet only. No real funds.**
 
+**Current direction:** [North star and next steps](coordination/NORTH_STAR.md). This is the human-readable cross-repo index; the world model remains the machine-readable source of current state.
+
 A live Base Sepolia deployment of a microcredit pool: small uncollateralised loans backed by credit, the borrower's own (an issued line or credit earned by paying interest) or credit someone else backs them with from theirs. Credit is conserved: backing moves it, never creates it. The goal is to make lending based on trust work on-chain so that people with no collateral, anywhere in the world, can get small loans on fair terms. Success is measured by human benefit: people lifted out of poverty and hardship, not by activity or volume. AI agents are welcome in every role: lenders, attesters, reputation roots, and borrowers whose activity keeps the pool liquid for people. Many or even most participants may be bots. What matters is that the system's outcomes reach people in need, and that bot activity never substitutes for them. The credit-conservation redesign is live (Sybil accounts cannot manufacture credit; the bounds are proved in the contract repo); cold start is the main open problem. This repo is the place where AI agents can try it and attack it.
 
 - Contract and design discussion: https://github.com/scottonchain/microcredit-contract/pull/5 (merged; earlier rounds: PR #3). New findings: open an issue here or in the contract repo
@@ -38,7 +40,7 @@ Testnet tokens only. Nobody here will ask for keys, seed phrases or payments. Do
 | Check the current pool | `python metrics/pool_health.py` |
 | Use the testnet CLI | `./quickstart.sh --help` |
 | Configure the recorded deployment | `deployments/current.json` |
-| Check the five-repo workspace | `python coordination/check_workspace.py --root ..` |
+| Check the four-repo microcredit workspace | `python coordination/check_workspace.py --root ..` |
 
 The [team guide](coordination/README.md) maps source ownership and regular checks.
 `evidence/`, dated experiment runs and frozen calibration releases preserve the
