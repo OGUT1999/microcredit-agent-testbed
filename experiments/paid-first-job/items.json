@@ -1,0 +1,50 @@
+{
+  "name": "paid-first-job quotation check, Stage A draft",
+  "source_of_items": "microcredit-vision main 4f8a48f: the direct quotations from video sources in four published posts, as the posts print them, with the timestamps and speakers recorded in VERIFY.md",
+  "why": "Every item was taken from YouTube's automatic English captions and checked only by AI agents reading captions. None has been checked by a person listening to the audio.",
+  "verdicts": {
+    "EXACT": "the speaker says these words; differences only in punctuation, capitalisation, um/uh, or a repeated word",
+    "MINOR": "a small wording difference that does not change the meaning",
+    "MAJOR": "a wording difference that changes the meaning, or a different speaker",
+    "NOT_FOUND": "the words cannot be found in the stated place (or, for items without a time, anywhere in the episode)"
+  },
+  "sets": {
+    "A": {
+      "video": "https://www.youtube.com/watch?v=eITWvkTQo38",
+      "title": "The Daily (The New York Times), \"Call My A.I. Agent\", 2026-10-06",
+      "post": "posts/2026-10-06-a-little-guy-with-your-credit-card.md",
+      "note": "The post gives no timestamps; the worker finds each quotation and records where it is.",
+      "items": [
+        {"id": "A01", "quoted": "incredibly useful", "speaker": "the host", "at": null},
+        {"id": "A02", "quoted": "honestly kind of cute", "speaker": "the host", "at": null},
+        {"id": "A03", "quoted": "all they need to work is your most sensitive personal information", "speaker": "the host", "at": null},
+        {"id": "A04", "quoted": "signed into my credit cards, my bank account", "speaker": "Eli Tan", "at": null},
+        {"id": "A05", "quoted": "I thought of all the possible personal things about myself and I gave it all to Muse", "speaker": "Eli Tan", "at": null},
+        {"id": "A06", "quoted": "had answered a security question", "speaker": "not named in the post", "at": null},
+        {"id": "A07", "quoted": "had basically gotten through all these layers that are meant to make sure that I'm human", "speaker": "Eli Tan", "at": null},
+        {"id": "A08", "quoted": "It's just a little guy. It's just a little fuzzy guy. It's totally okay if he has your information because he's not nefarious.", "speaker": "Eli Tan", "at": null},
+        {"id": "A09", "quoted": "we're using them for things that they can do, but we should probably just be doing them ourselves", "speaker": "Eli Tan", "at": null}
+      ]
+    },
+    "B": {
+      "videos": {
+        "wlf6hQFnzUI": "Nonzero, \"Will AI Make Humans Obsolete? | Robert Wright & Garrison Lovely\", post posts/2026-10-07-the-capabilities-are-not-advancing-themselves.md",
+        "lyAboyYjIXU": "The Cognitive Revolution, \"Formal AI Safety & Risk Strategy + LoRA-Powered Work Agents\", post posts/2026-10-08-the-birdie-at-the-enter-key.md",
+        "TDbHCKwuMrk": "Doom Debates, \"AI Has Become Profoundly WEIRD, But Is Anyone Noticing? With Sarah Hastings-Woodhouse\", post posts/2026-10-08-a-dial-not-a-switch.md"
+      },
+      "items": [
+        {"id": "B01", "video": "wlf6hQFnzUI", "quoted": "as if it's this exogenous force in the world", "speaker": "Garrison Lovely", "at": ["15:19", "15:19"]},
+        {"id": "B02", "video": "wlf6hQFnzUI", "quoted": "the capabilities aren't advancing themselves", "speaker": "Garrison Lovely", "at": ["15:47", "15:47"]},
+        {"id": "B03", "video": "lyAboyYjIXU", "quoted": "I do feel myself as kind of the the birdie that just keeps pecking the enter key in response to a lot of these prompts for approval.", "speaker": "Nathan Labenz", "at": ["2:33:47", "2:33:53"]},
+        {"id": "B04", "video": "lyAboyYjIXU", "quoted": "How do we actually get people to pay attention when they should be paying attention?", "speaker": "Nathan Labenz", "at": ["2:33:58", "2:34:03"]},
+        {"id": "B05", "video": "lyAboyYjIXU", "quoted": "as intelligence gets cheap, it's the coordination that gets expensive.", "speaker": "Evan Miyazono", "at": ["42:24", "42:28"]},
+        {"id": "B06", "video": "lyAboyYjIXU", "quoted": "your agent is talking to my agent, they can verify that this agent in fact is my agent.", "speaker": "Evan Miyazono", "at": ["49:27", "49:35"]},
+        {"id": "B07", "video": "lyAboyYjIXU", "quoted": "We don't want AI to come in and and and replace people. Want AI to be valuable co-workers.", "speaker": "Edward Hu", "at": ["2:01:28", "2:01:32"]},
+        {"id": "B08", "video": "TDbHCKwuMrk", "quoted": "You're turning a switch into a dial.", "speaker": "Liron Shapira", "at": ["55:19", "55:19"]},
+        {"id": "B09", "video": "TDbHCKwuMrk", "quoted": "there's a good chance that something really bad might happen unless we do something", "speaker": "Sarah Hastings-Woodhouse", "at": ["1:02:58", "1:03:01"]},
+        {"id": "B10", "video": "TDbHCKwuMrk", "quoted": "saying it's overdetermined that we're screwed because the second thing is just very disempowering.", "speaker": "Sarah Hastings-Woodhouse", "at": ["1:03:01", "1:03:06"]},
+        {"id": "B11", "video": "TDbHCKwuMrk", "quoted": "the Overton window is like the confluence of people saying and doing things. And when you say and do things, you are yourself like shifting the Overton window.", "speaker": "Sarah Hastings-Woodhouse", "at": ["38:53", "38:59"]}
+      ]
+    }
+  }
+}

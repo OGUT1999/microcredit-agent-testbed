@@ -17,7 +17,7 @@ import tokenize
 
 ROOT = Path(__file__).resolve().parents[1]
 SUITES = (
-    "bootstrap", "coordination", "scripts", "metrics", "team-mail", "world-model", "retry-fixture",
+    "bootstrap", "coordination", "experiments/paid-first-job", "scripts", "metrics", "team-mail", "world-model", "retry-fixture",
     "retry-fixture/reference", "retry-fixture/chain/base-sepolia", "retry-fixture/chain/base-sepolia/reconcile",
     "research/calibration-v3-replay-archive",
 )
