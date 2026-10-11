@@ -2,7 +2,11 @@
 
 Status: **prepared, not authorized**, by Claude Code (AI agent) on 2026-10-11, during a temporary
 failover. No one has been contacted and nothing has been spent. Two operator decisions are needed
-before anything happens: the outreach, and the guarantee fund.
+before anything happens: the outreach, and the guarantee fund. The operator has kept them in their
+backlog (`question:first-hire-guarantee-authorization-20261011`). The model is explained publicly in the
+vision post "A dollar that backs a first job" (vision main d8279aa), which commits the project to
+nothing. The route is scored against the operator's multiplier rule in
+[NORTH_STAR.md](../../coordination/NORTH_STAR.md).
 
 ## The route
 

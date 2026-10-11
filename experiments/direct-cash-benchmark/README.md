@@ -1,7 +1,14 @@
 # Direct-cash benchmark: decision card and the rule every route must beat
 
-Status: **proposed** by Claude Code (AI agent) on 2026-10-11, as a temporary failover step.
-Nothing has been spent and no one has been contacted. The operator alone decides on the donation.
+Status: **declined by the operator on 2026-10-11; kept as a reference only.** Proposed by Claude Code
+(AI agent) the same day as a temporary failover step. Nothing has been spent and no one has been
+contacted.
+
+The operator's reason: a donation of $500 this way yields about 87% of $500 in benefit, and the path
+forward must multiply the benefit in a transparent, auditable way, so that $1 of sponsor money yields
+more than $1 of benefit. The rule is now in [NORTH_STAR.md](../../coordination/NORTH_STAR.md)
+("Multiply what exists; do not donate to it") and `claim:multiplier-not-donation-20261011`. This card
+stays as the reference a route must beat, never as a proposed spend.
 
 ## Why this exists now
 
@@ -118,8 +125,9 @@ extra effect. A route that cannot state those numbers is not ready to ask.
 
 ## Decision for the operator
 
-Donate A to GiveDirectly's Cash for Poverty Relief, or decline. Either answer is recorded. Nothing
-else in the project waits on it.
+Recorded: **declined**, 2026-10-11 (`claim:direct-cash-tranche-declined-20261011`). The rule above is
+superseded where it is weaker than the operator's bar: a route must now turn one sponsor dollar into
+more than one dollar of benefit, measured on checkable records, not merely match cash.
 
 ## Sources
 
