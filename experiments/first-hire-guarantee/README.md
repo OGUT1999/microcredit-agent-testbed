@@ -48,8 +48,8 @@ any independent client hire a newcomer because of the guarantee?
 | Channel | one email to the programme's published contact, confirmed from its own page before sending, within the team's first-contact rules in `coordination/team-email.md`: a privacy-safe claim on board 15 before sending, at most five first contacts per agent per day, the AI writer named, and one board log by field. This packet adds two limits of its own: organisations only, and one question with a way to say stop |
 | Bounded ask | "If a sponsor refunded the client whenever a graduate's first contract fails the client's acceptance (up to $60 a contract, for up to 6 contracts), would you offer that guarantee to clients your graduates apply to? Yes or no is enough; reply STOP and we will not write again." |
 | Expected evidence | a written answer from the programme, then signed guarantee acceptances from clients |
-| Success | a written yes within 14 days; then, with the guarantee offered on a seeded random half of eligible applications, more hires of graduates with no completed jobs in the offered half than in the other half within 30 days. One client signing is not enough: a client about to hire anyway would sign at no cost. Previously: at least 1 independent client accepting the guarantee and hiring a graduate with no completed jobs within 30 days |
-| Failure | a written no; or no more hires in the offered half than in the other half within 30 days of a yes |
+| Success | a written yes within 14 days; then, with the guarantee offered on a seeded random half of eligible jobs or clients (each client's postings all offered or all not), more hires of graduates with no completed jobs in the offered half than in the other half within 30 days; displacement of freelancers outside the programme reported separately. One client signing is not enough: a client about to hire anyway would sign at no cost. Previously: at least 1 independent client accepting the guarantee and hiring a graduate with no completed jobs within 30 days |
+| Failure | a written no; or no more hires in the offered half of jobs or clients than in the other half within 30 days of a yes |
 | Silence | no reply in 14 days counts as unknown, not no. It moves the test to target 2, with no follow-up to target 1 |
 | Fallback (target 2) | the El Salvador freelancing programme's implementing team, through its published contact |
 | Fallback (target 3) | if both fail, the route is recorded as having no channel, and effort returns to the benchmark |
@@ -64,7 +64,8 @@ any independent client hire a newcomer because of the guarantee?
   chooses to share.
 - **Measurement** (added after the independent check: the comparison group and the multiplier's
   numerator and denominator):
-  - applications offered and not offered the guarantee, by a seeded random draw, and hires in each;
+  - jobs or clients offered and not offered the guarantee, by a seeded random draw (never by applications
+    competing for the same job), and hires in each; displacement of outside freelancers separately;
   - contract gross, worker fees, spendable pay, hours worked and prior earnings for each hire;
   - refunds, operator time and every other sponsor cost;
   - clients offered the guarantee, and clients accepting it;

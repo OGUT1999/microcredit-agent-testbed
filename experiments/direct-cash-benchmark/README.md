@@ -107,16 +107,16 @@ hire from Pallais's intent-to-hire means (gross $17.08 to $19.66; net of extra h
 not multiplied by (1 − f) again. The failure rates are assumptions; Pallais's 18% of hires who never
 returned the file is one reference point.
 
-| Failure rate | Sponsor cost per hire | Upper bound per $100: every hire caused, wage and gross follow-on all gain | Illustration per $100: half the hires caused (a = 0.5), half the wage a net gain (s = 0.5), net follow-on |
+| Failure rate | Sponsor cost per hire | Upper bound per $100: every hire caused, wage and gross follow-on all gain | Illustration per $100: half the hires caused (a = 0.5), half the wage a net gain (s = 0.5), net follow-on, plus the failed-job transfer |
 | --- | --- | --- | --- |
-| 10% | $6.00 | about $1,120 to $1,310 | about $220 to $320 |
-| 18% | $10.80 | about $620 to $730 | about $120 to $180 |
-| 30% | $18.00 | about $370 to $440 | about $74 to $105 |
+| 10% | $6.00 | about $1,120 to $1,310 | about $265 to $365 |
+| 18% | $10.80 | about $620 to $730 | about $165 to $225 |
+| 30% | $18.00 | about $370 to $440 | about $115 to $155 |
 
 Corrected after an independent check (PR 53 comment 6111219156): the earlier table gave the worker
 nothing on a failed job while refunding the client in full, which mixed two failure cases, and it
 counted the upper bound as value. The illustration column shows how far the figure falls once only
-caused hires and net gains count; the real values of a and s are unmeasured.
+caused hires and net gains count. It includes the (1 − a)·f·w term: on jobs the newcomer would have had anyway, a failed newcomer still keeps the pay, a one-for-one transfer worth about $42 to $49 per $100. Before costs the illustration follows M ≈ a·s/f + (1 − a). The real values of a and s are unmeasured.
 
 **What this shows:**
 
@@ -128,8 +128,9 @@ caused hires and net gains count; the real values of a and s are unmeasured.
   poorer people.
 - **The deciding unknown is causal take-up:** whether independent clients hire newcomers because of
   the guarantee. A client about to hire anyway would sign it at no cost, so signed acceptances alone
-  cannot show it; the offer must go to a seeded random half of eligible applications and be compared
-  with the other half.
+  cannot show it; the offer must go to a seeded random half of eligible jobs or clients (each client's
+  postings all offered or all not) and be compared with the other half. Applicants to the same job
+  compete, so a comparison by application mostly measures displacement.
 - **Not yet executable.** That test needs a channel the platform allows and the operator's
   authorization for outreach and the guarantee fund.
 
