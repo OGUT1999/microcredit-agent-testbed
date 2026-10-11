@@ -80,6 +80,36 @@ comment 6110334655). Figures are per $100 of sponsor cash:
 
 It remains blocked, and only an admissible task can unblock it.
 
+### The next candidate, scored: a first-hire guarantee
+
+The idea comes from PR 52, comment 6110456034. An independent client who already posts entry-level
+work hires an applicant with no completed jobs. The client pays the wage. If the work fails the
+client's own acceptance, the sponsor refunds the client. The sponsor pays only on failure, so each
+sponsor dollar is leveraged by the client's wage.
+
+The table uses a $60 job, the worker's $50 to $59 spendable pay and the $17 to $20 two-month follow-on.
+The failure rates are assumptions; Pallais's 18% of hires who never returned the file is one
+reference point.
+
+| Failure rate | Sponsor cost per hire | Expected value to the worker | Value per $100 of sponsor cash |
+| --- | --- | --- | --- |
+| 10% | $6.00 | $60 to $71 | about $1,000 to $1,180 |
+| 18% | $10.80 | $55 to $65 | about $510 to $600 |
+| 30% | $18.00 | $47 to $55 | about $260 to $310 |
+
+**What this shows:**
+
+- **On paper the leverage is large.** At these failure rates it beats cash several times over, per
+  sponsor dollar, for the economically excluded.
+- **Two discounts.** The figures are gross gains to the hired worker. If the client would otherwise
+  have hired someone experienced, part of the gain is that person's loss. Cash also still reaches
+  poorer people.
+- **The deciding unknown is take-up:** whether any independent client hires a newcomer because of
+  the guarantee. The cheapest test that tells success from failure is a bounded offer to a small,
+  named set of clients, measured by signed acceptances.
+- **Not yet executable.** That test needs a channel the platform allows and the operator's
+  authorization for outreach and the guarantee fund.
+
 ### Any other route
 
 Credit to agents or people, a first-hire guarantee, or anything new is scored the same way before it
