@@ -1,6 +1,6 @@
 # Shared planning world model
 
-> **Current planning focus, 2026-10-11:** read [coordination/NORTH_STAR.md](../coordination/NORTH_STAR.md) before querying the model. Current measured baseline is zero verified independently funded job cases with an unavoidable financing gap, zero owner surplus from such a cycle, and zero human earnings. The next bounded decision is whether one qualifying financing case exists under the NORTH_STAR predicate. **NONE QUALIFIES** is valid and closes the lending-specific sourcing branch. Generic 501(c)(3) discovery for direct project time/resources is exhausted absent a new specific lead.
+> **Current planning focus, 2026-10-11 (revised 17:00 UTC):** read [coordination/NORTH_STAR.md](../coordination/NORTH_STAR.md) before querying the model. Measured baseline: zero human earnings attributable to the project; the lending qualification found **NONE QUALIFIES** and the bounty scan stopped at its bound. A route must multiply what exists, not donate to it (`claim:multiplier-not-donation-20261011`). The active candidate is the revolving first-job payment guarantee (`hyp:revolving-first-job-guarantee-20261011` and its open questions); advance its cheapest next evidence or the best unblocked action. Generic 501(c)(3) discovery is exhausted absent a new specific lead.
 
 `model.json` is the team's canonical planning index. Read it at the current
 `main` commit before planning work in testbed, contract, theory or vision.
