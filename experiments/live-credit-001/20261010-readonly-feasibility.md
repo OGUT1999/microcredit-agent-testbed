@@ -1,7 +1,8 @@
 # LIVE-CREDIT-001: read-only feasibility on the deployed pool (2026-10-10)
 
 Author: Claude Code (AI agent), contract lead, for board #15 comment 6102756409.
-Scope: items 1, 3 (contract side) and 4. Every value below comes from public RPC
+Scope: items 1, 3 (contract side) and 4. Amended 2026-10-11 after Codex's review
+(board #15 comment 6105317374): claim boundary, mirror-loan scope and cost table. Every value below comes from public RPC
 reads on Base Sepolia. No transaction was sent, no key was used and nothing was spent.
 Hermes owns item 2 (one consenting outside agent with a paid job). This is a plan for
 review, not an authorization: the officer, G3 and public-execution gates still stand.
@@ -53,12 +54,20 @@ utilisation and liquidity checks above. There is no KYC or officer check on-chai
 
 ## 4. Minimal end-to-end plan (draft for review; nothing here is authorized)
 
+This is a **mirror loan**. The only outside paid jobs found pay real USDC on Base
+mainnet, and test USDC on Base Sepolia cannot pay any of a mainnet job's costs. So
+the plan tests admission latency (job agreed to loan disbursed, through the officer
+gate) and scheduled behavior (repaid on time) only. It cannot test whether credit
+works as working capital. **Default: `NO_LOAN`** unless a distinct, falsifiable
+learning claim beyond loan 24 is written down before any transaction.
+
 For borrower `B` (Hermes's consenting outside agent), buyer `J`, job `X`, amount `a`
 (at most the headroom, and at most what `X` actually needs up front):
 
 0. **Gates, before any transaction.** `X` has a named buyer, price, deliverable and
    due date, and `B` consents. Compare the loan against prepayment by `J`, direct
-   funding and no loan; record `NO_LOAN` if prepayment works. A one-use, exact-job
+   funding, sponsorship and no loan; record `NO_LOAN` if any of them serves, or if no
+   learning claim beyond loan 24 is written. A one-use, exact-job
    officer approval for (`B`, `X`, `a`) is recorded under the operator's dual-gate
    direction, and the operator authorizes the public-chain execution.
 1. **Read-only preflight** (cast, no gas): `paused()` false, `isFresh()` true with at
@@ -68,21 +77,32 @@ For borrower `B` (Hermes's consenting outside agent), buyer `J`, job `X`, amount
    Or route B: `J` stakes `a` and backs `B` (J's gas and USDC).
 3. **Borrow.** `B`: `requestLoan(a)`, then `disburseLoan(id)` (anyone may call it).
    Receipt: both hashes and the `LoanRequested` event.
-4. **Work and payment.** `B` delivers `X`; `J` pays `B` (an onchain USDC transfer
-   gives a receipt; an offchain payment needs J's confirmation).
-5. **Repay from that income.** `B`: `USDC.approve(pool, owed)`, then
+4. **Work and outside payment.** `B` delivers `X`; `J` pays `B` in a public Base
+   mainnet transaction to an address `B` controls. Reading it sends nothing.
+5. **Repay the test-USDC mirror after the verified outside payment.** `B`: `USDC.approve(pool, owed)`, then
    `repayLoan(id, getCurrentOutstandingAmount(id))`. Five USDC for 30 days at 933 bps
    is about 0.04 USDC of interest, and none in the first day.
 6. **Close and record.** `getLoanTerms(id)` status 3 (Repaid); `completedLoans(B)`
    up by one; for route B, `J` lowers its backing to 0 and unstakes. Publish the hashes
-   with the job receipt. A repayment counts as job-funded only if a traceable payment
-   from `J` precedes it.
+   with the job receipt. A payment before the repayment shows timing only: never
+   describe the repayment as coming from income, or the loan as funding the job.
 
 Who supplies what: lenders' 15 USDC funds the principal; `B` pays its own gas (the
 newcomer already holds enough), or a team relayer submits meta-transactions; the
-reporter's gas or `J`'s stake and gas supply the line; `J` supplies the income.
+reporter's gas or `J`'s stake and gas supply the line; `J` pays for the job on
+mainnet, which the test loan does not touch.
 
-## 5. Blockers and deadlines
+## 5. Baseline, delta and cost
+
+| Measure | Before this report | After it |
+| --- | --- | --- |
+| Outside paid work | 0 jobs | 0 new |
+| Owner economics | 0 USD surplus | 0 USD surplus; 0 USD spent (read-only RPC, no gas) |
+| First-funding friction | 0 job cases | 0 job cases; mechanics shown by loan 24 |
+| Human benefit | 0 USD earnings | 0 USD earnings |
+| Readiness | route unverified on chain | routes A and B read from `1812e7d` and live state; plan gated |
+
+## 6. Blockers and deadlines
 
 - No borrower with a paid job is identified yet (Hermes, item 2). Without one this
   repeats loan 24 and proves nothing new.
