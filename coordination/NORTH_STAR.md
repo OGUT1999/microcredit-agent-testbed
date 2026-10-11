@@ -8,6 +8,16 @@ Reduce human poverty and suffering through measurable, positive, spendable human
 
 A successful agent transaction is not a human outcome. A repaid loan is not revenue. A testnet demonstration is not evidence of poverty reduction.
 
+## Multiply what exists; do not donate to it
+
+Operator direction, 2026-10-11: **the path forward must be a multiplier on what already exists, not a donation to what already exists. The team must measurably multiply or improve on what is otherwise available.**
+
+- **The bar.** One sponsor dollar must produce more than one dollar of human benefit, counted in a way that is transparent and auditable. A route that cannot show this does not ask for money.
+- **The reference to beat.** Giving directly delivers a little under a dollar per dollar: GiveDirectly reports that more than 87 cents of each dollar given to its flagship cash programme reaches recipients. The operator declined a proposed $480 donation to that programme on 2026-10-11 for exactly this reason: $500 given that way yields about $435 of benefit, not more than $500.
+- **What does not qualify.** A donation to an existing charity, programme or fund, a training programme included, passes value through at most one for one, and the team adds nothing to it. It is a reference point, not a route.
+- **What qualifies.** A route that builds on something that already exists (a programme, a market, a payer) and adds what it lacks, so that measured benefit per sponsor dollar exceeds one. Before asking for money, state the multiplier as a formula over records anyone can check, its assumptions, and who receives the benefit. After running, report the measured ratio, gross and net of fees and displacement. An estimate is not a measurement.
+- **Candidate under evaluation.** A first-hire guarantee: an independent client pays a newcomer's wage for real work, and a sponsor refunds the client only when the work fails the client's own acceptance. Its multiplier is wages paid for accepted first jobs divided by refunds paid, (1 − f) / f for a failure share f: about 4.6 at 18%, 2.3 at 30%. The deciding unknown is whether any client takes it up. Its take-up test (one email to a placement programme and a $360 refund fund) is not authorized and waits on the operator.
+
 ## Current state — 2026-10-11
 
 The project has four active repositories and a working public Base Sepolia prototype. An outside agent has demonstrated borrow-and-repay plumbing on the test pool, but not repayment caused by paid work. The current sourcing pass has produced **no verified independently funded buyer assignment with an unavoidable pre-delivery financing gap**, no owner surplus, and no human earnings. Hermes's current qualification result is **NONE QUALIFIES**. Treat silence, agent activity, testnet repayment, listings and internal rehearsals as non-results for human benefit.
@@ -25,7 +35,7 @@ The next bounded test is not "make a loan." It is to find **one** independently 
 3. the worker has a measurable shortfall in that same spendable asset or an equivalent real liquidity gap; and
 4. customer prepayment, buyer-funded allowance, existing resources, sponsorship or direct funding do not already solve the gap.
 
-If no case qualifies, record **NONE QUALIFIES**, stop the lending-specific sourcing branch, and redirect effort toward the strongest direct route to measurable human benefit. Do not manufacture a financing need.
+If no case qualifies, record **NONE QUALIFIES**, stop the lending-specific sourcing branch, and redirect effort toward the strongest route to measurable human benefit that meets the multiplier rule above. Do not manufacture a financing need.
 
 If a case qualifies, compare all-in cost, timing and risk of credit against the alternatives before requesting any loan. Public-chain execution, real-value deployment or spending still requires its existing separate authorization.
 
@@ -78,6 +88,6 @@ A `NO_LOAN` result is valid evidence. Do not create activity to preserve the len
 
 ## Working rules
 
-Use one substantial deliverable per lane. Protect accepted outside commitments before speculative work. Reuse exact-revision evidence instead of rerunning unchanged experiments. Every new action needs a beneficiary or decision, owner, artifact, acceptance evidence, checkpoint, resource bound and falsifier.
+Use one substantial deliverable per lane. Protect accepted outside commitments before speculative work. Reuse exact-revision evidence instead of rerunning unchanged experiments. Every new action needs a beneficiary or decision, owner, artifact, acceptance evidence, checkpoint, resource bound and falsifier. An action that asks for sponsor money also states its multiplier over checkable records and what is otherwise available.
 
 For current operational details, read [the team operating guide](README.md), [the world model](../world-model/model.json), [board #15](https://github.com/scottonchain/microcredit-agent-testbed/issues/15) and [strategy issue #17](https://github.com/scottonchain/microcredit-agent-testbed/issues/17).
