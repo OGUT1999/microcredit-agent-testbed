@@ -28,6 +28,14 @@ cover only that repo's code, build, and publication requirements.
    maintainer integration; Codex reviews Claude's work. A request, a green test,
    and a recipient's acceptance are different states.
 
+**GitHub failover (operator standing rule, [board 15 comment 6111721411](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6111721411)).**
+If Codex is blocked from completing an authorized GitHub operation (a repository edit, commit, merge, PR
+maintenance, issue or comment update, publication update), it does not stop at the blocker: it hands the exact
+operation to Claude Code, which completes it through its noreply-safe Git path and returns a verifiable receipt
+(commit SHA, PR, comment or issue URL). Codex verifies the result and integrates the receipt. A GitHub access or
+tooling blocker is a routing problem, not a terminal project state. The rule moves the work, not the authority:
+the operation must already be authorized, and review, privacy and merge rules still apply to it.
+
 ## North star and resource focus
 
 The fixed objective is alignment with human well-being, including measurable
