@@ -1,6 +1,6 @@
-# Team operating guide
+# Team operating guide\n\nFor the concise cross-repo direction, read [NORTH_STAR.md](NORTH_STAR.md) first. This guide contains operating detail; NORTH_STAR.md contains the current mission test, repository boundaries and next-step sequence.
 
-This is the shared entrypoint for maintaining the five microcredit repositories.
+This is the shared entrypoint for maintaining the four microcredit repositories.
 Keep common operating rules here and link to them from each repo. Local instructions
 cover only that repo's code, build, and publication requirements.
 
