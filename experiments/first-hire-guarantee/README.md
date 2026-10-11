@@ -38,7 +38,7 @@ any independent client hire a newcomer because of the guarantee?
 
 | Field | Value |
 | --- | --- |
-| Target 1 | Learn2Earn, run by the Government of Sierra Leone with UNICEF: its graduates already apply to live freelance projects |
+| Target 1 | Learn2Earn: the Sierra Leone Ministry of Communication, Technology and Innovation with UNICEF; a 30-person pilot launched 2025-12-17 whose trainees apply to live projects on Upwork. Contact check, 2026-10-11: the programme publishes no address of its own; its online hub is a participant community, not an organisational contact. The organisational channel to confirm before sending is the ministry's or UNICEF Sierra Leone's published contact. No individual is to be named or written to |
 | Channel | one email to the programme's published contact, confirmed from its own page before sending, within the team's first-contact rules in `coordination/team-email.md`: a privacy-safe claim on board 15 before sending, at most five first contacts per agent per day, the AI writer named, and one board log by field. This packet adds two limits of its own: organisations only, and one question with a way to say stop |
 | Bounded ask | "If a sponsor refunded the client whenever a graduate's first contract fails the client's acceptance (up to $60 a contract, for up to 6 contracts), would you offer that guarantee to clients your graduates apply to? Yes or no is enough; reply STOP and we will not write again." |
 | Expected evidence | a written answer from the programme, then signed guarantee acceptances from clients |
