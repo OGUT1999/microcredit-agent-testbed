@@ -12,7 +12,7 @@ A successful agent transaction is not a human outcome. A repaid loan is not reve
 
 Operator direction, 2026-10-11: **the path forward must be a multiplier on what already exists, not a donation to what already exists. The team must measurably multiply or improve on what is otherwise available.**
 
-- **The bar.** One sponsor dollar must produce more than one dollar of incremental human benefit, counted transparently and audibly against what would otherwise have happened. A route that cannot plausibly clear this bar does not ask for money.
+- **The bar.** One sponsor dollar must produce more than one dollar of incremental human benefit, counted transparently and auditably against what would otherwise have happened. A route that cannot plausibly clear this bar does not ask for money.
 - **The reference to beat.** Direct cash remains a benchmark, not the active route. The team must measure incremental spendable earnings, displacement and harms rather than count every backed wage as sponsor-created benefit.
 - **Two scorecards.** Human benefit and pool sustainability are separate. Replenishment contributions recapitalize the pool; they are not worker benefit.
 
@@ -60,13 +60,15 @@ and actuarial break-even is:
 
 Exact expected-value neutrality is **not** enough for a finite pool. Random loss sequences can exhaust a pool even when expected change is zero. Any credible design therefore needs a safety loading above break-even, exposure caps, a reserve floor, correlated-loss analysis, and empirical calibration. Do not claim that a donated $100 "stays $100 forever" until observed evidence supports a much stronger solvency statement.
 
+**Working exposure rules until `p`, `q` and `c` are measured.** The internal theory draft (microcredit-theory, `revolving-first-hire-guarantee/DRAFT.md`, with a reproducible `ruin.py`) simulates a $100 reserve over 500 jobs. Backing $60 guarantees, it runs out 39% to 51% of the time even with contributions loaded 50% above break-even. With the guarantee capped at a fifth of the reserve, it runs out 0.1% to 3.6% of the time. Five jobs sharing one client's outcome raise ruin from 0.3% to 15% to 20%. So: `G` at most a fifth of the reserve, one open guarantee per client, no new guarantee while the reserve is below `2G`, and a safety loading of about 50% on the contribution. The contribution is a capped share of the paid wage, collected at payment or treated as a pledge that is never pursued; it is never a debt.
+
 ### Human-benefit scorecard
 
 Do not count every client-funded wage as project-created benefit. The auditable human-benefit multiplier must use incremental outcomes:
 
 `M = (incremental spendable newcomer earnings + measured incremental follow-on earnings - displacement - harms) / (guarantee claims + fees + support/admin + capital-lock cost)`
 
-A replenishment contribution affects the reserve scorecard, not the numerator of human benefit. Before asking for money, the route must state how the counterfactual will be measured and why `M > 1` is plausible.
+A replenishment contribution affects the reserve scorecard, not the numerator of human benefit. Before asking for money, the route must state how the counterfactual will be measured and why `M > 1` is plausible. Measure what the guarantee causes by offering it on a seeded random half of eligible jobs or applications. Report sponsor capital consumed (starting reserve minus ending reserve) beside `M`. When contributions keep the reserve level, `M > 1` means the benefit the guarantee causes exceeds what participants and the sponsor pay for it.
 
 ## Immediate measurable work
 
@@ -74,14 +76,15 @@ The next work is to make this candidate falsifiable without pretending it is alr
 
 Measure or bound, in the cheapest credible order:
 
-1. **Take-up:** does a payment guarantee change an independent client's willingness to hire a newcomer?
+0. **Channel:** where do newcomers face real, uncovered client nonpayment? On platforms with funded escrow that risk is largely covered already, and the documented first-job barrier there is the client's decision to hire, so a worker-side payment guarantee is expected to change little. Qualify a channel (direct clients, small local businesses, late-paid invoices, or a programme placing newcomers with its own clients) with public evidence of `p` before any pilot (`action:qualify-revolving-guarantee-channel-20261011`, Codex, zero spend and zero contact).
+1. **Take-up:** does the guarantee change the work newcomers accept, complete and are paid for, and, where clients see it, their willingness to hire a newcomer? Use the randomised offer.
 2. **Client loss risk `p`:** what fraction of qualifying accepted first jobs are not paid by the client?
 3. **Worker remittance `q`:** after normal client payment, what fraction of agreed replenishment contributions arrive?
 4. **Cost `c`:** transaction, dispute, support, administration and payout costs per guarantee.
 5. **Exposure and correlation:** how much of the reserve may be outstanding at once, and can client failures cluster?
 6. **Human outcome:** incremental spendable earnings, follow-on independent work, displacement and harms.
 
-Use a bounded pilot packet before execution. No claim of perpetuity, scale or poverty reduction follows from a model or small feasibility test.
+Use a bounded pilot packet before execution. A $100 pilot can measure take-up, `q`, `c` and behaviour; it cannot estimate `p` precisely or show solvency (a nonpayment rate near 3% needs about 280 jobs to pin down within 2 points). No claim of perpetuity, scale or poverty reduction follows from a model or small feasibility test. Any outreach or reserve needs the operator's own authorization.
 
 Compare this route on every cycle against client prepayment, ordinary payment protection, direct sponsorship, NO_LOAN and any simpler path to the same human outcome. The deployed smart contract is optional infrastructure unless evidence shows on-chain enforcement is needed and better than simpler administration.
 

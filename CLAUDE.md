@@ -8,10 +8,12 @@ strategy or backlog here.
 
 For every substantive deliverable, state the measurable human outcome or decision,
 the evidence sought, the competing simpler route, and the stop/change condition.
-Credit is provisional. The current lending-specific test is the exact qualification
-predicate in NORTH_STAR.md; **NONE QUALIFIES is a successful measurement**, not a
-reason to broaden outreach until a loan case appears. Broad 501(c)(3) discovery for
-direct project support is exhausted absent a new specific lead.
+Credit is provisional; the lending qualification found **NONE QUALIFIES**, a
+successful measurement, not a reason to broaden outreach. The active candidate path
+is the revolving first-job payment guarantee in NORTH_STAR.md, with its two
+scorecards (reserve survival and human benefit per sponsor dollar), exposure rules
+and gates; consider it in every substantive deliverable. Broad 501(c)(3) discovery
+for direct project support is exhausted absent a new specific lead.
 
 Run `python tools/check.py` before submitting changes. It covers maintained
 code and schema checks without importing live experiments or rewriting evidence.
