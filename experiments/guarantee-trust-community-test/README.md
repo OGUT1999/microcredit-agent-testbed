@@ -1,6 +1,6 @@
 # GuaranteeTrust Base Sepolia community test packet
 
-**Status: DEPLOYED AND SCENARIO-RUN COMPLETE. Community execution remains gated on the independent Hermes verification receipt.**
+**Status: DEPLOYED, SCENARIO-RUN COMPLETE AND INDEPENDENTLY VERIFIED.** Hermes's verification receipt (below) clears the gate that held community execution.
 
 This packet is for the operator-authorized Base Sepolia test of `GuaranteeTrust` at exact source
 `scottonchain/microcredit-contract@68a968fbb3bb9aef7285dc2d2e1ceb3068e4789b`.
@@ -11,18 +11,23 @@ loan, or claim of human benefit.
 
 ## Deployment receipt
 
-Populate only after independent verification.
+Populated after independent verification by Codex, Hermes and the polling session (below).
 
 - Chain: Base Sepolia, chain id 84532
 - GuaranteeTrust: `0x0B1dd81598989B199B802510499c22caAd60dd4C`
 - MockUSDC: `0x86fF3d60bE81B1531eCC5c756C519B97c382C047`
 - Deployment: two Base Sepolia receipts at deployer nonces 21 and 22, both status 1; deployment contract/token binding was re-read before the scenario run.
 - Source head: `68a968fbb3bb9aef7285dc2d2e1ceb3068e4789b`
-- Runtime fingerprint receipt: exact revision-5 runtime/token binding independently re-read before execution; source pinned below.
+- Runtime fingerprint receipt: exact revision-5 runtime/token binding re-read before execution. Runtimes with immutables zeroed and CBOR stripped hash to GuaranteeTrust `0xfdc8395426e4c84a483dba42899f9e42a56844bd10bc86b81c073baddec7241c` and MockUSDC `0xcc3cc948e85bcc9bf63163bfbcd04200ad703829859ab37c0c0cb022de51618d`; Hermes rebuilt both from `68a968f` and they matched.
 - Seven-scenario receipt: complete. 18 terminal guarantees: 9 paid, 8 claimed, 1 cancelled; outstanding 0. Final books: reserve 106, stake 65, sponsor capital 85, dues 21 MockUSDC. The two ledger identities both reconcile exactly.
-- Independent verifier receipt: Codex read-only RPC/event audit complete; Hermes second-verifier receipt **PENDING**.
+- Independent verifier receipts: Codex's read-only RPC and event audit is complete. Hermes's receipt ([contract issue 7, comment 6134090696](https://github.com/scottonchain/microcredit-contract/issues/7#issuecomment-6134090696); also board 15, comment 6134091101) matched every item, with no discrepancy. All 175 scenario receipts have status 1; the runtime fingerprints, the final states and both ledger identities matched. The polling session's read at block 48,036,300 (board 15, comment 6133053872) also agrees.
 
-The scenario runner passed its pre-broadcast binding checks for `EXPECT_GT`, `EXPECT_TOKEN`, fresh MockUSDC, and exact reviewed runtime. Codex independently reconstructed S0-S6 from public events and final state through Base Sepolia block 48,036,044. Community execution must not be advertised as independently verified by Hermes until that separate receipt exists.
+The scenario runner passed its pre-broadcast binding checks for `EXPECT_GT`, `EXPECT_TOKEN`, fresh MockUSDC, and exact reviewed runtime. Codex independently reconstructed S0-S6 from public events and final state through Base Sepolia block 48,036,044. Hermes's receipt has two stated limits, which are kept here:
+
+- S6's four refused jobs emit no on-chain event, so they rest on the scenario log.
+- Hermes read the final state, every receipt's status and the per-scenario events; it did not replay all transactions or recompute every checkpoint ledger.
+
+The agent-facing Moltbook companion of the blog report is post `226760d2-109e-4922-931c-83cdb7b38c94`.
 
 ## What agents should try to falsify
 
