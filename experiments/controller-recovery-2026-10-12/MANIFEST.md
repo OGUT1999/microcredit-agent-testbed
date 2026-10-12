@@ -1,0 +1,47 @@
+# Controller Recovery Manifest — 2026-10-12
+
+Purpose: lossless recovery of north-star controller artifacts created locally while GitHub publication was unavailable or blocked. This bundle is archival evidence, not a claim that every intermediate hypothesis remains current. Current canonical strategy/world-model state supersedes stale planning statements inside older artifacts.
+
+Files preserved: **39**.
+
+| Path | Bytes | SHA-256 | Canonicalization note |
+|---|---:|---|---|
+| `originals/NORTH_STAR_multiplier_incrementality_correction_2026_10_11.patch` | 2520 | `7ea2a0735ae46d3311295337be3fd1cc1e86103372e0ae48bfe6a08d1c5e201b` | local-only guarantee/claim-safety audit artifact; related conclusions may appear in coordination/model but exact artifact was not previously stored |
+| `originals/first_hire_incremental_multiplier_2026_10_11.json` | 33262 | `ecf8aa47e75febb704ee1bf8b93fa484196420b3d460c3851ce8947d053bef9f` | local-only guarantee/claim-safety audit artifact; related conclusions may appear in coordination/model but exact artifact was not previously stored |
+| `originals/first_hire_incremental_multiplier_2026_10_11.py` | 6630 | `1aa4a1f07c01c05bd7bfcd917312c321f68aa2190379054bff089fd66400d07c` | local-only guarantee/claim-safety audit artifact; related conclusions may appear in coordination/model but exact artifact was not previously stored |
+| `originals/first_hire_incrementality_audit_2026_10_11.md` | 7250 | `1a8b3a7e389237fffb49b72d543e729ddda94e3aa1f2ecd79802ae1fd326c582` | local-only guarantee/claim-safety audit artifact; related conclusions may appear in coordination/model but exact artifact was not previously stored |
+| `originals/guarantee_channel_identifiability_2026_10_11.zip` | 7360 | `c88eefa4126265494a6172b0112b430c9cc02e6fd287af36b67368d71cb1f00a` | subsequent channel closure represented in model 0.1.100; raw local analysis was not previously stored |
+| `originals/guarantee_gate_adversarial_2026_10_11.py` | 4594 | `9a955ef86bccfcc4a423f0fe128e84580ce5ec69321e653a6c9202bb1be2babf` | local-only guarantee/claim-safety audit artifact; related conclusions may appear in coordination/model but exact artifact was not previously stored |
+| `originals/guarantee_gate_adversarial_output_2026_10_11.txt` | 636 | `890ebd53b9a0c55ef547fe84b5091bb98db082a576ab9f1dfcf6ccc5f525c39d` | local-only guarantee/claim-safety audit artifact; related conclusions may appear in coordination/model but exact artifact was not previously stored |
+| `originals/guarantee_trust_global_floor_review_packet_2026_10_11.md` | 4188 | `1f36117ffcb7011b9af1e036cef96b181fa3fa23fd948a8c938543631b4f795d` | local-only guarantee/claim-safety audit artifact; related conclusions may appear in coordination/model but exact artifact was not previously stored |
+| `originals/independent_bounty_qualification_2026-10-11.patch` | 24788 | `ebcc608432f4defc36c9a80918f6c5f0ca7945a37831571e1f935893acf823be` | canonical evidence represented by merged PR #54 / merge 0d489e0; archived here for lossless recovery |
+| `originals/market_access_preflight_2026-10-11.md` | 4801 | `5b4779206f3aa20ef04d321e7bb2e875a55eaeb6897e5b7f7b4db6de6db80364` | local-only market-access/Upwork qualification evidence; not previously canonicalized |
+| `originals/market_access_risk_screen.py` | 2279 | `30e6e7d7684df099af19acd856995eb76dffabfa3c0acd8f9673753a16cccc0e` | local-only market-access/Upwork qualification evidence; not previously canonicalized |
+| `originals/nline_application_assistance_2026_10_12/index.html` | 18273 | `1e332a777fb9551b2310ef87261fd0927d6e5da6fbd80e78c2613c9276672baa` | audit needed / preserved losslessly |
+| `originals/nline_application_assistance_2026_10_12.zip` | 20198 | `138e7f87dab163bab9c04236ebff5f91bcdf7711dfe0a72c45364ef8b96b2773` | local-only employer-access/tooling evidence; not previously canonicalized |
+| `originals/nline_cash_timing_sensitivity_2026_10_12/index.html` | 20559 | `20cfdc1ec1934132d521f4cc41c2dbe3c95edd54617568ee56c58b553a5546e2` | audit needed / preserved losslessly |
+| `originals/nline_cash_timing_sensitivity_2026_10_12.zip` | 12532 | `e2d3555f174aa12c438bec7ad2e79e589c4fa79b53604e74e4d581429b737577` | local-only employer-access/tooling evidence; not previously canonicalized |
+| `originals/nline_eligibility_source_audit_2026_10_12/index.html` | 21490 | `a2c71c47f8343922eb2b05cfee667a7ecd8ea566cd8542e47f2807454492fa1e` | audit needed / preserved losslessly |
+| `originals/nline_eligibility_source_audit_2026_10_12.zip` | 13510 | `f2b0f5e970251ebe1a39ba2643123f8416731d6a870f45197dadd430f5835b88` | local-only employer-access/tooling evidence; not previously canonicalized |
+| `originals/nline_first_job_economics_2026_10_12.html` | 10090 | `ad737410ba14a87e7179715fe87706facd33f49eec6af41b0b6e42eac8956720` | local-only employer-access/tooling evidence; not previously canonicalized |
+| `originals/nline_first_job_economics_gate_2026_10_12.zip` | 17300 | `da7bfa8a06a51f4ea6aa84b7caebd4e542bd7ba7cc93eb67990a457971d7b4f9` | local-only employer-access/tooling evidence; not previously canonicalized |
+| `originals/nline_first_job_packet/index.html` | 5888 | `f27e195b84d4948d3b2f84c852686d3dffd08a131e8b1e2ba30030a749958eeb` | audit needed / preserved losslessly |
+| `originals/nline_first_job_packet_2026_10_12.zip` | 15679 | `1c5584e06ed39207e7c434dcf92d93b6df85bb9015e0545d4d56d68218eeba23` | local-only employer-access/tooling evidence; not previously canonicalized |
+| `originals/nline_liquidity_gate/index.html` | 14569 | `c414efe0cf8d373cfeb90c76759ec0612c727b71374039af6cfec3d41eb176f5` | audit needed / preserved losslessly |
+| `originals/nline_liquidity_gate_2026_10_12.zip` | 11413 | `f8746fd79fac1ebd5296d05bfed76f7e42630af45db82da77669dcf90e482488` | local-only employer-access/tooling evidence; not previously canonicalized |
+| `originals/north_star_20261012/official_link_guard/index.html` | 4749 | `acf91e962caa1c2b1dadb6b579187b7198839d8cf103ef7e243676fa92d783ff` | audit needed / preserved losslessly |
+| `originals/north_star_20261012_execution_packet.zip` | 9211 | `0e529b05f42f694f0a228edf3cff3b835d30c68b119dc702afcd0f31b7532499` | local-only employer-access/tooling evidence; not previously canonicalized |
+| `originals/north_star_channel_replication_2026_10_11.zip` | 9946 | `99341b26d22bb6191750d172ccb0e360c5069b6ef57ac6ef0c3eca31a7c87ab9` | initial Sierra Leone payout screen represented in model 0.1.101; raw local analysis was not previously stored |
+| `originals/north_star_dispute_and_channel_2026_10_11.zip` | 6256 | `0ca341b9cc18d589ec048950c5c8c9c255659b147a07c7d8aac637e2702eabca` | local-only guarantee/claim-safety audit artifact; related conclusions may appear in coordination/model but exact artifact was not previously stored |
+| `originals/north_star_payout_gate_2026_10_12.zip` | 7725 | `bcd34e6088786be3b5e0f9fc79bf7fe3649f99ef8c34243eb56cde0c4599a2dd` | Rwazi/SagaPoll research; Rwazi disposition represented in model 0.1.103; raw local package not previously stored |
+| `originals/north_star_source_gate_20261012.zip` | 5388 | `69270607dd291d1fd8d50d4cc15d6a3785dda44ee63874416dbec0e5cc000072` | local-only employer-access/tooling evidence; not previously canonicalized |
+| `originals/north_star_worker_claim_safety_correction_20261012.zip` | 13495 | `39fb4fc293614f38edbfd81e2396d6d22a0d06c3337339d3c27ca8a90c0c817d` | local-only guarantee/claim-safety audit artifact; related conclusions may appear in coordination/model but exact artifact was not previously stored |
+| `originals/northstar_bounty_evidence_2026_10_11.md` | 8116 | `8e9959edd85c01fb58baa8e64c37ca679fb2573cf192548dd0940eec868e2a4d` | canonical evidence represented by merged PR #54 / merge 0d489e0; archived here for lossless recovery |
+| `originals/northstar_bounty_gate_2026_10_11.py` | 6691 | `d0c879cb9c67251493383d80d234d391243ec2f65738467ddff29c33210b68b5` | canonical evidence represented by merged PR #54 / merge 0d489e0; archived here for lossless recovery |
+| `originals/northstar_external_bounty_candidates_2026-10-11.json` | 8959 | `7392caf7395d6f599f1d4dacbb28b6191eee5d37b41bbd08d96c9a3d409846b8` | audit needed / preserved losslessly |
+| `originals/revolving_guarantee_channel_audit_2026_10_11.md` | 12454 | `580288db5f25e3734eec0b44aefe5f743a222d0e4cd2b574d884b1aaf58fde29` | subsequent channel closure represented in model 0.1.100; raw local analysis was not previously stored |
+| `originals/sl_buyer_opportunity_gate_2026_10_12.zip` | 7851 | `3b6055bd1915f50847b0da9e70d5d86c08da34eeabb46f625a4dbb6a5a4eb025` | local-only employer-access/tooling evidence; not previously canonicalized |
+| `originals/sl_payout_original_source_extension_2026_10_11.zip` | 9288 | `831a85d04d8117cabb9438a8f93e26d25988cb7ccb03502d670a516b8ce4d66a` | initial Sierra Leone payout screen represented in model 0.1.101; raw local analysis was not previously stored |
+| `originals/stage_a_upwork_primary_gate_20261012.zip` | 6606 | `4d79c8dfbdc90002121301dd787f19794a4d6c286ee89b28821f88864791de87` | local-only market-access/Upwork qualification evidence; not previously canonicalized |
+| `originals/superteam_award_semantics_and_direct_placement_2026_10_12.zip` | 7902 | `f6e061317e3050b7268fff714c0832a1e28028e3107b5bc0179e9b924d7ea713` | local-only evidence path; not canonicalized as source artifact |
+| `originals/superteam_sierra_leone_evidence_2026_10_12.zip` | 6128 | `8dab3e1bcb7534eced16d051d731be377a66402edf32525108ce964d8b8c28bf` | local-only evidence path; not canonicalized as source artifact |
