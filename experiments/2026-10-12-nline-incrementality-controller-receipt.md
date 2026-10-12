@@ -21,3 +21,15 @@ WATCHING: Employer vacancy deadline advertised as 2026-10-23 (verify anew), disb
 ## GitHub completeness blocker
 
 This entry deliberately makes the last locally produced experiment **discoverable from GitHub**, but full source and tests must still be transferred from the ZIP and verified byte-for-byte. Do not mark the source integration done until the actual code and tests exist under a reviewed commit. The standing operator instruction now requires all subsequent run artifacts to be published into GitHub before their run is considered complete.
+
+## Update: original-source terms (model 0.1.104)
+
+Codex read the employer listing on 2026-10-12 at 15:34 UTC and again at about 16:37 UTC. The [access and cost card](nline-access-and-cost-card-2026-10-12.md) records the result and supersedes this receipt's open checks on the listing's terms. Recorded there:
+
+- the listing is live until 2026-10-23;
+- a qualifying Android phone and residence in one of ten towns are required;
+- training pays 450 NLe per attended day, with meals and lodging when needed;
+- the bus fare is reimbursed only on the last training day;
+- fieldwork, which training does not guarantee, pays 1,000 NLe plus allowances for 3 to 5 days, with payment timing unstated.
+
+The only plausible financing need is an outbound-fare timing gap, and its necessity and size remain UNKNOWN. Classify it only after a consented eligible applicant's unavoidable upfront shortfall is measured and compared with employer prepayment or direct assistance. The gate source and tests are on main at `21276f2` (`nline-incrementality-2026-10-12/`); a byte-for-byte transfer of the local archive is still not claimed. Model entries: `claim:nline-field-surveyor-access-20261012`, `ev:codex-nline-access-card-20261012`. Verified project-attributable earnings remain $0; no contact, spending or application.
