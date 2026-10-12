@@ -1,4 +1,4 @@
-name: Check Sepolia ETH gas
+name: Verify GuaranteeTrust live state
 
 on:
   push:
@@ -9,14 +9,42 @@ permissions:
   contents: read
 
 jobs:
-  check-gas:
+  verify:
     runs-on: ubuntu-latest
     steps:
-      - name: Read Ethereum Sepolia ETH balance
+      - name: Read Base Sepolia GuaranteeTrust state
         shell: bash
         run: |
           set -euo pipefail
-          curl -sS https://ethereum-sepolia-rpc.publicnode.com -H 'content-type: application/json' --data '{"jsonrpc":"2.0","id":1,"method":"eth_getBalance","params":["0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1","latest"]}' > /tmp/eth.json
-          node -e "const r=require('/tmp/eth.json'); console.log('SEPOLIA_ETH_WEI='+BigInt(r.result).toString()); console.log('SEPOLIA_ETH='+Number(BigInt(r.result))/1e18)"
-
-# refresh balance check
+          RPC=https://sepolia.base.org
+          GT=0x0B1dd81598989B199B802510499c22caAd60dd4C
+          TOKEN=0x86fF3d60bE81B1531eCC5c756C519B97c382C047
+          call() {
+            local to="$1" data="$2"
+            curl -sS "$RPC" -H 'content-type: application/json' --data "{"jsonrpc":"2.0","id":1,"method":"eth_call","params":[{"to":"$to","data":"$data"},"latest"]}" | python3 -c 'import json,sys; print(json.load(sys.stdin)["result"])'
+          }
+          num() { python3 -c 'import sys; print(int(sys.stdin.read().strip(),16))'; }
+          reserve=$(call "$GT" 0x278ecde1 | num)
+          outstanding=$(call "$GT" 0x18f0c6c8 | num)
+          totalStake=$(call "$GT" 0x7a3f8a24 | num)
+          totalDues=$(call "$GT" 0x4b8d47e9 | num)
+          sponsorCapital=$(call "$GT" 0x2fe84f70 | num)
+          baldata=0x70a082310000000000000000000000000b1dd81598989b199b802510499c22caad60dd4c
+          tokenBalance=$(call "$TOKEN" "$baldata" | num)
+          echo "reserve=$reserve"
+          echo "outstanding=$outstanding"
+          echo "totalStake=$totalStake"
+          echo "totalDues=$totalDues"
+          echo "sponsorCapital=$sponsorCapital"
+          echo "tokenBalance=$tokenBalance"
+          python3 - <<PY
+r=$reserve
+o=$outstanding
+s=$totalStake
+d=$totalDues
+c=$sponsorCapital
+b=$tokenBalance
+print("identity_token=" + str(b == r+s))
+print("identity_reserve=" + str(r == c+d))
+print("nonzero_state=" + str(any(x != 0 for x in [r,o,s,d,c,b])))
+PY
