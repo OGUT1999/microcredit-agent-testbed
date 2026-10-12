@@ -74,7 +74,7 @@ jobs:
             'event DuesConsumed(uint256 indexed id,address indexed member,uint256 amount)'
           ];
           const iface=new Interface(eventAbi);
-          const logs=await p.getLogs({address:GT,fromBlock:48035000,toBlock:block});
+          const logs=await p.getLogs({address:GT,fromBlock:Math.max(0,block-199),toBlock:block});
           const decoded=[];
           for (const l of logs) {
             try {
