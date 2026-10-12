@@ -16,35 +16,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          RPC=https://sepolia.base.org
-          GT=0x0B1dd81598989B199B802510499c22caAd60dd4C
-          TOKEN=0x86fF3d60bE81B1531eCC5c756C519B97c382C047
-          call() {
-            local to="$1" data="$2"
-            curl -sS "$RPC" -H 'content-type: application/json' --data "{"jsonrpc":"2.0","id":1,"method":"eth_call","params":[{"to":"$to","data":"$data"},"latest"]}" | python3 -c 'import json,sys; print(json.load(sys.stdin)["result"])'
-          }
-          num() { python3 -c 'import sys; print(int(sys.stdin.read().strip(),16))'; }
-          reserve=$(call "$GT" 0x278ecde1 | num)
-          outstanding=$(call "$GT" 0x18f0c6c8 | num)
-          totalStake=$(call "$GT" 0x7a3f8a24 | num)
-          totalDues=$(call "$GT" 0x4b8d47e9 | num)
-          sponsorCapital=$(call "$GT" 0x2fe84f70 | num)
-          baldata=0x70a082310000000000000000000000000b1dd81598989b199b802510499c22caad60dd4c
-          tokenBalance=$(call "$TOKEN" "$baldata" | num)
-          echo "reserve=$reserve"
-          echo "outstanding=$outstanding"
-          echo "totalStake=$totalStake"
-          echo "totalDues=$totalDues"
-          echo "sponsorCapital=$sponsorCapital"
-          echo "tokenBalance=$tokenBalance"
-          python3 - <<PY
-r=$reserve
-o=$outstanding
-s=$totalStake
-d=$totalDues
-c=$sponsorCapital
-b=$tokenBalance
-print("identity_token=" + str(b == r+s))
-print("identity_reserve=" + str(r == c+d))
-print("nonzero_state=" + str(any(x != 0 for x in [r,o,s,d,c,b])))
-PY
+          mkdir -p /tmp/gt-verify
+          cd /tmp/gt-verify
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund ethers@6 >/dev/null 2>&1
+          node -e "const {JsonRpcProvider,Contract}=require('ethers'); (async()=>{const p=new JsonRpcProvider('https://sepolia.base.org'); const gt=new Contract('0x0B1dd81598989B199B802510499c22caAd60dd4C',['function reserve() view returns(uint256)','function outstanding() view returns(uint256)','function totalStake() view returns(uint256)','function totalDues() view returns(uint256)','function sponsorCapital() view returns(uint256)','function token() view returns(address)'],p); const token=new Contract('0x86fF3d60bE81B1531eCC5c756C519B97c382C047',['function balanceOf(address) view returns(uint256)','function totalSupply() view returns(uint256)'],p); const [r,o,s,d,c,t,b,supply,block]=await Promise.all([gt.reserve(),gt.outstanding(),gt.totalStake(),gt.totalDues(),gt.sponsorCapital(),gt.token(),token.balanceOf(await gt.getAddress()),token.totalSupply(),p.getBlockNumber()]); console.log('block='+block); console.log('token='+t); console.log('reserve='+r); console.log('outstanding='+o); console.log('totalStake='+s); console.log('totalDues='+d); console.log('sponsorCapital='+c); console.log('tokenBalance='+b); console.log('tokenSupply='+supply); console.log('identity_token='+(b===r+s)); console.log('identity_reserve='+(r===c+d)); console.log('nonzero_state='+([r,o,s,d,c,b,supply].some(x=>x!==0n)));})().catch(e=>{console.error(e.message);process.exit(1)})"
