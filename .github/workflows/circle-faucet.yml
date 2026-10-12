@@ -1,4 +1,4 @@
-name: Check Base Sepolia USDC balance
+name: Check Ethereum Sepolia USDC balance
 
 on:
   push:
@@ -12,9 +12,9 @@ jobs:
   check-balance:
     runs-on: ubuntu-latest
     steps:
-      - name: Read USDC balance
+      - name: Read Ethereum Sepolia USDC balance
         shell: bash
         run: |
           set -euo pipefail
-          curl -sS https://sepolia.base.org -H 'content-type: application/json' --data '{"jsonrpc":"2.0","id":1,"method":"eth_call","params":[{"to":"0x036CbD53842c5426634e7929541eC2318f3dCF7e","data":"0x70a0823100000000000000000000000038e9845a1df22c59bfc693bf2ceaa3361158d6d1"},"latest"]}' > /tmp/balance.json
+          curl -sS https://ethereum-sepolia-rpc.publicnode.com -H 'content-type: application/json' --data '{"jsonrpc":"2.0","id":1,"method":"eth_call","params":[{"to":"0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238","data":"0x70a0823100000000000000000000000038e9845a1df22c59bfc693bf2ceaa3361158d6d1"},"latest"]}' > /tmp/balance.json
           node -e "const r=require('/tmp/balance.json'); const n=BigInt(r.result); console.log('USDC_BALANCE='+Number(n)/1e6)"
