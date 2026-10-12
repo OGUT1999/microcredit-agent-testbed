@@ -1,0 +1,23 @@
+# Free nLine field-surveyor application and travel check
+
+**Independent information, not an nLine application or a hiring guarantee.** Checked against [nLine's own public vacancy](https://nline-inc.breezy.hr/p/f933afb58414-field-surveyor) on 12 October 2026. No one in this project should collect your CV, identity documents, personal phone number, application answers or fees. Apply **only through the employer's official listing**. The current listed deadline is **Friday 23 October 2026**, with no closing time stated. Recheck the posting before using this page.
+
+## Before considering the application
+
+The employer restricts this position to people who are **both from and currently live in** one of these towns: Bo, Makeni, Magburaka, Koidu City, Bumbuna Town, Port Loko, Moyamba, Lungi, Moriba Town and Lunsar. You must speak English, Krio and the local language. You need an Android phone that supports SurveyCTO, internet hotspot and GPS; the employer says it will **not provide a phone**. It asks for a CV and a cover letter. Prior survey or engineering experience is preferred in some cases, not required in the posted criteria. Only state qualifications and experience you actually have.
+
+Attendance at **all five training days** is required to be considered for fieldwork. The employer advertises possible training weeks beginning 16 November, 30 November or 7 December 2026; dates and location are to be confirmed by nLine. Completing training **does not guarantee selection** or paid fieldwork. The employer describes three to five assigned fieldwork days for selected trainees, with a **1,000 NLe wage per day**. Separate 400 NLe field expense and 100 NLe phone-data daily allowances should not be counted as wages.
+
+## Do not assume transport reimbursement covers your actual route
+
+The employer says the training venue remains undetermined and is likely outside Freetown. Its reimbursement language separately refers to a bus trip between the applicant's home town and **Freetown**. These may not be the same route. Accommodation is promised for trainees who do not live in the training town, and training breakfast and lunch are provided. The listed 450 NLe per training day is described as an expense allowance for local transport and dinner. The listing says the training allowance is paid on the *first day* and the round-trip bus fare on the *last day*, but does **not unambiguously specify how much of the total allowance arrives on day one**.
+
+Before paying for travel, get direct confirmation from the employer about: (1) the exact training town and venue; (2) which home-town-to-venue and return legs qualify for reimbursement, and at what fare cap; (3) how much cash or usable mobile money is received on the first training day; (4) whether the last-day bus reimbursement is available before return travel; (5) who pays any overnight transit, local transport, meals not supplied, and phone data; and (6) field wage payment timing, method, any deductions, and selection conditions. Treat every unanswered item as **unknown**, not free or guaranteed.
+
+## Private preparation; no third-party intermediary
+
+You can privately create a one-page CV showing truthful education, local language proficiency, community or data-collection experience (if any), safe travel availability and Android familiarity. In your cover letter, explain why the work matters to you, state only the eligibility facts you have independently checked, and identify one genuine example of careful recordkeeping or respectful community interaction if available. You can use placeholders while drafting; **do not provide personal information to this project**. Attach the CV and letter directly to the employer's official application, not to a stranger offering a placement.
+
+**No debt or purchase decision:** Do not borrow money, buy a phone or pay a recruiter because you saw this project. Use the employer's direct clarification and any legitimate upfront reimbursement or support first. A financial model with invented transport costs cannot establish your actual cash shortfall or the likelihood of being hired. If the cost, reimbursement, route or wages remain unclear, delaying travel is safer than relying on an assumed payment.
+
+**Research boundary:** This project has not verified an eligible applicant, completed application, job offer or paid earnings resulting from this guide. Measurable impact requires voluntary, consented evidence of whether assistance changed successful application and actual spendable net earnings, excluding opportunity costs and displacement. No public record should contain an applicant's identifying details. We are not affiliated with nLine.
