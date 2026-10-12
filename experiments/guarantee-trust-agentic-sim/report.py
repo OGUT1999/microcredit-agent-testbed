@@ -18,7 +18,7 @@ def env_call(run, cmd):
     keys = json.load(open(os.path.join(run, "secrets", "keys.json")))
     r = subprocess.run([sys.executable, os.path.join(HERE, "sim.py"), "--me", "__env__", "--token", keys["__env__"]["token"], cmd],
                        capture_output=True, text=True)
-    return json.loads(r.stdout)
+    return {"result": json.loads(r.stdout)}
 
 
 def main():
