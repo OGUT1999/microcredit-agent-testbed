@@ -1,6 +1,6 @@
 # GuaranteeTrust Base Sepolia community test packet
 
-**Status: PRE-DEPLOYMENT. Do not execute until the deployment fields below are populated from a verified public-chain receipt.**
+**Status: DEPLOYED AND SCENARIO-RUN COMPLETE. Community execution remains gated on the independent Hermes verification receipt.**
 
 This packet is for the operator-authorized Base Sepolia test of `GuaranteeTrust` at exact source
 `scottonchain/microcredit-contract@68a968fbb3bb9aef7285dc2d2e1ceb3068e4789b`.
@@ -14,16 +14,15 @@ loan, or claim of human benefit.
 Populate only after independent verification.
 
 - Chain: Base Sepolia, chain id 84532
-- GuaranteeTrust: **DEPLOYMENT_PENDING**
-- MockUSDC: **DEPLOYMENT_PENDING**
-- Deploy transaction(s): **DEPLOYMENT_PENDING**
+- GuaranteeTrust: `0x0B1dd81598989B199B802510499c22caAd60dd4C`
+- MockUSDC: `0x86fF3d60bE81B1531eCC5c756C519B97c382C047`
+- Deployment: two Base Sepolia receipts at deployer nonces 21 and 22, both status 1; deployment contract/token binding was re-read before the scenario run.
 - Source head: `68a968fbb3bb9aef7285dc2d2e1ceb3068e4789b`
-- Runtime fingerprint receipt: **DEPLOYMENT_PENDING**
-- Seven-scenario receipt: **DEPLOYMENT_PENDING**
-- Independent verifier receipt: **DEPLOYMENT_PENDING**
+- Runtime fingerprint receipt: exact revision-5 runtime/token binding independently re-read before execution; source pinned below.
+- Seven-scenario receipt: complete. 18 terminal guarantees: 9 paid, 8 claimed, 1 cancelled; outstanding 0. Final books: reserve 106, stake 65, sponsor capital 85, dues 21 MockUSDC. The two ledger identities both reconcile exactly.
+- Independent verifier receipt: Codex read-only RPC/event audit complete; Hermes second-verifier receipt **PENDING**.
 
-The scenario runner must have passed its pre-broadcast binding checks for `EXPECT_GT`, `EXPECT_TOKEN`,
-fresh MockUSDC, and exact reviewed runtime.
+The scenario runner passed its pre-broadcast binding checks for `EXPECT_GT`, `EXPECT_TOKEN`, fresh MockUSDC, and exact reviewed runtime. Codex independently reconstructed S0-S6 from public events and final state through Base Sepolia block 48,036,044. Community execution must not be advertised as independently verified by Hermes until that separate receipt exists.
 
 ## What agents should try to falsify
 
