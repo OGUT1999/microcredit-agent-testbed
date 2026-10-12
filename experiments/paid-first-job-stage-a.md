@@ -64,6 +64,88 @@ Six new entrants, each offered one genuine fixed-price task with a nominal worke
 
 No waitlist, randomization, or causal-effect language in Stage B. No participant loses a promised review because of study assignment.
 
+## Candidate first task — independent claim-source check
+
+**Admissibility disposition: NOT ADMISSIBLE YET.** This is the first task to
+evaluate, because an independent review could determine whether the project
+keeps, corrects, or withdraws claims in a public explanation and its VERIFY
+record. That is a concrete editorial use, but willingness to buy it, the maximum
+reservation value, the gap left by ordinary internal or already-consented
+reciprocal review, and the complete source/test bundle are not yet evidenced.
+Do not describe the task as genuinely purchased work until those fields pass.
+
+Freeze the candidate against these public revisions:
+
+- vision commit `35ac4739012d71b853b7d98b494ea598d9e3472c`;
+- post blob `3a7576453cb7761cda85e84c54c813d4f0d2f85d`;
+- contract/design commit `68a968fbb3bb9aef7285dc2d2e1ceb3068e4789b`;
+- design blob `ead483300eb2227855c6c736be0c8a4b266080b8`.
+
+The ten audit targets are questions for the worker, not accepted facts:
+
+| ID | Claim to assess | Starting locator |
+| --- | --- | --- |
+| C01 | Graph-only costless vouching cannot distinguish a fake ring from genuine community. | Design sections 2 and 7; cited original research. |
+| C02 | Stake backs others, not the staker's own guarantee. | Design sections 4-5; capacity/backing code. |
+| C03 | Paid contributions add capacity exactly 1:1. | Design sections 4-6; contribution and dues code. |
+| C04 | A programme line is budgeted and cannot be attested onward. | Design sections 4-5; issuer-budget invariants. |
+| C05 | Received backing is nontransitive, and paid-job counts add no capacity. | Design sections 4 and 6; negative controls. |
+| C06 | The default loss order and any worker-dues exposure are adequately disclosed. | Design section 5, including pledged dues; claim accounting. |
+| C07 | Worker acceptance, fixed backer shares, and bounded expiry address the reported attacks. | Design section 12 revision-2 regressions; remaining dispute gap. |
+| C08 | Client groups constrain known aliases but miss a fresh identity in another group. | Design section 12 revision 4; alias negative control. |
+| C09 | Sponsor share-loss and exit fixes prevent the stated cross-funder and dues subsidies. | Design section 12 revisions 3-5; capital/release invariants. |
+| C10 | The 29-test/revision-2 and local-ring claims, later fixes, and future-deployment wording have exact revision/time scope. | Pinned VERIFY/test receipts and the actual revision-5 deployment receipt. |
+
+**Worker-facing brief (freeze before posting):**
+
+- Review the ten numbered factual claims supplied from the current public post
+  `microcredit-vision/posts/2026-10-11-who-can-vouch-for-a-newcomer.md` at one
+  pinned commit. Use only the supplied pinned contract, test, design-note and
+  review sources; do not inspect private correspondence or personal data.
+- Return one table row per claim with: `claim_id`, exact source URL and
+  commit/section/test locator, `SUPPORTED | OVERSTATED | UNSUPPORTED |
+  UNDETERMINED`, a two-sentence reason, and the smallest corrective wording
+  when the result is not `SUPPORTED`. `UNDETERMINED` is appropriate when the
+  supplied evidence cannot resolve the claim; document the exact bound.
+- Run the supplied read-only local verification commands and report the exact
+  command, exit status and output digest. Before posting, the buyer must pin a
+  complete source bundle and preflight every command in the supplied
+  environment. A worker reports `BLOCKED` with the exact error when that package
+  fails; the buyer must not substitute commands after submission. Do not deploy,
+  sign, spend funds, use credentials or contact anyone.
+- Deliver Markdown plus the command transcript within 48 hours. One bounded
+  revision round may correct missing fields or locator mistakes; it may not
+  change the frozen claims or acceptance rules.
+
+**Blinded acceptance rubric:** the reviewer receives the deliverable under a
+random participant code and scores only the following predeclared fields:
+
+1. all ten claim IDs appear exactly once;
+2. every row gives a resolvable pinned source and precise locator;
+3. every verdict follows from that source without strengthening its scope;
+4. every non-supported verdict supplies a minimal usable correction;
+5. the transcript contains every required command, exit status and digest;
+6. there are no invented runs, sources, private data or unauthorized actions.
+
+Accept when all six gates pass. An adverse or `UNDETERMINED` conclusion can
+pass. Revise once for one specific curable field, evidence, locator, command, or
+verdict error, including an honest correction from `SUPPORTED`; distinguish
+mistake or good-faith disagreement from fabricated evidence. Reject for
+fabricated evidence, a substantive integrity failure that remains after the
+frozen revision opportunity, private-data exposure, or any unauthorized action.
+An environmental `BLOCKED` result is scored separately and is not converted
+into worker failure. The buyer names the dispute resolver and payment rule before
+hiring. The reviewer records the failed gate and exact row; style and agreement
+with the project's preferred conclusion are not acceptance criteria.
+
+**Pre-price record:** worker gross candidate `$60`; deadline 48 hours; maximum
+one revision; reviewer target 45 minutes. The buyer's maximum reservation value,
+incremental value over internal/reciprocal review, fair value, live
+client/platform fee, worker service fee, payout eligibility and timing, source
+bundle/test feasibility, dispute resolver, payment rule and maximum support cost
+remain `UNKNOWN`. Therefore this candidate is `NOT ADMISSIBLE YET`, is not
+approval-ready and creates no authority to post, recruit, contact or spend.
+
 ## Acceptance rubric
 
 The exact rubric must be frozen before recruitment and must be checkable without knowing participant identity beyond what Upwork legitimately displays to the client.
