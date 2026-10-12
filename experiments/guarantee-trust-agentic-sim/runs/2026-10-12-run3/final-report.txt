@@ -1,0 +1,73 @@
+commands: {'message': 2315, 'job': 729, 'status': 613, 'journal': 600, 'members': 464, 'inbox': 430, 'jobs': 307, 'set-consent': 255, 'guarantee': 180, 'attest': 155, 'apply': 148, 'payments': 61, 'guarantees': 60, 'open': 60, 'hire': 53, 'remit': 51, 'post-job': 49, 'submit': 49, 'decline': 48, 'sign-acceptance': 47, 'review': 46, 'pay': 41, 'withdraw-backing': 38, 'stake': 37, 'mark-paid': 37, 'set-line': 32, 'fund-reserve': 15, 'pending': 10, 'unstake': 4, 'transfer': 2, 'close-job': 2, 'claim': 2, 'reject-acceptance': 1}
+active agents: 100 ; commands per agent: min 48 max 302
+refusals:
+   55 attest: refused by the contract: NoConsent(): the member has not consented to you as an attester (
+   25 remit: refused by the contract: NothingDue(): nothing is due on this guarantee
+   22 message: no such member (use a name from `members`, or all)
+   12 open: refused by the contract: InsufficientCapacity(): the worker does not have enough guarantee
+   11 withdraw-backing: refused by the contract: BackingLocked(): that backing is locked in an open guarantee
+    8 attest: refused by the contract: TooManyAttestees(): you already back 5 members
+    5 hire: job is not open
+    4 apply: job is not open
+    4 set-consent: no such member
+    3 payments: only adjudicator can do this (you are a worker)
+    3 payments: only adjudicator can do this (you are a client)
+    2 set-line: refused by the contract: BudgetExceeded(): the issuer budget is exhausted
+    2 open: refused by the contract: ContributionOutstanding(): the worker still owes a contribution o
+    2 close-job: only an open (unhired) job can be closed
+    1 attest: refused by the contract: AttestCap(): backing for one member is capped at 20
+    1 attest: no such member
+    1 guarantee: no guarantee 43
+    1 guarantee: no guarantee 44
+    1 pending: only adjudicator can do this (you are a backer)
+    1 submit: job is accepted
+jobs by status: {'settled_paid': 37, 'rejected': 2, 'accepted': 3, 'submitted': 3, 'settled_claimed': 2, 'hired': 1, 'open': 1}
+day 6 reserve 466.6 outstanding 104.0 stake 637.0 dues 59.1 sponsorCapital 407.5 issuer held/spent 75.0 25.0 supply 4240.0
+identities: True True
+guarantees (this experiment): 46 {'Paid': 37, 'Claimed': 2, 'Open': 7}
+  #18 Paid      worker=Daniel Osei          client=Reuben Stark         G=26.00 backing=26.00 line=0.00 dues=0.00 wage=30.00 due=1.50 remitted=True lapsed=False job=38
+  #19 Paid      worker=Omar Siddiqui        client=Beatrix Hale         G=25.00 backing=25.00 line=0.00 dues=0.00 wage=60.00 due=3.00 remitted=True lapsed=False job=11
+  #20 Paid      worker=Elena Popescu        client=Rosa Delgado         G=20.00 backing=8.00 line=12.00 dues=0.00 wage=40.00 due=2.00 remitted=True lapsed=False job=1
+  #21 Claimed   worker=Luca Vescovi         client=Gianna Vescovi       G=20.00 backing=20.00 line=0.00 dues=0.00 wage=0.00 due=0.00 remitted=False lapsed=False job=19
+  #22 Paid      worker=Mei Takahashi        client=Petra Novak          G=15.00 backing=15.00 line=0.00 dues=0.00 wage=35.00 due=1.75 remitted=True lapsed=False job=3
+  #23 Paid      worker=Grace Abara          client=Edith Kowalski       G=15.00 backing=15.00 line=0.00 dues=0.00 wage=15.00 due=0.75 remitted=True lapsed=False job=30
+  #24 Paid      worker=Carlos Mendes        client=Hamid Rezaei         G=15.00 backing=10.00 line=5.00 dues=0.00 wage=30.00 due=1.50 remitted=True lapsed=False job=34
+  #25 Paid      worker=Hana Kobayashi       client=Delphine Rousseau    G=15.00 backing=10.00 line=5.00 dues=0.00 wage=20.00 due=1.00 remitted=True lapsed=False job=40
+  #26 Paid      worker=Yara Haddad          client=Nour Haddad          G=15.00 backing=15.00 line=0.00 dues=0.00 wage=30.00 due=1.50 remitted=True lapsed=False job=16
+  #27 Paid      worker=Tino Vescovi         client=Pino Moretti         G=12.00 backing=12.00 line=0.00 dues=0.00 wage=12.00 due=0.60 remitted=True lapsed=False job=20
+  #28 Paid      worker=Ruth Mwangi          client=Ingrid Baumann       G=11.00 backing=11.00 line=0.00 dues=0.00 wage=30.00 due=1.50 remitted=True lapsed=False job=22
+  #29 Paid      worker=Bashir Nasser        client=Noor Abbas           G=10.00 backing=5.00 line=5.00 dues=0.00 wage=20.00 due=1.00 remitted=True lapsed=False job=32
+  #30 Paid      worker=Fatima Zahra         client=Lucia Ferrante       G=10.00 backing=8.00 line=2.00 dues=0.00 wage=20.00 due=1.00 remitted=True lapsed=False job=13
+  #31 Paid      worker=Ibrahim Keita        client=Mira Horvath         G=10.00 backing=0.00 line=10.00 dues=0.00 wage=20.00 due=1.00 remitted=True lapsed=False job=36
+  #32 Paid      worker=Amina Yusuf          client=Agnes Whitlock       G=10.00 backing=10.00 line=0.00 dues=0.00 wage=20.00 due=1.00 remitted=True lapsed=False job=12
+  #33 Paid      worker=Leon Fischer         client=Kofi Mensah          G=10.00 backing=5.00 line=5.00 dues=0.00 wage=25.00 due=1.25 remitted=True lapsed=False job=26
+  #34 Claimed   worker=Marco Conti          client=Imogen Flack         G=10.00 backing=0.00 line=10.00 dues=0.00 wage=0.00 due=0.00 remitted=False lapsed=False job=35
+  #35 Paid      worker=Mateo Russo          client=Jonah Feld           G=8.00 backing=8.00 line=0.00 dues=0.00 wage=20.00 due=1.00 remitted=True lapsed=False job=15
+  #36 Paid      worker=Jamal Reed           client=Harold Pike          G=8.00 backing=8.00 line=0.00 dues=0.00 wage=35.00 due=1.75 remitted=True lapsed=False job=9
+  #37 Paid      worker=Pavel Dusek          client=Owen Gallagher       G=8.00 backing=8.00 line=0.00 dues=0.00 wage=30.00 due=1.50 remitted=True lapsed=False job=21
+  #38 Paid      worker=Anika Sharma         client=Mei-Ling Tsai        G=5.00 backing=5.00 line=0.00 dues=0.00 wage=30.00 due=1.50 remitted=False lapsed=False job=10
+  #39 Paid      worker=Priya Nair           client=Silas Thorne         G=5.00 backing=5.00 line=0.00 dues=0.00 wage=40.00 due=2.00 remitted=True lapsed=False job=5
+  #40 Paid      worker=Kenji Watanabe       client=Viktor Ilyin         G=3.00 backing=3.00 line=0.00 dues=0.00 wage=20.00 due=1.00 remitted=True lapsed=False job=25
+  #41 Paid      worker=Jonas Weber          client=Ousmane Diallo       G=10.00 backing=10.00 line=0.00 dues=0.00 wage=20.00 due=1.00 remitted=True lapsed=False job=6
+  #42 Paid      worker=Sofia Petrakis       client=Ravi Menon           G=15.00 backing=15.00 line=0.00 dues=0.00 wage=50.00 due=2.50 remitted=True lapsed=False job=17
+  #43 Paid      worker=Lily Chang           client=Yasmin Idris         G=20.00 backing=20.00 line=0.00 dues=0.00 wage=35.00 due=1.75 remitted=True lapsed=False job=23
+  #44 Paid      worker=Nina Berglund        client=Saoirse Quinn        G=15.00 backing=15.00 line=0.00 dues=0.00 wage=30.00 due=1.50 remitted=False lapsed=False job=39
+  #45 Paid      worker=Chloe Dubois         client=Caleb Sorensen       G=15.00 backing=15.00 line=0.00 dues=0.00 wage=30.00 due=1.50 remitted=False lapsed=False job=24
+  #46 Paid      worker=Tariq Hussain        client=Marcus Bell          G=10.00 backing=10.00 line=0.00 dues=0.00 wage=25.00 due=1.25 remitted=False lapsed=False job=18
+  #47 Paid      worker=Esperanza Ruiz       client=Ana Lucia Torres     G=20.00 backing=20.00 line=0.00 dues=0.00 wage=30.00 due=1.50 remitted=True lapsed=False job=41
+  #48 Paid      worker=Felipe Santos        client=Amara Okafor         G=25.00 backing=25.00 line=0.00 dues=0.00 wage=25.00 due=1.25 remitted=True lapsed=False job=8
+  #49 Paid      worker=Felipe Santos        client=Zoe Lindgren         G=10.00 backing=10.00 line=0.00 dues=0.00 wage=40.00 due=2.00 remitted=False lapsed=False job=28
+  #50 Open      worker=Rosalind Perry       client=Farah Qureshi        G=20.00 backing=20.00 line=0.00 dues=0.00 wage=0.00 due=0.00 remitted=False lapsed=False job=7
+  #51 Paid      worker=Zara Ahmed           client=Henrik Dahl          G=25.00 backing=25.00 line=0.00 dues=0.00 wage=50.00 due=2.50 remitted=True lapsed=False job=31
+  #52 Open      worker=Diego Alvarez        client=Theo Baptiste        G=15.00 backing=15.00 line=0.00 dues=0.00 wage=0.00 due=0.00 remitted=False lapsed=False job=37
+  #53 Open      worker=Max Steiner          client=Dmitri Volkov        G=12.00 backing=12.00 line=0.00 dues=0.00 wage=0.00 due=0.00 remitted=False lapsed=False job=4
+  #54 Paid      worker=Samir Khoury         client=Beatrix Hale         G=6.00 backing=6.00 line=0.00 dues=0.00 wage=20.00 due=1.00 remitted=False lapsed=False job=43
+  #55 Paid      worker=Amina Yusuf          client=Agnes Whitlock       G=10.00 backing=10.00 line=0.00 dues=0.00 wage=20.00 due=1.00 remitted=False lapsed=False job=46
+  #56 Open      worker=Priya Nair           client=Silas Thorne         G=5.00 backing=5.00 line=0.00 dues=0.00 wage=0.00 due=0.00 remitted=False lapsed=False job=42
+  #57 Paid      worker=Noah Kaplan          client=Ravi Menon           G=5.00 backing=5.00 line=0.00 dues=0.00 wage=25.00 due=1.25 remitted=False lapsed=False job=44
+  #58 Paid      worker=Grace Abara          client=Edith Kowalski       G=5.00 backing=5.00 line=0.00 dues=0.00 wage=10.00 due=0.50 remitted=False lapsed=False job=47
+  #59 Paid      worker=Kenji Watanabe       client=Stellan Berg         G=20.00 backing=20.00 line=0.00 dues=0.00 wage=35.00 due=1.75 remitted=False lapsed=False job=33
+  #60 Paid      worker=Jamal Reed           client=Jonah Feld           G=8.00 backing=8.00 line=0.00 dues=0.00 wage=20.00 due=1.00 remitted=False lapsed=False job=14
+  #61 Open      worker=Esperanza Ruiz       client=Ana Lucia Torres     G=5.00 backing=5.00 line=0.00 dues=0.00 wage=0.00 due=0.00 remitted=False lapsed=False job=48
+  #62 Open      worker=Tino Vescovi         client=Pino Moretti         G=27.00 backing=27.00 line=0.00 dues=0.00 wage=0.00 due=0.00 remitted=False lapsed=False job=45
+  #63 Open      worker=Kwesi Owusu          client=Bertrand Lacroix     G=20.00 backing=20.00 line=0.00 dues=0.00 wage=0.00 due=0.00 remitted=False lapsed=False job=27
