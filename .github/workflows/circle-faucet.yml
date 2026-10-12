@@ -27,24 +27,21 @@ jobs:
           fi
 
           payload=$(printf '{"address":"%s","blockchain":"BASE-SEPOLIA","usdc":true}' "$TARGET_ADDRESS")
-          status=$(curl --silent --show-error             --output /tmp/circle-response.json             --write-out "%{http_code}"             --request POST "https://api.circle.com/v1/faucet/drips"             --header "Authorization: Bearer $CIRCLE_API_KEY"             --header "Content-Type: application/json"             --data "$payload")
+          status=$(curl --silent --show-error \
+            --output /dev/null \
+            --write-out "%{http_code}" \
+            --request POST "https://api.circle.com/v1/faucet/drips" \
+            --header "Authorization: Bearer $CIRCLE_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data "$payload")
 
           echo "Circle faucet HTTP status: $status"
-          if [[ "$status" =~ ^2 ]]; then
-            echo "Circle faucet request accepted for Base Sepolia USDC."
-          else
-            echo "Circle faucet request failed."
-            if [ -s /tmp/circle-response.json ]; then
-              python - <<'PY'
-import json
-p="/tmp/circle-response.json"
-try:
-    data=json.load(open(p))
-    safe={k:v for k,v in data.items() if k.lower() not in {"token","api_key","apikey","authorization"}}
-    print(json.dumps(safe, indent=2)[:4000])
-except Exception:
-    print("Circle returned a non-JSON error response.")
-PY
-            fi
-            exit 1
-          fi
+          case "$status" in
+            2??)
+              echo "Circle faucet request accepted for Base Sepolia USDC."
+              ;;
+            *)
+              echo "Circle faucet request failed."
+              exit 1
+              ;;
+          esac
