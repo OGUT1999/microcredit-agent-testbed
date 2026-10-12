@@ -16,15 +16,5 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python - <<'PY'
-import json, urllib.request
-rpc="https://sepolia.base.org"
-token="0x036CbD53842c5426634e7929541eC2318f3dCF7e"
-wallet="38e9845a1df22c59bfc693bf2ceaa3361158d6d1"
-data="0x70a08231"+"0"*24+wallet
-payload=json.dumps({"jsonrpc":"2.0","id":1,"method":"eth_call","params":[{"to":token,"data":data},"latest"]}).encode()
-req=urllib.request.Request(rpc,data=payload,headers={"Content-Type":"application/json"})
-res=json.load(urllib.request.urlopen(req,timeout=20))
-raw=int(res["result"],16)
-print(f"USDC_BALANCE={raw/1_000_000:.6f}")
-PY
+          curl -sS https://sepolia.base.org -H 'content-type: application/json' --data '{"jsonrpc":"2.0","id":1,"method":"eth_call","params":[{"to":"0x036CbD53842c5426634e7929541eC2318f3dCF7e","data":"0x70a0823100000000000000000000000038e9845a1df22c59bfc693bf2ceaa3361158d6d1"},"latest"]}' > /tmp/balance.json
+          node -e "const r=require('/tmp/balance.json'); const n=BigInt(r.result); console.log('USDC_BALANCE='+Number(n)/1e6)"
