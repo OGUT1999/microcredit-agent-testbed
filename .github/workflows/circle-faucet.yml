@@ -2,16 +2,12 @@ name: Circle Base Sepolia faucet
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - ".github/workflows/circle-faucet.yml"
 
 permissions:
   contents: read
 
 jobs:
   request-usdc:
-    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, 'Request Circle faucet')
     runs-on: ubuntu-latest
     steps:
       - name: Request testnet USDC
