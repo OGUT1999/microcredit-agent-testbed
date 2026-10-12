@@ -28,8 +28,4 @@ jobs:
           cd /tmp/wallet-derive
           npm init -y >/dev/null 2>&1
           npm install ethers@6 >/dev/null 2>&1
-          node - <<'NODE'
-const { Wallet } = require('ethers');
-const w = new Wallet(process.env.PRIVATE_KEY);
-console.log('PUBLIC_ADDRESS=' + w.address);
-NODE
+          node -e "const {Wallet}=require('ethers'); console.log('PUBLIC_ADDRESS='+new Wallet(process.env.PRIVATE_KEY).address)"
