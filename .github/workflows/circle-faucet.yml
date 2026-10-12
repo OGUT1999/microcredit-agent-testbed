@@ -16,12 +16,12 @@ jobs:
     steps:
       - name: Derive public address
         env:
-          PRIVATE_KEY: ${{ secrets.CHATGPT_BASE_SEPOLIA_PRIVATE_KEY }}
+          PRIVATE_KEY: ${{ secrets.TEST_WALLET_PRIVATE_KEY }}
         shell: bash
         run: |
           set -euo pipefail
           if [ -z "${PRIVATE_KEY:-}" ]; then
-            echo "CHATGPT_BASE_SEPOLIA_PRIVATE_KEY is not configured"
+            echo "TEST_WALLET_PRIVATE_KEY is not configured"
             exit 1
           fi
           mkdir -p /tmp/wallet-derive
