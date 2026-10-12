@@ -1,33 +1,37 @@
-name: Derive test wallet public address
+name: Circle Base Sepolia faucet
 
 on:
+  push:
+    paths:
+      - ".github/workflows/circle-faucet.yml"
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  derive-address:
+  request-usdc:
     runs-on: ubuntu-latest
     steps:
-      - name: Prepare address derivation tool
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p /tmp/wallet-derive
-          cd /tmp/wallet-derive
-          npm init -y >/dev/null 2>&1
-          npm install --ignore-scripts --no-audit --no-fund ethers@6.15.0 >/dev/null 2>&1
-
-      - name: Derive public address
+      - name: Request Base Sepolia USDC
         env:
-          PRIVATE_KEY: ${{ secrets.TEST_WALLET_PRIVATE_KEY }}
+          CIRCLE_API_KEY: ${{ secrets.CIRCLE_API_KEY }}
+          TARGET_ADDRESS: "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
         shell: bash
         run: |
           set -euo pipefail
-          if [ -z "${PRIVATE_KEY:-}" ]; then
-            echo "TEST_WALLET_PRIVATE_KEY is not configured"
+          if [ -z "${CIRCLE_API_KEY:-}" ]; then
+            echo "CIRCLE_API_KEY is not configured"
             exit 1
           fi
-          cd /tmp/wallet-derive
-          node -e "const {Wallet}=require('ethers'); console.log('PUBLIC_ADDRESS='+new Wallet(process.env.PRIVATE_KEY).address)"
+          payload=$(printf '{"address":"%s","blockchain":"BASE-SEPOLIA","usdc":true}' "$TARGET_ADDRESS")
+          status=$(curl --silent --show-error --output /dev/null --write-out "%{http_code}" \
+            --request POST "https://api.circle.com/v1/faucet/drips" \
+            --header "Authorization: Bearer $CIRCLE_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data "$payload")
+          echo "Circle faucet HTTP status: $status"
+          case "$status" in
+            2??) echo "Circle faucet request accepted." ;;
+            *) echo "Circle faucet request failed."; exit 1 ;;
+          esac
