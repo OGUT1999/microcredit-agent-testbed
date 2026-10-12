@@ -1,4 +1,4 @@
-name: Check Ethereum Sepolia USDC balance
+name: Check Sepolia ETH gas
 
 on:
   push:
@@ -9,12 +9,12 @@ permissions:
   contents: read
 
 jobs:
-  check-balance:
+  check-gas:
     runs-on: ubuntu-latest
     steps:
-      - name: Read Ethereum Sepolia USDC balance
+      - name: Read Ethereum Sepolia ETH balance
         shell: bash
         run: |
           set -euo pipefail
-          curl -sS https://ethereum-sepolia-rpc.publicnode.com -H 'content-type: application/json' --data '{"jsonrpc":"2.0","id":1,"method":"eth_call","params":[{"to":"0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238","data":"0x70a0823100000000000000000000000038e9845a1df22c59bfc693bf2ceaa3361158d6d1"},"latest"]}' > /tmp/balance.json
-          node -e "const r=require('/tmp/balance.json'); const n=BigInt(r.result); console.log('USDC_BALANCE='+Number(n)/1e6)"
+          curl -sS https://ethereum-sepolia-rpc.publicnode.com -H 'content-type: application/json' --data '{"jsonrpc":"2.0","id":1,"method":"eth_getBalance","params":["0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1","latest"]}' > /tmp/eth.json
+          node -e "const r=require('/tmp/eth.json'); console.log('SEPOLIA_ETH_WEI='+BigInt(r.result).toString()); console.log('SEPOLIA_ETH='+Number(BigInt(r.result))/1e18)"
