@@ -1,19 +1,24 @@
-name: Circle Base Sepolia faucet
+name: Derive test wallet public address
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - ".github/workflows/circle-faucet.yml"
 
 permissions:
   contents: read
 
 jobs:
   derive-address:
-    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, 'Derive wallet address')
     runs-on: ubuntu-latest
     steps:
+      - name: Prepare address derivation tool
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/wallet-derive
+          cd /tmp/wallet-derive
+          npm init -y >/dev/null 2>&1
+          npm install --ignore-scripts --no-audit --no-fund ethers@6.15.0 >/dev/null 2>&1
+
       - name: Derive public address
         env:
           PRIVATE_KEY: ${{ secrets.TEST_WALLET_PRIVATE_KEY }}
@@ -24,8 +29,5 @@ jobs:
             echo "TEST_WALLET_PRIVATE_KEY is not configured"
             exit 1
           fi
-          mkdir -p /tmp/wallet-derive
           cd /tmp/wallet-derive
-          npm init -y >/dev/null 2>&1
-          npm install ethers@6 >/dev/null 2>&1
           node -e "const {Wallet}=require('ethers'); console.log('PUBLIC_ADDRESS='+new Wallet(process.env.PRIVATE_KEY).address)"
