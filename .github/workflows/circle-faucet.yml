@@ -18,3 +18,5 @@ jobs:
           set -euo pipefail
           curl -sS https://ethereum-sepolia-rpc.publicnode.com -H 'content-type: application/json' --data '{"jsonrpc":"2.0","id":1,"method":"eth_getBalance","params":["0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1","latest"]}' > /tmp/eth.json
           node -e "const r=require('/tmp/eth.json'); console.log('SEPOLIA_ETH_WEI='+BigInt(r.result).toString()); console.log('SEPOLIA_ETH='+Number(BigInt(r.result))/1e18)"
+
+# refresh balance check
