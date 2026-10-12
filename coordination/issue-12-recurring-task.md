@@ -14,7 +14,7 @@ interactive push or scheduled prompt does not prove a future worker can write,
 serialize work or protect its identity. The previous connector commit path did
 not expose explicit author/committer parameters, leaked a personal email, and did
 not establish atomic conditional ref updates. **Connector-only protected work
-remains read-only.** Do not create a probe commit, change privacy settings or use
+remains read-only unless the operator-authorized connector exception below is satisfied.** Do not create a probe commit, change privacy settings or use
 an unverified expected-SHA argument as a substitute for the protocol below.
 
 Require actual authenticated Git with explicit noreply author and committer plus
@@ -24,6 +24,17 @@ any schedule. On a credential failure, stop protected writes and retain an owned
 lock until its safe release is possible. Finish useful read-only work and provide
 an exact patch/handoff when writing is unavailable; a request to Claude is not a
 publication receipt. Append-only messages must also follow their current rules.
+
+
+## Operator-authorized GitHub connector path — 2026-10-12
+
+The operator confirms that GitHub account email privacy and push-email blocking are enabled and that their configured GitHub email is a privacy address. The operator explicitly authorizes direct GitHub connector edits and merges so that routine maintenance need not depend on Claude. This changes the blanket connector-write prohibition **conditionally**, not the project privacy, review, or concurrency goals.
+
+- Before a connector write, verify that the actual commit author AND committer email to be recorded are privacy-safe. Account profile email alone does not establish the commit identity. If either address is exposed, unknown, or unverifiable, do not write through that connector; use the established noreply Git-shell route.
+- For a focused ordinary-file update use the current file blob SHA, re-read immediately before modification, and verify the resulting commit identity and content afterward. Never overwrite concurrent edits. For PR merges compare the current head and diff, review required checks and policy, pass the exact expected head SHA, and verify the merged result. Do not merge an incomplete artifact merely to clear a queue.
+- The Git-shell cooperative lock is still required for the protected state/cursors and writers governed by its protocol. A connector expected-head parameter is **not** a demonstrated replacement for the lock's server-atomic lease. Until a connector transport is independently verified for those invariants, protected record mutations stay on the verified Git-shell path.
+- Ordinary issue/PR comments and reviews may use their existing connector paths, with author attribution and idempotent stable markers. Do not duplicate handoffs or weaken permissions for spending, deployment, outreach, privacy, or protected records.
+- The operator's authorization removes a process bottleneck; it does not waive acceptance tests, editorial rules, independent technical review, archive-integrity checks, or required legal/financial approvals.
 
 ## Verified Git-shell protocol
 
