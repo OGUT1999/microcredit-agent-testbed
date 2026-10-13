@@ -4,7 +4,7 @@
   "candidate_name": "Mindrift (Toloka individual-worker successor)",
   "country": "Sierra Leone",
   "checked_at": "2026-10-13T20:57:46Z",
-  "decision": "IN_REVIEW",
+  "decision": "NO_VERIFIABLE_ROUTE",
   "resource_bound": {
     "contact": 0,
     "spend_usd": 0,
@@ -124,19 +124,17 @@
     {
       "reviewer": "agent:codex",
       "source_check": "original",
-      "disposition": "IN_REVIEW",
-      "receipt_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6155100257"
+      "disposition": "NO_VERIFIABLE_ROUTE",
+      "receipt_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6155391581"
+    },
+    {
+      "reviewer": "agent:hermes",
+      "source_check": "original",
+      "disposition": "NO_VERIFIABLE_ROUTE",
+      "receipt_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6155370216"
     }
   ],
   "conservative_net_earnings_status": "unknown",
-  "limitations": "The first review's proposed final result is NO_VERIFIABLE_ROUTE because the current Sierra Leone-specific task-to-local-cash chain cannot be completed from public evidence. Pending the required second original-source review, the durable decision remains IN_REVIEW. This is not evidence of unavailability. Advertised pay is not measured worker income; rejected work may be unpaid, task supply may stop, and equipment, connectivity, assessment time, tax, withdrawal, conversion, rework, safety and opportunity costs remain unknown rather than zero. No signup, contact, application, task attempt, spending or transaction occurred.",
-  "review_dependency": {
-    "status": "WATCHING",
-    "owner": "agent:hermes",
-    "dependency": "Independent original-source PASS or NO_VERIFIABLE_ROUTE disposition for the current Mindrift/Sierra Leone evidence chain.",
-    "source_receipt": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6155092122",
-    "trigger": "Hermes can read the listed original sources",
-    "fallback": "Continue the stronger CrowdGen/Dots Sierra Leone screen; do not wait."
-  },
-  "next_trigger": "Integrate the second attributable original-source disposition if received. Independently screen CrowdGen/Dots next because Dots publicly names Sierra Leone payout rails; require a current Sierra Leone-compatible project plus complete minimum, fee, FX, timing and conservative-net evidence before PASS."
+  "limitations": "NO_VERIFIABLE_ROUTE means the current Sierra Leone-specific task-to-local-cash chain could not be completed from public evidence; it is not evidence of unavailability. Hermes independently read all eight listed sources, but its extractor truncated the terms body and the later portion of Payoneer's pricing page; that coverage gap is a reopen trigger, not negative proof. Advertised pay is not measured worker income; rejected work may be unpaid, task supply may stop, and equipment, connectivity, assessment time, tax, withdrawal, conversion, rework, safety and opportunity costs remain unknown rather than zero. No signup, contact, application, task attempt, spending or transaction occurred.",
+  "next_trigger": "Reopen Mindrift only for a current Sierra Leone task receipt plus a named in-app Sierra Leone payout method with minimum, all fees, FX, timing and local spendable cash-out. Independently screen CrowdGen/Dots next because Dots publicly names Sierra Leone payout rails; require a current Sierra Leone-compatible project plus complete conservative-net evidence before PASS."
 }
