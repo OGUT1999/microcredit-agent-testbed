@@ -1,63 +1,42 @@
-name: Reconcile stopped cold-start bootstrap
-
+name: Probe Base Sepolia read-only RPC availability
 on:
   push:
     paths:
       - ".github/workflows/circle-faucet.yml"
-
 permissions:
   contents: read
-
 jobs:
   balance:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - name: Read Sepolia balances
-        shell: bash
+      - name: Compare RPC receipts and contract state without a signing key
         run: |
-          set -euo pipefail
-          mkdir -p /tmp/wallet-balance
-          cd /tmp/wallet-balance
-          npm init -y >/dev/null 2>&1
-          npm install --no-audit --no-fund ethers@6 >/dev/null 2>&1
-          cat > check.mjs <<'NODE'
-          import { JsonRpcProvider, Contract, formatEther, formatUnits } from 'ethers';
-          const addr='0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1';
-          const erc20=['function balanceOf(address) view returns(uint256)','function decimals() view returns(uint8)','function symbol() view returns(string)'];
-          async function chain(label,rpc,tokens){
-            const p=new JsonRpcProvider(rpc);
-            const eth=await p.getBalance(addr);
-            console.log(label+'_ETH='+formatEther(eth));
-            console.log(label+'_BLOCK='+await p.getBlockNumber());
-                console.log(label+'_FEES='+JSON.stringify((await p.getFeeData()).toJSON()));
-            for(const [name,a] of tokens){
+          npm install --prefix /tmp/gt-rpc-probe --no-audit --no-fund ethers@6.15.0
+          cd /tmp/gt-rpc-probe
+          node - <<'NODE'
+          const {JsonRpcProvider,Contract}=require('ethers');
+          (async()=>{
+            const root='0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1';
+            const GT='0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466';
+            const token='0x036CbD53842c5426634e7929541eC2318f3dCF7e';
+            const result=[];
+            for(const rpc of ['https://sepolia.base.org','https://base-sepolia-rpc.publicnode.com']){
+              const p=new JsonRpcProvider(rpc,undefined,{cacheTimeout:0,batchMaxCount:20});
+              const row={rpc,successes:0,errors:[]};
               try{
-                const c=new Contract(a,erc20,p);
-                const [b,d,s]=await Promise.all([c.balanceOf(addr),c.decimals(),c.symbol()]);
-                console.log(label+'_'+name+'='+formatUnits(b,d)+' '+s);
-              }catch(e){
-                console.log(label+'_'+name+'=unavailable');
-              }
+                row.chainId=Number((await p.getNetwork()).chainId);if(row.chainId!==84532)throw Error('Wrong chain');
+                const g=new Contract(GT,['function reserve() view returns(uint256)','function totalStake() view returns(uint256)','function guaranteeCount() view returns(uint256)','function outstanding() view returns(uint256)'],p);
+                const t=new Contract(token,['function balanceOf(address) view returns(uint256)'],p);
+                const r=await p.getTransactionReceipt('0xe64950dfe0720da64fecffbeea0e1e9c9391f39e8ee1242908e1e65bf5e42365');
+                row.receipt={hash:r.hash,status:r.status,block:r.blockNumber};
+                const historical={blockTag:48059812};row.historicalReserve=(await g.reserve(historical)).toString();
+                row.nonceLatest=await p.getTransactionCount(root,'latest');row.noncePending=await p.getTransactionCount(root,'pending');
+                row.rootBalance=(await t.balanceOf(root)).toString();row.reserve=(await g.reserve()).toString();row.stake=(await g.totalStake()).toString();row.guarantees=(await g.guaranteeCount()).toString();row.outstanding=(await g.outstanding()).toString();
+                for(let n=0;n<40;n++){try{await Promise.all([g.reserve(historical),p.getTransactionReceipt(r.hash)]);row.successes++;}catch(e){row.errors.push({code:e.code,rpcCode:e.info?.error?.code||e.error?.code||null,reason:e.shortMessage||null});}await new Promise(r=>setTimeout(r,300));}
+              }catch(e){row.errors.push({code:e.code,rpcCode:e.info?.error?.code||e.error?.code||null,reason:e.shortMessage||null});}
+              p.destroy();result.push(row);
             }
-          }
-          await chain('ETHEREUM_SEPOLIA','https://ethereum-sepolia-rpc.publicnode.com',[
-            ['CIRCLE_USDC','0x1c7d4b196cb0c7b01d743fbc6116a902379c7238']
-          ]);
-          await chain('BASE_SEPOLIA','https://sepolia.base.org',[
-            ['CIRCLE_USDC','0x036CbD53842c5426634e7929541eC2318f3dCF7e'],
-            ['GUARANTEETRUST_TOKEN','0x86fF3d60bE81B1531eCC5c756C519B97c382C047']
-          ]);
-          NODE
-          node check.mjs
-          node - <<'NODE'
-          const {JsonRpcProvider,Contract,keccak256}=require('ethers');
-          (async()=>{const p=new JsonRpcProvider('https://sepolia.base.org',undefined,{cacheTimeout:0});const addr='0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466';const a=await(await fetch('https://raw.githubusercontent.com/scottonchain/microcredit-agent-testbed/d7e517304335adbecdfd06c1a1f0ff9de991899f/experiments/guarantee-trust-circle-coldstart/artifact.json')).json();const c=await p.getCode(addr,48059409);function mask(s){const b=Buffer.from(s.slice(2),'hex');for(const refs of Object.values(a.immutableReferences))for(const r of refs)b.fill(0,r.start,r.start+r.length);return '0x'+b.toString('hex');}const g=new Contract(addr,a.abi,p);const [t,o,i,ad,r,s,n]=await Promise.all([g.token(),g.owner(),g.issuer(),g.adjudicator(),g.reserve(),g.totalStake(),g.guaranteeCount()]);console.log('DEPLOYMENT_CHECK='+JSON.stringify({address:addr,bytes:(c.length-2)/2,actual:keccak256(mask(c)),expected:keccak256(mask(a.deployedBytecode)),match:mask(c)===mask(a.deployedBytecode),token:t,owner:o,issuer:i,adjudicator:ad,reserve:r.toString(),stake:s.toString(),count:n.toString()}));})();
-          NODE
-          node - <<'NODE'
-          const {JsonRpcProvider,Interface}=require('ethers');
-          (async()=>{const p=new JsonRpcProvider('https://sepolia.base.org',undefined,{cacheTimeout:0});const r=await p.getTransactionReceipt('0x91db8f0a9784fab6756f0825adee79b83fabf0fca7bb2e87af009e267ae92637');console.log('MINT_RECEIPT='+JSON.stringify({hash:r.hash,block:r.blockNumber,status:r.status}));const i=new Interface(['event Transfer(address indexed from,address indexed to,uint256 value)']);for(const l of r.logs){try{const e=i.parseLog(l);if(e)console.log('MINT_EVENT='+JSON.stringify({token:l.address,from:e.args.from,to:e.args.to,value:e.args.value.toString()}));}catch{}}})();
-          NODE
-          node - <<'NODE'
-          const {JsonRpcProvider,Contract,Interface}=require('ethers');
-          (async()=>{const p=new JsonRpcProvider('https://sepolia.base.org',undefined,{cacheTimeout:0});const root='0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1',role='0xF9cDd695b8D9F07d705c49a54dFA2e6f3C37395c';const t=new Contract('0x036CbD53842c5426634e7929541eC2318f3dCF7e',['function balanceOf(address) view returns(uint256)'],p);const [latest,pending,balance,end]=await Promise.all([p.getTransactionCount(root,'latest'),p.getTransactionCount(root,'pending'),t.balanceOf(role),p.getBlockNumber()]);console.log('BOOTSTRAP_RECONCILE='+JSON.stringify({nonceLatest:latest,noncePending:pending,backer08USDC:balance.toString(),endBlock:end}));if(latest>40){const iface=new Interface(['function transfer(address,uint256) returns(bool)']);let found=false;for(let n=48059811;n<=end;n++){const b=await p.send('eth_getBlockByNumber',['0x'+n.toString(16),true]);for(const tx of b.transactions){if(tx.from.toLowerCase()===root.toLowerCase()&&parseInt(tx.nonce,16)===40){const d=iface.parseTransaction({data:tx.input});const r=await p.getTransactionReceipt(tx.hash);console.log('RECOVERED_TRANSFER='+JSON.stringify({hash:tx.hash,from:tx.from,to:tx.to,nonce:40,call:d.name,recipient:d.args[0],amount:d.args[1].toString(),block:r.blockNumber,status:r.status,gasUsed:r.gasUsed.toString(),feeWei:r.fee.toString()}));found=true;break;}}if(found)break;}}})();
+            console.log('RPC_PROBE='+JSON.stringify({atUTC:new Date().toISOString(),result}));
+          })();
           NODE
