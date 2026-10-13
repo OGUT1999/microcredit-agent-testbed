@@ -8,6 +8,16 @@ Reduce human poverty and suffering through measurable, positive, spendable human
 
 A successful agent transaction is not a human outcome. A repaid loan is not revenue. A testnet demonstration is not evidence of poverty reduction.
 
+## Conditional path to the objective
+
+The [poverty-elimination roadmap](POVERTY_ELIMINATION_ROADMAP.md) extends the
+current evidence gates through independent paid work, incremental household
+benefit, repeatability, regional replication and institutional adoption. It
+records structural dependencies and alternatives rather than promising that a
+contract or an earnings intervention alone can eliminate poverty. Live actions
+and ownership remain in the canonical world model; existing consent, contact,
+spending and deployment gates are unchanged.
+
 ## Multiply what exists; do not donate to it
 
 Operator direction, 2026-10-11: **the path forward must be a multiplier on what already exists, not a donation to what already exists. The team must measurably multiply or improve on what is otherwise available.**
