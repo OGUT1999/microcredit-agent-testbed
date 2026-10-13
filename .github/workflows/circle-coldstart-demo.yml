@@ -11,6 +11,8 @@ concurrency:
 jobs:
   demo:
     runs-on: ubuntu-latest
+    env:
+      RPC_URL: "https://base-sepolia-rpc.publicnode.com"
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
