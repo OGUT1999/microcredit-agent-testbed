@@ -1,0 +1,40 @@
+{
+  "schema": "bootstrap-transport-recovery/1",
+  "checkedAtUTC": "2026-10-13T10:44:31Z",
+  "sourceWorkflow": "https://github.com/scottonchain/microcredit-agent-testbed/actions/runs/38385411682",
+  "observedRootNonceLatest": 41,
+  "observedRootNoncePending": 41,
+  "observedBacker08USDC": "1200000",
+  "additionalConfirmedTransactions": [
+    {
+      "label": "tokens-backer-08",
+      "actor": "operator",
+      "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+      "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+      "call": "USDC.transfer",
+      "args": {
+        "to": "0xF9cDd695b8D9F07d705c49a54dFA2e6f3C37395c",
+        "amount": "1200000"
+      },
+      "hash": "0xe64950dfe0720da64fecffbeea0e1e9c9391f39e8ee1242908e1e65bf5e42365",
+      "nonce": 40,
+      "chainId": 84532,
+      "status": 1,
+      "blockNumber": 48059812,
+      "gasUsed": "62159",
+      "feeWei": "372954000000",
+      "events": [],
+      "ledgerAfter": {
+        "reserve": "2000000",
+        "stake": "2100000",
+        "dues": "0",
+        "sponsorCapital": "2000000",
+        "tokenBalance": "4100000",
+        "tokenEqualsReservePlusStake": true,
+        "reserveEqualsSponsorCapitalPlusDues": true
+      },
+      "reconciledAfterTransportError": true
+    }
+  ],
+  "note": "The transfer was mined despite the caller receiving UNKNOWN_ERROR. Resume must include this receipt and skip its label; do not transfer again."
+}

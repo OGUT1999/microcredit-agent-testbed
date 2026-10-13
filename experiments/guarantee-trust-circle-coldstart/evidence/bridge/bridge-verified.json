@@ -1,0 +1,63 @@
+{
+  "wallet": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+  "sourceChain": 11155111,
+  "destinationChain": 84532,
+  "amount": "1000000000",
+  "transactions": [
+    {
+      "label": "bridge-test-ETH",
+      "hash": "0x96a5888fff47042bf20b3aeb20ae77bbc6da8f6d4229ebca0ab13761ed9406e1",
+      "chainId": 11155111,
+      "block": 11905317,
+      "status": 1,
+      "gasUsed": "635345"
+    },
+    {
+      "label": "approve-CCTP",
+      "hash": "0x938b1dfcf797ef7f14a3b6affc088a8ac3a5d639bd92a15e3c8a10fb907833c2",
+      "chainId": 11155111,
+      "block": 11905318,
+      "status": 1,
+      "gasUsed": "137757"
+    },
+    {
+      "label": "burn-CCTP",
+      "hash": "0xe0083d595aba3ae6ae274b8751b5963dbc7467c48bef15fc9d4de5bf06f5dd98",
+      "chainId": 11155111,
+      "block": 11905319,
+      "status": 1,
+      "gasUsed": "120675"
+    },
+    {
+      "label": "mint-CCTP",
+      "hash": "0x91db8f0a9784fab6756f0825adee79b83fabf0fca7bb2e87af009e267ae92637",
+      "chainId": 84532,
+      "block": 48059142,
+      "status": 1,
+      "gasUsed": "171228"
+    }
+  ],
+  "before": {
+    "sourceUSDC": "2020000000",
+    "baseUSDC": "0",
+    "sourceETH": "0.17725",
+    "baseETH": "0.0"
+  },
+  "burnHash": "0xe0083d595aba3ae6ae274b8751b5963dbc7467c48bef15fc9d4de5bf06f5dd98",
+  "attestation": {
+    "eventNonce": "0x899cffcc922f1e233fcc8a40496a70e0af26230e0e2e1ccc9266a45d5b0e8d8c",
+    "status": "complete"
+  },
+  "verification": {
+    "mintReceiptStatus": 1,
+    "mintBlock": 48059142,
+    "mintEventToken": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "mintEventRecipient": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "mintEventAmount": "1000000000",
+    "freshBaseUSDC": "1000000000",
+    "freshBaseETH": "29998972631999667",
+    "checkedAtUTC": "2026-10-13T10:17:46Z",
+    "verificationWorkflow": "https://github.com/scottonchain/microcredit-agent-testbed/actions/runs/38382360441",
+    "note": "Immediate post-mint balance check failed; separate successful receipt/event and fresh balance reconciliation confirmed arrival. No second burn."
+  }
+}

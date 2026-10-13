@@ -1,0 +1,932 @@
+{
+  "schema": "guarantee-trust-circle-coldstart/1",
+  "sourceCommit": "ec93c76779b5e2d52ab7b87cf82b3fd400205969",
+  "runnerSha256": "ade8ba7924caba0c12f01a2c95ebed283860f75948ea617f05a4eb9d46768352",
+  "artifactSha256": "9589450dbe08cbf1907fd68e8dc82c341346163b7d19da9a4052f248e60c5612",
+  "chainId": 84532,
+  "token": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+  "decimals": 6,
+  "rehearsal": false,
+  "policySeed": 20261013,
+  "prng": "mulberry32",
+  "rounds": 24,
+  "compressedRounds": true,
+  "roles": {
+    "clients": 40,
+    "workers": 40,
+    "backers": 14,
+    "sponsors": 4,
+    "issuer": 1,
+    "adjudicator": 1
+  },
+  "policy": {
+    "reserveSeed": "2.0",
+    "sponsorTopupCap": "1.0",
+    "topupsStopAfterRound": 12,
+    "initialStakeEachBacker": "0.3",
+    "additionalStakeCapEach": "0.9",
+    "stakeAddsStopAfterRound": 12,
+    "initialBackingEachPair": "0.15",
+    "initialLines": "8 workers at 0.2; total 1.6",
+    "contributionBps": 500,
+    "contributionCap": "0.3",
+    "remitWindowSeconds": 86400,
+    "guarantee": "10% of synthetic wage, bounded to [0.2,0.8] test USDC",
+    "settlement": "Immediate after admitted jobs. Undelivered work is cancelled; only delivered work followed by the client nonpayment draw is claimed.",
+    "wageAndContribution": "Client pays gross wage minus signed contribution to worker; client remits the withheld contribution. Its total outflow equals the gross wage.",
+    "clientFundingEach": "20.0 test USDC from the operator test wallet",
+    "roleGasFundingEachETH": "0.00008",
+    "roleGasTotalCapETH": "0.005",
+    "rootGasUseCapETH": "0.03",
+    "onchainCaps": "20% single exposure;30% group; outstanding+G+2G<=reserve;one open/client"
+  },
+  "gate": {
+    "window": [
+      19,
+      24
+    ],
+    "noSponsorTopups": true,
+    "nonzeroThroughputEachRound": true,
+    "reserveNonshrinkingOverWindow": true,
+    "zeroReserveRuleRefusals": true,
+    "accountingIdentitiesEveryRound": true
+  },
+  "caveats": [
+    "Internally controlled deterministic policy characters, not independent LLM sessions or outside agents.",
+    "A new contract-constrained onchain adaptation, not a numerical reproduction of the Python model.",
+    "Client test wages and all initial role balances are internally prefunded; no external demand or revenue.",
+    "Rounds are compressed policy steps, not 24 elapsed chain days.",
+    "No real-value assets, work, independently earned human income or demonstrated human benefit.",
+    "Owner, issuer and adjudicator authority are held by the same operator-controlled test wallet.",
+    "Shutdown pauses origination and settles guarantees; dues and stake are retained and fully reported."
+  ],
+  "rationale": [
+    "A zero-reserve control isolates the external first-funding requirement.",
+    "Small seeded reserve and exclusive stake allocation obey Solidity constraints rather than fitting old aggregates.",
+    "Job demand, quality and payment are seeded stochastic policies; admissibility and losses are determined by live contract state.",
+    "Top-ups and new stakes stop after round 12; the final six-round gate cannot be bought with late sponsor funds.",
+    "No desired outcome is enforced. A failed gate remains a failed result, with all positions settled.",
+    "Outcomes emerge from policy draws and evolving contract balances, but policies, incentives and the population are authored internally."
+  ],
+  "rootAddress": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+  "rootBefore": {
+    "USDC": "1000000000",
+    "ETH": "29969680319986893"
+  },
+  "roster": [
+    {
+      "id": "client-01",
+      "role": "client",
+      "groupId": "0x4a4d19f3f42298d4732eb056bf51c16cdc47f8a7b76b91a40e2a77d0d26e3c92",
+      "clientId": "0x48824eb824ce0c93f3eda1c6ff28e2982f8d4394eae721f13f27e685b50748e1",
+      "postProbability": 0.34,
+      "payProbability": 0.91,
+      "wageLowTenths": 18,
+      "wageHighTenths": 34,
+      "address": "0xdD6982cB8e8048dd60dA676e5235AB6498C8DF7E"
+    },
+    {
+      "id": "client-02",
+      "role": "client",
+      "groupId": "0x7a14e46c0ef6ebc0716c589518d20e8033985bf103a69d716c6408a6f3771e40",
+      "clientId": "0x5838fb5d104ad787c5547e68a96918adaf9c0ac2895c7a775e6403fa2fe4d9fa",
+      "postProbability": 0.375,
+      "payProbability": 0.925,
+      "wageLowTenths": 20,
+      "wageHighTenths": 37,
+      "address": "0xDF2B082674817a336492F2B74569EEf5F26D4bFB"
+    },
+    {
+      "id": "client-03",
+      "role": "client",
+      "groupId": "0x0efbfaa9973e4f47d5ed3aa025a7e4fa0c216397933c263678219dfead099e87",
+      "clientId": "0x1a4e9929f8bb15e9189a8cde92c3d9c8f3799147c4149fe8a60d048ee8249697",
+      "postProbability": 0.41000000000000003,
+      "payProbability": 0.9400000000000001,
+      "wageLowTenths": 22,
+      "wageHighTenths": 40,
+      "address": "0xDbeb5C125d4F294664d06b0B6A63E17bB4d87450"
+    },
+    {
+      "id": "client-04",
+      "role": "client",
+      "groupId": "0xafb07e2527c4ee37e60f4c86a47046d149a8129d8251f8279738f8000e3f8264",
+      "clientId": "0x6cd6d74b5f78756aa0255dcb47457d217ad1266ff21f454451993d9c73ff27fc",
+      "postProbability": 0.44500000000000006,
+      "payProbability": 0.9550000000000001,
+      "wageLowTenths": 18,
+      "wageHighTenths": 43,
+      "address": "0xEeaf0B65b7eB1b896d1F18636dC1F1217C13ebb1"
+    },
+    {
+      "id": "client-05",
+      "role": "client",
+      "groupId": "0xee0933f9b71e752ea412875dec579f1b5340be3fbfbf707c9fd66c015f996c82",
+      "clientId": "0xaadfad3874db10528211f2b09f5eb6070298a12ee94c153b093ab3001ad3b5e3",
+      "postProbability": 0.48000000000000004,
+      "payProbability": 0.91,
+      "wageLowTenths": 20,
+      "wageHighTenths": 34,
+      "address": "0x30BEc471FC1DFDa2bac41B5c4e53A05f16db456f"
+    },
+    {
+      "id": "client-06",
+      "role": "client",
+      "groupId": "0xad7d725299edf328f5a6b4210c1172fae56ad0af5a0b55826d2a94a05608cdcf",
+      "clientId": "0xefdd970f681f213690fe953b05bb6deae2437dacc4f0c3867f73d31efe041b03",
+      "postProbability": 0.34,
+      "payProbability": 0.925,
+      "wageLowTenths": 22,
+      "wageHighTenths": 37,
+      "address": "0xD2922a668a2F919b526BdeDf350eddb1D7b8D320"
+    },
+    {
+      "id": "client-07",
+      "role": "client",
+      "groupId": "0x5fa5dcbe0b963334791ed9640ec0138261c2c7248e92cf6edaf4f39e1b4ada3a",
+      "clientId": "0xbaa1f2a407d08991be1f3900ece37582516d6dfea2752a097d11ef6b3f269656",
+      "postProbability": 0.375,
+      "payProbability": 0.9400000000000001,
+      "wageLowTenths": 18,
+      "wageHighTenths": 40,
+      "address": "0xbE72245BAF65794a21E6E683bF1A10e57c0CA065"
+    },
+    {
+      "id": "client-08",
+      "role": "client",
+      "groupId": "0x466baae0e60a16a924a52dee44453720b902342e1716b47e2ce9d9aa859070d7",
+      "clientId": "0x702ac5399cc23b12f209970bcce12115f7377f8ef56a3a1465c767e53cd1285f",
+      "postProbability": 0.41000000000000003,
+      "payProbability": 0.9550000000000001,
+      "wageLowTenths": 20,
+      "wageHighTenths": 43,
+      "address": "0xc9bef717651DE6a6734D0996c7a02691f9BC3A6b"
+    },
+    {
+      "id": "client-09",
+      "role": "client",
+      "groupId": "0xfb49ff9f2c6848f988dbdf16b1ccee6517694811896def384614207516dde0fb",
+      "clientId": "0x161c4eb8fcc6832af9d94a0f438a07781e8f429ad1cab0a458c35fe11f2b6339",
+      "postProbability": 0.44500000000000006,
+      "payProbability": 0.91,
+      "wageLowTenths": 22,
+      "wageHighTenths": 34,
+      "address": "0xC5Ab5Ab551a1B7eB9dfC9B73685933754DbEDf5d"
+    },
+    {
+      "id": "client-10",
+      "role": "client",
+      "groupId": "0x0ae07314f763480d0758d5264ec2e4bbbc42db27ae7a1e9afd771d4a1c880fd0",
+      "clientId": "0x01a30dd01e42e2ec4b10f9af181904eb53d57e700430ee0a91cadcc37fb52f28",
+      "postProbability": 0.48000000000000004,
+      "payProbability": 0.925,
+      "wageLowTenths": 18,
+      "wageHighTenths": 37,
+      "address": "0x65399238A63E88820A34edAd45E8Fdd05dbb2CbB"
+    },
+    {
+      "id": "client-11",
+      "role": "client",
+      "groupId": "0xc3cc34478aa92316e1a9c87879911dbe530b2a21faac6f68c594ad9dc058e70c",
+      "clientId": "0xef0022f1d83178540df130c7e6f9e1d9bd171224cb13b4876e735b21847ef8dd",
+      "postProbability": 0.34,
+      "payProbability": 0.9400000000000001,
+      "wageLowTenths": 20,
+      "wageHighTenths": 40,
+      "address": "0x1c24746B28FE106f885FeeF1E25d67076d65BB7e"
+    },
+    {
+      "id": "client-12",
+      "role": "client",
+      "groupId": "0x24293014a68ce02cb7ea4c54abe7246c34b18263f3e149b8002940bfd63f3591",
+      "clientId": "0xb06ff3df4ce7f4f917db7d3d65e46f743da4e4a76051a5bcb9f51b8f426064c8",
+      "postProbability": 0.375,
+      "payProbability": 0.9550000000000001,
+      "wageLowTenths": 22,
+      "wageHighTenths": 43,
+      "address": "0x7a79BE5160Da24f307dB66fe2A3B507BE8f30764"
+    },
+    {
+      "id": "client-13",
+      "role": "client",
+      "groupId": "0x4c3cea9e9392bdc3babef428ca38af944aa960cfaf02f516c5ae6869c7584c5f",
+      "clientId": "0x9646795fe3936ccfddb5d377d1f2313d8f229f9715ab953ec211c1890753a24f",
+      "postProbability": 0.41000000000000003,
+      "payProbability": 0.91,
+      "wageLowTenths": 18,
+      "wageHighTenths": 34,
+      "address": "0xDba46c6B9e34AF2AedCc6D81b011f79e3Dd4712D"
+    },
+    {
+      "id": "client-14",
+      "role": "client",
+      "groupId": "0x57fd77f48afc394eae734ae6252e50b7e579a344ca7781905b03836dd54e0259",
+      "clientId": "0xceea936682996443010e5cfece7367e89f1454f7ccac2ca8551ba285fec8ee5b",
+      "postProbability": 0.44500000000000006,
+      "payProbability": 0.925,
+      "wageLowTenths": 20,
+      "wageHighTenths": 37,
+      "address": "0x666237AA63D2aCC09867f1302b8d6EdA591872b2"
+    },
+    {
+      "id": "client-15",
+      "role": "client",
+      "groupId": "0xf517461f929fc69c8272dcce5dbbcd7f4f8d41ab4ff95eddd6268a45162adc55",
+      "clientId": "0x278590e3de74ec8be6e958c94e427043aa249b60e1013f68ae1465f1c38797c9",
+      "postProbability": 0.48000000000000004,
+      "payProbability": 0.9400000000000001,
+      "wageLowTenths": 22,
+      "wageHighTenths": 40,
+      "address": "0xc2A870E9BE225C111797b467C16E8461e2763869"
+    },
+    {
+      "id": "client-16",
+      "role": "client",
+      "groupId": "0xf49e7526ca6e9105230d316b37f621dce5227596a7272803ad1314a7a4113235",
+      "clientId": "0x889ce9264ccce67ba77e1e469e8f4beff118148f11ec49687fe1e5d893397f0c",
+      "postProbability": 0.34,
+      "payProbability": 0.9550000000000001,
+      "wageLowTenths": 18,
+      "wageHighTenths": 43,
+      "address": "0x9D88C6859D944972D5cFFcAaE14E7C346F3C3C70"
+    },
+    {
+      "id": "client-17",
+      "role": "client",
+      "groupId": "0x91efd669417cd727c0b0b2ba19af5629cf174d033265dde31ad6296bca6b1c40",
+      "clientId": "0xde111001a782a186973823fe56d41cc93bfe63971642ea1ae64a912ab55d5f29",
+      "postProbability": 0.375,
+      "payProbability": 0.91,
+      "wageLowTenths": 20,
+      "wageHighTenths": 34,
+      "address": "0x353cAE68923b658f4C4C257F797A1Fb32d14c0Bd"
+    },
+    {
+      "id": "client-18",
+      "role": "client",
+      "groupId": "0xcb4427523f85c8b3f8792a0a5248ac126a2fbd837aa3303f122f998a7793d656",
+      "clientId": "0xa419b38a3eba2dd45b4122b3f081ee8f87458ed2574e9c9aeaa54e5775d53aa9",
+      "postProbability": 0.41000000000000003,
+      "payProbability": 0.925,
+      "wageLowTenths": 22,
+      "wageHighTenths": 37,
+      "address": "0xd4A683C6Fe5555FEe19F62229425aB7f017a6199"
+    },
+    {
+      "id": "client-19",
+      "role": "client",
+      "groupId": "0x6adf7604d00ac28cabffbcda2cb52bdf742e6abcc343043ea63c535019684a78",
+      "clientId": "0xf87aafafb30e674683763c744b76ffea49de368d5cbf333c035065ee9b575038",
+      "postProbability": 0.44500000000000006,
+      "payProbability": 0.9400000000000001,
+      "wageLowTenths": 18,
+      "wageHighTenths": 40,
+      "address": "0x9665cC453B50FaBB8690a17E821c418f7d9D235C"
+    },
+    {
+      "id": "client-20",
+      "role": "client",
+      "groupId": "0x841869a4b1fb91c53a88edf759b09e9a485b19c8496efd15b2c52bbeb418d7e3",
+      "clientId": "0x384f85ffd8004a0fa2f97cb85296fa5af5eb818ddd71b4af97bb78ba53922ba6",
+      "postProbability": 0.48000000000000004,
+      "payProbability": 0.9550000000000001,
+      "wageLowTenths": 20,
+      "wageHighTenths": 43,
+      "address": "0x4bACB8d3c41dDFd8c41c2f10d740c9C1CcE47880"
+    },
+    {
+      "id": "client-21",
+      "role": "client",
+      "groupId": "0x5e091c125ca406d9f3286ded0cb039c4eede650d55f198d75f289dd3a537e157",
+      "clientId": "0x96cd73d25349e29dd1eca32c035f69c3c86572e33fc0938b8c41b4545ed0a377",
+      "postProbability": 0.34,
+      "payProbability": 0.91,
+      "wageLowTenths": 22,
+      "wageHighTenths": 34,
+      "address": "0x05395E6EEb5D4bad00fdE7240729D1676DdA03AB"
+    },
+    {
+      "id": "client-22",
+      "role": "client",
+      "groupId": "0x73f12f941d9202914335b3d80421ff083d480487a33998d0d64923a5cc1041e2",
+      "clientId": "0xdc4e67bd4e2028a6c5cd5e40dc17dd44731b772d6f6eab51a2480fb8504d3485",
+      "postProbability": 0.375,
+      "payProbability": 0.925,
+      "wageLowTenths": 18,
+      "wageHighTenths": 37,
+      "address": "0x615550db53D2E716Da50e78251ED9DA7eb58A5a5"
+    },
+    {
+      "id": "client-23",
+      "role": "client",
+      "groupId": "0x0838a794cc9ee9b05785738abd68653937560274830a9e9acd501232c9eaf1d4",
+      "clientId": "0x99d7211b3ca95c14daa4127f837851945d9f404afb7704fed6a4e6b393d44758",
+      "postProbability": 0.41000000000000003,
+      "payProbability": 0.9400000000000001,
+      "wageLowTenths": 20,
+      "wageHighTenths": 40,
+      "address": "0xFcCd2d6a52F3F5B10562fe79dafC9b3f7560e314"
+    },
+    {
+      "id": "client-24",
+      "role": "client",
+      "groupId": "0x9cb4b86eef4499d64928a4d289e75d92c7dfd944749d619b6636f2a7999328ee",
+      "clientId": "0x1f5df1f7d1d8d3286beb9d6be8180ef8b8443cc580b874c60addbf598efdecc9",
+      "postProbability": 0.44500000000000006,
+      "payProbability": 0.9550000000000001,
+      "wageLowTenths": 22,
+      "wageHighTenths": 43,
+      "address": "0x7E910f07cE98cF1A24bDe7cb747577333F63A3e7"
+    },
+    {
+      "id": "client-25",
+      "role": "client",
+      "groupId": "0x488d308bcddf7fcc89aa4094271d387fa23e9a22fcaea8b890695dce3d6a0c01",
+      "clientId": "0x6976c588d33c84e44c873005c044af89eda2ecb4ca96a141736754c3be69c65b",
+      "postProbability": 0.48000000000000004,
+      "payProbability": 0.91,
+      "wageLowTenths": 18,
+      "wageHighTenths": 34,
+      "address": "0xa92ED58cDB7B26926b3815f16a6931EEF38598C9"
+    },
+    {
+      "id": "client-26",
+      "role": "client",
+      "groupId": "0x11864a81003c406a86afb7551dd50b43af0abcd46e82d117a90014ebda927e33",
+      "clientId": "0xc56d58659750cbc017b84cbab9466fa34171d006b43c03fb267d6d4d91a27d40",
+      "postProbability": 0.34,
+      "payProbability": 0.925,
+      "wageLowTenths": 20,
+      "wageHighTenths": 37,
+      "address": "0x1063420e5515FDD39B083b9103AaAE77311fE7aD"
+    },
+    {
+      "id": "client-27",
+      "role": "client",
+      "groupId": "0x1f2f6730d304cb06a123979014417b1643c7ee50d72cc3c80137b230372ac8ab",
+      "clientId": "0x2a6941173094e56523048572efc972603738ed5adec647334ca079a9b50d142b",
+      "postProbability": 0.375,
+      "payProbability": 0.9400000000000001,
+      "wageLowTenths": 22,
+      "wageHighTenths": 40,
+      "address": "0x04AbC8C55b1dFF59531ba55809A0424063370BFa"
+    },
+    {
+      "id": "client-28",
+      "role": "client",
+      "groupId": "0xe4007eac54aa54c3a8b05e4002261a7922c2aac77515150286ac596328583b51",
+      "clientId": "0x70949341fd0a25db4b4e449b4ac011c454da7c2eb2b1e60cea64e5b8aaee88af",
+      "postProbability": 0.41000000000000003,
+      "payProbability": 0.9550000000000001,
+      "wageLowTenths": 18,
+      "wageHighTenths": 43,
+      "address": "0xd2c518A32954d15B195c5dfF01B32bF917dA3e72"
+    },
+    {
+      "id": "client-29",
+      "role": "client",
+      "groupId": "0xb62b0391de040e781ed87df7d4abf03b761ea7bbe16c63a3599b61980d7b5ddc",
+      "clientId": "0xf9749590dc15179790e9ff0e6e47933d8f42ce5406c05b9b8f31bae13312ed2d",
+      "postProbability": 0.44500000000000006,
+      "payProbability": 0.91,
+      "wageLowTenths": 20,
+      "wageHighTenths": 34,
+      "address": "0x0970AaAbEfC7C15C0571C2BCFecE81C45F2b525c"
+    },
+    {
+      "id": "client-30",
+      "role": "client",
+      "groupId": "0x122ec11b992534edcb28e796206d8e91447c5f8a27e4891ed81ce66a041a8609",
+      "clientId": "0x868f6bd5a87ad0234b5d4c2ed61ce92ce5fd73d676fe54594c86cfaa5109494d",
+      "postProbability": 0.48000000000000004,
+      "payProbability": 0.925,
+      "wageLowTenths": 22,
+      "wageHighTenths": 37,
+      "address": "0x7c2F94eF98Fb63D5c20c3f8fC18b62371b28A466"
+    },
+    {
+      "id": "client-31",
+      "role": "client",
+      "groupId": "0xaf9d591fdc16f32fe86f28d371509957569617d37af112ab4d2f12c644ba5faf",
+      "clientId": "0xff44378348e4246eec718bd103b8dadad74571cbb2e9407ed53d1c5883765d3b",
+      "postProbability": 0.34,
+      "payProbability": 0.9400000000000001,
+      "wageLowTenths": 18,
+      "wageHighTenths": 40,
+      "address": "0xFe99C8348b3418B1205Ae764FB8b62c49FD77dC0"
+    },
+    {
+      "id": "client-32",
+      "role": "client",
+      "groupId": "0xd6638a048b904159568fa6cc7d0fc5ea59626e3353f22f2c11a48a856f564561",
+      "clientId": "0x2a1479c0f529bb1dfa54cec2878de7048dafc9c60ca44bed2b2dbf061ff7439c",
+      "postProbability": 0.375,
+      "payProbability": 0.9550000000000001,
+      "wageLowTenths": 20,
+      "wageHighTenths": 43,
+      "address": "0x776D23Efa87c397aa126FAE4682d6a29aa3Cf6F1"
+    },
+    {
+      "id": "client-33",
+      "role": "client",
+      "groupId": "0x7ef6727069040fd6e2aea43ffae593a16d23f14b368c56c4dc6c746eeb974acc",
+      "clientId": "0xd72b6d9376998e35b3e4fcdfc0246581e340056f91a9672fe238103ced835193",
+      "postProbability": 0.41000000000000003,
+      "payProbability": 0.91,
+      "wageLowTenths": 22,
+      "wageHighTenths": 34,
+      "address": "0xb60834D2FC716F6D3A5f784903E1416Cd02F29D5"
+    },
+    {
+      "id": "client-34",
+      "role": "client",
+      "groupId": "0x2190bb9011eeb26e91b1bc0616ec854b27957ca0b1fdf481d79b7c9cad701fbe",
+      "clientId": "0xde0a9f19067024ce9d6797bb2cacbccae0cf04845701fb7f533d27dd7cb2df18",
+      "postProbability": 0.44500000000000006,
+      "payProbability": 0.925,
+      "wageLowTenths": 18,
+      "wageHighTenths": 37,
+      "address": "0xB8238237cF033c55D16a237387C12FBabf0DF2B7"
+    },
+    {
+      "id": "client-35",
+      "role": "client",
+      "groupId": "0x1933be382e36a776ddf3dd8875f5bc90861b71e80324e3d84782c644f9113b6f",
+      "clientId": "0x34c6d6befb4c3180379957a0767048c86f6da5cb2636d125b6b3cd025ebde576",
+      "postProbability": 0.48000000000000004,
+      "payProbability": 0.9400000000000001,
+      "wageLowTenths": 20,
+      "wageHighTenths": 40,
+      "address": "0x5c0Ac30a0f39f135Be5fc7d49dF9a988bC7822F5"
+    },
+    {
+      "id": "client-36",
+      "role": "client",
+      "groupId": "0x0809360d19e0b76779f34de81f3e10a5f3d74f39bc0d09e850e1f34af96120db",
+      "clientId": "0xc47806b77f53f380ffae631c18e878677306ebe50f673ecc83efdc38d5303c77",
+      "postProbability": 0.34,
+      "payProbability": 0.9550000000000001,
+      "wageLowTenths": 22,
+      "wageHighTenths": 43,
+      "address": "0xD41f9cC49A3953215b3F634A1921Fe78D6ef3Df8"
+    },
+    {
+      "id": "client-37",
+      "role": "client",
+      "groupId": "0xaf31a38180302ace04da0825399eb814b4414ba90df8975fb965df441f36c035",
+      "clientId": "0x93ac55dcdd093ee9241eab7be2af786512ea2bc5dca60705509408a17b926baa",
+      "postProbability": 0.375,
+      "payProbability": 0.91,
+      "wageLowTenths": 18,
+      "wageHighTenths": 34,
+      "address": "0xE4F6362b138a926ED9B8e0b63539f0d48EDd2CBd"
+    },
+    {
+      "id": "client-38",
+      "role": "client",
+      "groupId": "0x1b877994296d8388a168b463baa1fbc2ba4fc38757431937ea2d68eac8592cae",
+      "clientId": "0xc295bb8d384fe5d19db4e6a1501373f035050e1d212995edd73c0531545be28a",
+      "postProbability": 0.41000000000000003,
+      "payProbability": 0.925,
+      "wageLowTenths": 20,
+      "wageHighTenths": 37,
+      "address": "0xd38166A3f760e2E21e15947D0f76a37A3892c677"
+    },
+    {
+      "id": "client-39",
+      "role": "client",
+      "groupId": "0x0dfc1ff1c1ca1f1ce3b72e63ec09379da51c37181db298d1f9fbc667c00cb536",
+      "clientId": "0xffd3d912693770ca080459158bf18c386a6d9a9290d16d6aa3bd017b1a0c9338",
+      "postProbability": 0.44500000000000006,
+      "payProbability": 0.9400000000000001,
+      "wageLowTenths": 22,
+      "wageHighTenths": 40,
+      "address": "0x3a3a51af5E46d52fafce580A517C81Cb8681F9A2"
+    },
+    {
+      "id": "client-40",
+      "role": "client",
+      "groupId": "0x3c3d504e9bf8ce92845739a93b74c83593970a0b80afe829bea3db7e490629ae",
+      "clientId": "0xd402183353dbfe6240f74df2eb301df5c3ec04301482dc618d23e17d5ce6fb3f",
+      "postProbability": 0.48000000000000004,
+      "payProbability": 0.9550000000000001,
+      "wageLowTenths": 18,
+      "wageHighTenths": 43,
+      "address": "0x549269Dff0B97B8fAC251071d4f4728Ba7d6cAE1"
+    },
+    {
+      "id": "worker-01",
+      "role": "worker",
+      "qualityProbability": 0.9,
+      "address": "0xfF4B90141ad98160b0F67abD93fccf96165B059E"
+    },
+    {
+      "id": "worker-02",
+      "role": "worker",
+      "qualityProbability": 0.915,
+      "address": "0xF682b5fC1A7b80FBB6B0b2Deb0353C2A907418a4"
+    },
+    {
+      "id": "worker-03",
+      "role": "worker",
+      "qualityProbability": 0.93,
+      "address": "0x996F4dc470313A135e044b0fc90bDDfd292808F3"
+    },
+    {
+      "id": "worker-04",
+      "role": "worker",
+      "qualityProbability": 0.9450000000000001,
+      "address": "0x189DA8a40B175BF769E747fac260DD0AD3A065B7"
+    },
+    {
+      "id": "worker-05",
+      "role": "worker",
+      "qualityProbability": 0.96,
+      "address": "0xcFEC7851a579e4F63DdA19c4E063cCE26C6450D5"
+    },
+    {
+      "id": "worker-06",
+      "role": "worker",
+      "qualityProbability": 0.9,
+      "address": "0x6D88F6093d2Bec1b6aA337CD0D2AaCbb4d0B5a45"
+    },
+    {
+      "id": "worker-07",
+      "role": "worker",
+      "qualityProbability": 0.915,
+      "address": "0x716c4022a98e6cCF40Aa9F65EB28E25Eccbc38c8"
+    },
+    {
+      "id": "worker-08",
+      "role": "worker",
+      "qualityProbability": 0.93,
+      "address": "0x0de3020BB4f8390B09B392e8a1f740Ea315590F4"
+    },
+    {
+      "id": "worker-09",
+      "role": "worker",
+      "qualityProbability": 0.9450000000000001,
+      "address": "0x971F60586640f334f5F00fFB9028C71cCdab21eD"
+    },
+    {
+      "id": "worker-10",
+      "role": "worker",
+      "qualityProbability": 0.96,
+      "address": "0xC5B248e0B4f1d24e70cf725AeF3060FCea626671"
+    },
+    {
+      "id": "worker-11",
+      "role": "worker",
+      "qualityProbability": 0.9,
+      "address": "0xdD7a27a9802F4c5E39F49F2d6e347f0656e80dB2"
+    },
+    {
+      "id": "worker-12",
+      "role": "worker",
+      "qualityProbability": 0.915,
+      "address": "0x0E919ab4E2E7bbAfe8bA71Ff6A9Be925f9984fbA"
+    },
+    {
+      "id": "worker-13",
+      "role": "worker",
+      "qualityProbability": 0.93,
+      "address": "0xc609e0ffD5CcEbf3D76b4Dc20041bd5EB0DB0dC8"
+    },
+    {
+      "id": "worker-14",
+      "role": "worker",
+      "qualityProbability": 0.9450000000000001,
+      "address": "0x5f528B88B54dc30e0b0e458e3D2781fA092D8138"
+    },
+    {
+      "id": "worker-15",
+      "role": "worker",
+      "qualityProbability": 0.96,
+      "address": "0x607bFB40836aB2982027Cd02A308f876F8683cf5"
+    },
+    {
+      "id": "worker-16",
+      "role": "worker",
+      "qualityProbability": 0.9,
+      "address": "0x690a9847310b4eD32cCD9a611A518156E657B6Af"
+    },
+    {
+      "id": "worker-17",
+      "role": "worker",
+      "qualityProbability": 0.915,
+      "address": "0x0D80F73Fb1E5ecca867c9Dc7745353d235C479AC"
+    },
+    {
+      "id": "worker-18",
+      "role": "worker",
+      "qualityProbability": 0.93,
+      "address": "0x3F167809A039e8f66C8F544C5BfB00e888B7B08A"
+    },
+    {
+      "id": "worker-19",
+      "role": "worker",
+      "qualityProbability": 0.9450000000000001,
+      "address": "0x4FC0A7AAb18f1c8e3bdeb7520dB90E938413431F"
+    },
+    {
+      "id": "worker-20",
+      "role": "worker",
+      "qualityProbability": 0.96,
+      "address": "0x134250751feEA07a3Bba428817773426ab4ae1dE"
+    },
+    {
+      "id": "worker-21",
+      "role": "worker",
+      "qualityProbability": 0.9,
+      "address": "0x91FEB4d4d2c0a6D4F94655F644871fC5d2fcaC49"
+    },
+    {
+      "id": "worker-22",
+      "role": "worker",
+      "qualityProbability": 0.915,
+      "address": "0xA42Da929fBc8af2bF3Ae1f0A6dC27Aa2e2565dc6"
+    },
+    {
+      "id": "worker-23",
+      "role": "worker",
+      "qualityProbability": 0.93,
+      "address": "0x049b42768d7Ab5fd1356DdB7e5A2eAe49C2c56b8"
+    },
+    {
+      "id": "worker-24",
+      "role": "worker",
+      "qualityProbability": 0.9450000000000001,
+      "address": "0xef5644A97CaF87c526ec3F17C816987aE3fc4669"
+    },
+    {
+      "id": "worker-25",
+      "role": "worker",
+      "qualityProbability": 0.96,
+      "address": "0xAFD71BB4b1f648613770b8040A1bc0321cD1C847"
+    },
+    {
+      "id": "worker-26",
+      "role": "worker",
+      "qualityProbability": 0.9,
+      "address": "0x8686AC154982e97c452B6581a211821c0b53513c"
+    },
+    {
+      "id": "worker-27",
+      "role": "worker",
+      "qualityProbability": 0.915,
+      "address": "0x02a78C922dD8965a7829132398B8215D61BF1929"
+    },
+    {
+      "id": "worker-28",
+      "role": "worker",
+      "qualityProbability": 0.93,
+      "address": "0x34351D109e4cD0241d4E338E37CD63548E5Dde59"
+    },
+    {
+      "id": "worker-29",
+      "role": "worker",
+      "qualityProbability": 0.9450000000000001,
+      "address": "0xBEd9C01811E6749F3fC23bA69356Ac0966850Ff2"
+    },
+    {
+      "id": "worker-30",
+      "role": "worker",
+      "qualityProbability": 0.96,
+      "address": "0x5045325105D4a7D57252874f9561D033f782b488"
+    },
+    {
+      "id": "worker-31",
+      "role": "worker",
+      "qualityProbability": 0.9,
+      "address": "0xDef1eE491B71e445E42ac61e20b5b556973B6418"
+    },
+    {
+      "id": "worker-32",
+      "role": "worker",
+      "qualityProbability": 0.915,
+      "address": "0x357EF571e2023A81aC3A5e36F1bc92984a304866"
+    },
+    {
+      "id": "worker-33",
+      "role": "worker",
+      "qualityProbability": 0.93,
+      "address": "0x629E19D2B97278C1a02B54d75998F5b1Ad97e269"
+    },
+    {
+      "id": "worker-34",
+      "role": "worker",
+      "qualityProbability": 0.9450000000000001,
+      "address": "0xddc3Cd192723a0557F02895892011E4b68F76439"
+    },
+    {
+      "id": "worker-35",
+      "role": "worker",
+      "qualityProbability": 0.96,
+      "address": "0xf48E0fAD7D92d29048f985342d951eFbf31Eb238"
+    },
+    {
+      "id": "worker-36",
+      "role": "worker",
+      "qualityProbability": 0.9,
+      "address": "0xD3899be08bAa52648Af9a4fb61Dc454E8CAC6d5e"
+    },
+    {
+      "id": "worker-37",
+      "role": "worker",
+      "qualityProbability": 0.915,
+      "address": "0xbD3aE851d826DF7F91CAba39e1081E64385c7052"
+    },
+    {
+      "id": "worker-38",
+      "role": "worker",
+      "qualityProbability": 0.93,
+      "address": "0x2B9B5F877314CF05EA3384A22e40a62153B71237"
+    },
+    {
+      "id": "worker-39",
+      "role": "worker",
+      "qualityProbability": 0.9450000000000001,
+      "address": "0xC15c549830bdb53c3b741D6f2e8A6b03fc3a242F"
+    },
+    {
+      "id": "worker-40",
+      "role": "worker",
+      "qualityProbability": 0.96,
+      "address": "0x912B7E06048A4803495551b11376626bfd4F0C89"
+    },
+    {
+      "id": "backer-01",
+      "role": "backer",
+      "workers": [
+        "worker-01",
+        "worker-02"
+      ],
+      "laterStake": "0",
+      "address": "0x89CaE3DA9724FC803d27a720902448e9C1f30227"
+    },
+    {
+      "id": "backer-02",
+      "role": "backer",
+      "workers": [
+        "worker-03",
+        "worker-04"
+      ],
+      "laterStake": "0",
+      "address": "0x4ffDDAcaC6ba06cb39DD505F8642bC69bD9f212b"
+    },
+    {
+      "id": "backer-03",
+      "role": "backer",
+      "workers": [
+        "worker-05",
+        "worker-06"
+      ],
+      "laterStake": "0",
+      "address": "0xc4EfDB1FAE6F7d043b96a5e4b799dDe1575A8B2d"
+    },
+    {
+      "id": "backer-04",
+      "role": "backer",
+      "workers": [
+        "worker-07",
+        "worker-08"
+      ],
+      "laterStake": "0",
+      "address": "0x4D8Ff96Da205D07449706ac2a175706730C51340"
+    },
+    {
+      "id": "backer-05",
+      "role": "backer",
+      "workers": [
+        "worker-09",
+        "worker-10"
+      ],
+      "laterStake": "0",
+      "address": "0xA2B34dC2f892e4f6C4fC430c1353263038e3d47c"
+    },
+    {
+      "id": "backer-06",
+      "role": "backer",
+      "workers": [
+        "worker-11",
+        "worker-12"
+      ],
+      "laterStake": "0",
+      "address": "0x40A0AE175151c989Ca41e7B5F3E3fD52E1B8Ffd8"
+    },
+    {
+      "id": "backer-07",
+      "role": "backer",
+      "workers": [
+        "worker-13",
+        "worker-14"
+      ],
+      "laterStake": "0",
+      "address": "0xF3C986492CB095B4Ac96382ad099C9dc988D0724"
+    },
+    {
+      "id": "backer-08",
+      "role": "backer",
+      "workers": [
+        "worker-15",
+        "worker-16"
+      ],
+      "laterStake": "0",
+      "address": "0xF9cDd695b8D9F07d705c49a54dFA2e6f3C37395c"
+    },
+    {
+      "id": "backer-09",
+      "role": "backer",
+      "workers": [
+        "worker-17",
+        "worker-18"
+      ],
+      "laterStake": "0",
+      "address": "0x2cE025c8a2d1285844cbB165DC2E9750628879Fb"
+    },
+    {
+      "id": "backer-10",
+      "role": "backer",
+      "workers": [
+        "worker-19",
+        "worker-20"
+      ],
+      "laterStake": "0",
+      "address": "0x5a74F2a518846b85D70A738Ecb1dB009BDc537cE"
+    },
+    {
+      "id": "backer-11",
+      "role": "backer",
+      "workers": [
+        "worker-21",
+        "worker-22"
+      ],
+      "laterStake": "0",
+      "address": "0xF31AD6d6f30fE630b0Dd719f6a9B6f6D68Aaa1b3"
+    },
+    {
+      "id": "backer-12",
+      "role": "backer",
+      "workers": [
+        "worker-23",
+        "worker-24"
+      ],
+      "laterStake": "0",
+      "address": "0x8FEA7BC3d7Dd1988AB156794E6cfA9d4Da0Fc082"
+    },
+    {
+      "id": "backer-13",
+      "role": "backer",
+      "workers": [
+        "worker-25",
+        "worker-26"
+      ],
+      "laterStake": "0",
+      "address": "0x00d23fc21b9E79d929D1f2Ba5D632b278a7D128d"
+    },
+    {
+      "id": "backer-14",
+      "role": "backer",
+      "workers": [
+        "worker-27",
+        "worker-28"
+      ],
+      "laterStake": "0",
+      "address": "0xc55Bc54Dd598892415DF8B952dB7Ae4484CF2571"
+    },
+    {
+      "id": "sponsor-01",
+      "role": "sponsor",
+      "added": "0",
+      "address": "0xbb8f0694a412b93b7e9d002A0a9C7e8876EDFF36"
+    },
+    {
+      "id": "sponsor-02",
+      "role": "sponsor",
+      "added": "0",
+      "address": "0x3e400D0da2e8a2CAE982aFdBF32693768621151f"
+    },
+    {
+      "id": "sponsor-03",
+      "role": "sponsor",
+      "added": "0",
+      "address": "0x9B6B763Acbc91740B3b36580cD29D2d6D8f18577"
+    },
+    {
+      "id": "sponsor-04",
+      "role": "sponsor",
+      "added": "0",
+      "address": "0x8d4cE0e6E4153b3251Af1A5cd7166FAe14707027"
+    },
+    {
+      "id": "issuer-01",
+      "role": "issuer",
+      "address": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
+    },
+    {
+      "id": "adjudicator-01",
+      "role": "adjudicator",
+      "address": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
+    }
+  ]
+}

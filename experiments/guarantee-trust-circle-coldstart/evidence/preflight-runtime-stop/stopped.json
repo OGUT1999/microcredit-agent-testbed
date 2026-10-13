@@ -1,0 +1,15 @@
+{
+  "atUTC": "2026-10-13T10:25:05.795Z",
+  "errorCode": "REDACTED_EXECUTION_FAILURE",
+  "checkpoint": {
+    "sourceCommit": "ec93c76779b5e2d52ab7b87cf82b3fd400205969",
+    "phase": "deployed",
+    "round": 0,
+    "startedAtUTC": "2026-10-13T10:24:53.905Z",
+    "lastTransactionHash": "0x6a66545ed110776c9aec905afc35f7c5a6ac89aed9d5da53ba1a4a68bd0c0bac",
+    "contract": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "token": "0x036CbD53842c5426634e7929541eC2318f3dCF7e"
+  },
+  "transactionCount": 1,
+  "warning": "Inspect mined/pending public hashes before any recovery; do not replay blindly."
+}

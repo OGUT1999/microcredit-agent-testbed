@@ -1,0 +1,16 @@
+{
+  "atUTC": "2026-10-13T10:38:31.053Z",
+  "errorCode": "UNKNOWN_ERROR",
+  "safeReason": null,
+  "checkpoint": {
+    "sourceCommit": "ec93c76779b5e2d52ab7b87cf82b3fd400205969",
+    "phase": "deployed",
+    "round": 0,
+    "startedAtUTC": "2026-10-13T10:34:51.575Z",
+    "contract": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "token": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "lastTransactionHash": "0x5019fcc1c61fdbf7d03925f86bff071407df1ef8ce7997e1fe687631506e43eb"
+  },
+  "transactionCount": 74,
+  "warning": "Inspect mined/pending public hashes before any recovery; do not replay blindly."
+}
