@@ -1,0 +1,8 @@
+{
+  "method": "eth_call; no transaction and no state change",
+  "expected": "ExposureCap",
+  "actual": "ExposureCap",
+  "reserve": "0",
+  "guaranteeAmount": "200000",
+  "accepted": false
+}

@@ -1,0 +1,12 @@
+{
+  "sourceCommit": "ec93c76779b5e2d52ab7b87cf82b3fd400205969",
+  "phase": "deployed",
+  "round": 0,
+  "startedAtUTC": "2026-10-13T10:34:51.575Z",
+  "resumedAtUTC": "2026-10-13T11:06:23.998Z",
+  "bootstrapResume": true,
+  "priorRunnerSha256": "ade8ba7924caba0c12f01a2c95ebed283860f75948ea617f05a4eb9d46768352",
+  "priorJournalCount": 75,
+  "contract": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+  "token": "0x036CbD53842c5426634e7929541eC2318f3dCF7e"
+}

@@ -1,0 +1,7 @@
+{"label":"configure-small-test-caps","hash":"0xb8dcf25aa8fa05d6e008aa6ab5950a3009d829cb3b7b5a201b3094180dca45f8","call":"setParams","reason":"Prior exact call and mined receipt independently verified"}
+{"label":"gas-sponsor-01","hash":"0x9587dec44e0eb48d1ffc607694caa756256749621e6a5dff60a6f6ff051b20eb","call":"native ETH transfer","reason":"Prior exact call and mined receipt independently verified"}
+{"label":"tokens-sponsor-01","hash":"0x87356258e4a391a80d40e159ddd0a05aed13d82fc12795f8202969f1ae0b67a7","call":"USDC.transfer","reason":"Prior exact call and mined receipt independently verified"}
+{"label":"approve-sponsor-01","hash":"0x5131c3fa0e004f4b035efff657d35b9298eb3af0d42295a0bc4b2a447de9c623","call":"USDC.approve","reason":"Prior exact call and mined receipt independently verified"}
+{"label":"seed-sponsor-01","hash":"0x4b5e57d7ea69ff90b2710f99aa93f6726ed0834d29f0e337556d409beefec972","call":"fundReserve","reason":"Prior exact call and mined receipt independently verified"}
+{"label":"gas-sponsor-02","hash":"0xcb01d86c732ba6086c4e520b761ea20bb09d5fa85c163062b27d2a9d0d651205","call":"native ETH transfer","reason":"Prior exact call and mined receipt independently verified"}
+{"label":"tokens-sponsor-02","hash":"0xbc5b3b9b1058c9389ec2739b260676026c3be1cc89107dde6d810fc14d1ad0d5","call":"USDC.transfer","reason":"Prior exact call and mined receipt independently verified"}

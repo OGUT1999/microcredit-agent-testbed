@@ -1,0 +1,2535 @@
+[
+  {
+    "label": "configure-small-test-caps",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "setParams",
+    "args": {
+      "maxShareBps": 2000,
+      "floorMultiple": 2,
+      "contributionBps": 500,
+      "contributionCap": "300000",
+      "remitWindow": 86400,
+      "lineCap": "2000000",
+      "attestCap": "2000000",
+      "maxAttesters": 5,
+      "maxOpenAttestees": 5
+    },
+    "hash": "0xb8dcf25aa8fa05d6e008aa6ab5950a3009d829cb3b7b5a201b3094180dca45f8",
+    "nonce": 2,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059709,
+    "gasUsed": "60609",
+    "feeWei": "363654000000",
+    "events": [
+      {
+        "name": "ParamsSet",
+        "args": {
+          "maxShareBps": "2000",
+          "floorMultiple": "2",
+          "contributionBps": "500",
+          "contributionCap": "300000",
+          "remitWindow": "86400",
+          "lineCap": "2000000",
+          "attestCap": "2000000",
+          "maxAttesters": "5",
+          "maxOpenAttestees": "5"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "0",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "0",
+      "tokenBalance": "0",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "gas-sponsor-01",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0xbb8f0694a412b93b7e9d002A0a9C7e8876EDFF36",
+    "call": "native ETH transfer",
+    "args": {
+      "to": "0xbb8f0694a412b93b7e9d002A0a9C7e8876EDFF36",
+      "value": "80000000000000"
+    },
+    "hash": "0x9587dec44e0eb48d1ffc607694caa756256749621e6a5dff60a6f6ff051b20eb",
+    "nonce": 3,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059710,
+    "gasUsed": "21000",
+    "feeWei": "126000000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "0",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "0",
+      "tokenBalance": "0",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "tokens-sponsor-01",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.transfer",
+    "args": {
+      "to": "0xbb8f0694a412b93b7e9d002A0a9C7e8876EDFF36",
+      "amount": "750000"
+    },
+    "hash": "0x87356258e4a391a80d40e159ddd0a05aed13d82fc12795f8202969f1ae0b67a7",
+    "nonce": 4,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059711,
+    "gasUsed": "62147",
+    "feeWei": "372882000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "0",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "0",
+      "tokenBalance": "0",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "approve-sponsor-01",
+    "actor": "sponsor-01",
+    "from": "0xbb8f0694a412b93b7e9d002A0a9C7e8876EDFF36",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.approve",
+    "args": {
+      "spender": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+      "amount": "750000"
+    },
+    "hash": "0x5131c3fa0e004f4b035efff657d35b9298eb3af0d42295a0bc4b2a447de9c623",
+    "nonce": 0,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059713,
+    "gasUsed": "55437",
+    "feeWei": "332622000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "0",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "0",
+      "tokenBalance": "0",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "seed-sponsor-01",
+    "actor": "sponsor-01",
+    "from": "0xbb8f0694a412b93b7e9d002A0a9C7e8876EDFF36",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "fundReserve",
+    "args": {
+      "amount": "500000"
+    },
+    "hash": "0x4b5e57d7ea69ff90b2710f99aa93f6726ed0834d29f0e337556d409beefec972",
+    "nonce": 1,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059715,
+    "gasUsed": "162574",
+    "feeWei": "975444000000",
+    "events": [
+      {
+        "name": "ReserveFunded",
+        "args": {
+          "from": "0xbb8f0694a412b93b7e9d002A0a9C7e8876EDFF36",
+          "amount": "500000",
+          "reserve": "500000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "500000",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "500000",
+      "tokenBalance": "500000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "gas-sponsor-02",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x3e400D0da2e8a2CAE982aFdBF32693768621151f",
+    "call": "native ETH transfer",
+    "args": {
+      "to": "0x3e400D0da2e8a2CAE982aFdBF32693768621151f",
+      "value": "80000000000000"
+    },
+    "hash": "0xcb01d86c732ba6086c4e520b761ea20bb09d5fa85c163062b27d2a9d0d651205",
+    "nonce": 5,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059717,
+    "gasUsed": "21000",
+    "feeWei": "126000000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "500000",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "500000",
+      "tokenBalance": "500000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "tokens-sponsor-02",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.transfer",
+    "args": {
+      "to": "0x3e400D0da2e8a2CAE982aFdBF32693768621151f",
+      "amount": "750000"
+    },
+    "hash": "0xbc5b3b9b1058c9389ec2739b260676026c3be1cc89107dde6d810fc14d1ad0d5",
+    "nonce": 6,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059719,
+    "gasUsed": "62159",
+    "feeWei": "372954000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "500000",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "500000",
+      "tokenBalance": "500000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "approve-sponsor-02",
+    "actor": "sponsor-02",
+    "from": "0x3e400D0da2e8a2CAE982aFdBF32693768621151f",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.approve",
+    "args": {
+      "spender": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+      "amount": "750000"
+    },
+    "hash": "0x038e46caed2fbd8c38dc766c04981a8a49f3975e7da414837466a757cb4c9e53",
+    "nonce": 0,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059720,
+    "gasUsed": "55437",
+    "feeWei": "332622000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "500000",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "500000",
+      "tokenBalance": "500000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "seed-sponsor-02",
+    "actor": "sponsor-02",
+    "from": "0x3e400D0da2e8a2CAE982aFdBF32693768621151f",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "fundReserve",
+    "args": {
+      "amount": "500000"
+    },
+    "hash": "0xc519472261c2730275dafbae7920ff383bd9c73fe2abe2330cc33999e30cfc32",
+    "nonce": 1,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059721,
+    "gasUsed": "94174",
+    "feeWei": "565044000000",
+    "events": [
+      {
+        "name": "ReserveFunded",
+        "args": {
+          "from": "0x3e400D0da2e8a2CAE982aFdBF32693768621151f",
+          "amount": "500000",
+          "reserve": "1000000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "1000000",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "1000000",
+      "tokenBalance": "1000000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "gas-sponsor-03",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x9B6B763Acbc91740B3b36580cD29D2d6D8f18577",
+    "call": "native ETH transfer",
+    "args": {
+      "to": "0x9B6B763Acbc91740B3b36580cD29D2d6D8f18577",
+      "value": "80000000000000"
+    },
+    "hash": "0xfe4ba9e11e99610d88dbafd442ce6d4cb73151226741023a95d944858fcd9328",
+    "nonce": 7,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059722,
+    "gasUsed": "21000",
+    "feeWei": "126000000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "1000000",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "1000000",
+      "tokenBalance": "1000000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "tokens-sponsor-03",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.transfer",
+    "args": {
+      "to": "0x9B6B763Acbc91740B3b36580cD29D2d6D8f18577",
+      "amount": "750000"
+    },
+    "hash": "0xd7dabbd87d9e1a8fd4bb919bde421c7bbfea2d28890e36b017a76bfaeabb4a07",
+    "nonce": 8,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059724,
+    "gasUsed": "62159",
+    "feeWei": "372954000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "1000000",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "1000000",
+      "tokenBalance": "1000000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "approve-sponsor-03",
+    "actor": "sponsor-03",
+    "from": "0x9B6B763Acbc91740B3b36580cD29D2d6D8f18577",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.approve",
+    "args": {
+      "spender": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+      "amount": "750000"
+    },
+    "hash": "0x6c050bbe241c1d800846b4e2e30b8bed81633cb2102d2fd70ae8836cc0a9b4da",
+    "nonce": 0,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059726,
+    "gasUsed": "55437",
+    "feeWei": "332622000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "1000000",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "1000000",
+      "tokenBalance": "1000000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "seed-sponsor-03",
+    "actor": "sponsor-03",
+    "from": "0x9B6B763Acbc91740B3b36580cD29D2d6D8f18577",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "fundReserve",
+    "args": {
+      "amount": "500000"
+    },
+    "hash": "0xa9147edd05de7cd6d69c21858c1b002c50e11e8f5a81eb12ddc1194ed507412a",
+    "nonce": 1,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059727,
+    "gasUsed": "94174",
+    "feeWei": "565044000000",
+    "events": [
+      {
+        "name": "ReserveFunded",
+        "args": {
+          "from": "0x9B6B763Acbc91740B3b36580cD29D2d6D8f18577",
+          "amount": "500000",
+          "reserve": "1500000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "1500000",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "1500000",
+      "tokenBalance": "1500000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "gas-sponsor-04",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x8d4cE0e6E4153b3251Af1A5cd7166FAe14707027",
+    "call": "native ETH transfer",
+    "args": {
+      "to": "0x8d4cE0e6E4153b3251Af1A5cd7166FAe14707027",
+      "value": "80000000000000"
+    },
+    "hash": "0xfa98768fc6d72231d6d76c4e67234f06df7ec31947aed8a85a4f689a12e50e41",
+    "nonce": 9,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059728,
+    "gasUsed": "21000",
+    "feeWei": "126000000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "1500000",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "1500000",
+      "tokenBalance": "1500000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "tokens-sponsor-04",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.transfer",
+    "args": {
+      "to": "0x8d4cE0e6E4153b3251Af1A5cd7166FAe14707027",
+      "amount": "750000"
+    },
+    "hash": "0xcdf01a259b869274ff664a31da0c771334b3a3aaa802fd90720a4c14538d468d",
+    "nonce": 10,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059729,
+    "gasUsed": "62159",
+    "feeWei": "372954000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "1500000",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "1500000",
+      "tokenBalance": "1500000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "approve-sponsor-04",
+    "actor": "sponsor-04",
+    "from": "0x8d4cE0e6E4153b3251Af1A5cd7166FAe14707027",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.approve",
+    "args": {
+      "spender": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+      "amount": "750000"
+    },
+    "hash": "0x805ae873d8aed2b4af7475c2ace11ca6de156bbabc25a631142ccb9fdcb7dd34",
+    "nonce": 0,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059730,
+    "gasUsed": "55437",
+    "feeWei": "332622000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "1500000",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "1500000",
+      "tokenBalance": "1500000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "seed-sponsor-04",
+    "actor": "sponsor-04",
+    "from": "0x8d4cE0e6E4153b3251Af1A5cd7166FAe14707027",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "fundReserve",
+    "args": {
+      "amount": "500000"
+    },
+    "hash": "0xfdfb37631cde0fea44fba427d84a10cc64bf78b5a5cbabe40d8634e36ef78e8e",
+    "nonce": 1,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059731,
+    "gasUsed": "94174",
+    "feeWei": "565044000000",
+    "events": [
+      {
+        "name": "ReserveFunded",
+        "args": {
+          "from": "0x8d4cE0e6E4153b3251Af1A5cd7166FAe14707027",
+          "amount": "500000",
+          "reserve": "2000000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2000000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "gas-backer-01",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x89CaE3DA9724FC803d27a720902448e9C1f30227",
+    "call": "native ETH transfer",
+    "args": {
+      "to": "0x89CaE3DA9724FC803d27a720902448e9C1f30227",
+      "value": "80000000000000"
+    },
+    "hash": "0x4b0c858bb4d1f79e970f7a19bf42edd49212956be8eac38bdd94392c9e58941f",
+    "nonce": 11,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059732,
+    "gasUsed": "21000",
+    "feeWei": "126000000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2000000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "tokens-backer-01",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.transfer",
+    "args": {
+      "to": "0x89CaE3DA9724FC803d27a720902448e9C1f30227",
+      "amount": "1200000"
+    },
+    "hash": "0x4a1f2a57dcc37a018e9fa14ce133212b9d1e93a10ff58c7d957f336bce546858",
+    "nonce": 12,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059733,
+    "gasUsed": "62159",
+    "feeWei": "372954000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2000000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "approve-backer-01",
+    "actor": "backer-01",
+    "from": "0x89CaE3DA9724FC803d27a720902448e9C1f30227",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.approve",
+    "args": {
+      "spender": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+      "amount": "1200000"
+    },
+    "hash": "0x88ce607938c2434284a17941a4cc9704ae7d87e0a5f744c454d8db81acff76f0",
+    "nonce": 0,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059734,
+    "gasUsed": "55437",
+    "feeWei": "332622000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "0",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2000000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "stake-initial-backer-01",
+    "actor": "backer-01",
+    "from": "0x89CaE3DA9724FC803d27a720902448e9C1f30227",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "stake",
+    "args": {
+      "amount": "300000"
+    },
+    "hash": "0x698e7e51476b3fb5bec36a74e3d55b95cdae5485e611878d06e1fdb117c78d47",
+    "nonce": 1,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059735,
+    "gasUsed": "101040",
+    "feeWei": "606240000000",
+    "events": [
+      {
+        "name": "Staked",
+        "args": {
+          "member": "0x89CaE3DA9724FC803d27a720902448e9C1f30227",
+          "amount": "300000",
+          "stake": "300000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "300000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2300000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "consent-worker-01-backer-01",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "setConsentBySig",
+    "args": {
+      "member": "0xfF4B90141ad98160b0F67abD93fccf96165B059E",
+      "attester": "0x89CaE3DA9724FC803d27a720902448e9C1f30227",
+      "allowed": true,
+      "nonce": "0",
+      "deadline": 1792060506
+    },
+    "hash": "0x82c45e401ae5e950a259d8785e08615d1dd170227c894e674c12194f2b7c8b69",
+    "nonce": 13,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059737,
+    "gasUsed": "79419",
+    "feeWei": "476514000000",
+    "events": [
+      {
+        "name": "ConsentSet",
+        "args": {
+          "member": "0xfF4B90141ad98160b0F67abD93fccf96165B059E",
+          "attester": "0x89CaE3DA9724FC803d27a720902448e9C1f30227",
+          "allowed": true,
+          "submittedBy": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "300000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2300000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "attest-backer-01-worker-01",
+    "actor": "backer-01",
+    "from": "0x89CaE3DA9724FC803d27a720902448e9C1f30227",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "attest",
+    "args": {
+      "worker": "0xfF4B90141ad98160b0F67abD93fccf96165B059E",
+      "amount": "150000"
+    },
+    "hash": "0x080958d17e76a828f41692a09846e594c5bed7f40d5a8aa285c65e38c3945786",
+    "nonce": 2,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059739,
+    "gasUsed": "218967",
+    "feeWei": "1313802000000",
+    "events": [
+      {
+        "name": "Attested",
+        "args": {
+          "attester": "0x89CaE3DA9724FC803d27a720902448e9C1f30227",
+          "member": "0xfF4B90141ad98160b0F67abD93fccf96165B059E",
+          "amount": "150000",
+          "backing": "150000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "300000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2300000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "consent-worker-02-backer-01",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "setConsentBySig",
+    "args": {
+      "member": "0xF682b5fC1A7b80FBB6B0b2Deb0353C2A907418a4",
+      "attester": "0x89CaE3DA9724FC803d27a720902448e9C1f30227",
+      "allowed": true,
+      "nonce": "0",
+      "deadline": 1792060506
+    },
+    "hash": "0x7d02b58adcf4c194ec8b9175cf0a25af13265aa37c8ebe5e52649b0cf9f35a61",
+    "nonce": 14,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059740,
+    "gasUsed": "79455",
+    "feeWei": "476730000000",
+    "events": [
+      {
+        "name": "ConsentSet",
+        "args": {
+          "member": "0xF682b5fC1A7b80FBB6B0b2Deb0353C2A907418a4",
+          "attester": "0x89CaE3DA9724FC803d27a720902448e9C1f30227",
+          "allowed": true,
+          "submittedBy": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "300000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2300000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "attest-backer-01-worker-02",
+    "actor": "backer-01",
+    "from": "0x89CaE3DA9724FC803d27a720902448e9C1f30227",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "attest",
+    "args": {
+      "worker": "0xF682b5fC1A7b80FBB6B0b2Deb0353C2A907418a4",
+      "amount": "150000"
+    },
+    "hash": "0x7326b0bce6c2975b82da9606e69c263abb3a52117d7adfef2ecd518c0233835d",
+    "nonce": 3,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059741,
+    "gasUsed": "167667",
+    "feeWei": "1006002000000",
+    "events": [
+      {
+        "name": "Attested",
+        "args": {
+          "attester": "0x89CaE3DA9724FC803d27a720902448e9C1f30227",
+          "member": "0xF682b5fC1A7b80FBB6B0b2Deb0353C2A907418a4",
+          "amount": "150000",
+          "backing": "150000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "300000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2300000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "gas-backer-02",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x4ffDDAcaC6ba06cb39DD505F8642bC69bD9f212b",
+    "call": "native ETH transfer",
+    "args": {
+      "to": "0x4ffDDAcaC6ba06cb39DD505F8642bC69bD9f212b",
+      "value": "80000000000000"
+    },
+    "hash": "0x429078f508ee1a082d4a2f7c7a9d85205cb306be97859a514bc74c74b03721e5",
+    "nonce": 15,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059742,
+    "gasUsed": "21000",
+    "feeWei": "126000000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "300000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2300000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "tokens-backer-02",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.transfer",
+    "args": {
+      "to": "0x4ffDDAcaC6ba06cb39DD505F8642bC69bD9f212b",
+      "amount": "1200000"
+    },
+    "hash": "0x9c7cf5a4c6526f482abea142f48132c691f8e66eb1dbdf2cf6d7bb1189b51dea",
+    "nonce": 16,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059743,
+    "gasUsed": "62159",
+    "feeWei": "372954000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "300000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2300000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "approve-backer-02",
+    "actor": "backer-02",
+    "from": "0x4ffDDAcaC6ba06cb39DD505F8642bC69bD9f212b",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.approve",
+    "args": {
+      "spender": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+      "amount": "1200000"
+    },
+    "hash": "0xc119722d977a7429ab6e687ffb5ebd6308e89d39cf30b281f2510c0ea10c5953",
+    "nonce": 0,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059744,
+    "gasUsed": "55437",
+    "feeWei": "332622000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "300000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2300000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "stake-initial-backer-02",
+    "actor": "backer-02",
+    "from": "0x4ffDDAcaC6ba06cb39DD505F8642bC69bD9f212b",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "stake",
+    "args": {
+      "amount": "300000"
+    },
+    "hash": "0xb7e809d992d0f6948c0dddc48698f4d7e4ff411befbbba430df9ea1b1dbf4e52",
+    "nonce": 1,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059745,
+    "gasUsed": "83940",
+    "feeWei": "503640000000",
+    "events": [
+      {
+        "name": "Staked",
+        "args": {
+          "member": "0x4ffDDAcaC6ba06cb39DD505F8642bC69bD9f212b",
+          "amount": "300000",
+          "stake": "300000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "600000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2600000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "consent-worker-03-backer-02",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "setConsentBySig",
+    "args": {
+      "member": "0x996F4dc470313A135e044b0fc90bDDfd292808F3",
+      "attester": "0x4ffDDAcaC6ba06cb39DD505F8642bC69bD9f212b",
+      "allowed": true,
+      "nonce": "0",
+      "deadline": 1792060506
+    },
+    "hash": "0xb6541d38355537f8fe2961f65977bed36e227059979b1c2d3899b3447b834c8a",
+    "nonce": 17,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059746,
+    "gasUsed": "79455",
+    "feeWei": "476730000000",
+    "events": [
+      {
+        "name": "ConsentSet",
+        "args": {
+          "member": "0x996F4dc470313A135e044b0fc90bDDfd292808F3",
+          "attester": "0x4ffDDAcaC6ba06cb39DD505F8642bC69bD9f212b",
+          "allowed": true,
+          "submittedBy": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "600000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2600000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "attest-backer-02-worker-03",
+    "actor": "backer-02",
+    "from": "0x4ffDDAcaC6ba06cb39DD505F8642bC69bD9f212b",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "attest",
+    "args": {
+      "worker": "0x996F4dc470313A135e044b0fc90bDDfd292808F3",
+      "amount": "150000"
+    },
+    "hash": "0x2885f0e68fa30c0e5cac70ed04d99ebba2ac3cff992f9db727f73421ecdd6084",
+    "nonce": 2,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059747,
+    "gasUsed": "218967",
+    "feeWei": "1313802000000",
+    "events": [
+      {
+        "name": "Attested",
+        "args": {
+          "attester": "0x4ffDDAcaC6ba06cb39DD505F8642bC69bD9f212b",
+          "member": "0x996F4dc470313A135e044b0fc90bDDfd292808F3",
+          "amount": "150000",
+          "backing": "150000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "600000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2600000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "consent-worker-04-backer-02",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "setConsentBySig",
+    "args": {
+      "member": "0x189DA8a40B175BF769E747fac260DD0AD3A065B7",
+      "attester": "0x4ffDDAcaC6ba06cb39DD505F8642bC69bD9f212b",
+      "allowed": true,
+      "nonce": "0",
+      "deadline": 1792060506
+    },
+    "hash": "0x4fdea74613ffdad2cbc6db8725c4baa1fa6bfad5c9316136de9d89c4b93680e0",
+    "nonce": 18,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059749,
+    "gasUsed": "79455",
+    "feeWei": "476730000000",
+    "events": [
+      {
+        "name": "ConsentSet",
+        "args": {
+          "member": "0x189DA8a40B175BF769E747fac260DD0AD3A065B7",
+          "attester": "0x4ffDDAcaC6ba06cb39DD505F8642bC69bD9f212b",
+          "allowed": true,
+          "submittedBy": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "600000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2600000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "attest-backer-02-worker-04",
+    "actor": "backer-02",
+    "from": "0x4ffDDAcaC6ba06cb39DD505F8642bC69bD9f212b",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "attest",
+    "args": {
+      "worker": "0x189DA8a40B175BF769E747fac260DD0AD3A065B7",
+      "amount": "150000"
+    },
+    "hash": "0xcf37b30c289b177a652cdca03912e80f1a2b3ecfb6e091e560d0ea638c9984d7",
+    "nonce": 3,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059751,
+    "gasUsed": "167667",
+    "feeWei": "1006002000000",
+    "events": [
+      {
+        "name": "Attested",
+        "args": {
+          "attester": "0x4ffDDAcaC6ba06cb39DD505F8642bC69bD9f212b",
+          "member": "0x189DA8a40B175BF769E747fac260DD0AD3A065B7",
+          "amount": "150000",
+          "backing": "150000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "600000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2600000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "gas-backer-03",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0xc4EfDB1FAE6F7d043b96a5e4b799dDe1575A8B2d",
+    "call": "native ETH transfer",
+    "args": {
+      "to": "0xc4EfDB1FAE6F7d043b96a5e4b799dDe1575A8B2d",
+      "value": "80000000000000"
+    },
+    "hash": "0xa32d825e5a695425ad231b13cc93d68c175adc52317256de57acd71cb2a19e22",
+    "nonce": 19,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059753,
+    "gasUsed": "21000",
+    "feeWei": "126000000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "600000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2600000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "tokens-backer-03",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.transfer",
+    "args": {
+      "to": "0xc4EfDB1FAE6F7d043b96a5e4b799dDe1575A8B2d",
+      "amount": "1200000"
+    },
+    "hash": "0x862a2616ca23f98fc1574f22bb59141a1da7e18f31b7a30aad88b3c65ac01319",
+    "nonce": 20,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059754,
+    "gasUsed": "62159",
+    "feeWei": "372954000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "600000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2600000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "approve-backer-03",
+    "actor": "backer-03",
+    "from": "0xc4EfDB1FAE6F7d043b96a5e4b799dDe1575A8B2d",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.approve",
+    "args": {
+      "spender": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+      "amount": "1200000"
+    },
+    "hash": "0x08fca95b7267a62923d349afa391ca06bfe908c22f6e8010136c1dbd60ebe1f9",
+    "nonce": 0,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059756,
+    "gasUsed": "55437",
+    "feeWei": "332622000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "600000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2600000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "stake-initial-backer-03",
+    "actor": "backer-03",
+    "from": "0xc4EfDB1FAE6F7d043b96a5e4b799dDe1575A8B2d",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "stake",
+    "args": {
+      "amount": "300000"
+    },
+    "hash": "0x6e159a17b81383822035bb9123a8ac3919655f73b24d720b8755a4ba437585ed",
+    "nonce": 1,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059758,
+    "gasUsed": "83940",
+    "feeWei": "503640000000",
+    "events": [
+      {
+        "name": "Staked",
+        "args": {
+          "member": "0xc4EfDB1FAE6F7d043b96a5e4b799dDe1575A8B2d",
+          "amount": "300000",
+          "stake": "300000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "900000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2900000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "consent-worker-05-backer-03",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "setConsentBySig",
+    "args": {
+      "member": "0xcFEC7851a579e4F63DdA19c4E063cCE26C6450D5",
+      "attester": "0xc4EfDB1FAE6F7d043b96a5e4b799dDe1575A8B2d",
+      "allowed": true,
+      "nonce": "0",
+      "deadline": 1792060506
+    },
+    "hash": "0xf39605f947a5fda0a9c746bdd608faef7c533fe0ecac155e20a97605a7ab504a",
+    "nonce": 21,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059759,
+    "gasUsed": "79443",
+    "feeWei": "476658000000",
+    "events": [
+      {
+        "name": "ConsentSet",
+        "args": {
+          "member": "0xcFEC7851a579e4F63DdA19c4E063cCE26C6450D5",
+          "attester": "0xc4EfDB1FAE6F7d043b96a5e4b799dDe1575A8B2d",
+          "allowed": true,
+          "submittedBy": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "900000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2900000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "attest-backer-03-worker-05",
+    "actor": "backer-03",
+    "from": "0xc4EfDB1FAE6F7d043b96a5e4b799dDe1575A8B2d",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "attest",
+    "args": {
+      "worker": "0xcFEC7851a579e4F63DdA19c4E063cCE26C6450D5",
+      "amount": "150000"
+    },
+    "hash": "0x870fd1c618318f1cda2dc445eb552b8d7f052cf09d5fb67c3924918cc65714e7",
+    "nonce": 2,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059760,
+    "gasUsed": "218967",
+    "feeWei": "1313802000000",
+    "events": [
+      {
+        "name": "Attested",
+        "args": {
+          "attester": "0xc4EfDB1FAE6F7d043b96a5e4b799dDe1575A8B2d",
+          "member": "0xcFEC7851a579e4F63DdA19c4E063cCE26C6450D5",
+          "amount": "150000",
+          "backing": "150000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "900000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2900000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "consent-worker-06-backer-03",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "setConsentBySig",
+    "args": {
+      "member": "0x6D88F6093d2Bec1b6aA337CD0D2AaCbb4d0B5a45",
+      "attester": "0xc4EfDB1FAE6F7d043b96a5e4b799dDe1575A8B2d",
+      "allowed": true,
+      "nonce": "0",
+      "deadline": 1792060506
+    },
+    "hash": "0x2a9c6f4653677e4823150f2a7d9ecd53393417a8a4b4ba0ceeccbf75589f6f6b",
+    "nonce": 22,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059761,
+    "gasUsed": "79455",
+    "feeWei": "476730000000",
+    "events": [
+      {
+        "name": "ConsentSet",
+        "args": {
+          "member": "0x6D88F6093d2Bec1b6aA337CD0D2AaCbb4d0B5a45",
+          "attester": "0xc4EfDB1FAE6F7d043b96a5e4b799dDe1575A8B2d",
+          "allowed": true,
+          "submittedBy": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "900000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2900000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "attest-backer-03-worker-06",
+    "actor": "backer-03",
+    "from": "0xc4EfDB1FAE6F7d043b96a5e4b799dDe1575A8B2d",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "attest",
+    "args": {
+      "worker": "0x6D88F6093d2Bec1b6aA337CD0D2AaCbb4d0B5a45",
+      "amount": "150000"
+    },
+    "hash": "0xbcfde6152c7fc22996e09703fe915b0c012323857ffa315236e09cfa2e219799",
+    "nonce": 3,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059763,
+    "gasUsed": "167667",
+    "feeWei": "1006002000000",
+    "events": [
+      {
+        "name": "Attested",
+        "args": {
+          "attester": "0xc4EfDB1FAE6F7d043b96a5e4b799dDe1575A8B2d",
+          "member": "0x6D88F6093d2Bec1b6aA337CD0D2AaCbb4d0B5a45",
+          "amount": "150000",
+          "backing": "150000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "900000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2900000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "gas-backer-04",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x4D8Ff96Da205D07449706ac2a175706730C51340",
+    "call": "native ETH transfer",
+    "args": {
+      "to": "0x4D8Ff96Da205D07449706ac2a175706730C51340",
+      "value": "80000000000000"
+    },
+    "hash": "0x71a8488e12eef68f29509bc76b7ed95a4a7e9a8cc655d61d7a5b959d4070c8af",
+    "nonce": 23,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059765,
+    "gasUsed": "21000",
+    "feeWei": "126000000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "900000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2900000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "tokens-backer-04",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.transfer",
+    "args": {
+      "to": "0x4D8Ff96Da205D07449706ac2a175706730C51340",
+      "amount": "1200000"
+    },
+    "hash": "0xdd131b5ff194c882ad1a4dd55ec249020449828e9196e70da2228ffc9bc6216d",
+    "nonce": 24,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059766,
+    "gasUsed": "62159",
+    "feeWei": "372954000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "900000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2900000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "approve-backer-04",
+    "actor": "backer-04",
+    "from": "0x4D8Ff96Da205D07449706ac2a175706730C51340",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.approve",
+    "args": {
+      "spender": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+      "amount": "1200000"
+    },
+    "hash": "0x09e82e2c2be7ffb944ca84c464ee2c82013c6e101ad5a6368bedba80e75a1ed5",
+    "nonce": 0,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059768,
+    "gasUsed": "55437",
+    "feeWei": "332622000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "900000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "2900000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "stake-initial-backer-04",
+    "actor": "backer-04",
+    "from": "0x4D8Ff96Da205D07449706ac2a175706730C51340",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "stake",
+    "args": {
+      "amount": "300000"
+    },
+    "hash": "0xd5e861366067f95355a50784215684c27b7dbd11e643c7ccc8174ed735d7bbe5",
+    "nonce": 1,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059770,
+    "gasUsed": "83940",
+    "feeWei": "503640000000",
+    "events": [
+      {
+        "name": "Staked",
+        "args": {
+          "member": "0x4D8Ff96Da205D07449706ac2a175706730C51340",
+          "amount": "300000",
+          "stake": "300000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1200000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3200000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "consent-worker-07-backer-04",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "setConsentBySig",
+    "args": {
+      "member": "0x716c4022a98e6cCF40Aa9F65EB28E25Eccbc38c8",
+      "attester": "0x4D8Ff96Da205D07449706ac2a175706730C51340",
+      "allowed": true,
+      "nonce": "0",
+      "deadline": 1792060506
+    },
+    "hash": "0x192919a3c4ab8b2557681361c4714e8abefc5e31999e68798f8838d6c8ef7d2b",
+    "nonce": 25,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059771,
+    "gasUsed": "79443",
+    "feeWei": "476658000000",
+    "events": [
+      {
+        "name": "ConsentSet",
+        "args": {
+          "member": "0x716c4022a98e6cCF40Aa9F65EB28E25Eccbc38c8",
+          "attester": "0x4D8Ff96Da205D07449706ac2a175706730C51340",
+          "allowed": true,
+          "submittedBy": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1200000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3200000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "attest-backer-04-worker-07",
+    "actor": "backer-04",
+    "from": "0x4D8Ff96Da205D07449706ac2a175706730C51340",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "attest",
+    "args": {
+      "worker": "0x716c4022a98e6cCF40Aa9F65EB28E25Eccbc38c8",
+      "amount": "150000"
+    },
+    "hash": "0x95e61967df119256e28805478c69d449af72f775d67a31a4d3ec9e8e3bb2a882",
+    "nonce": 2,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059773,
+    "gasUsed": "218967",
+    "feeWei": "1313802000000",
+    "events": [
+      {
+        "name": "Attested",
+        "args": {
+          "attester": "0x4D8Ff96Da205D07449706ac2a175706730C51340",
+          "member": "0x716c4022a98e6cCF40Aa9F65EB28E25Eccbc38c8",
+          "amount": "150000",
+          "backing": "150000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1200000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3200000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "consent-worker-08-backer-04",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "setConsentBySig",
+    "args": {
+      "member": "0x0de3020BB4f8390B09B392e8a1f740Ea315590F4",
+      "attester": "0x4D8Ff96Da205D07449706ac2a175706730C51340",
+      "allowed": true,
+      "nonce": "0",
+      "deadline": 1792060506
+    },
+    "hash": "0xd70f0ceba34de80dea0fd164bc8927f9c6ffd5663b06cf9ed41c4e464cb3dd0a",
+    "nonce": 26,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059775,
+    "gasUsed": "79455",
+    "feeWei": "476730000000",
+    "events": [
+      {
+        "name": "ConsentSet",
+        "args": {
+          "member": "0x0de3020BB4f8390B09B392e8a1f740Ea315590F4",
+          "attester": "0x4D8Ff96Da205D07449706ac2a175706730C51340",
+          "allowed": true,
+          "submittedBy": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1200000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3200000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "attest-backer-04-worker-08",
+    "actor": "backer-04",
+    "from": "0x4D8Ff96Da205D07449706ac2a175706730C51340",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "attest",
+    "args": {
+      "worker": "0x0de3020BB4f8390B09B392e8a1f740Ea315590F4",
+      "amount": "150000"
+    },
+    "hash": "0xb9112ee62fff8f28f96b68f88026d797ed540f061c8481cc46f1f7578e9e2249",
+    "nonce": 3,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059777,
+    "gasUsed": "167667",
+    "feeWei": "1006002000000",
+    "events": [
+      {
+        "name": "Attested",
+        "args": {
+          "attester": "0x4D8Ff96Da205D07449706ac2a175706730C51340",
+          "member": "0x0de3020BB4f8390B09B392e8a1f740Ea315590F4",
+          "amount": "150000",
+          "backing": "150000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1200000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3200000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "gas-backer-05",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0xA2B34dC2f892e4f6C4fC430c1353263038e3d47c",
+    "call": "native ETH transfer",
+    "args": {
+      "to": "0xA2B34dC2f892e4f6C4fC430c1353263038e3d47c",
+      "value": "80000000000000"
+    },
+    "hash": "0x5de03bc776ed0cf22fe19ea17b7c0c2f7d175043e3caf205e82e976b02cfb830",
+    "nonce": 27,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059778,
+    "gasUsed": "21000",
+    "feeWei": "126000000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1200000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3200000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "tokens-backer-05",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.transfer",
+    "args": {
+      "to": "0xA2B34dC2f892e4f6C4fC430c1353263038e3d47c",
+      "amount": "1200000"
+    },
+    "hash": "0xe80043dd1d7ff4a053b958afded71517740b434b6db57f4afd42e6775d1206dc",
+    "nonce": 28,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059779,
+    "gasUsed": "62159",
+    "feeWei": "372954000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1200000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3200000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "approve-backer-05",
+    "actor": "backer-05",
+    "from": "0xA2B34dC2f892e4f6C4fC430c1353263038e3d47c",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.approve",
+    "args": {
+      "spender": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+      "amount": "1200000"
+    },
+    "hash": "0xa8cbc6bac3972d432134ebb269dc37d28c6582b96d1bcbef8f2cc2fac2773e56",
+    "nonce": 0,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059780,
+    "gasUsed": "55437",
+    "feeWei": "332622000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1200000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3200000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "stake-initial-backer-05",
+    "actor": "backer-05",
+    "from": "0xA2B34dC2f892e4f6C4fC430c1353263038e3d47c",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "stake",
+    "args": {
+      "amount": "300000"
+    },
+    "hash": "0x09b2d81bcaf2380ccd004ca493a381937828110353c677b3cd64a5533c592653",
+    "nonce": 1,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059781,
+    "gasUsed": "83940",
+    "feeWei": "503640000000",
+    "events": [
+      {
+        "name": "Staked",
+        "args": {
+          "member": "0xA2B34dC2f892e4f6C4fC430c1353263038e3d47c",
+          "amount": "300000",
+          "stake": "300000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1500000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3500000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "consent-worker-09-backer-05",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "setConsentBySig",
+    "args": {
+      "member": "0x971F60586640f334f5F00fFB9028C71cCdab21eD",
+      "attester": "0xA2B34dC2f892e4f6C4fC430c1353263038e3d47c",
+      "allowed": true,
+      "nonce": "0",
+      "deadline": 1792060506
+    },
+    "hash": "0xe0decbf7344e6555c68f8262c1a3a7f8363c9bea6e7162d8791cab496bd4ee57",
+    "nonce": 29,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059783,
+    "gasUsed": "79455",
+    "feeWei": "476730000000",
+    "events": [
+      {
+        "name": "ConsentSet",
+        "args": {
+          "member": "0x971F60586640f334f5F00fFB9028C71cCdab21eD",
+          "attester": "0xA2B34dC2f892e4f6C4fC430c1353263038e3d47c",
+          "allowed": true,
+          "submittedBy": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1500000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3500000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "attest-backer-05-worker-09",
+    "actor": "backer-05",
+    "from": "0xA2B34dC2f892e4f6C4fC430c1353263038e3d47c",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "attest",
+    "args": {
+      "worker": "0x971F60586640f334f5F00fFB9028C71cCdab21eD",
+      "amount": "150000"
+    },
+    "hash": "0x273cdd267e2d79419a2849392d343a78a974f600c2d6b924a49cc955a446e961",
+    "nonce": 2,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059785,
+    "gasUsed": "218967",
+    "feeWei": "1313802000000",
+    "events": [
+      {
+        "name": "Attested",
+        "args": {
+          "attester": "0xA2B34dC2f892e4f6C4fC430c1353263038e3d47c",
+          "member": "0x971F60586640f334f5F00fFB9028C71cCdab21eD",
+          "amount": "150000",
+          "backing": "150000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1500000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3500000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "consent-worker-10-backer-05",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "setConsentBySig",
+    "args": {
+      "member": "0xC5B248e0B4f1d24e70cf725AeF3060FCea626671",
+      "attester": "0xA2B34dC2f892e4f6C4fC430c1353263038e3d47c",
+      "allowed": true,
+      "nonce": "0",
+      "deadline": 1792060506
+    },
+    "hash": "0xf2e5816debfdf7109067ae69c87ce987125808e323eb3a4aa3101d66f4ad639d",
+    "nonce": 30,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059787,
+    "gasUsed": "79443",
+    "feeWei": "476658000000",
+    "events": [
+      {
+        "name": "ConsentSet",
+        "args": {
+          "member": "0xC5B248e0B4f1d24e70cf725AeF3060FCea626671",
+          "attester": "0xA2B34dC2f892e4f6C4fC430c1353263038e3d47c",
+          "allowed": true,
+          "submittedBy": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1500000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3500000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "attest-backer-05-worker-10",
+    "actor": "backer-05",
+    "from": "0xA2B34dC2f892e4f6C4fC430c1353263038e3d47c",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "attest",
+    "args": {
+      "worker": "0xC5B248e0B4f1d24e70cf725AeF3060FCea626671",
+      "amount": "150000"
+    },
+    "hash": "0x1bcdd8546f0798fc3c8c53d8f5400d20332765b73a57dda826e353651aac0afd",
+    "nonce": 3,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059788,
+    "gasUsed": "167667",
+    "feeWei": "1006002000000",
+    "events": [
+      {
+        "name": "Attested",
+        "args": {
+          "attester": "0xA2B34dC2f892e4f6C4fC430c1353263038e3d47c",
+          "member": "0xC5B248e0B4f1d24e70cf725AeF3060FCea626671",
+          "amount": "150000",
+          "backing": "150000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1500000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3500000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "gas-backer-06",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x40A0AE175151c989Ca41e7B5F3E3fD52E1B8Ffd8",
+    "call": "native ETH transfer",
+    "args": {
+      "to": "0x40A0AE175151c989Ca41e7B5F3E3fD52E1B8Ffd8",
+      "value": "80000000000000"
+    },
+    "hash": "0xc9db30bdc33295d0c0b380957d16cd4e1c34d7c436abde4321de28894bc86391",
+    "nonce": 31,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059789,
+    "gasUsed": "21000",
+    "feeWei": "126000000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1500000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3500000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "tokens-backer-06",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.transfer",
+    "args": {
+      "to": "0x40A0AE175151c989Ca41e7B5F3E3fD52E1B8Ffd8",
+      "amount": "1200000"
+    },
+    "hash": "0x2caee00564122b4af48e193e091fcba17456bbe53fb3b806a6586e44a83aa586",
+    "nonce": 32,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059791,
+    "gasUsed": "62159",
+    "feeWei": "372954000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1500000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3500000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "approve-backer-06",
+    "actor": "backer-06",
+    "from": "0x40A0AE175151c989Ca41e7B5F3E3fD52E1B8Ffd8",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.approve",
+    "args": {
+      "spender": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+      "amount": "1200000"
+    },
+    "hash": "0xc18aa6d7174edaf87aee270fb3e76cd4fcc0a2cfff019669e05cba9965b3c636",
+    "nonce": 0,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059793,
+    "gasUsed": "55437",
+    "feeWei": "332622000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1500000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3500000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "stake-initial-backer-06",
+    "actor": "backer-06",
+    "from": "0x40A0AE175151c989Ca41e7B5F3E3fD52E1B8Ffd8",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "stake",
+    "args": {
+      "amount": "300000"
+    },
+    "hash": "0xc857dc5dc4d5c2a849c7ea7598fd89efbb8bef433bb3973ed4f02ffdb2fe51f9",
+    "nonce": 1,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059794,
+    "gasUsed": "83940",
+    "feeWei": "503640000000",
+    "events": [
+      {
+        "name": "Staked",
+        "args": {
+          "member": "0x40A0AE175151c989Ca41e7B5F3E3fD52E1B8Ffd8",
+          "amount": "300000",
+          "stake": "300000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1800000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3800000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "consent-worker-11-backer-06",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "setConsentBySig",
+    "args": {
+      "member": "0xdD7a27a9802F4c5E39F49F2d6e347f0656e80dB2",
+      "attester": "0x40A0AE175151c989Ca41e7B5F3E3fD52E1B8Ffd8",
+      "allowed": true,
+      "nonce": "0",
+      "deadline": 1792060506
+    },
+    "hash": "0x7d2496b14f29c727b14b729438348e63bb047d618373b1be67afebb46192d93a",
+    "nonce": 33,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059796,
+    "gasUsed": "79455",
+    "feeWei": "476730000000",
+    "events": [
+      {
+        "name": "ConsentSet",
+        "args": {
+          "member": "0xdD7a27a9802F4c5E39F49F2d6e347f0656e80dB2",
+          "attester": "0x40A0AE175151c989Ca41e7B5F3E3fD52E1B8Ffd8",
+          "allowed": true,
+          "submittedBy": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1800000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3800000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "attest-backer-06-worker-11",
+    "actor": "backer-06",
+    "from": "0x40A0AE175151c989Ca41e7B5F3E3fD52E1B8Ffd8",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "attest",
+    "args": {
+      "worker": "0xdD7a27a9802F4c5E39F49F2d6e347f0656e80dB2",
+      "amount": "150000"
+    },
+    "hash": "0x071e655a7fec5200cf036c9118085e06a92ba374878475a66bdeab0efdc6cfdb",
+    "nonce": 2,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059798,
+    "gasUsed": "218967",
+    "feeWei": "1313802000000",
+    "events": [
+      {
+        "name": "Attested",
+        "args": {
+          "attester": "0x40A0AE175151c989Ca41e7B5F3E3fD52E1B8Ffd8",
+          "member": "0xdD7a27a9802F4c5E39F49F2d6e347f0656e80dB2",
+          "amount": "150000",
+          "backing": "150000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1800000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3800000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "consent-worker-12-backer-06",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "setConsentBySig",
+    "args": {
+      "member": "0x0E919ab4E2E7bbAfe8bA71Ff6A9Be925f9984fbA",
+      "attester": "0x40A0AE175151c989Ca41e7B5F3E3fD52E1B8Ffd8",
+      "allowed": true,
+      "nonce": "0",
+      "deadline": 1792060506
+    },
+    "hash": "0x248fa9e59ba34f61cd0b1ccc7c31b1870fbee37109a973fbadf885e4f04383ab",
+    "nonce": 34,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059799,
+    "gasUsed": "79455",
+    "feeWei": "476730000000",
+    "events": [
+      {
+        "name": "ConsentSet",
+        "args": {
+          "member": "0x0E919ab4E2E7bbAfe8bA71Ff6A9Be925f9984fbA",
+          "attester": "0x40A0AE175151c989Ca41e7B5F3E3fD52E1B8Ffd8",
+          "allowed": true,
+          "submittedBy": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1800000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3800000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "attest-backer-06-worker-12",
+    "actor": "backer-06",
+    "from": "0x40A0AE175151c989Ca41e7B5F3E3fD52E1B8Ffd8",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "attest",
+    "args": {
+      "worker": "0x0E919ab4E2E7bbAfe8bA71Ff6A9Be925f9984fbA",
+      "amount": "150000"
+    },
+    "hash": "0xb5d8bcea5ede36dc05c30e7868bd36b0c07d2371df82c2a501aab97e0438694a",
+    "nonce": 3,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059800,
+    "gasUsed": "167667",
+    "feeWei": "1006002000000",
+    "events": [
+      {
+        "name": "Attested",
+        "args": {
+          "attester": "0x40A0AE175151c989Ca41e7B5F3E3fD52E1B8Ffd8",
+          "member": "0x0E919ab4E2E7bbAfe8bA71Ff6A9Be925f9984fbA",
+          "amount": "150000",
+          "backing": "150000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1800000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3800000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "gas-backer-07",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0xF3C986492CB095B4Ac96382ad099C9dc988D0724",
+    "call": "native ETH transfer",
+    "args": {
+      "to": "0xF3C986492CB095B4Ac96382ad099C9dc988D0724",
+      "value": "80000000000000"
+    },
+    "hash": "0x9b26738a3551122b19b0c13f1f4938bbc50a199fea8b39a86eef0e7e2f05da8c",
+    "nonce": 35,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059801,
+    "gasUsed": "21000",
+    "feeWei": "126000000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1800000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3800000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "tokens-backer-07",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.transfer",
+    "args": {
+      "to": "0xF3C986492CB095B4Ac96382ad099C9dc988D0724",
+      "amount": "1200000"
+    },
+    "hash": "0xbb4c01cee1b7c769f351f7b97f6cbb71e755422978f84ee1c514484aee238d62",
+    "nonce": 36,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059802,
+    "gasUsed": "62159",
+    "feeWei": "372954000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1800000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3800000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "approve-backer-07",
+    "actor": "backer-07",
+    "from": "0xF3C986492CB095B4Ac96382ad099C9dc988D0724",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.approve",
+    "args": {
+      "spender": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+      "amount": "1200000"
+    },
+    "hash": "0x799cfcc85d79d0446433e598482998820638038f6c1d18dcb37319845746088f",
+    "nonce": 0,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059803,
+    "gasUsed": "55437",
+    "feeWei": "332622000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "1800000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "3800000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "stake-initial-backer-07",
+    "actor": "backer-07",
+    "from": "0xF3C986492CB095B4Ac96382ad099C9dc988D0724",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "stake",
+    "args": {
+      "amount": "300000"
+    },
+    "hash": "0x1c84b338262921049c1b1e7b974c0aebb61c1856f3ac849b55c8d00d9fb094ef",
+    "nonce": 1,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059805,
+    "gasUsed": "83940",
+    "feeWei": "503640000000",
+    "events": [
+      {
+        "name": "Staked",
+        "args": {
+          "member": "0xF3C986492CB095B4Ac96382ad099C9dc988D0724",
+          "amount": "300000",
+          "stake": "300000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "2100000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "4100000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "consent-worker-13-backer-07",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "setConsentBySig",
+    "args": {
+      "member": "0xc609e0ffD5CcEbf3D76b4Dc20041bd5EB0DB0dC8",
+      "attester": "0xF3C986492CB095B4Ac96382ad099C9dc988D0724",
+      "allowed": true,
+      "nonce": "0",
+      "deadline": 1792060506
+    },
+    "hash": "0x936c5f43be17be80f8586d022740d7b41c245a6b393409dbae6ed09bb8de5b16",
+    "nonce": 37,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059807,
+    "gasUsed": "79431",
+    "feeWei": "476586000000",
+    "events": [
+      {
+        "name": "ConsentSet",
+        "args": {
+          "member": "0xc609e0ffD5CcEbf3D76b4Dc20041bd5EB0DB0dC8",
+          "attester": "0xF3C986492CB095B4Ac96382ad099C9dc988D0724",
+          "allowed": true,
+          "submittedBy": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "2100000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "4100000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "attest-backer-07-worker-13",
+    "actor": "backer-07",
+    "from": "0xF3C986492CB095B4Ac96382ad099C9dc988D0724",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "attest",
+    "args": {
+      "worker": "0xc609e0ffD5CcEbf3D76b4Dc20041bd5EB0DB0dC8",
+      "amount": "150000"
+    },
+    "hash": "0x0b6e333d948f353ae68fbf40fc5e90a86ad0d2ff504d4926fcd8c0dc4d2afb6d",
+    "nonce": 2,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059808,
+    "gasUsed": "218955",
+    "feeWei": "1313730000000",
+    "events": [
+      {
+        "name": "Attested",
+        "args": {
+          "attester": "0xF3C986492CB095B4Ac96382ad099C9dc988D0724",
+          "member": "0xc609e0ffD5CcEbf3D76b4Dc20041bd5EB0DB0dC8",
+          "amount": "150000",
+          "backing": "150000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "2100000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "4100000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "consent-worker-14-backer-07",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "setConsentBySig",
+    "args": {
+      "member": "0x5f528B88B54dc30e0b0e458e3D2781fA092D8138",
+      "attester": "0xF3C986492CB095B4Ac96382ad099C9dc988D0724",
+      "allowed": true,
+      "nonce": "0",
+      "deadline": 1792060506
+    },
+    "hash": "0x42f4a2e8ee9e3781095afd88507a5715a4b2657f8ed7daa12e80b4715fa03015",
+    "nonce": 38,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059809,
+    "gasUsed": "79443",
+    "feeWei": "476658000000",
+    "events": [
+      {
+        "name": "ConsentSet",
+        "args": {
+          "member": "0x5f528B88B54dc30e0b0e458e3D2781fA092D8138",
+          "attester": "0xF3C986492CB095B4Ac96382ad099C9dc988D0724",
+          "allowed": true,
+          "submittedBy": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "2100000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "4100000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "attest-backer-07-worker-14",
+    "actor": "backer-07",
+    "from": "0xF3C986492CB095B4Ac96382ad099C9dc988D0724",
+    "to": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "call": "attest",
+    "args": {
+      "worker": "0x5f528B88B54dc30e0b0e458e3D2781fA092D8138",
+      "amount": "150000"
+    },
+    "hash": "0xdb2a677766ce1e926257284f75e4f8772520942e723b2a43c2c22a6e08191995",
+    "nonce": 3,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059810,
+    "gasUsed": "167667",
+    "feeWei": "1006002000000",
+    "events": [
+      {
+        "name": "Attested",
+        "args": {
+          "attester": "0xF3C986492CB095B4Ac96382ad099C9dc988D0724",
+          "member": "0x5f528B88B54dc30e0b0e458e3D2781fA092D8138",
+          "amount": "150000",
+          "backing": "150000"
+        }
+      }
+    ],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "2100000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "4100000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "gas-backer-08",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0xF9cDd695b8D9F07d705c49a54dFA2e6f3C37395c",
+    "call": "native ETH transfer",
+    "args": {
+      "to": "0xF9cDd695b8D9F07d705c49a54dFA2e6f3C37395c",
+      "value": "80000000000000"
+    },
+    "hash": "0x5019fcc1c61fdbf7d03925f86bff071407df1ef8ce7997e1fe687631506e43eb",
+    "nonce": 39,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059811,
+    "gasUsed": "21000",
+    "feeWei": "126000000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "2100000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "4100000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  {
+    "label": "tokens-backer-08",
+    "actor": "operator",
+    "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+    "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "call": "USDC.transfer",
+    "args": {
+      "to": "0xF9cDd695b8D9F07d705c49a54dFA2e6f3C37395c",
+      "amount": "1200000"
+    },
+    "hash": "0xe64950dfe0720da64fecffbeea0e1e9c9391f39e8ee1242908e1e65bf5e42365",
+    "nonce": 40,
+    "chainId": 84532,
+    "status": 1,
+    "blockNumber": 48059812,
+    "gasUsed": "62159",
+    "feeWei": "372954000000",
+    "events": [],
+    "ledgerAfter": {
+      "reserve": "2000000",
+      "stake": "2100000",
+      "dues": "0",
+      "sponsorCapital": "2000000",
+      "tokenBalance": "4100000",
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    },
+    "reconciledAfterTransportError": true
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "atUTC": "2026-10-13T11:12:10.344Z",
+  "result": [
+    {
+      "rpc": "https://sepolia.base.org",
+      "successes": 40,
+      "errors": [],
+      "chainId": 84532,
+      "receipt": {
+        "hash": "0xe64950dfe0720da64fecffbeea0e1e9c9391f39e8ee1242908e1e65bf5e42365",
+        "status": 1,
+        "block": 48059812
+      },
+      "historicalReserve": "2000000",
+      "nonceLatest": 41,
+      "noncePending": 41,
+      "rootBalance": "987400000",
+      "reserve": "2000000",
+      "stake": "2100000",
+      "guarantees": "0",
+      "outstanding": "0"
+    },
+    {
+      "rpc": "https://base-sepolia-rpc.publicnode.com",
+      "successes": 40,
+      "errors": [],
+      "chainId": 84532,
+      "receipt": {
+        "hash": "0xe64950dfe0720da64fecffbeea0e1e9c9391f39e8ee1242908e1e65bf5e42365",
+        "status": 1,
+        "block": 48059812
+      },
+      "historicalReserve": "2000000",
+      "nonceLatest": 41,
+      "noncePending": 41,
+      "rootBalance": "987400000",
+      "reserve": "2000000",
+      "stake": "2100000",
+      "guarantees": "0",
+      "outstanding": "0"
+    }
+  ],
+  "workflow": "https://github.com/scottonchain/microcredit-agent-testbed/actions/runs/38388512823",
+  "note": "Read-only probe after the stop. Both providers matched confirmed setup; no new financial call occurred. Prior UNKNOWN_ERROR cause remains unconfirmed."
+}
