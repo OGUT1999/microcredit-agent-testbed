@@ -33,5 +33,5 @@
     "seven_day_fixture_shape": "passed; zero EVM execution and zero model invocations"
   },
   "execution_readiness": "Peer review and live/fork rehearsal still required; preparation is not approval for live execution.",
-  "execution_blocker": "GitHub writer credential rejected workflow creation without workflow scope; both proposed workflows remain disabled and unpublished."
+  "execution_blocker": "PR80 source remains open for maintainer integration; PR82 published both disabled workflows. End-to-end rehearsal, complete signing/consent and custody review, real model harness and whole-run budget verification remain outstanding. No execution authorized by preparation checks."
 }

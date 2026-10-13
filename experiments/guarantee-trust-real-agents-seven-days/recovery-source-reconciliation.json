@@ -1,0 +1,18 @@
+{
+  "patchSha256": "4f6b3324378e5ada3c1948c5cfbbd4d6bf2e1dee3b53099c30664dd964f807c3",
+  "reconstructedTree": "85a555e4c23fe20989f9286855cffaaa5aaab2cd",
+  "matchedFiles": [
+    ".github/workflows/guarantee-trust-real-agents-comment.yml",
+    ".github/workflows/guarantee-trust-real-agents.yml",
+    "experiments/guarantee-trust-real-agents-seven-days/README.md",
+    "experiments/guarantee-trust-real-agents-seven-days/comment-launcher.mjs",
+    "experiments/guarantee-trust-real-agents-seven-days/executor-README.md",
+    "experiments/guarantee-trust-real-agents-seven-days/executor-validation.json",
+    "experiments/guarantee-trust-real-agents-seven-days/executor.mjs",
+    "experiments/guarantee-trust-real-agents-seven-days/fixture-builder.mjs",
+    "experiments/guarantee-trust-real-agents-seven-days/manifest.json",
+    "experiments/guarantee-trust-real-agents-seven-days/market.py",
+    "experiments/guarantee-trust-real-agents-seven-days/review.md",
+    "experiments/guarantee-trust-real-agents-seven-days/test_market.py"
+  ]
+}

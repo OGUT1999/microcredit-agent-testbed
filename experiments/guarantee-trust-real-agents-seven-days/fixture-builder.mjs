@@ -6,6 +6,8 @@ const sha=x=>createHash('sha256').update(x).digest('hex');
 const hex=x=>'0x'+sha(x);
 const RUN='real-agents-20261013-seven-days-v1';
 export function fixtureDay(day,evidence,timestamp){
+ if(!Number.isInteger(day)||day<1||day>7)throw Error('Fixture day must be an integer from 1 through 7');
+ if(!Number.isSafeInteger(timestamp)||timestamp<1||!Number.isSafeInteger(timestamp+172800))throw Error('Fixture requires a positive safe block timestamp');
  const manifest=JSON.parse(fs.readFileSync(path.join(evidence,'manifest.json')));
  if(manifest.rehearsal!==true)throw Error('Fixture forbidden outside fork evidence');
  const actor=id=>{const a=manifest.roster.find(a=>a.id===id);if(!a)throw Error('Fixture actor missing');return a;};
@@ -39,6 +41,8 @@ if(process.argv.includes('--self-test')&&process.argv[1]?.endsWith('fixture-buil
   assert.deepEqual(days.map(x=>x.packet.actions.length),[6,1,2,2,1,0,1]);
   for(const d of days){assert.equal(d.consentRecords.packetSha256,sha(JSON.stringify(d.packet)));for(const r of d.consentRecords.records){assert.equal(r.recordHash,sha(JSON.stringify(r.record)));assert.deepEqual(JSON.parse(r.record.transcript.response).acceptedActionPayload,r.record.actionPayload);assert.equal(r.record.transcript.fixture,true);}}
   assert.equal(days[4].packet.actions[0].action,'claim');assert.equal(days[6].packet.actions[0].action,'pause');
+  for(const day of [0,8,1.5,'1',null])assert.throws(()=>fixtureDay(day,temp,2000000000));
+  for(const timestamp of [0,-1,1.5,'2000000000',NaN,Infinity,Number.MAX_SAFE_INTEGER])assert.throws(()=>fixtureDay(1,temp,timestamp));
   fs.writeFileSync(path.join(temp,'manifest.json'),JSON.stringify({rehearsal:false,roster:[]}));assert.throws(()=>fixtureDay(1,temp,2000000000));
   console.log(JSON.stringify({fixtureShape:'passed',sevenDays:true,modelInvocations:0,EVMExecuted:false}));
  }finally{fs.rmSync(temp,{recursive:true,force:true});}
