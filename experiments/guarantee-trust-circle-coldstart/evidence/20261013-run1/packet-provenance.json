@@ -1,0 +1,129 @@
+{
+  "workflow": "https://github.com/scottonchain/microcredit-agent-testbed/actions/runs/38389080061",
+  "workflowCommit": "7854ce703d47680746d79b8965c11dddc8cd4a5f",
+  "artifactID": 11810911299,
+  "artifactSHA256": "70fa9b2c0495bf2450b485667360abac081f9872ab26c40623a2fbcf8e1a3ecb",
+  "files": [
+    {
+      "name": "checkpoint.json",
+      "chars": 623,
+      "sha256": "a819a8588c86b7a6ddd5831873009630b7f8560017d63110cc027d3bb412cdda"
+    },
+    {
+      "name": "deployment.json",
+      "chars": 1452,
+      "sha256": "85b2e3735ebd69687da729ae7981673a1a6cc0e39c79bcc192764077e9cf37ce"
+    },
+    {
+      "name": "guarantees.json",
+      "chars": 60091,
+      "sha256": "d84db7b1574e3f52d6254928f0febebe52c487e937e5b0a9fe9437494710617a"
+    },
+    {
+      "name": "initial-state.json",
+      "chars": 400,
+      "sha256": "2ec0e4124d872fa5dbc6d4bb0a65acd11bfbd47ab1ea26df6716f7d01b85e9c2"
+    },
+    {
+      "name": "manifest.json",
+      "chars": 31375,
+      "sha256": "8240a42c71508681cd21d3dc85c9f5919e507bd259bee27b08e8aad91341e60a"
+    },
+    {
+      "name": "members.json",
+      "chars": 34452,
+      "sha256": "50eea8b64173972f28f3e0f77ee0a7c88ec5f41da896aa3783910044f61409a3"
+    },
+    {
+      "name": "policy-events.jsonl",
+      "chars": 173121,
+      "sha256": "90bec4befb287a20c431cc2d95f24db255d648b31628bfa287b263fb40cdfadf"
+    },
+    {
+      "name": "prepared-intents.jsonl",
+      "chars": 372714,
+      "sha256": "ca98f172285cc5e1995b9a35871ecfdee39b337d39cc9cec0c8dc2f5d85f443e"
+    },
+    {
+      "name": "prior-deployment.json",
+      "chars": 394,
+      "sha256": "cf98557d5f64a4fcfef1b319d6cd40b5ea10e99768c857c9a3b9bbde460be118"
+    },
+    {
+      "name": "prior-manifest.json",
+      "chars": 31142,
+      "sha256": "c44a61ce5464dbc37f2c8edc6087baa45339c63d525e53dba54670d70ed27a8d"
+    },
+    {
+      "name": "prior-transactions.json",
+      "chars": 72391,
+      "sha256": "4df066f72a62c331396d8591837bd60b5dc75125ede658bb4616236e9ef04f78"
+    },
+    {
+      "name": "resume-skips.jsonl",
+      "chars": 15033,
+      "sha256": "19d39cd9e9b7af0b2d6372640063dc8a807a218a22d8d465ae13c45a872397ff"
+    },
+    {
+      "name": "resume-verification.json",
+      "chars": 1528,
+      "sha256": "3aa1ce7f47ff362b363ab1c5ac9cf810151d456f27fff0796dc3b9de195d4e63"
+    },
+    {
+      "name": "role-balances.json",
+      "chars": 13499,
+      "sha256": "61bbe11b43412c56c4b64efee85befb8d19a21858c515d9ab9db12ed294bd438"
+    },
+    {
+      "name": "round-snapshots.jsonl",
+      "chars": 12370,
+      "sha256": "3eb647312da5d8e62d9984063c228d6d550dee3b04e3218ff8d234f04c3cf095"
+    },
+    {
+      "name": "rounds.json",
+      "chars": 16333,
+      "sha256": "66e08824c21ba74412b9c2d35af0f9779f3f322f9b3b5f473fe6fa3fc4e5a277"
+    },
+    {
+      "name": "rpc-read-retries.jsonl",
+      "chars": 196560,
+      "sha256": "32ff66d615cf8f062f45ef0bca668ed85f6d983f6d3c06a09d6258cf86f01da3"
+    },
+    {
+      "name": "runtime-check.json",
+      "chars": 476,
+      "sha256": "8de0dc93ec05633e36e10aefc60ed8031dc981f3d06dc4b3da85a563d85029e6"
+    },
+    {
+      "name": "steady-state.json",
+      "chars": 218,
+      "sha256": "27ea841fe69432641380a7262cd6164474d30068b1813b6f16c9032eed8ae356"
+    },
+    {
+      "name": "summary.json",
+      "chars": 3943,
+      "sha256": "a527ee3606ba12182fd1de28b984c06de11e0318143f9a3db9d990a0e49b512a"
+    },
+    {
+      "name": "terminal-state.json",
+      "chars": 417,
+      "sha256": "187f9fbae1b6b7b2aac000ca9a24dc0507e38ae430d84b79fae95137531c475d"
+    },
+    {
+      "name": "transactions.json",
+      "chars": 881156,
+      "sha256": "0b9a4e004d2f6dadcb42fdc1db9b2e6dbf56d65cbbb0c5689442d3f7a9a1a4a4"
+    },
+    {
+      "name": "verification.json",
+      "chars": 2861,
+      "sha256": "235ef923b03a21e9c2de8d2551f3e82f0370d31889a42ad6203fedcab3a4d6bc"
+    },
+    {
+      "name": "zero-reserve-control.json",
+      "chars": 189,
+      "sha256": "23dba0d81535810166de32a1561357b8bb8abce1a8cc5189bbb8847a0224cae7"
+    }
+  ],
+  "note": "Original 24 Actions artifact files preserved byte-for-byte. Peer review and policy audit are separate supplements."
+}

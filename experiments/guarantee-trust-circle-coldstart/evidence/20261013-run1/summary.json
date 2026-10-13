@@ -1,0 +1,130 @@
+{
+  "sourceCommit": "ec93c76779b5e2d52ab7b87cf82b3fd400205969",
+  "contract": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+  "token": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+  "chainId": 84532,
+  "startedAtUTC": "2026-10-13T10:34:51.575Z",
+  "completedAtUTC": "2026-10-13T11:49:36.674Z",
+  "policySeed": 20261013,
+  "roles": {
+    "clients": 40,
+    "workers": 40,
+    "backers": 14,
+    "sponsors": 4,
+    "issuer": 1,
+    "adjudicator": 1
+  },
+  "independentAgents": 0,
+  "policyCharacters": 100,
+  "rounds": 24,
+  "counts": {
+    "posted": 405,
+    "opened": 112,
+    "paid": 98,
+    "claimed": 7,
+    "cancelled": 7,
+    "remitted": 98,
+    "wages": "277000000",
+    "netWages": "263150000",
+    "contributions": "13850000",
+    "claims": "1770000",
+    "refusals": {
+      "InsufficientCapacity": 268,
+      "ClientBlocked": 25
+    },
+    "laterStake": "2300000"
+  },
+  "sponsorTopups": "0",
+  "gate": {
+    "windowRounds": [
+      19,
+      24
+    ],
+    "sponsorTopups": "0",
+    "opened": 35,
+    "throughputEachRound": true,
+    "reserveChange": "3925000",
+    "reserveRefusals": 0,
+    "identitiesAllRounds": true,
+    "success": true
+  },
+  "initial": {
+    "round": 0,
+    "blockNumber": 48061157,
+    "timestamp": 1791890602,
+    "reserve": "2000000",
+    "outstanding": "0",
+    "stake": "4200000",
+    "dues": "0",
+    "sponsorCapital": "2000000",
+    "issuerHeld": "1600000",
+    "issuerSpent": "0",
+    "tokenBalance": "6200000",
+    "guaranteeCount": "0",
+    "identities": {
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  "terminal": {
+    "round": 24,
+    "blockNumber": 48061932,
+    "timestamp": 1791892152,
+    "reserve": "15590000",
+    "outstanding": "0",
+    "stake": "4990000",
+    "dues": "13830000",
+    "sponsorCapital": "1760000",
+    "issuerHeld": "1360000",
+    "issuerSpent": "240000",
+    "tokenBalance": "20580000",
+    "guaranteeCount": "112",
+    "identities": {
+      "tokenEqualsReservePlusStake": true,
+      "reserveEqualsSponsorCapitalPlusDues": true
+    }
+  },
+  "sponsorSeed": "2000000",
+  "initialBackerStake": "4200000",
+  "clientPrefunding": "800000000",
+  "rootBefore": {
+    "USDC": "1000000000",
+    "ETH": "29969680319986893"
+  },
+  "rootAfter": {
+    "USDC": "180200000",
+    "ETH": "24828990339906491"
+  },
+  "fees": {
+    "rootFeeWei": "500689980000000",
+    "allRecordedTransactionFeeWei": "673201521073332",
+    "gasFundedWei": "4640000000000000",
+    "rootFeeETH": "0.00050068998",
+    "allRecordedTransactionFeeETH": "0.000673201521073332",
+    "rootETHReconciledGasCostWei": "500689980080402",
+    "rootETHReconciledGasCost": "0.000500689980080402",
+    "note": "Receipt fee totals are execution fees; root balance reconciliation also captures any Base L1 data fees."
+  },
+  "shutdown": {
+    "paused": true,
+    "openGuarantees": 0,
+    "locksReleased": true,
+    "sponsorRecoveryAttempted": false,
+    "retainedReserve": "15590000",
+    "retainedStake": "4990000",
+    "retainedDues": "13830000",
+    "note": "All retained amounts are test USDC; no function withdraws worker dues. Wallet balances are listed separately."
+  },
+  "humanEarnings": 0,
+  "humanBenefit": 0,
+  "rehearsal": false,
+  "caveats": [
+    "Internally controlled deterministic policy characters, not independent LLM sessions or outside agents.",
+    "A new contract-constrained onchain adaptation, not a numerical reproduction of the Python model.",
+    "Client test wages and all initial role balances are internally prefunded; no external demand or revenue.",
+    "Rounds are compressed policy steps, not 24 elapsed chain days.",
+    "No real-value assets, work, independently earned human income or demonstrated human benefit.",
+    "Owner, issuer and adjudicator authority are held by the same operator-controlled test wallet.",
+    "Shutdown pauses origination and settles guarantees; dues and stake are retained and fully reported."
+  ]
+}

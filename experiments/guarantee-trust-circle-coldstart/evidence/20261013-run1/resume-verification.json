@@ -1,0 +1,52 @@
+{
+  "verifiedAtUTC": "2026-10-13T11:17:01.786Z",
+  "contract": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+  "originalJournalCount": 74,
+  "recoveredTransactions": [
+    {
+      "label": "tokens-backer-08",
+      "actor": "operator",
+      "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+      "to": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+      "call": "USDC.transfer",
+      "args": {
+        "to": "0xF9cDd695b8D9F07d705c49a54dFA2e6f3C37395c",
+        "amount": "1200000"
+      },
+      "hash": "0xe64950dfe0720da64fecffbeea0e1e9c9391f39e8ee1242908e1e65bf5e42365",
+      "nonce": 40,
+      "chainId": 84532,
+      "status": 1,
+      "blockNumber": 48059812,
+      "gasUsed": "62159",
+      "feeWei": "372954000000",
+      "events": [],
+      "ledgerAfter": {
+        "reserve": "2000000",
+        "stake": "2100000",
+        "dues": "0",
+        "sponsorCapital": "2000000",
+        "tokenBalance": "4100000",
+        "tokenEqualsReservePlusStake": true,
+        "reserveEqualsSponsorCapitalPlusDues": true
+      },
+      "reconciledAfterTransportError": true
+    }
+  ],
+  "verifiedTransactions": 75,
+  "lastMinedBlock": 48059812,
+  "rootLatestNonce": 41,
+  "rootPendingNonce": 41,
+  "gasFunded": "960000000000000",
+  "rootFees": "13024602000000",
+  "allFees": "39220656000000",
+  "reserve": "2000000",
+  "stake": "2100000",
+  "dues": "0",
+  "sponsorCapital": "2000000",
+  "tokenBalance": "4100000",
+  "remainingTokenFunding": "807200000",
+  "policyUnchanged": true,
+  "guaranteeCount": 0,
+  "outstanding": 0
+}

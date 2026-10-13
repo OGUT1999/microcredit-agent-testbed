@@ -1,0 +1,97 @@
+{
+  "schema": "guarantee-trust-independent-verification/1",
+  "startedAtUTC": "2026-10-13T11:49:36.804Z",
+  "mode": "online-public-chain-verification",
+  "chainId": 84532,
+  "sourceCommit": "ec93c76779b5e2d52ab7b87cf82b3fd400205969",
+  "contract": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+  "token": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+  "proofLimitations": [
+    "Refusals and policy rounds are offchain records. Their counts are reconciled, not proved as onchain rejection events.",
+    "Synthetic client payments do not prove external revenue, work or human benefit."
+  ],
+  "success": true,
+  "priorDeployment": {
+    "hash": "0x6a66545ed110776c9aec905afc35f7c5a6ac89aed9d5da53ba1a4a68bd0c0bac",
+    "blockNumber": 48059409,
+    "outsideCurrentExecutionBalanceWindow": true,
+    "authenticated": true,
+    "executionFeeWei": "29292312000000",
+    "constructorCalldataChecked": true
+  },
+  "roster": {
+    "policyCharacters": 100,
+    "distinctEOAs": 99,
+    "independentAgents": 0
+  },
+  "runtime": {
+    "bytes": 20551,
+    "immutableWords": 14,
+    "allImmutableValuesVerified": true,
+    "runtimeHash": "0x333fb0bcc4c32b9f43247cdb7c8d4c07b3cf5c76e80226cdc4777e4b2722a1dc",
+    "reviewedCodeOutsideImmutablesMatches": true
+  },
+  "liveViews": {
+    "finalRecordedBlock": 48061932,
+    "latestAlsoMatches": true,
+    "guaranteesChecked": 112
+  },
+  "completedAtUTC": "2026-10-13T11:49:52.917Z",
+  "transactions": {
+    "count": 744,
+    "receiptsAuthenticated": true,
+    "calldataChecked": true,
+    "everyPublishedLedgerReconciles": true,
+    "tokenTransfersIndependentlyReplayed": true
+  },
+  "counts": {
+    "opened": 112,
+    "paid": 98,
+    "claimed": 7,
+    "cancelled": 7,
+    "expired": 0,
+    "remitted": 98
+  },
+  "terminal": {
+    "reserve": "15590000",
+    "stake": "4990000",
+    "dues": "13830000",
+    "sponsorCapital": "1760000",
+    "outstanding": "0",
+    "tokenBalance": "20580000"
+  },
+  "gate": {
+    "windowRounds": [
+      19,
+      24
+    ],
+    "sponsorTopups": "0",
+    "opened": 35,
+    "throughputEachRound": true,
+    "reserveChange": "3925000",
+    "reserveRefusals": 0,
+    "identitiesAllRounds": true,
+    "success": true
+  },
+  "payments": {
+    "grossWages": "277000000",
+    "actualNetWages": "263150000",
+    "withheldContributions": "13850000",
+    "grossEqualsNetPlusContributions": true,
+    "physicalTransfersAuthenticated": true
+  },
+  "funding": {
+    "sponsorSeed": "2000000",
+    "initialBackerStake": "4200000",
+    "additionalStake": "2300000",
+    "clientPrefunding": "800000000",
+    "roleGasFundedWei": "4640000000000000"
+  },
+  "fees": {
+    "executionFeeWei": "673201521073332",
+    "rootExecutionFeeWei": "500689980000000",
+    "priorDeploymentExecutionFeeWei": "29292312000000",
+    "executionFeeIncludingPriorDeploymentWei": "702493833073332",
+    "includesBaseL1DataFees": false
+  }
+}

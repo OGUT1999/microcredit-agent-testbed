@@ -1,0 +1,23 @@
+{
+  "chainId": 84532,
+  "atBlock": 48061932,
+  "baselineBlock": 48059708,
+  "addressesChecked": 100,
+  "allRoleBalancesMatchPublished": true,
+  "categoryUSDC": {
+    "client": "523000000",
+    "worker": "264920000",
+    "backer": "10300000",
+    "sponsor": "1000000"
+  },
+  "rootUSDC": "180200000",
+  "poolUSDC": "20580000",
+  "cohortUSDC": "1000000000",
+  "initialRootUSDC": "1000000000",
+  "USDCConserved": true,
+  "rootETHAtPreFirstCall": "29969680319986893",
+  "rootETHBaselineMatchesManifest": true,
+  "rootETHFinal": "24828990339906491",
+  "rootETHFinalMatchesSummary": true,
+  "rootBalanceReconciledCostWei": "500689980080402"
+}

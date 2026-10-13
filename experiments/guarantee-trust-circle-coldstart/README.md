@@ -41,3 +41,23 @@ The runner pauses origination, leaves no open guarantee or unpaid contribution, 
 `rehearse-bootstrap.mjs` starts a disposable local Anvil chain, deploys a MockUSDC fixture and the pinned GuaranteeTrust artifact, deliberately stops after `gas-backer-08`, then resumes and runs the independent offline verifier. Set `MOCK_USDC_ARTIFACT` to the compiled test token JSON. Anvil and ethers must be installed. This is a transport/recovery check, not public-chain evidence.
 
 The initial public creation and the stopped bootstrap are preserved in `evidence/preflight-runtime-stop/` and `evidence/bootstrap-stop/`; `recovery.json` records the independently confirmed transfer that mined after the runner lost its RPC response. Recovery reuses the original deployment and bridge. `evidence/bootstrap-read-stop/` preserves the later read-only stop after all 75 prior calls and current balances had authenticated; that attempt made no new financial call. Its exact UNKNOWN_ERROR cause is unconfirmed.
+
+## Verified live result — 2026-10-13
+
+The [public run packet](evidence/20261013-run1/) records 744 unique successful demo calls plus the separately authenticated creation of GuaranteeTrust at `0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466`. The financial job [completed successfully](https://github.com/scottonchain/microcredit-agent-testbed/actions/runs/38389080061) and its one-time workflow is now disabled. Original Actions and separate peer verification both authenticated receipts, calldata, runtime bindings, token transfers and terminal views.
+
+| Measure | Verified result |
+| --- | ---: |
+| Synthetic offers / opened guarantees | 405 / 112 |
+| Paid / claimed / cancelled | 98 / 7 / 7 |
+| Workers receiving any guarantee | 20 of 40 |
+| Initial reserve / initial stake / added stake | 2 / 4.2 / 2.3 test USDC |
+| Later sponsor deposits | 0 |
+| Paid gross wages / net transfers / withheld contributions | 277 / 263.15 / 13.85 |
+| Covered claims: stake / sponsor line / pledged dues | 1.51 / 0.24 / 0.02 |
+| Final reserve / stake / dues / sponsor capital | 15.59 / 4.99 / 13.83 / 1.76 |
+| Final pool balance / block | 20.58 / 48061932 |
+
+The declared final-six-round gate passed: 35 openings, no sponsor additions or reserve-rule refusals, and reserve growth of 3.925. All guarantees are terminal, exposure locks and unpaid contributions are zero, and origination is paused. Across the contract, operator and 98 role wallets, all 1000 bridged test USDC reconcile. Capacity refused 268 offers (66.2%) and blocked-client checks refused 25; these were offchain decisions, not mined reverts.
+
+This result supports controlled mechanism operation and reserve replenishment under the declared policies. New early backing and retained wage contributions financed the pool; claims consumed real test-token capital. It does not establish broad access, external demand, sustained independent agent participation, economic sustainability or human benefit.

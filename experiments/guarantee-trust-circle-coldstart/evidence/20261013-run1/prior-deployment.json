@@ -1,0 +1,10 @@
+{
+  "hash": "0x6a66545ed110776c9aec905afc35f7c5a6ac89aed9d5da53ba1a4a68bd0c0bac",
+  "contract": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+  "blockNumber": 48059409,
+  "status": 1,
+  "from": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+  "gasUsed": "4882052",
+  "feeWei": "29292312000000",
+  "note": "Confirmed creation from the earlier stopped preflight; no new deployment transaction."
+}

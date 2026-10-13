@@ -1,0 +1,131 @@
+{
+  "schema": "guarantee-trust-independent-review/1",
+  "verdict": "pass",
+  "completedAtUTC": "2026-10-13T11:57:46.967375+00:00",
+  "scope": "Read-only public-chain verification of the completed Base Sepolia test-USDC cold-start packet; no transactions or GitHub changes by this reviewer.",
+  "source": {
+    "contractCommit": "ec93c76779b5e2d52ab7b87cf82b3fd400205969",
+    "runnerSha256": "b26d3e1e2d50c73710cddfee41e9204d1245bdba03ada453067159c9d36f2372",
+    "verifierSha256": "5ed93821948adeaca3e742fc051b142b7f102723ae5e3d215315051d9df6bdcc",
+    "artifactSha256": "9589450dbe08cbf1907fd68e8dc82c341346163b7d19da9a4052f248e60c5612",
+    "zipSha256": "70fa9b2c0495bf2450b485667360abac081f9872ab26c40623a2fbcf8e1a3ecb",
+    "githubRun": "https://github.com/scottonchain/microcredit-agent-testbed/actions/runs/38389080061",
+    "githubArtifactId": "11810911299",
+    "packetFilesSha256": {
+      "manifest.json": "8240a42c71508681cd21d3dc85c9f5919e507bd259bee27b08e8aad91341e60a",
+      "deployment.json": "85b2e3735ebd69687da729ae7981673a1a6cc0e39c79bcc192764077e9cf37ce",
+      "transactions.json": "0b9a4e004d2f6dadcb42fdc1db9b2e6dbf56d65cbbb0c5689442d3f7a9a1a4a4",
+      "summary.json": "a527ee3606ba12182fd1de28b984c06de11e0318143f9a3db9d990a0e49b512a",
+      "role-balances.json": "61bbe11b43412c56c4b64efee85befb8d19a21858c515d9ab9db12ed294bd438",
+      "prior-deployment.json": "cf98557d5f64a4fcfef1b319d6cd40b5ea10e99768c857c9a3b9bbde460be118",
+      "verification.json": "235ef923b03a21e9c2de8d2551f3e82f0370d31889a42ad6203fedcab3a4d6bc"
+    },
+    "independentVerificationSha256": "5a2f8776aa7e1f9d1c92e5a4492278e2423ed2f22673c376d140921f15a3db2a",
+    "originalActionsVerificationUnmodified": true
+  },
+  "chainProof": {
+    "chainId": 84532,
+    "rpc": "https://base-sepolia-rpc.publicnode.com",
+    "contract": "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466",
+    "token": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "journalTransactionsAuthenticated": 744,
+    "priorConstructorAuthenticated": true,
+    "runtime": {
+      "bytes": 20551,
+      "immutableWords": 14,
+      "allImmutableValuesVerified": true,
+      "runtimeHash": "0x333fb0bcc4c32b9f43247cdb7c8d4c07b3cf5c76e80226cdc4777e4b2722a1dc",
+      "reviewedCodeOutsideImmutablesMatches": true
+    },
+    "terminalViews": {
+      "finalRecordedBlock": 48061932,
+      "latestAlsoMatches": true,
+      "guaranteesChecked": 112
+    },
+    "safeCalldataAndActualReceiptEventsVerified": true,
+    "allPublishedPerReceiptLedgersReconciled": true,
+    "allFinalRoleTokenBalancesQueried": true,
+    "balanceQueryBlock": 48061932,
+    "distinctBalanceAddresses": 100
+  },
+  "observed": {
+    "policyCharacters": 100,
+    "distinctRoleEOAs": 99,
+    "independentAgents": 0,
+    "rounds": 24,
+    "postedPolicyOffers": 405,
+    "statusCounts": {
+      "opened": 112,
+      "paid": 98,
+      "claimed": 7,
+      "cancelled": 7,
+      "expired": 0,
+      "remitted": 98
+    },
+    "offchainRefusals": {
+      "InsufficientCapacity": 268,
+      "ClientBlocked": 25
+    },
+    "gate": {
+      "windowRounds": [
+        19,
+        24
+      ],
+      "sponsorTopups": "0",
+      "opened": 35,
+      "throughputEachRound": true,
+      "reserveChange": "3925000",
+      "reserveRefusals": 0,
+      "identitiesAllRounds": true,
+      "success": true
+    },
+    "gateThroughputDefinition": "Opened guarantees, including later cancellations; rounds 19 through 24.",
+    "humanEarnings": 0,
+    "humanBenefit": 0
+  },
+  "testUSDCUnits": {
+    "decimals": 6,
+    "initialTrackedTokens": "1000000000",
+    "finalTrackedTokens": "1000000000",
+    "root": "180200000",
+    "rolesByCategory": {
+      "client": "523000000",
+      "worker": "264920000",
+      "backer": "10300000",
+      "sponsor": "1000000"
+    },
+    "pool": "20580000",
+    "conserved": true,
+    "grossWages": "277000000",
+    "netWorkerWages": "263150000",
+    "remittedContributions": "13850000",
+    "claims": "1770000",
+    "claimLossComponents": {
+      "backerStake": "1510000",
+      "issuerLine": "240000",
+      "workerDues": "20000",
+      "backerDues": "0"
+    },
+    "reserveIdentity": "2.00 seed + 13.85 contributions + 1.51 slashed stake - 1.77 claims = 15.59",
+    "stakeIdentity": "4.20 initial + 2.30 added - 1.51 slashed = 4.99",
+    "duesIdentity": "13.85 contributed - 0.02 consumed = 13.83",
+    "sponsorCapitalIdentity": "2.00 seed - 0.24 line loss = 1.76",
+    "poolIdentities": "20.58 token balance = 15.59 reserve + 4.99 stake; 15.59 reserve = 1.76 sponsor capital + 13.83 dues"
+  },
+  "nativeFeeInterpretation": {
+    "recordedFeesAreL2ExecutionOnly": true,
+    "rootExecutionFeeWei": "500689980000000",
+    "allJournalExecutionFeeWei": "673201521073332",
+    "rootBalanceReconciledCostWei": "500689980080402",
+    "roleGasFundingWei": "4640000000000000",
+    "rootETHBaselineCheckedAtBlock": 48059708,
+    "rootBalanceReconciliationMatchesSummary": true,
+    "note": "Root balance reconciliation includes L1 data fees within the demo baseline window; prior constructor and bridging costs precede that window. The 0.03-ETH runtime check tracks execution fees rather than an exact all-in fee cap."
+  },
+  "limits": [
+    "Author-controlled deterministic policy characters; no independent LLM sessions or outside agents.",
+    "All client wages and role funds came from the operator test balance; no external demand, income or human benefit is established.",
+    "Policy refusals and round labels are offchain evidence, reconciled separately from authenticated onchain transactions.",
+    "Positive balances and sponsor capital retained after paused origination; no sponsor recovery was attempted."
+  ]
+}

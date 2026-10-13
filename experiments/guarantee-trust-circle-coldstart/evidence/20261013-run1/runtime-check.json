@@ -1,0 +1,10 @@
+{
+  "blockNumber": 48059812,
+  "expectedMaskedHash": "0xe7571f3466ac1cb26a0a85f0d66ad835ca73a6bd1f281a657d3989054dcecc92",
+  "actualMaskedHash": "0xe7571f3466ac1cb26a0a85f0d66ad835ca73a6bd1f281a657d3989054dcecc92",
+  "runtimeBytes": 20551,
+  "token": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+  "owner": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+  "adjudicator": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+  "issuer": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1"
+}

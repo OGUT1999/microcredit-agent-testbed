@@ -1,0 +1,18 @@
+{
+  "round": 24,
+  "blockNumber": 48061932,
+  "timestamp": 1791892152,
+  "reserve": "15590000",
+  "outstanding": "0",
+  "stake": "4990000",
+  "dues": "13830000",
+  "sponsorCapital": "1760000",
+  "issuerHeld": "1360000",
+  "issuerSpent": "240000",
+  "tokenBalance": "20580000",
+  "guaranteeCount": "112",
+  "identities": {
+    "tokenEqualsReservePlusStake": true,
+    "reserveEqualsSponsorCapitalPlusDues": true
+  }
+}
