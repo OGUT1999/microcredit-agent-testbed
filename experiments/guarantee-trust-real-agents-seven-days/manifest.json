@@ -1,0 +1,33 @@
+{
+  "schema": "real-agents-seven-days/1",
+  "status": "preparation_not_run_receipt_adapter_implemented_unrehearsed",
+  "days_required": 7,
+  "independent_character_turns_required": 700,
+  "role_counts": {
+    "client": 40,
+    "backer": 14,
+    "sponsor": 4,
+    "worker": 40,
+    "issuer": 1,
+    "adjudicator": 1
+  },
+  "chain_id": 84532,
+  "token": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+  "contract": null,
+  "chain_receipt_barriers": [
+    "verified_bootstrap",
+    "verified_daily_intents_or_explicit_rejection",
+    "verified_teardown"
+  ],
+  "no_run_claim": "Implementation and unit fixtures are not evidence of an actual seven-day model-agent run.",
+  "validation": {
+    "offline_tests_passed": 37,
+    "node_syntax_check": "passed",
+    "live_rpc_receipt_rehearsal": "not_run",
+    "fork_rehearsal": "not_run",
+    "virtual_days_executed": 0,
+    "character_day_model_turns_executed": 0,
+    "typed_action_confirmation_model_turns_executed": 0
+  },
+  "execution_readiness": "Peer review and live/fork rehearsal still required; preparation is not approval for live execution."
+}

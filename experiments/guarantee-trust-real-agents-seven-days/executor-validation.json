@@ -1,0 +1,29 @@
+{
+  "schema": "executor-validation/1",
+  "syntax": "passed node --check",
+  "liveTransactions": 0,
+  "forkRehearsal": "not run",
+  "receiptFaultTests": "not run",
+  "marketReady": false,
+  "workflowEnabled": false,
+  "limitations": [
+    "unreviewed market handlers",
+    "no live or fork execution",
+    "no automatic replay/resume",
+    "no automatic settlement shutdown",
+    "live Base gas-oracle and L1 receipt fee accounting require rehearsal"
+  ],
+  "staticValidation": "passed --validate with exact ethers 6.15.0 via existing isolated runtime import",
+  "offlineSignerAndAuthorizationTests": {
+    "passed": 12,
+    "command": "--self-test"
+  },
+  "sourceIntegrity": {
+    "resolved": true,
+    "gitBlob": "98630ab1d9273e01772b7be484c7fdec97795946",
+    "keccak256": "0x0b85c291aa5d388a9159d28a52dccbfc4476bbc3b680fc42f85a407cded3debb",
+    "note": "Exact Git content matches artifact; earlier extracted copy contained extra newline"
+  },
+  "bootstrapReplayGuard": "all 98 derived actor pending nonces and USDC balances must be zero before any broadcast",
+  "integration": "not run; day-packet and bridge schemas need end-to-end integration"
+}

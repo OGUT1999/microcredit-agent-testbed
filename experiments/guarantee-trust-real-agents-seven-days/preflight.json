@@ -1,0 +1,18 @@
+{
+  "schema": "real-agents-preflight/1",
+  "checked_at_utc": "2026-10-13T17:31:32.718777+00:00",
+  "rpc": "https://base-sepolia-rpc.publicnode.com",
+  "chain_id": 84532,
+  "block": 48072195,
+  "operator_address": "0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1",
+  "test_eth_wei": "24828990339906491",
+  "circle_test_usdc_micro": "180200000",
+  "proposed_role_token_funding_micro": "38200000",
+  "proposed_fee_cap_wei": "5000000000000000",
+  "proposed_role_gas_cap_wei": "2000000000000000",
+  "funding_available": true,
+  "execution_status": "not_started",
+  "actor_days_executed": 0,
+  "transactions_sent": 0,
+  "workflow_enabled": false
+}
