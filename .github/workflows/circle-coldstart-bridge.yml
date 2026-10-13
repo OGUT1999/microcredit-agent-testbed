@@ -1,0 +1,32 @@
+name: Bridge funded cold-start test tokens
+on:
+  push:
+    paths:
+      - ".github/workflows/circle-coldstart-bridge.yml"
+permissions:
+  contents: read
+concurrency:
+  group: codex-sepolia-test-wallet
+  cancel-in-progress: false
+jobs:
+  bridge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install fixed ethers runtime
+        run: npm install --prefix /tmp/gt-runtime --no-audit --no-fund ethers@6.15.0
+      - name: Bridge 1000 test USDC and 0.03 test ETH to Base Sepolia
+        env:
+          TEST_WALLET_PRIVATE_KEY: ${{ secrets.TEST_WALLET_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          cp experiments/guarantee-trust-circle-coldstart/bridge.mjs /tmp/gt-runtime/bridge.mjs
+          node /tmp/gt-runtime/bridge.mjs
+      - name: Preserve public bridge checkpoints
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: circle-coldstart-bridge-evidence
+          path: bridge-evidence/
+          if-no-files-found: warn
