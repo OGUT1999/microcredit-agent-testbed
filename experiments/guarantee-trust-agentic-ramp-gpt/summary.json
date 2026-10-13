@@ -1,0 +1,21 @@
+{
+  "jobs_posted": 447,
+  "guarantees_opened": 394,
+  "paid": 381,
+  "claimed": 13,
+  "open": 0,
+  "reserve_start": 20,
+  "reserve_end": 656.25,
+  "sponsor_capital_end": 45.5,
+  "dues_end": 610.75,
+  "stake_end": 210.0,
+  "sponsor_added": 45.0,
+  "contrib": 590.75,
+  "wages": 11835.0,
+  "claims_amt": 69.0,
+  "refusals": {
+    "InsufficientCapacity": 50,
+    "ZeroGuarantee": 1,
+    "ReserveFloor": 2
+  }
+}
