@@ -12,7 +12,10 @@ Run the packet and focused tests:
 
 ```bash
 python experiments/paid-work-channel-qualification/qualification.py experiments/paid-work-channel-qualification/premise-sierra-leone-2026-10-13.json
+python experiments/paid-work-channel-qualification/qualification.py experiments/paid-work-channel-qualification/mindrift-sierra-leone-2026-10-13.json
 python -m unittest discover -s experiments/paid-work-channel-qualification -p 'test_*.py'
 ```
+
+The October 13, 2026 Toloka screen follows Toloka's current individual-worker link to Mindrift, rather than treating the retired task entry point as a separate channel. Platform migration is provenance, not proof of current country access, demand or payout. The packet stays `IN_REVIEW` until a second original-source reviewer signs the exact disposition; that wait does not block the next candidate.
 
 The result is upstream qualification evidence only. A passing platform still needs a consenting eligible worker, accepted work, settled local cash, full owner and worker economics, and a counterfactual before any incremental human benefit can be claimed. Loans and guarantees remain `NO_LOAN` / `NO_GUARANTEE` unless an actual uncovered financing or nonpayment barrier is demonstrated; ordinary payment, prepayment, direct funding, existing resources and no intervention remain comparators.

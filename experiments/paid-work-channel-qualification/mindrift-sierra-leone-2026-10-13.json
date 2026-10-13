@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "candidate_id": "mindrift-sierra-leone-2026-10-13",
+  "candidate_name": "Mindrift (Toloka individual-worker successor)",
+  "country": "Sierra Leone",
+  "checked_at": "2026-10-13T20:57:46Z",
+  "decision": "IN_REVIEW",
+  "resource_bound": {
+    "contact": 0,
+    "spend_usd": 0,
+    "signups": 0
+  },
+  "sources": [
+    {
+      "id": "toloka-get-started",
+      "kind": "original",
+      "url": "https://toloka.ai/get-started",
+      "checked_at": "2026-10-13T20:45:00Z",
+      "supports": "Toloka's current individual earn-money entry point links workers to Mindrift.",
+      "does_not_establish": "The redirect does not establish Sierra Leone access, a current task or a spendable payout route."
+    },
+    {
+      "id": "mindrift-welcome",
+      "kind": "original",
+      "url": "https://mindrift.ai/welcome",
+      "checked_at": "2026-10-13T20:46:00Z",
+      "supports": "Mindrift states that Toloka task projects moved to Mindrift and describes registration, qualification and twice-monthly payments through Payoneer or Tipalti/PayPal for accepted tasks.",
+      "does_not_establish": "Generic platform and payment-partner claims do not establish a current Sierra Leone task or a complete task-to-spendable-SLL chain."
+    },
+    {
+      "id": "mindrift-eligibility",
+      "kind": "original",
+      "url": "https://mindrift.ai/legal/eligibility-and-geographic-restrictions",
+      "checked_at": "2026-10-13T20:48:00Z",
+      "supports": "Sierra Leone is absent from the published restricted and unsupported-country lists as updated May 27, 2026.",
+      "does_not_establish": "Absence from those lists is not an account-access receipt; enhanced verification and project-specific country, language and expertise requirements may still apply."
+    },
+    {
+      "id": "mindrift-projects",
+      "kind": "original",
+      "url": "https://mindrift.ai/apply",
+      "checked_at": "2026-10-13T20:49:00Z",
+      "supports": "The public project page lists three live specialist roles, describes all-access tasks and advertises a $5-$15 per hour video project as launching soon.",
+      "does_not_establish": "The page does not identify any current Sierra Leone-compatible task, accepted local worker, reward actually available in-country or country-specific acceptance result."
+    },
+    {
+      "id": "mindrift-faq",
+      "kind": "original",
+      "url": "https://mindrift.ai/faq",
+      "checked_at": "2026-10-13T20:50:00Z",
+      "supports": "Mindrift says task supply follows client demand, downtime may have limited or no opportunities, accepted tasks are paid twice monthly, and the platform uses Payoneer or Tipalti/PayPal.",
+      "does_not_establish": "The FAQ provides no Sierra Leone task inventory, payout method actually enabled for a Sierra Leone account, withdrawal minimum, fees, FX rate or local settlement time."
+    },
+    {
+      "id": "mindrift-terms",
+      "kind": "original",
+      "url": "https://mindrift.ai/legal/terms",
+      "checked_at": "2026-10-13T20:52:00Z",
+      "supports": "The September 17, 2026 terms require adult eligibility, permit identity and sanctions checks, make contributors responsible for equipment, compliance and taxes, and guarantee neither tasks nor income.",
+      "does_not_establish": "The terms do not prove that a Sierra Leone worker can access a current task or cash out positive net earnings."
+    },
+    {
+      "id": "payoneer-account",
+      "kind": "original",
+      "url": "https://www.payoneer.com/payoneer-account/",
+      "checked_at": "2026-10-13T20:54:00Z",
+      "supports": "Payoneer describes a global cross-border payment account and bank withdrawals.",
+      "does_not_establish": "The generic account page does not establish Mindrift payout availability to a Sierra Leone resident, a named local bank or mobile-money route, an SLE minimum, total fees, FX or settlement time."
+    },
+    {
+      "id": "payoneer-pricing",
+      "kind": "original",
+      "url": "https://www.payoneer.com/pricing/",
+      "checked_at": "2026-10-13T20:55:00Z",
+      "supports": "Payoneer publishes generic fee categories that can apply to receiving and withdrawing funds.",
+      "does_not_establish": "The public table does not identify the complete Sierra Leone-specific Mindrift-to-spendable-cash fee, minimum and FX chain needed to compute conservative net earnings."
+    }
+  ],
+  "gates": {
+    "current_access": {
+      "status": "unverified",
+      "chain_complete": false,
+      "source_ids": [
+        "toloka-get-started",
+        "mindrift-welcome",
+        "mindrift-eligibility",
+        "mindrift-terms"
+      ],
+      "finding": "Sierra Leone is not named on the published exclusion lists, but no current Sierra Leone registration or completed eligibility receipt was found and project-level checks remain possible."
+    },
+    "current_demand": {
+      "status": "unverified",
+      "chain_complete": false,
+      "source_ids": [
+        "mindrift-projects",
+        "mindrift-faq",
+        "mindrift-terms"
+      ],
+      "finding": "Mindrift shows three specialist roles and generic task descriptions, but no currently available Sierra Leone-compatible task with reward and acceptance terms was verified; the general video project is only launching soon."
+    },
+    "worker_eligibility": {
+      "status": "unverified",
+      "chain_complete": false,
+      "source_ids": [
+        "mindrift-eligibility",
+        "mindrift-projects",
+        "mindrift-terms"
+      ],
+      "finding": "Adult, identity, residency and project qualifications are documented, but no consenting Sierra Leone worker was verified as eligible for a current task."
+    },
+    "spendable_payout": {
+      "status": "unverified",
+      "chain_complete": false,
+      "source_ids": [
+        "mindrift-welcome",
+        "mindrift-faq",
+        "payoneer-account",
+        "payoneer-pricing"
+      ],
+      "finding": "Mindrift names Payoneer or Tipalti/PayPal, but no public evidence completes a Sierra Leone-resident Mindrift-to-named-local-bank-or-mobile-money route with minimum, all fees, FX and timing; PayPal alone does not meet this gate."
+    }
+  },
+  "independent_reviews": [
+    {
+      "reviewer": "agent:codex",
+      "source_check": "original",
+      "disposition": "IN_REVIEW",
+      "receipt_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6155100257"
+    }
+  ],
+  "conservative_net_earnings_status": "unknown",
+  "limitations": "The first review's proposed final result is NO_VERIFIABLE_ROUTE because the current Sierra Leone-specific task-to-local-cash chain cannot be completed from public evidence. Pending the required second original-source review, the durable decision remains IN_REVIEW. This is not evidence of unavailability. Advertised pay is not measured worker income; rejected work may be unpaid, task supply may stop, and equipment, connectivity, assessment time, tax, withdrawal, conversion, rework, safety and opportunity costs remain unknown rather than zero. No signup, contact, application, task attempt, spending or transaction occurred.",
+  "review_dependency": {
+    "status": "WATCHING",
+    "owner": "agent:hermes",
+    "dependency": "Independent original-source PASS or NO_VERIFIABLE_ROUTE disposition for the current Mindrift/Sierra Leone evidence chain.",
+    "source_receipt": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6155092122",
+    "trigger": "Hermes can read the listed original sources",
+    "fallback": "Continue the stronger CrowdGen/Dots Sierra Leone screen; do not wait."
+  },
+  "next_trigger": "Integrate the second attributable original-source disposition if received. Independently screen CrowdGen/Dots next because Dots publicly names Sierra Leone payout rails; require a current Sierra Leone-compatible project plus complete minimum, fee, FX, timing and conservative-net evidence before PASS."
+}
