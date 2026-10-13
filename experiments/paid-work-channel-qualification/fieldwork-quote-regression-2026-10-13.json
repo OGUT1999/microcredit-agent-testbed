@@ -1,0 +1,12 @@
+{
+  "source_url": "https://panel.fieldworkafrica.com/sierra-leone",
+  "checked_at": "2026-10-13T23:30:06Z",
+  "source_receipts": ["6157081777", "6156903931"],
+  "limitations": "Source-reported operands, not verified payouts. Le/SLE units are unconfirmed. Range endpoints are not paired. A fixed-rate hypothesis is tested only; tiered rates or other explanations are not ruled out.",
+  "currency_unit_confirmed": false,
+  "quotes": [
+    {"id": "survey-reward-range", "points_min": "2500", "points_max": "5000", "cash_min": "50", "cash_max": "250", "currency": "Le"},
+    {"id": "cashout-threshold", "points_min": "1000", "points_max": "1000", "cash_min": "1000", "cash_max": "1000", "currency": "Le"}
+  ],
+  "costs": {"provider_transfer_fee": null, "recipient_cashout_fee": null, "other_worker_costs": null}
+}
