@@ -169,8 +169,9 @@ if (priorPacket) {
 }
 const journal = priorPacket ? serial(priorPacket.journal.concat(priorPacket.recovery?.additionalConfirmedTransactions || [])) : [];
 const confirmedLabels = new Map();
+const confirmedReceipts = new Map();
 let rootFees = 0n, allFees = 0n, gasFunded = 0n, sponsorTopups = 0n, nextNonce = 1000n, lastMinedBlock;
-let activeIntent = null;
+let activeIntent = null, lastRpcFailure = null;
 const counts = {posted: 0, opened: 0, paid: 0, claimed: 0, cancelled: 0, remitted: 0, wages: 0n, netWages: 0n, contributions: 0n,
   claims: 0n, refusals: {}, laterStake: 0n};
 const rounds = [];
@@ -193,15 +194,45 @@ process.on('uncaughtException', e => stop(e));
 process.on('unhandledRejection', e => stop(e));
 function stop(e) {
   const safeReason = safeFailureMessages.has(e?.message) ? e.message : null;
-  write('stopped.json', {atUTC: new Date().toISOString(), errorCode: errorCode(e), safeReason, checkpoint,
+  write('stopped.json', {atUTC: new Date().toISOString(), errorCode: errorCode(e), safeReason,
+    classification: transientKind(e) || 'nontransient', rpcErrorCode: numericRpcErrorCode(e),
+    activeIntentLabel: activeIntent?.label || checkpoint.lastFailedIntent?.label || checkpoint.preparedTransaction?.label || null,
+    lastRpcFailure, checkpoint,
     transactionCount: journal.length, warning: 'Inspect mined/pending public hashes before any recovery; do not replay blindly.'});
   console.error(`STOPPED ${errorCode(e)} ${safeReason || ''}; evidence preserved in ${path.basename(out)}`);
   process.exit(1);
 }
 const rootKey = process.env.TEST_WALLET_PRIVATE_KEY;
 if (!rootKey || !/^0x[0-9a-fA-F]{64}$/.test(rootKey)) throw Error('Funded test-wallet key is unavailable');
-const provider = new JsonRpcProvider(RPC, undefined,
-  {cacheTimeout: 0, batchMaxCount: 20});
+function numericRpcErrorCode(e) {
+  for (const value of [e?.info?.error?.code, e?.error?.code, e?.code]) if (typeof value === 'number') return value;
+  return null;
+}
+const retryableReads = new Set([
+  'eth_chainId', 'eth_blockNumber', 'eth_getBlockByNumber', 'eth_getBlockByHash', 'eth_getBalance', 'eth_getCode',
+  'eth_getTransactionCount', 'eth_getTransactionByHash', 'eth_getTransactionReceipt', 'eth_call', 'eth_estimateGas',
+  'eth_gasPrice', 'eth_maxPriorityFeePerGas', 'eth_feeHistory',
+]);
+class ResilientProvider extends JsonRpcProvider {
+  async send(method, params) {
+    // Read-only retries cannot transfer funds. eth_sendRawTransaction is
+    // deliberately excluded; ReliableWallet retries its once-signed bytes.
+    if (!retryableReads.has(method)) return super.send(method, params);
+    for (let attempt = 0; attempt < 5; attempt++) {
+      try {return await super.send(method, params);} catch (e) {
+        const classification = transientKind(e);
+        lastRpcFailure = {method, attempt: attempt + 1, errorCode: errorCode(e),
+          classification: classification || 'nontransient', rpcErrorCode: numericRpcErrorCode(e)};
+        append('rpc-read-retries.jsonl', lastRpcFailure);
+        if (!classification || attempt === 4) throw e;
+        await new Promise(resolve => setTimeout(resolve, 500 * (attempt + 1)));
+      }
+    }
+    throw Error('Read-only RPC retries exhausted');
+  }
+}
+const provider = new ResilientProvider(RPC, undefined,
+  {cacheTimeout: 0, batchMaxCount: 1});
 provider.pollingInterval = 1000;
 function transientKind(e) {
   const code = errorCode(e);
@@ -299,12 +330,16 @@ async function send(label, actor, call, args, operation) {
       throw Error('Confirmed bootstrap label has a different action, signer or safe parameters');
     }
     append('resume-skips.jsonl', {label, hash: old.hash, call, reason: 'Prior exact call and mined receipt independently verified'});
-    return provider.getTransactionReceipt(old.hash);
+    const receipt = confirmedReceipts.get(label);
+    if (!receipt) throw Error('Confirmed bootstrap receipt is missing from the verified cache');
+    return receipt;
   }
   if (rootFees >= parseEther('0.03')) throw Error('Root gas-use limit reached');
   activeIntent = {label, actor: actor.id || 'operator', call, args: serial(args)};
   let tx;
-  try {tx = await operation();} finally {activeIntent = null;}
+  try {tx = await operation();} catch (e) {
+    checkpoint.lastFailedIntent = {label, call, actor: actor.id || 'operator'}; saveCheckpoint(); throw e;
+  } finally {activeIntent = null;}
   const item = {label, actor: actor.id || 'operator', from: tx.from, to: tx.to,
     call, args: serial(args), hash: tx.hash, nonce: tx.nonce, chainId: Number(tx.chainId), status: 'broadcast'};
   journal.push(item); write('transactions.json', journal);
@@ -496,6 +531,7 @@ if (priorPacket) {
     allFees += fee; if (tx.from === EXPECT_ROOT) rootFees += fee;
     lastMinedBlock = Math.max(lastMinedBlock, receipt.blockNumber);
     confirmedLabels.set(record.label, record);
+    confirmedReceipts.set(record.label, receipt);
   }
   if (gasFunded > parseEther('0.005') || rootFees >= parseEther('0.03')) throw Error('Resumed bootstrap already exceeds its resource caps');
   const [rootLatestNonce, rootPendingNonce] = await Promise.all([
@@ -612,7 +648,7 @@ for (const backer of backers) {
         () => gt.connect(backer.signer).attest(worker.address, u('0.15')));
       continue;
     }
-    const nonce = await gt.consentNonce(worker.address, backer.address);
+    const nonce = await gt.consentNonce(worker.address, backer.address, {blockTag: lastMinedBlock});
     const consent = {member: worker.address, attester: backer.address, allowed: true, nonce, deadline: zero.deadline};
     const signature = await worker.wallet.signTypedData(domain, consentTypes, consent);
     await send(`consent-${worker.id}-${backer.id}`, rootActor, 'setConsentBySig', consent,
@@ -684,9 +720,10 @@ for (let round = 1; round <= ROUNDS; round++) {
     const wage = BigInt(client.wageLowTenths + Math.floor(rng() * (client.wageHighTenths - client.wageLowTenths + 1))) * 100000n;
     let amount = wage / 10n;
     if (amount < u('0.2')) amount = u('0.2'); if (amount > u('0.8')) amount = u('0.8');
+    const tag = {blockTag: lastMinedBlock};
     const [reserve, outstanding, groupExposure, clientOpen, clientDefaulted, groupDefaulted, capacity, member] = await Promise.all([
-      gt.reserve(), gt.outstanding(), gt.groupExposure(client.groupId), gt.clientOpen(client.clientId),
-      gt.clientDefaulted(client.clientId), gt.groupDefaulted(client.groupId), gt.capacity(worker.address), gt.memberOf(worker.address),
+      gt.reserve(tag), gt.outstanding(tag), gt.groupExposure(client.groupId, tag), gt.clientOpen(client.clientId, tag),
+      gt.clientDefaulted(client.clientId, tag), gt.groupDefaulted(client.groupId, tag), gt.capacity(worker.address, tag), gt.memberOf(worker.address, tag),
     ]);
     let reason;
     if (clientOpen || clientDefaulted || groupDefaulted) reason = 'ClientBlocked';
@@ -699,7 +736,7 @@ for (let round = 1; round <= ROUNDS; round++) {
     const qualityPassed = rng() < worker.qualityProbability;
     const clientPaysDraw = rng() < client.payProbability;
     const paid = qualityPassed && clientPaysDraw;
-    if (paid && await token.balanceOf(client.address) < wage) {
+    if (paid && await token.balanceOf(client.address, tag) < wage) {
       refuse(round, client, worker, 'ClientPrefundingExhausted', amount); continue;
     }
     const contributionDue = wage * 500n / 10000n > u('0.3') ? u('0.3') : wage * 500n / 10000n;
@@ -742,12 +779,12 @@ for (let round = 1; round <= ROUNDS; round++) {
         outcome: 'paid', termsHash: signed.termsHash});
       await send(`paid-g${id}`, rootActor, 'markPaid', {id, wage, evidenceHash},
         () => gt.markPaid(id, wage, evidenceHash));
-      const g = await gt.guarantee(id);
+      const g = await gt.guarantee(id, {blockTag: lastMinedBlock});
       if (g.contributionDue !== contributionDue) throw Error('Signed withholding differs from contract due');
       // The client's transfer and remittance together equal the signed gross wage.
       // remit() permits a third-party payer, preserving worker gaslessness.
       const payer = client;
-      if (await token.allowance(payer.address, GT) < g.contributionDue) {
+      if (await token.allowance(payer.address, GT, {blockTag: lastMinedBlock}) < g.contributionDue) {
         await send(`approve-contributions-${payer.id}`, payer, 'USDC.approve', {spender: GT, amount: u('20')},
           () => tokenFor(payer).approve(GT, u('20')));
       }
@@ -780,7 +817,7 @@ await send('shutdown-pause-origination', rootActor, 'setPaused', {paused: true},
 const terminal = await snapshot(ROUNDS);
 const guarantees = [];
 for (let id = 0n; id < terminal.guaranteeCount; id++) {
-  const g = await gt.guarantee(id);
+  const g = await gt.guarantee(id, {blockTag: lastMinedBlock});
   if (g.state === 1n) throw Error('Open exposure remains at shutdown');
   guarantees.push({id, worker: g.worker, clientId: g.clientId, groupId: g.groupId, state: Number(g.state),
     amount: g.amount, fromBacking: g.fromBacking, fromLine: g.fromLine, fromDues: g.fromDues,
@@ -788,13 +825,13 @@ for (let id = 0n; id < terminal.guaranteeCount; id++) {
 }
 const members = [];
 for (const actor of [...workers, ...backers]) {
-  const m = await gt.memberOf(actor.address);
+  const m = await gt.memberOf(actor.address, {blockTag: lastMinedBlock});
   if (m.backingCommitted !== 0n || m.committedLine !== 0n || m.committedDues !== 0n || m.unpaidContributions !== 0n) {
     throw Error('A member retains an exposure lock or unpaid contribution');
   }
   members.push({id: actor.id, address: actor.address, ...serial(m.toObject())});
 }
-if (terminal.outstanding !== 0n || !await gt.paused()) throw Error('Shutdown invariant failed');
+if (terminal.outstanding !== 0n || !await gt.paused({blockTag: lastMinedBlock})) throw Error('Shutdown invariant failed');
 const lastSix = rounds.slice(-6);
 const gate = {
   windowRounds: [19, 24], sponsorTopups: lastSix.reduce((n, r) => n + r.sponsorTopups, 0n),
@@ -808,8 +845,8 @@ gate.success = gate.sponsorTopups === 0n && gate.throughputEachRound && gate.res
   && gate.reserveRefusals === 0 && gate.identitiesAllRounds;
 const roleBalances = [];
 for (const actor of personas) roleBalances.push({id: actor.id, address: actor.address,
-  USDC: await token.balanceOf(actor.address), ETH: await provider.getBalance(actor.address)});
-const rootAfter = {USDC: await token.balanceOf(EXPECT_ROOT), ETH: await provider.getBalance(EXPECT_ROOT)};
+  USDC: await token.balanceOf(actor.address, {blockTag: lastMinedBlock}), ETH: await provider.getBalance(actor.address, lastMinedBlock)});
+const rootAfter = {USDC: await token.balanceOf(EXPECT_ROOT, {blockTag: lastMinedBlock}), ETH: await provider.getBalance(EXPECT_ROOT, lastMinedBlock)};
 const actualRootGasCost = rootBefore.ETH - rootAfter.ETH - gasFunded;
 const summary = {sourceCommit: SOURCE, contract: GT, token: TOKEN, chainId: 84532, startedAtUTC: checkpoint.startedAtUTC,
   completedAtUTC: new Date().toISOString(), policySeed: SEED, roles: manifest.roles,
