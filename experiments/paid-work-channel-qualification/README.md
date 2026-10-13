@@ -14,6 +14,7 @@ Run the packet and focused tests:
 python experiments/paid-work-channel-qualification/qualification.py experiments/paid-work-channel-qualification/premise-sierra-leone-2026-10-13.json
 python experiments/paid-work-channel-qualification/qualification.py experiments/paid-work-channel-qualification/mindrift-sierra-leone-2026-10-13.json
 python experiments/paid-work-channel-qualification/qualification.py experiments/paid-work-channel-qualification/crowdgen-dots-sierra-leone-2026-10-13.json
+python experiments/paid-work-channel-qualification/qualification.py experiments/paid-work-channel-qualification/fieldwork-africa-sierra-leone-2026-10-13.json
 python -m unittest discover -s experiments/paid-work-channel-qualification -p 'test_*.py'
 ```
 
