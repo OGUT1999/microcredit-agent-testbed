@@ -1,0 +1,41 @@
+{
+  "kind": "local-recovery-validation",
+  "network": "localhost-only MockUSDC fixture; not public-chain evidence",
+  "runnerSHA256": "b26d3e1e2d50c73710cddfee41e9204d1245bdba03ada453067159c9d36f2372",
+  "artifactSHA256": "9589450dbe08cbf1907fd68e8dc82c341346163b7d19da9a4052f248e60c5612",
+  "trigger": "stop after persisted gas-backer-08 then resume exact confirmed prefix",
+  "confirmedPrefix": 74,
+  "duplicateLabels": 0,
+  "transactions": 744,
+  "counts": {
+    "posted": 405,
+    "opened": 112,
+    "paid": 98,
+    "claimed": 7,
+    "cancelled": 7,
+    "remitted": 98,
+    "wages": "277000000",
+    "netWages": "263150000",
+    "contributions": "13850000",
+    "claims": "1770000",
+    "refusals": {
+      "InsufficientCapacity": 268,
+      "ClientBlocked": 25
+    },
+    "laterStake": "2300000"
+  },
+  "gate": {
+    "windowRounds": [
+      19,
+      24
+    ],
+    "sponsorTopups": "0",
+    "opened": 35,
+    "throughputEachRound": true,
+    "reserveChange": "3925000",
+    "reserveRefusals": 0,
+    "identitiesAllRounds": true,
+    "success": true
+  },
+  "offlineVerificationSuccess": true
+}
