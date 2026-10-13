@@ -44,6 +44,8 @@ class ReceiptBridge:
             require(decoded.get('evidence_mode') == 'synthetic-offline/1',
                     'Injected verifier must label synthetic evidence')
             return decoded
+        require(self.market.state.get('evidence_mode') != 'synthetic-offline/1',
+                'Synthetic offline state requires injected verifier')
         node = os.environ.get('CODEX_PRIMARY_RUNTIME_NODE', 'node')
         helper = Path(__file__).with_name('receipt_verifier.mjs')
         completed = subprocess.run([node, str(helper)], input=encode(request), text=True,

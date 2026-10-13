@@ -107,3 +107,22 @@ covering every auxiliary action and failure path; actual fresh-context model
 harness; safe launcher publication design. Workflows remain disabled. Maintainers
 retain merge authority. No deployment, signature, transaction, paid model,
 prospect contact, live story, benefit claim or new schedule is part of this pass.
+
+## Review follow-up: mutable evidence-mode transitions
+
+Internal read-only review of `bd16170fcae892004fb7cd401f4504bb1e45263e`
+identified a bounded new gap in the reusable bridge: a bridge constructed for
+ordinary live state could reach the default subprocess after its mutable market
+state changed to synthetic. The standalone CLI's outer audit guard already
+blocked subprocess execution; this was **not an escape from that CLI**.
+
+Every verification now rechecks mode before selecting the default subprocess.
+The existing injected-verifier reverse-transition rejection remains unchanged.
+Two new import-path regressions assert no subprocess call, no injected-verifier
+call on the reverse transition, and unchanged state and persisted files. The
+live-to-synthetic regression failed on the prior implementation using a mocked
+subprocess (no live verifier executed), then passed with this two-line guard.
+Current validation: 59 focused tests, including 19 integration tests; repository
+30/30 checks and 193 unit tests. The original 17-test preparation receipt remains
+in Git history. All six inherited gates above remain open. No launcher, real
+verifier, signature, chain, key, model, workflow enablement or merge was used.

@@ -4,6 +4,7 @@ import socket
 import subprocess
 import tempfile
 import unittest
+from unittest.mock import Mock, patch
 
 from receipt_bridge import ReceiptBridge, ordered_hash
 from offline_integration import Scenario, MODE, ForbiddenOperation, consent, offline_guard, run
@@ -116,6 +117,29 @@ class OfflineIntegrationTests(unittest.TestCase):
         s = self.scenario
         s.market.state.pop('evidence_mode')
         self.unchanged_rejection(lambda: ReceiptBridge(s.market, verifier=s.verifier), 'requires synthetic')
+
+    def test_live_bridge_transition_to_synthetic_never_spawns(self):
+        s = self.scenario
+        key, tx = s.funding()
+        s.market.state.pop('evidence_mode')
+        bridge = ReceiptBridge(s.market)
+        s.market.state['evidence_mode'] = MODE
+        with patch('receipt_bridge.subprocess.run') as spawn:
+            self.unchanged_rejection(lambda: bridge.import_transaction(key, tx),
+                                     'Synthetic offline state requires injected verifier')
+            spawn.assert_not_called()
+
+    def test_injected_bridge_transition_to_live_never_verifies(self):
+        s = self.scenario
+        key, tx = s.funding()
+        verifier = Mock(wraps=s.verifier)
+        bridge = ReceiptBridge(s.market, verifier=verifier)
+        s.market.state.pop('evidence_mode')
+        with patch('receipt_bridge.subprocess.run') as spawn:
+            self.unchanged_rejection(lambda: bridge.import_transaction(key, tx),
+                                     'Synthetic evidence mode changed')
+            verifier.assert_not_called()
+            spawn.assert_not_called()
 
     def test_sign_broadcast_publication_and_network_stubs_deny(self):
         for transport in (self.scenario.sign, self.scenario.broadcast,
