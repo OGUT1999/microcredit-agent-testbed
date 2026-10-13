@@ -1,4 +1,4 @@
-name: Verify cold-start bridge mint and balances
+name: Independently verify the Circle-USDC deployment
 
 on:
   push:
@@ -49,6 +49,10 @@ jobs:
           ]);
           NODE
           node check.mjs
+          node - <<'NODE'
+          const {JsonRpcProvider,Contract,keccak256}=require('ethers');
+          (async()=>{const p=new JsonRpcProvider('https://sepolia.base.org',undefined,{cacheTimeout:0});const addr='0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466';const a=await(await fetch('https://raw.githubusercontent.com/scottonchain/microcredit-agent-testbed/d7e517304335adbecdfd06c1a1f0ff9de991899f/experiments/guarantee-trust-circle-coldstart/artifact.json')).json();const c=await p.getCode(addr,48059409);function mask(s){const b=Buffer.from(s.slice(2),'hex');for(const refs of Object.values(a.immutableReferences))for(const r of refs)b.fill(0,r.start,r.start+r.length);return '0x'+b.toString('hex');}const g=new Contract(addr,a.abi,p);const [t,o,i,ad,r,s,n]=await Promise.all([g.token(),g.owner(),g.issuer(),g.adjudicator(),g.reserve(),g.totalStake(),g.guaranteeCount()]);console.log('DEPLOYMENT_CHECK='+JSON.stringify({address:addr,bytes:(c.length-2)/2,actual:keccak256(mask(c)),expected:keccak256(mask(a.deployedBytecode)),match:mask(c)===mask(a.deployedBytecode),token:t,owner:o,issuer:i,adjudicator:ad,reserve:r.toString(),stake:s.toString(),count:n.toString()}));})();
+          NODE
           node - <<'NODE'
           const {JsonRpcProvider,Interface}=require('ethers');
           (async()=>{const p=new JsonRpcProvider('https://sepolia.base.org',undefined,{cacheTimeout:0});const r=await p.getTransactionReceipt('0x91db8f0a9784fab6756f0825adee79b83fabf0fca7bb2e87af009e267ae92637');console.log('MINT_RECEIPT='+JSON.stringify({hash:r.hash,block:r.blockNumber,status:r.status}));const i=new Interface(['event Transfer(address indexed from,address indexed to,uint256 value)']);for(const l of r.logs){try{const e=i.parseLog(l);if(e)console.log('MINT_EVENT='+JSON.stringify({token:l.address,from:e.args.from,to:e.args.to,value:e.args.value.toString()}));}catch{}}})();
