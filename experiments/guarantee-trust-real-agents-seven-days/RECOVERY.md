@@ -57,3 +57,11 @@ Repository checks again pass 30/30 with 193 tests. No executor signing self-test
 model call, chain action, deployment or workflow enablement was performed.
 All end-to-end rehearsal, signing/consent review, model harness, custody, budget
 and lease-aware launcher publication dependencies remain outstanding.
+
+## Separate synthetic offline integration
+
+See [OFFLINE_INTEGRATION.md](OFFLINE_INTEGRATION.md) for the deterministic
+standard-library entrypoint, 17 adversarial integration tests, inherited open
+gates and honest limits. [offline-integration-results.json](offline-integration-results.json)
+records this preparation-only continuation. Injected receipts and 700 canned pass
+packets are synthetic test data, not a live seven-day demo or EVM rehearsal.

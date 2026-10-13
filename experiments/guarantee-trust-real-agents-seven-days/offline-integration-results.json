@@ -1,0 +1,54 @@
+{
+  "actualEVM": false,
+  "actualSigning": false,
+  "author": "Codex (AI)",
+  "dependenciesAdded": 0,
+  "executorInvoked": false,
+  "focusedTests": {
+    "newIntegrationTests": 17,
+    "passed": 57
+  },
+  "javascriptVerifierInvoked": false,
+  "launchersInvoked": false,
+  "limitationsDocument": "OFFLINE_INTEGRATION.md",
+  "oldUncommittedWorkRecovered": false,
+  "preservedRuntimeLockSha256": "92e1569e9db7db9cb3950713ec93415ca554540cd161bcb75eefe8c102e4c86a",
+  "priorHead": "4d9e1268acb8c2e1ccca6c972a40809ff2b69e42",
+  "realBootstrapVerified": false,
+  "repositoryChecks": {
+    "ok": true,
+    "passed": 30,
+    "unitTests": 193
+  },
+  "reviewedMain": "3b1ed48cf2fa0537db2afbd46365c51ed079cb9b",
+  "schema": "synthetic-offline-integration-validation/1",
+  "sourceSha256": {
+    "market.py": "0be3ac65e7d95a3ee63c9672a0b98c913e8f4591ce6fbdad4d7cd7bda33c7c9a",
+    "offline_integration.py": "06bf77a3bc7b374092b6cfca3010652e5fd983fbed5908e7bbb077328f3ee517",
+    "receipt_bridge.py": "0bf30726bedc76a8bae3d25a8c7971df84e7f8ab99553ab3519244432b18ea31",
+    "test_offline_integration.py": "0225b53d92245183df3e06ff676d07576a84533e5ebee4c9a8844c4a567ed03a"
+  },
+  "summary": {
+    "actualEVMTransactions": 0,
+    "actualModelCalls": 0,
+    "actualSignatures": 0,
+    "cannedPassPackets": 700,
+    "consentRecordsSha256": "8fcd55cffe3a6339ac943644493dd6754666968e136dd1e92485fc9c76714566",
+    "custodySettlementVerified": false,
+    "fixtureDays": 7,
+    "humanBenefitVerified": false,
+    "importedStubReceipts": 4,
+    "jobStatus": "paid",
+    "notice": "SYNTHETIC OFFLINE FIXTURE: no model, signature, EVM, payment or human benefit.",
+    "publicationCalls": 0,
+    "readyForLiveExecution": false,
+    "schema": "synthetic-offline/1",
+    "syntheticAccounting": {
+      "net_cash_received_micro": 190000,
+      "sponsor_funding_micro": 400000,
+      "worker_wages_micro": 200000
+    },
+    "termsHash": "193afae34d7be01016b4c42b213b8d9c7d976d21119105e8f2ed7ee588e34919"
+  },
+  "workflowChanges": false
+}

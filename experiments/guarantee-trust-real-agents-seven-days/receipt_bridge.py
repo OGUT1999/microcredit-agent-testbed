@@ -1,7 +1,8 @@
 """Typed action registration and independently checked, live decoded receipts.
 
 The only production verifier entry point starts the pinned local Node helper.
-No method accepts caller-supplied decoded receipt assertions as trusted evidence.
+Synthetic-only injected transport is explicitly labeled and cannot use the live default.
+Production methods do not trust caller-supplied decoded receipt assertions.
 """
 import hashlib
 import json
@@ -27,8 +28,28 @@ def integer(value):
 
 
 class ReceiptBridge:
-    def __init__(self, market):
+    def __init__(self, market, *, verifier=None):
         self.market = market
+        # Test injection is deliberately unavailable to ordinary/live run state.
+        synthetic = market.state.get('evidence_mode') == 'synthetic-offline/1'
+        require(verifier is None or synthetic, 'Verifier injection requires synthetic offline state')
+        require(not synthetic or verifier is not None, 'Synthetic offline state requires injected verifier')
+        self.verifier = verifier
+
+    def _verify(self, request):
+        if self.verifier is not None:
+            require(self.market.state.get('evidence_mode') == 'synthetic-offline/1',
+                    'Synthetic evidence mode changed')
+            decoded = self.verifier(request)
+            require(decoded.get('evidence_mode') == 'synthetic-offline/1',
+                    'Injected verifier must label synthetic evidence')
+            return decoded
+        node = os.environ.get('CODEX_PRIMARY_RUNTIME_NODE', 'node')
+        helper = Path(__file__).with_name('receipt_verifier.mjs')
+        completed = subprocess.run([node, str(helper)], input=encode(request), text=True,
+                                   capture_output=True, check=False, timeout=90)
+        require(completed.returncode == 0, 'Pinned live receipt verifier rejected request; no accounting updated')
+        return json.loads(completed.stdout)
 
     def pin(self, pin):
         """Coordinator installs independently reviewed deployment+ABI/bootstrap evidence once."""
@@ -62,11 +83,7 @@ class ReceiptBridge:
         require(pin is not None, 'Deployment pin required')
         require(not s.get('verified_wallet_bootstrap'), 'Bootstrap receipt registry immutable')
         request={'operation':'bootstrap','pin':pin,'fundingTransactions':funding_transactions}
-        node=os.environ.get('CODEX_PRIMARY_RUNTIME_NODE','node')
-        helper=Path(__file__).with_name('receipt_verifier.mjs')
-        completed=subprocess.run([node,str(helper)],input=encode(request),text=True,capture_output=True,check=False,timeout=90)
-        require(completed.returncode==0,'Independent bootstrap receipt verification failed')
-        decoded=json.loads(completed.stdout)
+        decoded=self._verify(request)
         require(decoded.get('schema')=='verified-real-agents-bootstrap/1' and decoded.get('chainId')==84532
                 and decoded.get('runId')==pin['runId'] and decoded.get('totalMicro')=='38200000',
                 'Bootstrap result mismatch')
@@ -191,11 +208,7 @@ class ReceiptBridge:
         require(transaction_hash not in s['chain_receipts'], 'Receipt already consumed')
         pin=s['verification_pin']; require(registration['pin_hash']==digest(pin), 'Deployment pin changed')
         request={'pin':pin,'expected':registration['expected'],'registrationHash':registration['hash'],'transactionHash':transaction_hash}
-        node=os.environ.get('CODEX_PRIMARY_RUNTIME_NODE','node')
-        helper=Path(__file__).with_name('receipt_verifier.mjs')
-        completed=subprocess.run([node,str(helper)],input=encode(request),text=True,capture_output=True,check=False,timeout=90)
-        require(completed.returncode==0, 'Pinned live receipt verifier rejected transaction; no accounting updated')
-        decoded=json.loads(completed.stdout)
+        decoded=self._verify(request)
         self._check_decoded(registration,decoded,transaction_hash)
         intent=s['intents'][registration['intent_id']]; action=registration['expected']['action']
         job=s['jobs'].get(intent['payload'].get('job_id'))
