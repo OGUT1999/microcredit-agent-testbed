@@ -1,0 +1,35 @@
+name: Run Circle-USDC cold-start community on Base Sepolia
+on:
+  push:
+    paths:
+      - ".github/workflows/circle-coldstart-demo.yml"
+permissions:
+  contents: read
+concurrency:
+  group: codex-sepolia-test-wallet
+  cancel-in-progress: false
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned ethers runtime
+        run: npm install --prefix /tmp/gt-coldstart --no-audit --no-fund ethers@6.15.0
+      - name: Validate the declared experiment
+        run: |
+          cp experiments/guarantee-trust-circle-coldstart/coldstart.mjs /tmp/gt-coldstart/coldstart.mjs
+          cp experiments/guarantee-trust-circle-coldstart/artifact.json /tmp/gt-coldstart/artifact.json
+          node /tmp/gt-coldstart/coldstart.mjs --validate
+      - name: Deploy and run the authorized testnet cold start
+        env:
+          TEST_WALLET_PRIVATE_KEY: ${{ secrets.TEST_WALLET_PRIVATE_KEY }}
+          COLDSTART_OUT: ${{ github.workspace }}/experiments/guarantee-trust-circle-coldstart/evidence/20261013-run1
+        run: node /tmp/gt-coldstart/coldstart.mjs
+      - name: Preserve the public transaction and state evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: circle-usdc-coldstart-run1
+          path: experiments/guarantee-trust-circle-coldstart/evidence/20261013-run1/
+          if-no-files-found: warn
