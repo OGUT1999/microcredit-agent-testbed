@@ -1,0 +1,178 @@
+{
+  "scope": "LOCAL_OFFLINE_VERIFICATION; not a publication or human-outcome receipt",
+  "source_base_commit": "1e905e7fa396b0d4b44402a1f73fd688528ac13f",
+  "verification_date": "2026-10-13",
+  "verification": {
+    "ok": true,
+    "unit_tests": 179,
+    "checks": [
+      {
+        "check": "source syntax",
+        "ok": true,
+        "python": 141,
+        "shell": 14
+      },
+      {
+        "check": "bootstrap",
+        "ok": true,
+        "exit_code": 0,
+        "tests": 14
+      },
+      {
+        "check": "coordination",
+        "ok": true,
+        "exit_code": 0,
+        "tests": 13
+      },
+      {
+        "check": "scripts",
+        "ok": true,
+        "exit_code": 0,
+        "tests": 15
+      },
+      {
+        "check": "metrics",
+        "ok": true,
+        "exit_code": 0,
+        "tests": 45
+      },
+      {
+        "check": "team-mail",
+        "ok": true,
+        "exit_code": 0,
+        "tests": 8
+      },
+      {
+        "check": "world-model",
+        "ok": true,
+        "exit_code": 0,
+        "tests": 24
+      },
+      {
+        "check": "retry-fixture",
+        "ok": true,
+        "exit_code": 0,
+        "tests": 2
+      },
+      {
+        "check": "retry-fixture/reference",
+        "ok": true,
+        "exit_code": 0,
+        "tests": 7
+      },
+      {
+        "check": "retry-fixture/chain/base-sepolia",
+        "ok": true,
+        "exit_code": 0,
+        "tests": 9
+      },
+      {
+        "check": "retry-fixture/chain/base-sepolia/reconcile",
+        "ok": true,
+        "exit_code": 0,
+        "tests": 7
+      },
+      {
+        "check": "research/calibration-v3-replay-archive",
+        "ok": true,
+        "exit_code": 0,
+        "tests": 25
+      },
+      {
+        "check": "experiments/revolving-guarantee",
+        "ok": true,
+        "exit_code": 0,
+        "tests": 10
+      },
+      {
+        "check": "world-model schema and relationships",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "check": "retry case ledger",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "check": "retry model: run_email_cases",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "check": "retry model: scorecard",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "check": "retry model: horizon_score",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "check": "retry model: resend_authority",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "check": "retry model: shipped_gate",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "check": "retry model: in_progress_409",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "check": "recorded email evidence: check_record",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "check": "recorded email evidence: check_same_key_retry",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "check": "recorded email evidence: check_key_expiry",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "check": "fork runner offline self-test",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "check": "frozen v3 ledger",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "check": "frozen v3 starter",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "check": "frozen v3 submission checker",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "check": "frozen v3 scorer",
+        "ok": true,
+        "exit_code": 0
+      }
+    ]
+  },
+  "additional_focused_checks": {
+    "nline_archival_access_gate_tests": 16
+  },
+  "limitations": [
+    "All outcome checker fixtures are synthetic.",
+    "READY_FOR_REVIEW means packet completeness only; no source authentication or impact inference.",
+    "No contact, signup, spending, wallet or chain operation was performed.",
+    "Remote commit and authorized default-branch integration remain separate completion gates."
+  ]
+}
