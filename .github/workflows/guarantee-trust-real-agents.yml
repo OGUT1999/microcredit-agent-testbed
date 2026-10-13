@@ -1,0 +1,40 @@
+name: Reviewed real-agent experiment (disabled)
+on:
+  push:
+    paths:
+      - .github/workflows/guarantee-trust-real-agents.yml
+permissions:
+  contents: read
+concurrency:
+  group: codex-sepolia-test-wallet
+  cancel-in-progress: false
+jobs:
+  bootstrap:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: scottonchain/microcredit-contract
+          ref: ec93c76779b5e2d52ab7b87cf82b3fd400205969
+          path: reviewed-contract
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --ignore-scripts ethers@6.15.0
+      - name: Bootstrap only (no market actions)
+        run: node experiments/guarantee-trust-real-agents-seven-days/executor.mjs
+        env:
+          TEST_WALLET_PRIVATE_KEY: ${{ secrets.TEST_WALLET_PRIVATE_KEY }}
+          RUN_ID: real-agents-20261013-seven-days-v1
+          REVIEWED_SOURCE_PATH: reviewed-contract/packages/foundry/contracts/GuaranteeTrust.sol
+          REVIEWED_ARTIFACT_SHA256: 9589450dbe08cbf1907fd68e8dc82c341346163b7d19da9a4052f248e60c5612
+          EVIDENCE_DIR: real-agents-evidence
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bootstrap-evidence-real-agents-20261013-seven-days-v1
+          path: real-agents-evidence/
+          if-no-files-found: ignore

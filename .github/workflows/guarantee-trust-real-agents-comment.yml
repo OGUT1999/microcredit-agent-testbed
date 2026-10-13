@@ -1,0 +1,42 @@
+name: Reviewed native-agent experiment control (disabled)
+on:
+  issue_comment:
+    types: [created]
+permissions:
+  contents: write
+concurrency:
+  group: codex-sepolia-test-wallet
+  cancel-in-progress: false
+jobs:
+  controlled-command:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      # Dedicated experiment control issue; launcher still permanently disabled pending review.
+      CONTROL_ISSUE_NUMBER: '79'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: scottonchain/microcredit-contract
+          ref: ec93c76779b5e2d52ab7b87cf82b3fd400205969
+          path: reviewed-contract
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --ignore-scripts ethers@6.15.0 @foundry-rs/anvil-linux-amd64@1.7.1
+      - name: Run exact reviewed command
+        run: node experiments/guarantee-trust-real-agents-seven-days/comment-launcher.mjs
+        env:
+          TEST_WALLET_PRIVATE_KEY: ${{ secrets.TEST_WALLET_PRIVATE_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: redacted-real-agent-evidence-${{ github.event.comment.id }}
+          path: experiments/guarantee-trust-real-agents-seven-days/evidence/
+          if-no-files-found: ignore
