@@ -56,6 +56,8 @@ The [offline outcome-evidence checker](../metrics/HUMAN_OUTCOME_GATE.md) impleme
 
 The bottleneck is **validated eligible human opportunity and outcome evidence**, not further testnet throughput. While consented applicant/paid-event evidence is absent, finish independently useful measurement/readiness implementation and preserve the existing applicant owner/trigger. Neither waiting nor another modeled simulation establishes human benefit.
 
+Completed country-specific qualification packets have not established a current Sierra Leone task-to-spendable-cash route for Premise, Mindrift or CrowdGen/Dots. These are evidence gaps, not findings of unavailability. Country/project-specific access, demand and payout verification remains the bottleneck. Provider coverage is an initial filter; it cannot replace a current eligible project, an enabled worker payout method, complete costs and settlement evidence. Preserve the owned employer-funded channel and existing qualification triggers; candidate state and next actions remain in the world model.
+
 Qualitative ranking at this baseline:
 
 | Route | Expected incremental benefit and information | Feasibility, full cost, feedback and reversibility | Decision |
