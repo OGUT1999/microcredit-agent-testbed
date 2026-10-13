@@ -29,6 +29,7 @@ jobs:
             const eth=await p.getBalance(addr);
             console.log(label+'_ETH='+formatEther(eth));
             console.log(label+'_BLOCK='+await p.getBlockNumber());
+                console.log(label+'_FEES='+JSON.stringify((await p.getFeeData()).toJSON()));
             for(const [name,a] of tokens){
               try{
                 const c=new Contract(a,erc20,p);
