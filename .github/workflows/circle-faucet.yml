@@ -1,4 +1,4 @@
-name: Independently verify the Circle-USDC deployment
+name: Reconcile stopped cold-start bootstrap
 
 on:
   push:
@@ -56,4 +56,8 @@ jobs:
           node - <<'NODE'
           const {JsonRpcProvider,Interface}=require('ethers');
           (async()=>{const p=new JsonRpcProvider('https://sepolia.base.org',undefined,{cacheTimeout:0});const r=await p.getTransactionReceipt('0x91db8f0a9784fab6756f0825adee79b83fabf0fca7bb2e87af009e267ae92637');console.log('MINT_RECEIPT='+JSON.stringify({hash:r.hash,block:r.blockNumber,status:r.status}));const i=new Interface(['event Transfer(address indexed from,address indexed to,uint256 value)']);for(const l of r.logs){try{const e=i.parseLog(l);if(e)console.log('MINT_EVENT='+JSON.stringify({token:l.address,from:e.args.from,to:e.args.to,value:e.args.value.toString()}));}catch{}}})();
+          NODE
+          node - <<'NODE'
+          const {JsonRpcProvider,Contract,Interface}=require('ethers');
+          (async()=>{const p=new JsonRpcProvider('https://sepolia.base.org',undefined,{cacheTimeout:0});const root='0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1',role='0xF9cDd695b8D9F07d705c49a54dFA2e6f3C37395c';const t=new Contract('0x036CbD53842c5426634e7929541eC2318f3dCF7e',['function balanceOf(address) view returns(uint256)'],p);const [latest,pending,balance,end]=await Promise.all([p.getTransactionCount(root,'latest'),p.getTransactionCount(root,'pending'),t.balanceOf(role),p.getBlockNumber()]);console.log('BOOTSTRAP_RECONCILE='+JSON.stringify({nonceLatest:latest,noncePending:pending,backer08USDC:balance.toString(),endBlock:end}));if(latest>40){const iface=new Interface(['function transfer(address,uint256) returns(bool)']);let found=false;for(let n=48059811;n<=end;n++){const b=await p.send('eth_getBlockByNumber',['0x'+n.toString(16),true]);for(const tx of b.transactions){if(tx.from.toLowerCase()===root.toLowerCase()&&parseInt(tx.nonce,16)===40){const d=iface.parseTransaction({data:tx.input});const r=await p.getTransactionReceipt(tx.hash);console.log('RECOVERED_TRANSFER='+JSON.stringify({hash:tx.hash,from:tx.from,to:tx.to,nonce:40,call:d.name,recipient:d.args[0],amount:d.args[1].toString(),block:r.blockNumber,status:r.status,gasUsed:r.gasUsed.toString(),feeWei:r.fee.toString()}));found=true;break;}}if(found)break;}}})();
           NODE
