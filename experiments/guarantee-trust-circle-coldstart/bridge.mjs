@@ -1,5 +1,7 @@
 import {JsonRpcProvider, Wallet, NonceManager, Contract, parseEther, formatEther, zeroPadValue, ZeroHash} from 'ethers';
 import fs from 'node:fs';
+process.on('uncaughtException',e=>{console.error('Bridge stopped: '+(e.code||e.message.split(' (')[0].slice(0,140)));process.exit(1);});
+process.on('unhandledRejection',e=>{console.error('Bridge stopped: '+(e?.code||'promise failure'));process.exit(1);});
 const out='bridge-evidence'; fs.mkdirSync(out,{recursive:true});
 const expected='0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1';
 const p1=new JsonRpcProvider('https://ethereum-sepolia-rpc.publicnode.com');
