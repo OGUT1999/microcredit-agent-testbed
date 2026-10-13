@@ -24,6 +24,7 @@ if (REHEARSAL && !['localhost', '127.0.0.1', '[::1]'].includes(new URL(RPC).host
   throw Error('Rehearsal is restricted to localhost RPC');
 }
 if (!REHEARSAL && process.env.TEST_TOKEN_ADDRESS) throw Error('Token override requires a localhost rehearsal');
+if (!REHEARSAL && process.env.REHEARSAL_STOP_AFTER_LABEL) throw Error('A debug stop requires a localhost rehearsal');
 const TOKEN = getAddress(REHEARSAL && process.env.TEST_TOKEN_ADDRESS
   ? process.env.TEST_TOKEN_ADDRESS : '0x036CbD53842c5426634e7929541eC2318f3dCF7e');
 const EXPECT_ROOT = REHEARSAL && process.env.TEST_WALLET_PRIVATE_KEY
@@ -145,12 +146,38 @@ const write = (name, value) => {
   fs.writeFileSync(tmp, JSON.stringify(serial(value), null, 2) + '\n'); fs.renameSync(tmp, p);
 };
 const append = (name, value) => fs.appendFileSync(path.join(out, name), JSON.stringify(serial(value)) + '\n');
-const journal = [];
+const resumePath = process.env.COLDSTART_BOOTSTRAP_RESUME ? path.resolve(process.env.COLDSTART_BOOTSTRAP_RESUME) : null;
+const priorPacket = resumePath ? {
+  manifest: JSON.parse(fs.readFileSync(path.join(resumePath, 'manifest.json'))),
+  checkpoint: JSON.parse(fs.readFileSync(path.join(resumePath, 'checkpoint.json'))),
+  journal: JSON.parse(fs.readFileSync(path.join(resumePath, 'transactions.json'))),
+  deployment: JSON.parse(fs.readFileSync(path.join(resumePath, 'prior-deployment.json'))),
+  zero: JSON.parse(fs.readFileSync(path.join(resumePath, 'zero-reserve-control.json'))),
+  recovery: fs.existsSync(path.join(resumePath, 'recovery.json'))
+    ? JSON.parse(fs.readFileSync(path.join(resumePath, 'recovery.json'))) : null,
+} : null;
+if (priorPacket) {
+  for (const field of ['sourceCommit', 'artifactSha256', 'chainId', 'token', 'rehearsal', 'policySeed', 'prng', 'rounds', 'roles', 'policy', 'gate']) {
+    if (JSON.stringify(priorPacket.manifest[field]) !== JSON.stringify(manifest[field])) throw Error('Bootstrap resume policy or source differs from the prior execution');
+  }
+  if (priorPacket.manifest.rootAddress !== EXPECT_ROOT || priorPacket.checkpoint.round !== 0
+    || !['deployed', 'funded'].includes(priorPacket.checkpoint.phase)) throw Error('Only a verified bootstrap stop may be resumed');
+  if (fs.existsSync(path.join(resumePath, 'policy-events.jsonl')) && fs.readFileSync(path.join(resumePath, 'policy-events.jsonl'), 'utf8').trim()) {
+    throw Error('Market-state resume is not supported');
+  }
+  if (priorPacket.journal.some(x => x.status !== 1)) throw Error('Prior journal contains an unconfirmed transaction requiring review');
+}
+const journal = priorPacket ? serial(priorPacket.journal.concat(priorPacket.recovery?.additionalConfirmedTransactions || [])) : [];
+const confirmedLabels = new Map();
 let rootFees = 0n, allFees = 0n, gasFunded = 0n, sponsorTopups = 0n, nextNonce = 1000n, lastMinedBlock;
+let activeIntent = null;
 const counts = {posted: 0, opened: 0, paid: 0, claimed: 0, cancelled: 0, remitted: 0, wages: 0n, netWages: 0n, contributions: 0n,
   claims: 0n, refusals: {}, laterStake: 0n};
 const rounds = [];
-const checkpoint = {sourceCommit: SOURCE, phase: 'preflight', round: 0, startedAtUTC: new Date().toISOString()};
+const checkpoint = {sourceCommit: SOURCE, phase: 'preflight', round: 0,
+  startedAtUTC: priorPacket?.checkpoint.startedAtUTC || new Date().toISOString(),
+  ...(priorPacket ? {resumedAtUTC: new Date().toISOString(), bootstrapResume: true,
+    priorRunnerSha256: priorPacket.manifest.runnerSha256, priorJournalCount: journal.length} : {})};
 function saveCheckpoint() {write('checkpoint.json', checkpoint);}
 async function freshRead(fn) {
   for (let attempt = 0; ; attempt++) {
@@ -176,13 +203,60 @@ if (!rootKey || !/^0x[0-9a-fA-F]{64}$/.test(rootKey)) throw Error('Funded test-w
 const provider = new JsonRpcProvider(RPC, undefined,
   {cacheTimeout: 0, batchMaxCount: 20});
 provider.pollingInterval = 1000;
-const rootWallet = new Wallet(rootKey, provider);
+function transientKind(e) {
+  const code = errorCode(e);
+  const text = `${e?.shortMessage || ''} ${e?.message || ''} ${e?.error?.message || ''} ${e?.info?.error?.message || ''}`.toLowerCase();
+  if (/already known|known transaction|nonce too low|nonce has already/.test(text)) return 'same-hash-or-nonce-already-known';
+  if (/timeout|timed out|429|rate limit|temporar|503|502|504|socket|connection|network|rpc.*unavailable|missing response/.test(text)) return 'transient-rpc-transport';
+  if (['NETWORK_ERROR', 'TIMEOUT', 'SERVER_ERROR', 'UNKNOWN_ERROR'].includes(code)) return 'rpc-transient-or-unknown';
+  return null;
+}
+class ReliableWallet extends Wallet {
+  async sendTransaction(request) {
+    // Populate once and sign once. Every retry broadcasts these identical bytes;
+    // retrying never allocates another nonce or signs a replacement operation.
+    const populated = await this.populateTransaction(request);
+    const signed = await this.signTransaction(populated);
+    const transactionHash = keccak256(signed);
+    const intent = {...activeIntent, hash: transactionHash, from: this.address, to: populated.to || null,
+      nonce: populated.nonce, chainId: Number(populated.chainId), value: populated.value || 0n,
+      calldataHash: keccak256(populated.data || '0x')};
+    append('prepared-intents.jsonl', intent);
+    checkpoint.preparedTransaction = {hash: transactionHash, nonce: populated.nonce, label: activeIntent?.label || null};
+    saveCheckpoint();
+    for (let attempt = 0; attempt < 5; attempt++) {
+      try {
+        const response = await provider.broadcastTransaction(signed);
+        if (response.hash !== transactionHash) throw Error('Broadcast hash differs from the once-signed transaction');
+        return response;
+      } catch (e) {
+        const kind = transientKind(e);
+        let receipt = null, existing = null;
+        try {receipt = await provider.getTransactionReceipt(transactionHash); existing = await provider.getTransaction(transactionHash);} catch {}
+        if (existing) return existing;
+        if (receipt) return {hash: transactionHash, from: this.address, to: populated.to || null,
+          nonce: populated.nonce, chainId: populated.chainId, wait: async () => receipt};
+        append('broadcast-attempts.jsonl', {hash: transactionHash, nonce: populated.nonce, attempt: attempt + 1,
+          errorCode: errorCode(e), classification: kind || 'nontransient',
+          rpcErrorCode: typeof e?.info?.error?.code === 'number' ? e.info.error.code : null,
+          note: 'Signed bytes remain memory-only; no replacement nonce is allocated.'});
+        if (!kind || attempt === 4) throw e;
+        await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
+      }
+    }
+    throw Error('Exact transaction retries exhausted');
+  }
+}
+const rootWallet = new ReliableWallet(rootKey, provider);
+// NonceManager keeps serial nonces monotonic even when RPC replicas lag a mined
+// receipt. Its fully populated request has a fixed nonce and fees before the
+// ReliableWallet's final normalization; signing and exact-byte retry occur once.
 const root = new NonceManager(rootWallet);
 if (rootWallet.address !== EXPECT_ROOT) throw Error('Unexpected funded test wallet');
 if ((await provider.getNetwork()).chainId !== 84532n) throw Error('Base Sepolia chain ID required');
 for (const actor of personas) {
   const key = keccak256(toUtf8Bytes(`circle-coldstart-v1:${rootKey}:${actor.id}`));
-  actor.wallet = new Wallet(key, provider);
+  actor.wallet = new ReliableWallet(key, provider);
   actor.signer = new NonceManager(actor.wallet);
   actor.address = actor.wallet.address;
 }
@@ -191,22 +265,46 @@ const tokenAbi = ['function balanceOf(address) view returns(uint256)', 'function
   'function decimals() view returns(uint8)', 'function approve(address,uint256) returns(bool)', 'function transfer(address,uint256) returns(bool)'];
 const token = new Contract(TOKEN, tokenAbi, root);
 if (await provider.getCode(TOKEN) === '0x' || await token.decimals() !== 6n) throw Error('Canonical Circle test-token binding failed');
-const rootBefore = {USDC: await token.balanceOf(EXPECT_ROOT), ETH: await provider.getBalance(EXPECT_ROOT)};
-if (rootBefore.USDC < u('819.8') || rootBefore.ETH < parseEther('0.01')) throw Error('Insufficient bounded test funding');
-for (const a of [...clients, ...backers, ...sponsors]) {
-  if (await provider.getTransactionCount(a.address) !== 0 || await token.balanceOf(a.address) !== 0n) {
-    throw Error('Derived role wallet has prior execution state; do not overwrite funded actors');
+const currentRoot = {USDC: await token.balanceOf(EXPECT_ROOT), ETH: await provider.getBalance(EXPECT_ROOT)};
+const rootBefore = priorPacket ? {USDC: BigInt(priorPacket.manifest.rootBefore.USDC), ETH: BigInt(priorPacket.manifest.rootBefore.ETH)} : currentRoot;
+if (!priorPacket && (rootBefore.USDC < u('819.8') || rootBefore.ETH < parseEther('0.01'))) throw Error('Insufficient bounded test funding');
+if (priorPacket) {
+  for (const a of personas) {
+    const old = priorPacket.manifest.roster.find(x => x.id === a.id);
+    if (!old || old.address !== a.address || old.role !== a.role) throw Error('Resume role identities differ from the funded actors');
+  }
+  write('prior-manifest.json', priorPacket.manifest);
+  write('prior-deployment.json', priorPacket.deployment);
+} else {
+  for (const a of [...clients, ...backers, ...sponsors]) {
+    if (await provider.getTransactionCount(a.address) !== 0 || await token.balanceOf(a.address) !== 0n) {
+      throw Error('Derived role wallet has prior execution state; do not overwrite funded actors');
+    }
   }
 }
 write('manifest.json', {...manifest, rootAddress: EXPECT_ROOT, rootBefore,
+  ...(priorPacket ? {resume: {bootstrapOnly: true, priorRunnerSha256: priorPacket.manifest.runnerSha256,
+    priorManifestSha256: sha(fs.readFileSync(path.join(resumePath, 'manifest.json')))}} : {}),
   roster: personas.map(({wallet, signer, ...a}) => a).concat([
     {id: 'issuer-01', role: 'issuer', address: EXPECT_ROOT}, {id: 'adjudicator-01', role: 'adjudicator', address: EXPECT_ROOT},
   ])});
 saveCheckpoint();
 
 async function send(label, actor, call, args, operation) {
+  if (confirmedLabels.has(label)) {
+    const old = confirmedLabels.get(label);
+    const expected = serial(args), keys = Object.keys(expected).sort(), oldKeys = Object.keys(old.args).sort();
+    if (old.call !== call || old.from !== actor.address || keys.join('|') !== oldKeys.join('|')
+      || keys.some(key => String(expected[key]).toLowerCase() !== String(old.args[key]).toLowerCase())) {
+      throw Error('Confirmed bootstrap label has a different action, signer or safe parameters');
+    }
+    append('resume-skips.jsonl', {label, hash: old.hash, call, reason: 'Prior exact call and mined receipt independently verified'});
+    return provider.getTransactionReceipt(old.hash);
+  }
   if (rootFees >= parseEther('0.03')) throw Error('Root gas-use limit reached');
-  const tx = await operation();
+  activeIntent = {label, actor: actor.id || 'operator', call, args: serial(args)};
+  let tx;
+  try {tx = await operation();} finally {activeIntent = null;}
   const item = {label, actor: actor.id || 'operator', from: tx.from, to: tx.to,
     call, args: serial(args), hash: tx.hash, nonce: tx.nonce, chainId: Number(tx.chainId), status: 'broadcast'};
   journal.push(item); write('transactions.json', journal);
@@ -237,12 +335,22 @@ async function send(label, actor, call, args, operation) {
     if (tokenBalance !== reserve + stake || reserve !== sponsorCapital + dues) throw Error('Transition ledger identity failed');
   }
   write('transactions.json', journal);
-  checkpoint.lastTransactionHash = tx.hash; saveCheckpoint();
+  checkpoint.lastTransactionHash = tx.hash;
+  delete checkpoint.preparedTransaction;
+  saveCheckpoint();
+  if (REHEARSAL && process.env.REHEARSAL_STOP_AFTER_LABEL === label) {
+    throw Error('Requested localhost rehearsal stop after a persisted receipt');
+  }
   return receipt;
 }
 const rootActor = {id: 'operator', address: EXPECT_ROOT};
 async function gasFor(actor) {
   const amount = parseEther('0.00008');
+  if (confirmedLabels.has(`gas-${actor.id}`)) {
+    await send(`gas-${actor.id}`, rootActor, 'native ETH transfer', {to: actor.address, value: amount},
+      () => root.sendTransaction({to: actor.address, value: amount}));
+    return;
+  }
   if (gasFunded + amount > parseEther('0.005')) throw Error('Role gas-funding limit reached');
   gasFunded += amount;
   await send(`gas-${actor.id}`, rootActor, 'native ETH transfer', {to: actor.address, value: amount},
@@ -255,17 +363,25 @@ async function fund(actor, amount) {
 const tokenFor = a => token.connect(a.signer);
 const factory = new ContractFactory(artifact.abi, bytecode, root);
 let gt;
-if (process.env.COLDSTART_GT) {
-  gt = new Contract(getAddress(process.env.COLDSTART_GT), artifact.abi, root);
-  if (await gt.guaranteeCount() !== 0n || await gt.reserve() !== 0n || await gt.totalStake() !== 0n) {
+if (process.env.COLDSTART_GT || priorPacket) {
+  const priorAddress = priorPacket?.checkpoint.contract;
+  if (priorAddress && process.env.COLDSTART_GT && getAddress(process.env.COLDSTART_GT) !== priorAddress) {
+    throw Error('Bootstrap resume would replace the funded contract');
+  }
+  gt = new Contract(getAddress(process.env.COLDSTART_GT || priorAddress), artifact.abi, root);
+  if (await gt.guaranteeCount() !== 0n || await gt.outstanding() !== 0n || await gt.totalDues() !== 0n || await gt.issuerSpent() !== 0n) {
+    throw Error('Bootstrap resume has market exposure or consumed capacity');
+  }
+  if (!priorPacket && (await gt.reserve() !== 0n || await gt.totalStake() !== 0n)) {
     throw Error('Provided deployment is not an unused cold-start contract');
   }
-  if (!process.env.COLDSTART_DEPLOYMENT_HASH) throw Error('Prior deployment receipt required for explicit resume');
-  const prior = await provider.getTransactionReceipt(process.env.COLDSTART_DEPLOYMENT_HASH);
+  const priorHash = priorPacket?.deployment.hash || process.env.COLDSTART_DEPLOYMENT_HASH;
+  if (!priorHash) throw Error('Prior deployment receipt required for explicit resume');
+  const prior = await provider.getTransactionReceipt(priorHash);
   if (!prior || prior.status !== 1 || prior.contractAddress !== gt.target || prior.from !== EXPECT_ROOT) {
     throw Error('Prior deployment receipt does not match the unused contract');
   }
-  lastMinedBlock = prior.blockNumber;
+  lastMinedBlock = priorPacket ? Math.max(prior.blockNumber, ...journal.map(x => x.blockNumber)) : prior.blockNumber;
   write('prior-deployment.json', {hash: prior.hash, contract: prior.contractAddress, blockNumber: prior.blockNumber,
     status: prior.status, from: prior.from, gasUsed: prior.gasUsed.toString(), feeWei: prior.fee.toString(),
     note: 'Confirmed creation from the earlier stopped preflight; no new deployment transaction.'});
@@ -321,10 +437,128 @@ for (const [id, expected] of Object.entries(expectedImmutables)) {
   }
 }
 write('deployment.json', {sourceCommit: SOURCE, contract: GT, token: TOKEN,
-  deploymentHash: journal.find(x => x.call === 'constructor')?.hash || process.env.COLDSTART_DEPLOYMENT_HASH || null,
+  deploymentHash: journal.find(x => x.call === 'constructor')?.hash || priorPacket?.deployment.hash || process.env.COLDSTART_DEPLOYMENT_HASH || null,
   runtimeHash: keccak256(code), maskedRuntimeHash: keccak256(maskRuntime(code)), artifactSha256: sha(artifactBytes),
   owner: EXPECT_ROOT, issuer: EXPECT_ROOT, adjudicator: EXPECT_ROOT, chainId: 84532, rehearsal: REHEARSAL,
   verifiedImmutableValues: expectedImmutables});
+if (priorPacket) {
+  const allowedCalls = new Set(['constructor', 'setParams', 'native ETH transfer', 'USDC.transfer', 'USDC.approve',
+    'fundReserve', 'stake', 'setConsentBySig', 'attest', 'setLine']);
+  const expectedInputs = record => {
+    const a = record.args;
+    switch (record.call) {
+      case 'USDC.transfer': return [a.to, a.amount];
+      case 'USDC.approve': return [a.spender, a.amount];
+      case 'fundReserve': case 'stake': return [a.amount];
+      case 'attest': case 'setLine': return [a.worker, a.amount];
+      case 'setConsentBySig': return [a.member, a.attester, a.allowed, a.nonce, a.deadline];
+      case 'setParams': return [a.maxShareBps, a.floorMultiple, a.contributionBps, a.contributionCap,
+        a.remitWindow, a.lineCap, a.attestCap, a.maxAttesters, a.maxOpenAttestees];
+      default: return null;
+    }
+  };
+  for (const record of journal) {
+    if (!allowedCalls.has(record.call) || record.status !== 1 || confirmedLabels.has(record.label)) {
+      throw Error('Resume journal contains a duplicate, unconfirmed or nonbootstrap action');
+    }
+    const actor = record.actor === 'operator' ? rootActor : byId.get(record.actor);
+    if (!actor || actor.address !== record.from) throw Error('Resume journal signer is not the declared role');
+    const [tx, receipt] = await freshRead(() => Promise.all([
+      provider.getTransaction(record.hash), provider.getTransactionReceipt(record.hash),
+    ]));
+    if (!tx || !receipt || receipt.status !== 1 || receipt.hash !== record.hash || tx.from !== record.from
+      || tx.to !== record.to || tx.nonce !== record.nonce || tx.chainId !== 84532n || receipt.blockNumber !== record.blockNumber) {
+      throw Error('Prior bootstrap transaction does not match its actual mined receipt');
+    }
+    if (record.call === 'native ETH transfer') {
+      if (tx.to !== record.args.to || tx.value !== BigInt(record.args.value) || tx.data !== '0x') {
+        throw Error('Prior native gas-funding call differs from the recorded intent');
+      }
+      gasFunded += tx.value;
+    } else if (record.call === 'constructor') {
+      const expectedCreation = bytecode + iface.encodeDeploy([TOKEN, EXPECT_ROOT, EXPECT_ROOT, EXPECT_ROOT, u('6'), U]).slice(2);
+      if (tx.to !== null || receipt.contractAddress !== GT || tx.data !== expectedCreation) {
+        throw Error('Prior creation transaction differs from the reviewed deployment');
+      }
+    } else {
+      const isToken = record.call.startsWith('USDC.');
+      if (tx.to !== (isToken ? TOKEN : GT)) throw Error('Prior bootstrap call targets a different token or contract');
+      const decoded = (isToken ? token.interface : iface).parseTransaction({data: tx.data, value: tx.value});
+      const expectedName = isToken ? record.call.slice(5) : record.call;
+      const expected = expectedInputs(record);
+      if (!decoded || decoded.name !== expectedName || !expected
+        || expected.some((value, i) => String(value).toLowerCase() !== String(decoded.args[i]).toLowerCase())) {
+        throw Error('Prior bootstrap calldata differs from its safe recorded parameters');
+      }
+    }
+    const fee = receipt.fee;
+    if (BigInt(record.feeWei) !== fee || BigInt(record.gasUsed) !== receipt.gasUsed) throw Error('Prior receipt gas accounting differs');
+    allFees += fee; if (tx.from === EXPECT_ROOT) rootFees += fee;
+    lastMinedBlock = Math.max(lastMinedBlock, receipt.blockNumber);
+    confirmedLabels.set(record.label, record);
+  }
+  if (gasFunded > parseEther('0.005') || rootFees >= parseEther('0.03')) throw Error('Resumed bootstrap already exceeds its resource caps');
+  const [rootLatestNonce, rootPendingNonce] = await Promise.all([
+    provider.getTransactionCount(EXPECT_ROOT, 'latest'), provider.getTransactionCount(EXPECT_ROOT, 'pending'),
+  ]);
+  const expectedRootNonce = 1 + Math.max(...journal.filter(x => x.from === EXPECT_ROOT).map(x => x.nonce));
+  if (rootLatestNonce !== expectedRootNonce || rootPendingNonce !== rootLatestNonce) {
+    throw Error('Unrecorded mined or pending root transaction requires reconciliation before resuming');
+  }
+  // Reconcile current assets with the confirmed bootstrap, including recovered
+  // lost-response transactions. A matching wallet balance alone is insufficient.
+  const expectedBalances = new Map(personas.map(a => [a.address, 0n]));
+  const expectedStakes = new Map(backers.map(a => [a.address, 0n]));
+  const expectedLines = new Map(workers.map(a => [a.address, 0n]));
+  let expectedReserve = 0n, expectedStake = 0n;
+  for (const r of journal) {
+    if (r.call === 'USDC.transfer') expectedBalances.set(r.args.to, expectedBalances.get(r.args.to) + BigInt(r.args.amount));
+    if (r.call === 'fundReserve' || r.call === 'stake') {
+      const amount = BigInt(r.args.amount);
+      expectedBalances.set(r.from, expectedBalances.get(r.from) - amount);
+      if (r.call === 'fundReserve') expectedReserve += amount;
+      else {expectedStake += amount; expectedStakes.set(r.from, expectedStakes.get(r.from) + amount);}
+    }
+    if (r.call === 'setLine') expectedLines.set(r.args.worker, BigInt(r.args.amount));
+  }
+  for (const actor of personas) {
+    const actual = await freshRead(() => token.balanceOf(actor.address));
+    if (actual !== expectedBalances.get(actor.address)) throw Error('Role token balance differs from the confirmed bootstrap; do not fund again');
+  }
+  for (const actor of [...workers, ...backers]) {
+    const member = await freshRead(() => gt.memberOf(actor.address));
+    if (member.stake !== (expectedStakes.get(actor.address) || 0n) || member.line !== (expectedLines.get(actor.address) || 0n)
+      || member.dues !== 0n || member.committedLine !== 0n || member.committedDues !== 0n || member.backingCommitted !== 0n) {
+      throw Error('Role capacity or exposure differs from the confirmed bootstrap');
+    }
+  }
+  for (const backer of backers) for (const id of backer.workers) {
+    const worker = byId.get(id);
+    const consentRecord = confirmedLabels.get(`consent-${id}-${backer.id}`);
+    const attestRecord = confirmedLabels.get(`attest-${backer.id}-${id}`);
+    if (await gt.consent(worker.address, backer.address) !== Boolean(consentRecord)
+      || await gt.consentNonce(worker.address, backer.address) !== (consentRecord ? BigInt(consentRecord.args.nonce) + 1n : 0n)
+      || await gt.backing(backer.address, worker.address) !== (attestRecord ? BigInt(attestRecord.args.amount) : 0n)) {
+      throw Error('Backing or consent differs from the confirmed bootstrap');
+    }
+  }
+  const [reserve, stake, dues, sponsorCapital, balance] = await Promise.all([
+    gt.reserve(), gt.totalStake(), gt.totalDues(), gt.sponsorCapital(), token.balanceOf(GT),
+  ]);
+  if (reserve !== expectedReserve || stake !== expectedStake || dues !== 0n || sponsorCapital !== reserve
+    || balance !== reserve + stake || await gt.guaranteeCount() !== 0n || await gt.outstanding() !== 0n) {
+    throw Error('Funded contract state differs from the confirmed bootstrap');
+  }
+  const remainingTokenFunding = u('819.8') - journal.filter(r => r.call === 'USDC.transfer').reduce((n, r) => n + BigInt(r.args.amount), 0n);
+  if (currentRoot.USDC < remainingTokenFunding) throw Error('Remaining root tokens cannot complete the original bounded funding');
+  fs.copyFileSync(path.join(resumePath, 'transactions.json'), path.join(out, 'prior-transactions.json'));
+  write('resume-verification.json', {verifiedAtUTC: new Date().toISOString(), contract: GT,
+    originalJournalCount: priorPacket.journal.length, recoveredTransactions: priorPacket.recovery?.additionalConfirmedTransactions || [],
+    verifiedTransactions: journal.length, lastMinedBlock, rootLatestNonce, rootPendingNonce, gasFunded, rootFees, allFees,
+    reserve, stake, dues, sponsorCapital, tokenBalance: balance, remainingTokenFunding,
+    policyUnchanged: true, guaranteeCount: 0, outstanding: 0});
+  write('transactions.json', journal);
+}
 await send('configure-small-test-caps', rootActor, 'setParams',
   {maxShareBps: 2000, floorMultiple: 2, contributionBps: 500, contributionCap: u('0.3'), remitWindow: 86400,
     lineCap: u('2'), attestCap: u('2'), maxAttesters: 5, maxOpenAttestees: 5},
@@ -338,15 +572,23 @@ function acceptance(worker, client, amount, termsHash) {
     settleBy, holdUntil, nonce: nextNonce++, deadline: block.timestamp + 2 * 86400};
 }
 const zero = acceptance(workers[0], clients[0], u('0.2'), hash({kind: 'zero-reserve-control'}));
-const zeroSig = await workers[0].wallet.signTypedData(domain, acceptanceTypes, zero);
-let zeroError = null;
-try {await gt.openGuarantee.staticCall(zero, zeroSig, {blockTag: lastMinedBlock});} catch (e) {
-  try {zeroError = iface.parseError(e.data || e.info?.error?.data)?.name;} catch {}
-  zeroError ||= errorCode(e);
+if (priorPacket) {
+  if (priorPacket.zero.expected !== 'ExposureCap' || priorPacket.zero.actual !== 'ExposureCap'
+    || priorPacket.zero.reserve !== '0' || priorPacket.zero.guaranteeAmount !== '200000' || priorPacket.zero.accepted !== false) {
+    throw Error('Prior zero-reserve control proof is inconsistent');
+  }
+  fs.copyFileSync(path.join(resumePath, 'zero-reserve-control.json'), path.join(out, 'zero-reserve-control.json'));
+} else {
+  const zeroSig = await workers[0].wallet.signTypedData(domain, acceptanceTypes, zero);
+  let zeroError = null;
+  try {await gt.openGuarantee.staticCall(zero, zeroSig, {blockTag: lastMinedBlock});} catch (e) {
+    try {zeroError = iface.parseError(e.data || e.info?.error?.data)?.name;} catch {}
+    zeroError ||= errorCode(e);
+  }
+  if (zeroError !== 'ExposureCap') throw Error('Zero-reserve negative control did not reject at ExposureCap');
+  write('zero-reserve-control.json', {method: 'eth_call; no transaction and no state change', expected: 'ExposureCap', actual: zeroError,
+    reserve: await gt.reserve(), guaranteeAmount: u('0.2'), accepted: false});
 }
-if (zeroError !== 'ExposureCap') throw Error('Zero-reserve negative control did not reject at ExposureCap');
-write('zero-reserve-control.json', {method: 'eth_call; no transaction and no state change', expected: 'ExposureCap', actual: zeroError,
-  reserve: await gt.reserve(), guaranteeAmount: u('0.2'), accepted: false});
 for (const sponsor of sponsors) {
   await gasFor(sponsor); await fund(sponsor, u('0.75'));
   await send(`approve-${sponsor.id}`, sponsor, 'USDC.approve', {spender: GT, amount: u('0.75')},
@@ -362,6 +604,14 @@ for (const backer of backers) {
     () => gt.connect(backer.signer).stake(u('0.3')));
   for (const id of backer.workers) {
     const worker = byId.get(id);
+    const oldConsent = confirmedLabels.get(`consent-${worker.id}-${backer.id}`);
+    if (oldConsent) {
+      await send(oldConsent.label, rootActor, 'setConsentBySig', oldConsent.args,
+        () => {throw Error('Confirmed consent must never be broadcast again');});
+      await send(`attest-${backer.id}-${worker.id}`, backer, 'attest', {worker: worker.address, amount: u('0.15')},
+        () => gt.connect(backer.signer).attest(worker.address, u('0.15')));
+      continue;
+    }
     const nonce = await gt.consentNonce(worker.address, backer.address);
     const consent = {member: worker.address, attester: backer.address, allowed: true, nonce, deadline: zero.deadline};
     const signature = await worker.wallet.signTypedData(domain, consentTypes, consent);

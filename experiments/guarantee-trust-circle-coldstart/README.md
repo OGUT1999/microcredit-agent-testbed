@@ -26,7 +26,7 @@ npm install --no-audit --no-fund ethers@6.15.0
 node coldstart.mjs --validate
 ```
 
-Actual execution uses the existing `TEST_WALLET_PRIVATE_KEY` secret inside GitHub Actions. Secret values, worker signatures and raw signed transactions never enter public evidence. The runner refuses an existing checkpoint or previously funded role wallets, so it cannot silently replay a spent experiment.
+Actual execution uses the existing `TEST_WALLET_PRIVATE_KEY` secret inside GitHub Actions. Secret values, worker signatures and raw signed transactions never enter public evidence. The runner refuses an existing checkpoint or previously funded role wallets, so it cannot silently replay a spent experiment. A narrowly scoped bootstrap recovery accepts only an archived, confirmed setup journal before any market opening. It checks every receipt and current role balance, backing allocation and nonce, then skips the exact confirmed actions. Any transfer accepted despite a lost RPC response must first be independently reconciled into the recovery record. The runner signs once, records the public transaction hash before broadcasting, and retries only the same signed bytes; neither private keys nor raw signed bytes enter the record.
 
 `bridge.mjs` records the one-time bridge; its workflow is disabled after completion. Its immediate post-mint balance read was stale, so a separate read-only job verified the successful mint receipt, the exact 1000-USDC Transfer event and the fresh wallet balance. There was no second burn.
 
@@ -35,3 +35,9 @@ The public-chain evidence packet will be committed under `evidence/20261013-run1
 ## Shutdown
 
 The runner pauses origination, leaves no open guarantee or unpaid contribution, and verifies released exposure locks. It retains the recorded test stake and reserve; worker dues have no withdrawal function. This is a stopped demonstration, not a destroyed contract or a claim that all test tokens were recovered.
+
+## Recovery rehearsal
+
+`rehearse-bootstrap.mjs` starts a disposable local Anvil chain, deploys a MockUSDC fixture and the pinned GuaranteeTrust artifact, deliberately stops after `gas-backer-08`, then resumes and runs the independent offline verifier. Set `MOCK_USDC_ARTIFACT` to the compiled test token JSON. Anvil and ethers must be installed. This is a transport/recovery check, not public-chain evidence.
+
+The initial public creation and the stopped bootstrap are preserved in `evidence/preflight-runtime-stop/` and `evidence/bootstrap-stop/`; `recovery.json` records the independently confirmed transfer that mined after the runner lost its RPC response. Recovery reuses the original deployment and bridge.

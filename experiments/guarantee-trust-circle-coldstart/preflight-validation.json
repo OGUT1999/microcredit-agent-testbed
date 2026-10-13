@@ -1,0 +1,38 @@
+{
+  "kind": "local-rehearsal-validation",
+  "chain": "localhost-only",
+  "source": "reviewed GuaranteeTrust r6 ec93c767",
+  "artifactSHA256": "9589450dbe08cbf1907fd68e8dc82c341346163b7d19da9a4052f248e60c5612",
+  "counts": {
+    "posted": 405,
+    "opened": 112,
+    "paid": 98,
+    "claimed": 7,
+    "cancelled": 7,
+    "remitted": 98,
+    "wages": "277000000",
+    "netWages": "263150000",
+    "contributions": "13850000",
+    "claims": "1770000",
+    "refusals": {
+      "InsufficientCapacity": 268,
+      "ClientBlocked": 25
+    },
+    "laterStake": "2300000"
+  },
+  "gate": {
+    "windowRounds": [
+      19,
+      24
+    ],
+    "sponsorTopups": "0",
+    "opened": 35,
+    "throughputEachRound": true,
+    "reserveChange": "3925000",
+    "reserveRefusals": 0,
+    "identitiesAllRounds": true,
+    "success": true
+  },
+  "offlineVerification": true,
+  "caveat": "These are local preflight values, never public-chain results. Original RPC attempts and their public receipts are preserved separately."
+}
