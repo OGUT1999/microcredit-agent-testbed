@@ -10,6 +10,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   demo:
+    if: ${{ false }}
     runs-on: ubuntu-latest
     env:
       RPC_URL: "https://base-sepolia-rpc.publicnode.com"
