@@ -309,8 +309,8 @@ async function send(label, actor, call, args, operation) {
     call, args: serial(args), hash: tx.hash, nonce: tx.nonce, chainId: Number(tx.chainId), status: 'broadcast'};
   journal.push(item); write('transactions.json', journal);
   console.log(`TX ${journal.length} ${label} ${tx.hash}`);
-  const receipt = await tx.wait(1);
-  if (!receipt || receipt.status !== 1) throw Error('Transaction did not succeed');
+  const receipt = await freshRead(() => tx.wait(1));
+  if (!receipt || receipt.hash !== tx.hash || receipt.status !== 1) throw Error('Transaction did not succeed');
   lastMinedBlock = receipt.blockNumber;
   const fee = receipt.fee;
   allFees += fee;
