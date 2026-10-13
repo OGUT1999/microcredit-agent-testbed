@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+import tempfile
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -42,7 +43,17 @@ def main():
         run(file + " self-test", ["node", str(HERE / file), "--self-test"])
     # --validate exits before wallet construction. Deliberately do not run
     # executor --self-test: that test creates a random wallet and signs data.
-    validation = run("executor metadata validation", ["node", str(HERE / "executor.mjs"), "--validate"])
+    runtime = HERE / "runtime"
+    if (runtime / "node_modules/ethers/package.json").is_file():
+        # Node resolves dependencies from the module's directory. Copy exact
+        # executor bytes into a disposable child of the isolated runtime;
+        # leave the live entrypoint and all other project dependencies alone.
+        with tempfile.TemporaryDirectory(prefix="metadata-check-", dir=runtime) as directory:
+            executor = Path(directory) / "executor.mjs"
+            executor.write_bytes((HERE / "executor.mjs").read_bytes())
+            validation = run("executor metadata validation", ["node", str(executor), "--validate"])
+    else:
+        validation = run("executor metadata validation", ["node", str(HERE / "executor.mjs"), "--validate"])
     if "ERR_MODULE_NOT_FOUND" in validation["output"] and "Cannot find package 'ethers'" in validation["output"]:
         validation.update(status="blocked", output="Existing ethers@6.15.0 dependency missing; nothing installed.")
     for name in ("guarantee-trust-real-agents.yml", "guarantee-trust-real-agents-comment.yml"):
@@ -59,6 +70,8 @@ def main():
     print(json.dumps({"schema": "real-agents-offline-preparation/1", "checks": results,
                       "sourceSha256": {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                                        for p in sorted(HERE.iterdir()) if p.suffix in (".mjs", ".py")},
+                      "runtimeSha256": {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+                                        for p in sorted(runtime.glob("*.json"))},
                       "modelInvocations": 0, "EVMExecuted": False, "signingExecuted": False,
                       "readyForLiveExecution": False}, indent=2))
     return 1 if failed else 2 if blocked else 0

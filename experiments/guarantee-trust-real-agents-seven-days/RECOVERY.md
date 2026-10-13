@@ -33,3 +33,27 @@ Fixture construction now rejects noninteger/out-of-range days and invalid or ove
 Use existing ethers 6.15.0 and the pinned contract artifact/source to complete metadata and receipt-helper validation. Before any separately authorized EVM rehearsal, integrate market, typed consent, executor and receipt import across all auxiliary actions; review signing/consent line by line; establish a pinned fork environment and check receipt faults, interruptions, replay, budgets and full custody teardown. The launcher still contains direct main publication behavior, which needs a separately reviewed lease-aware publication design before enablement. No launcher execution is authorized here.
 
 700 fresh-context character turns, live receipts, independently reviewed outcomes and the character story remain absent. Guarantees must still be compared with direct client payment, prepayment, sponsorship and NO_LOAN. Stop if the simpler route dominates, receipt or consent bindings fail, or execution exceeds its bounds. This preparation changes no human-outcome baseline and does not duplicate Fieldwork/payout-helper or DNS work.
+
+## New reproducible runtime follow-up
+
+The missing local ethers dependency above is now resolved by a **new**, isolated
+preparation graph in [`runtime/`](runtime/README.md), not by recovering the old
+runtime. Exact ethers 6.15.0 and eight transitive packages were resolved from the
+official npm registry and frozen in a new package-lock.json. All package URLs
+and SHA512 integrity values match registry metadata. Published and installed
+lifecycle scripts were inspected; none were present, and installation explicitly
+disabled scripts. No other project dependency or persistent setting changed.
+
+The initial lockfile-only attempt stripped existing proxy settings and encountered
+DNS resolution failure; it was interrupted before installation. Retrying with the
+existing configured proxy/certificate environment succeeded. This did not bypass
+a denied registry operation or change network/security configuration.
+
+`runtime-offline-results.json` records the follow-up: executor metadata validation
+now passes, alongside 40 Python tests, four Node syntax checks, the 10 launcher
+checks, fixture shape/invalid-input checks, both disabled workflow guards and the
+artifact hash. The original blocked result remains preserved as dated evidence.
+Repository checks again pass 30/30 with 193 tests. No executor signing self-test,
+model call, chain action, deployment or workflow enablement was performed.
+All end-to-end rehearsal, signing/consent review, model harness, custody, budget
+and lease-aware launcher publication dependencies remain outstanding.
