@@ -24,8 +24,8 @@ jobs:
       - name: Deploy and run the authorized testnet cold start
         env:
           TEST_WALLET_PRIVATE_KEY: ${{ secrets.TEST_WALLET_PRIVATE_KEY }}
-          COLDSTART_GT: 0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466
-          COLDSTART_DEPLOYMENT_HASH: 0x6a66545ed110776c9aec905afc35f7c5a6ac89aed9d5da53ba1a4a68bd0c0bac
+          COLDSTART_GT: "0x7eD9B2B67E598fd2a1f384CC885c0C860bfD0466"
+          COLDSTART_DEPLOYMENT_HASH: "0x6a66545ed110776c9aec905afc35f7c5a6ac89aed9d5da53ba1a4a68bd0c0bac"
           COLDSTART_OUT: ${{ github.workspace }}/experiments/guarantee-trust-circle-coldstart/evidence/20261013-run1
         run: node /tmp/gt-coldstart/coldstart.mjs
       - name: Independently verify receipts and terminal accounting
