@@ -15,7 +15,7 @@
   ],
   "staticValidation": "passed --validate with exact ethers 6.15.0 via existing isolated runtime import",
   "offlineSignerAndAuthorizationTests": {
-    "passed": 12,
+    "passed": 17,
     "command": "--self-test"
   },
   "sourceIntegrity": {
@@ -25,5 +25,7 @@
     "note": "Exact Git content matches artifact; earlier extracted copy contained extra newline"
   },
   "bootstrapReplayGuard": "all 98 derived actor pending nonces and USDC balances must be zero before any broadcast",
-  "integration": "not run; day-packet and bridge schemas need end-to-end integration"
+  "integration": "not run; day-packet and bridge schemas need end-to-end integration",
+  "launcherOfflineChecks": 10,
+  "cumulativeBudgetRestoration": "journal reserved intents authoritative across processes, ambiguous reservations retained; .005 fee/.002 gas/40USDC overflows rejected before signing"
 }

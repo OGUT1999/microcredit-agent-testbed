@@ -98,7 +98,8 @@ class MarketTests(unittest.TestCase):
         with self.assertRaises(ValueError): self.market.advance()
         intent = next(iter(self.market.state['intents']))
         self.market.reject_intent(intent, 'RPC unavailable; no execution occurred')
-        with self.assertRaises(ValueError): self.market.advance()
+        self.market.advance()
+        self.assertEqual(self.market.state['day'],2)
         self.assertTrue(self.market.state['bootstrap_barrier'])
 
     def test_spoof_semantics_and_readback_cannot_confirm(self):
@@ -130,7 +131,7 @@ class MarketTests(unittest.TestCase):
                              'worker_id':'worker0','amount_micro':30000})
         self.market.command('client0', {'id':'hire','action':'hire','job_id':'J1','worker_id':'worker0','text':'Terms'})
         self.market.command('worker0', {'id':'accept','action':'accept_terms','job_id':'J1','text':'I agree to these terms'})
-        with self.assertRaisesRegex(ValueError,'bootstrap'):
+        with self.assertRaisesRegex(ValueError,'reserve funding'):
             self.market.command('issuer0', {'id':'open','action':'propose_guarantee','job_id':'J1',
                              'worker_id':'worker0','amount_micro':30000})
 
@@ -151,6 +152,40 @@ class MarketTests(unittest.TestCase):
     def test_missing_fresh_context_provenance_is_refused(self):
         packet = self.packet('client0',[]); packet.pop('model_context')
         with self.assertRaisesRegex(ValueError,'provenance'): self.market.submit(packet)
+
+    def test_all_sponsors_may_decline_and_zero_reserve_day_advances(self):
+        for actor in self.market.state['queue']:
+            self.market.submit(self.packet(actor,[{'id':'day1-pass','action':'pass','text':'No commitment today.'}]))
+        self.assertEqual(len(self.market.state['turn_receipts']),100)
+        self.assertEqual(self.market.state['confirmed']['sponsor_funding_micro'],0)
+        self.assertTrue(self.market.state['bootstrap_barrier'])
+        self.market.advance()
+        self.assertEqual(self.market.state['day'],2)
+        self.assertEqual(self.market.next_actor(),'client0')
+        brief=self.market.brief('client0')
+        self.assertIn('"role_wallet_bootstrap_verified":true',brief)
+        self.assertIn('"confirmed_reserve_funding_micro":0',brief)
+        self.assertIn('"reserve_funding_barrier":true',brief)
+
+    def test_day_advance_still_requires_verified_wallet_bootstrap(self):
+        self.market.state['status']='awaiting_daily_chain_reconciliation'
+        self.market.state['turn']=100
+        self.market.state.pop('verified_wallet_bootstrap')
+        with self.assertRaisesRegex(ValueError,'role-wallet bootstrap'):self.market.advance()
+        self.assertEqual(self.market.state['day'],1)
+
+    def test_zero_reserve_still_refuses_guarantees(self):
+        self.market.command('client0',{'id':'post','action':'post_job','job_id':'J1',
+                   'title':'Menu','description':'Write a menu','amount_micro':100000})
+        self.market.command('worker0',{'id':'apply','action':'apply','job_id':'J1','text':'Apply'})
+        self.market.command('client0',{'id':'hire','action':'hire','job_id':'J1','worker_id':'worker0','text':'Terms'})
+        self.market.command('worker0',{'id':'accept','action':'accept_terms','job_id':'J1','text':'Accept'})
+        command={'id':'open','action':'propose_guarantee','job_id':'J1','worker_id':'worker0','amount_micro':30000}
+        with self.assertRaisesRegex(ValueError,'reserve funding'):self.market.command('issuer0',command)
+        self.market.state['bootstrap_barrier']=False  # stale barrier cannot authorize zero funded reserve
+        with self.assertRaisesRegex(ValueError,'exposure cap'):self.market.command('issuer0',command)
+        self.assertEqual(self.market.state['jobs']['J1']['status'],'proposed')
+        self.assertFalse(self.market.state['intents'])
 
     def test_role_order(self):
         roles = [self.market.personas[a]['role'] for a in self.market.state['queue']]
