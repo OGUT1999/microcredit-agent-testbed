@@ -4,6 +4,11 @@ import assert from 'node:assert/strict';
 import path from 'node:path';
 import {createHash,createHmac} from 'node:crypto';
 import {Wallet,JsonRpcProvider,Contract,ContractFactory,Transaction,verifyTypedData,keccak256,getAddress,parseEther,Interface,version} from 'ethers';
+process.on('uncaughtException',()=>{console.error('Executor halted: sensitive error details suppressed; reconcile preserved journal.');process.exit(1);});
+process.on('unhandledRejection',()=>{console.error('Executor halted: sensitive error details suppressed; reconcile preserved journal.');process.exit(1);});
+const REHEARSAL=process.env.REHEARSAL==='1';
+const RPC=process.env.RPC_URL||'https://sepolia.base.org';
+if(REHEARSAL&&!['localhost','127.0.0.1','[::1]'].includes(new URL(RPC).hostname))throw Error('Rehearsal requires localhost-only RPC');
 const TOKEN=getAddress('0x036CbD53842c5426634e7929541eC2318f3dCF7e');
 const ROOT=getAddress('0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1');
 const SOURCE='ec93c76779b5e2d52ab7b87cf82b3fd400205969';
@@ -20,6 +25,16 @@ function validateConsentRecord(entry,actorId,day,normalized){
  if(JSON.stringify(response.acceptedActionPayload)!==JSON.stringify(normalized))throw Error('Original model response lacks exact action acceptance');
  if(record.actorId!==actorId||record.day!==day||record.coordinatorApproved!==true||!record.transcript||record.transcript.actorId!==actorId||record.transcript.day!==day||JSON.stringify(record.actionPayload)!==JSON.stringify(normalized)||JSON.stringify(record.transcript.acceptedActionPayload)!==JSON.stringify(normalized))throw Error('Transcript actor/day/exact payload approval mismatch');
  return record;
+}
+function restoreBudget(rows){
+ let feeBound=0n,gasFunding=0n,tokenSpend=0n;const ids=new Set();
+ for(const row of rows){if(row.kind!=='intent-before-broadcast')continue;
+  if(typeof row.id!=='string'||ids.has(row.id)||row.chainId!==84532||!/^\d+$/.test(String(row.feeBound))||!/^\d+$/.test(String(row.value)))throw Error('Malformed or duplicate reserved intent');ids.add(row.id);
+  feeBound+=BigInt(row.feeBound);
+  if(getAddress(row.from)===ROOT){gasFunding+=BigInt(row.value);if(row.to===TOKEN&&row.expectedTransfer){if(!/^\d+$/.test(String(row.expectedTransfer.amount)))throw Error('Malformed token spend');tokenSpend+=BigInt(row.expectedTransfer.amount);}}
+ }
+ if(feeBound>parseEther('0.005')||gasFunding>parseEther('0.002')||tokenSpend>40000000n)throw Error('Cumulative reserved run budget exceeded before signing');
+ return {feeBound,gasFunding,tokenSpend};
 }
 function verifyUnusedActor(state){if(state.nonce!==0||state.tokenBalance!==0n)throw Error('Run-derived actor already used or funded: reconcile existing run, never redeploy');}
 if(process.argv.includes('--self-test')){
@@ -43,7 +58,13 @@ if(process.argv.includes('--self-test')){
  verifyUnusedActor({nonce:0,tokenBalance:0n});
  assert.throws(()=>verifyUnusedActor({nonce:1,tokenBalance:0n}));
  assert.throws(()=>verifyUnusedActor({nonce:0,tokenBalance:1n}));
- console.log(JSON.stringify({offlineValidation:'passed',checks:12,liveTransactions:0}));process.exit(0);
+ const intent={kind:'intent-before-broadcast',id:'budget-fixture-1',chainId:84532,feeBound:'1000',value:'100',from:ROOT,to:TOKEN,expectedTransfer:{amount:'800000'}};
+ assert.deepEqual(restoreBudget([intent,{...intent,id:'budget-fixture-2',from:'0x0000000000000000000000000000000000000001'}]),{feeBound:2000n,gasFunding:100n,tokenSpend:800000n});
+ assert.throws(()=>restoreBudget([intent,intent]));
+ assert.throws(()=>restoreBudget([{...intent,feeBound:parseEther('0.006').toString()}]));
+ assert.throws(()=>restoreBudget([{...intent,value:parseEther('0.003').toString()}]));
+ assert.throws(()=>restoreBudget([{...intent,expectedTransfer:{amount:'40000001'}}]));
+ console.log(JSON.stringify({offlineValidation:'passed',checks:17,liveTransactions:0}));process.exit(0);
 }
 if(process.argv.includes('--validate')){console.log(serial(validation));process.exit(0);}
 const MARKET=process.argv.includes('--market');
@@ -59,7 +80,7 @@ const sourceBytes=fs.readFileSync(process.env.REVIEWED_SOURCE_PATH||'packages/fo
 const gitBlobHash=createHash('sha1').update(Buffer.concat([Buffer.from(`blob ${sourceBytes.length}\0`),sourceBytes])).digest('hex');
 if(gitBlobHash!=='98630ab1d9273e01772b7be484c7fdec97795946')throw Error('Source Git blob does not match pinned reviewed commit');
 if(artifact.sourceHashes?.['contracts/GuaranteeTrust.sol']!==keccak256(sourceBytes))throw Error('Compiler input source hash mismatch: rebuild or resolve provenance before execution');
-const provider=new JsonRpcProvider(process.env.RPC_URL||'https://sepolia.base.org');
+const provider=new JsonRpcProvider(RPC,undefined,{batchMaxCount:1,cacheTimeout:0});
 async function read(fn){let last;for(let i=0;i<3;i++){try{return await fn();}catch(e){last=e;await new Promise(r=>setTimeout(r,1000*(i+1)));}}throw Error('RPC read failed after bounded retries');}
 if((await read(()=>provider.getNetwork())).chainId!==84532n)throw Error('Chain mismatch');
 const root=new Wallet(process.env.TEST_WALLET_PRIVATE_KEY,provider);
@@ -70,10 +91,12 @@ fs.mkdirSync(out,{recursive:true,mode:0o700});
 const write=(name,value)=>{let p=path.join(out,name);fs.writeFileSync(p+'.tmp',serial(value),{mode:0o600});fs.renameSync(p+'.tmp',p);};
 const append=value=>fs.appendFileSync(path.join(out,'journal.jsonl'),serial(value).replace(/\n\s*/g,'')+'\n',{mode:0o600});
 const actors=roles.flatMap(([role,n,amount])=>Array.from({length:n},(_,i)=>{const id=`${role}-${String(i+1).padStart(2,'0')}`;let key=createHmac('sha256',Buffer.from(root.privateKey.slice(2),'hex')).update(`guarantee-trust:${runId}:${id}`).digest('hex');let wallet=new Wallet('0x'+key,provider);key=null;return{id,role,amount,address:wallet.address,signer:wallet};}));
-if(!MARKET)write('manifest.json',{...validation,runId,artifactSha256:sha(artifactBytes),roster:actors.map(({id,role,address,amount})=>({id,role,address,initialFunding:amount})),issuer:ROOT,adjudicator:ROOT,note:'98 character wallets plus issuer/adjudicator roles sharing root; no agent decisions or market operations executed'});
+if(!MARKET)write('manifest.json',{...validation,rehearsal:REHEARSAL,runId,artifactSha256:sha(artifactBytes),roster:actors.map(({id,role,address,amount})=>({id,role,address,initialFunding:amount})),issuer:ROOT,adjudicator:ROOT,note:'98 character wallets plus issuer/adjudicator roles sharing root; no agent decisions or market operations executed'});
 let feeBound=0n,gasFunding=0n,tokenSpend=0n;
 const priorJournalPath=path.join(out,'journal.jsonl');
-const usedTransactionIds=new Set(fs.existsSync(priorJournalPath)?fs.readFileSync(priorJournalPath,'utf8').trim().split('\n').filter(Boolean).map(x=>JSON.parse(x)).filter(x=>x.kind==='intent-before-broadcast').map(x=>x.id):[]);
+const priorJournalRows=fs.existsSync(priorJournalPath)?fs.readFileSync(priorJournalPath,'utf8').trim().split('\n').filter(Boolean).map(x=>JSON.parse(x)):[];
+({feeBound,gasFunding,tokenSpend}=restoreBudget(priorJournalRows));
+const usedTransactionIds=new Set(priorJournalRows.filter(x=>x.kind==='intent-before-broadcast').map(x=>x.id));
 async function send(id,request,expectedTransfer,signer=root){
  const sender=signer.address;
  if(usedTransactionIds.has(id))throw Error('Transaction intent ID already used: no replay permitted');
@@ -101,7 +124,7 @@ async function send(id,request,expectedTransfer,signer=root){
  if(receipt.status!==1||receipt.hash!==tx.hash||getAddress(receipt.from)!==sender||chainTx.chainId!==84532n||chainTx.nonce!==latest||chainTx.data!==(request.data||'0x')||chainTx.value!==(request.value||0n)||chainTx.to!==(request.to||null))throw Error('Receipt/transaction identity mismatch');
  if(expectedTransfer){let matched=receipt.logs.some(l=>{if(getAddress(l.address)!==TOKEN)return false;try{let p=token.interface.parseLog(l);return p.name==='Transfer'&&getAddress(p.args.from)===sender&&getAddress(p.args.to)===expectedTransfer.to&&p.args.value===expectedTransfer.amount;}catch{return false;}});if(!matched)throw Error('Expected exact token Transfer log missing');}
  const rawReceipt=await read(()=>provider.send('eth_getTransactionReceipt',[tx.hash]));
- const l1Fee=rawReceipt.l1Fee?BigInt(rawReceipt.l1Fee):null;
+ const l1Fee=rawReceipt.l1Fee?BigInt(rawReceipt.l1Fee):(REHEARSAL?0n:null);
  if(l1Fee===null)throw Error('Base L1 receipt fee missing');
  if(receipt.fee+l1Fee>bound)throw Error('Actual fee exceeded preflight upper budget; halt and reconcile');
  append({kind:'verified-receipt',id,hash:tx.hash,status:receipt.status,from:receipt.from,to:receipt.to,blockNumber:receipt.blockNumber,gasUsed:receipt.gasUsed,fee:receipt.fee,l1Fee,totalFee:receipt.fee+l1Fee,logs:receipt.logs.map(l=>({address:l.address,topics:l.topics,data:l.data}))});return receipt;
@@ -126,8 +149,10 @@ write('checkpoint.json',{phase:'bootstrap-only-complete',marketReady:false,runId
 async function runMarket(){
  const checkpoint=JSON.parse(fs.readFileSync(path.join(out,'checkpoint.json')));
  const manifest=JSON.parse(fs.readFileSync(path.join(out,'manifest.json')));
+ if(manifest.rehearsal!==REHEARSAL)throw Error('Fork and public evidence cannot be interchanged');
  if(checkpoint.runId!==runId||manifest.artifactSha256!==sha(artifactBytes)||checkpoint.phase!=='bootstrap-only-complete')throw Error('Market requires exact same completed fresh bootstrap');
- feeBound=BigInt(checkpoint.feeBound);gasFunding=BigInt(checkpoint.gasFunding);tokenSpend=BigInt(checkpoint.tokenSpend);
+ // Journal reservation is authoritative across processes, including ambiguous broadcasts.
+ ({feeBound,gasFunding,tokenSpend}=restoreBudget(priorJournalRows));
  const deployment=JSON.parse(fs.readFileSync(path.join(out,'deployment.json')));
  const deploymentReceipt=await read(()=>provider.getTransactionReceipt(deployment.hash));
  if(!deploymentReceipt||deploymentReceipt.status!==1||deploymentReceipt.contractAddress!==deployment.address||getAddress(deploymentReceipt.from)!==ROOT)throw Error('Deployment identity mismatch');
@@ -144,7 +169,9 @@ async function runMarket(){
  if(approvals.runId!==runId||approvals.day!==packet.day||approvals.packetSha256!==sha(JSON.stringify(packet))||!Array.isArray(approvals.records))throw Error('Coordinator-approved consent file binding absent');
  function authorize(recordHash,actorId,normalized){
   const entry=approvals.records.find(x=>x.recordHash===recordHash);
-  return validateConsentRecord(entry,actorId,packet.day,normalized);
+  const record=validateConsentRecord(entry,actorId,packet.day,normalized);
+  if(record.transcript.fixture===true&&!REHEARSAL)throw Error('Deterministic fixture consent forbidden on public testnet');
+  return record;
  }
  let openedToday=0;
  const seen=new Set();

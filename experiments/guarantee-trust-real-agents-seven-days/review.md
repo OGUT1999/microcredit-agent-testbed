@@ -31,3 +31,17 @@ The latest Node verifier, with ethers6.15.0, was exercised through an owned loca
 - Verify actual authorized signer/write path and available whole-run gas budget before enablement.38.2testUSDC allocations are below40cap; incremental0.005ETHfee and0.002ETHgas-funding bounds do not establish that seven days and shutdown can finish within them. Preserve unresolved/failure records honestly.
 
 Workflow remains disabled and `marketReady:false` is appropriate. No completed seven-day run, steady state, teardown, human earnings or poverty-reduction conclusion can be inferred from this prepared snapshot.
+
+## Disabled comment-launcher candidate recheck
+
+Latest candidate checks rerun:40Python tests pass,17executor offline checks pass (using isolated existing ethers6.15.0),10launcher checks pass, and seven-day fixture shape/hash checks pass. Executor self-test required copying to an isolated scratch directory because ethers is not installed in this checkout; workflow installs it explicitly. No EVM rehearsal or actual model turns were executed.
+
+Both workflows remain `if: false`. The push workflow is preparation-only. Comment launcher requires the dedicated issue79, exact trusted `scottonchain` author/sender, exact marker, run/chain, current reviewed Git HEAD, executor hash and pinned artifact hash. Compressed input has bounded size, strict canonical base64 and decoded hash checks. Market-day execution requires the prior committed checkpoint; public and fork evidence are separate. Fixture records are explicitly marked, and public execution rejects them. Rehearsal permits localhost RPC only.
+
+Fixture builder covers seven virtual packet days: reserve/stake/consent/backing, two opens, actual-payment-dependent markPaid/remit, a virtual nonpayment claim before the real hard deadline, and final pause/reconciliation. Its transcript approvals are deterministic fixtures with `modelInvocations:0`; they must never count as actual character decisions. The fixture has not yet executed against an EVM.
+
+Cumulative fee/gas/root-token reservations now restore from every pre-broadcast journal row, independently of day checkpoints. Duplicate transaction IDs and malformed/over-cap prior reservations fail closed; ambiguous transactions remain reserved until explicit reconciliation. Zero-reserve days may advance after actual role-wallet bootstrap and all100turns/reconciliation, while opening guarantees still requires verified reserve funding and capacity. This permits honest sponsor refusal instead of forcing seed cooperation.
+
+Launcher writes only bounded redacted evidence and a request receipt; a completed request is explicitly distinct from a completed seven-day experiment. It uses the GitHub bot noreply identity and suppresses sensitive child error output. Failed requests preserve available evidence; the launcher still needs actual controlled rehearsal of child execution, interruption, evidence redaction, commit/push conflicts and recovery before enablement. Its public-content pattern scan is a heuristic, not proof that arbitrary transcripts contain no private information; review the specific packet/transcripts before issuing an authorized command.
+
+Readiness conclusion remains unchanged: code is suitable for preparation review with disabled workflows. End-to-end schema/EVM rehearsal, actual700fresh contexts, signer/write-path readiness and complete custody/shutdown accounting remain necessary. No live approval is given.

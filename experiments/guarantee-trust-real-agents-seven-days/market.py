@@ -122,7 +122,9 @@ class Market:
                    'own_messages': [m for m in self.state['messages'] if actor in (m['from'], m['to'])],
                    'own_journal': self.state['journals'].get(actor, []),
                    'own_chain_intents': [i for i in self.state['intents'].values() if i['actor'] == actor],
-                   'confirmed_market_funding_micro': self.state['confirmed']['sponsor_funding_micro'],
+                   'role_wallet_bootstrap_verified': bool(self.state.get('verified_wallet_bootstrap')),
+                   'confirmed_reserve_funding_micro': self.state['confirmed']['sponsor_funding_micro'],
+                   'reserve_funding_barrier': self.state['bootstrap_barrier'],
                    'public_backer_permissions': self.state.get('backer_permissions', {}),
                    'limits': self.state['limits'], 'bootstrap_barrier': self.state['bootstrap_barrier']}
         instruction = (
@@ -266,7 +268,7 @@ class Market:
                         'Explicit client hire and worker terms acceptance required')
                 require(sum(i['kind']=='open_guarantee' and i['day']==s['day'] and i['status']!='rejected' for i in s['intents'].values()) < s['limits']['max_new_guarantees_per_day'], 'Daily guarantee admission cap')
                 amount = self.amount(cmd, min(job['amount_micro'], s['limits']['max_guarantee_micro']))
-                require(not s['bootstrap_barrier'], 'Verified bootstrap funding required')
+                require(not s['bootstrap_barrier'], 'Verified reserve funding required before a guarantee can open')
                 # On-chain cap checks still belong to the executor; this is a strict preflight ceiling.
                 require(amount <= s['confirmed']['sponsor_funding_micro'] // 5, '20 percent seed exposure cap')
                 result = self.intent(actor, cmd, 'open_guarantee', {'job_id': job['id'],
@@ -359,7 +361,8 @@ class Market:
         require(self.state['status'] == 'awaiting_daily_chain_reconciliation', 'All actor turns must complete first')
         pending = [i for i in self.state['intents'].values() if i['status'] == 'pending']
         require(not pending, 'Pending intents need verified receipt or explicit rejection before next virtual day')
-        require(not self.state['bootstrap_barrier'], 'Bootstrap receipt barrier remains')
+        require(self.state.get('verified_wallet_bootstrap'), 'Independent role-wallet bootstrap receipts required before advancing days')
+        require(self.state['turn'] == len(self.state['queue']), 'All 100 actor turns must complete first')
         if self.state['day'] == 7:
             self.state['status'] = 'days_complete'
         else:
