@@ -1,0 +1,9 @@
+{
+  "sponsor_topups_final_6_days": 0,
+  "mean_guarantees_opened_final_6_days": 20.833333333333332,
+  "capacity_refusal_rate_final_6_days": 0.10714285714285714,
+  "reserve_rule_refusals_final_6_days": 0,
+  "reserve_change_final_6_days": 180.25,
+  "ledger_identity_true_all_days": true,
+  "success": true
+}
