@@ -1,4 +1,4 @@
-name: Check ChatGPT test wallet balances
+name: Verify GuaranteeTrust live state
 
 on:
   push:
@@ -9,42 +9,81 @@ permissions:
   contents: read
 
 jobs:
-  balance:
+  verify:
     runs-on: ubuntu-latest
     steps:
-      - name: Read Sepolia balances
+      - name: Read Base Sepolia GuaranteeTrust state and events
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p /tmp/wallet-balance
-          cd /tmp/wallet-balance
+          mkdir -p /tmp/gt-verify
+          cd /tmp/gt-verify
           npm init -y >/dev/null 2>&1
           npm install --no-audit --no-fund ethers@6 >/dev/null 2>&1
-          cat > check.mjs <<'NODE'
-          import { JsonRpcProvider, Contract, formatEther, formatUnits } from 'ethers';
-          const addr='0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1';
-          const erc20=['function balanceOf(address) view returns(uint256)','function decimals() view returns(uint8)','function symbol() view returns(string)'];
-          async function chain(label,rpc,tokens){
-            const p=new JsonRpcProvider(rpc);
-            const eth=await p.getBalance(addr);
-            console.log(label+'_ETH='+formatEther(eth));
-            console.log(label+'_BLOCK='+await p.getBlockNumber());
-            for(const [name,a] of tokens){
-              try{
-                const c=new Contract(a,erc20,p);
-                const [b,d,s]=await Promise.all([c.balanceOf(addr),c.decimals(),c.symbol()]);
-                console.log(label+'_'+name+'='+formatUnits(b,d)+' '+s);
-              }catch(e){
-                console.log(label+'_'+name+'=unavailable');
-              }
-            }
+          cat > verify.mjs <<'NODE'
+          import { JsonRpcProvider, Contract, Interface } from 'ethers';
+          const p = new JsonRpcProvider('https://sepolia.base.org');
+          const GT='0x0B1dd81598989B199B802510499c22caAd60dd4C';
+          const TOKEN='0x86fF3d60bE81B1531eCC5c756C519B97c382C047';
+          const views=[
+            'function reserve() view returns(uint256)',
+            'function outstanding() view returns(uint256)',
+            'function totalStake() view returns(uint256)',
+            'function totalDues() view returns(uint256)',
+            'function sponsorCapital() view returns(uint256)',
+            'function issuerHeld() view returns(uint256)',
+            'function issuerSpent() view returns(uint256)',
+            'function guaranteeCount() view returns(uint256)',
+            'function token() view returns(address)'
+          ];
+          const gt=new Contract(GT,views,p);
+          const token=new Contract(TOKEN,['function balanceOf(address) view returns(uint256)','function totalSupply() view returns(uint256)'],p);
+          const [r,o,s,d,c,held,spent,count,t,b,supply,block]=await Promise.all([
+            gt.reserve(),gt.outstanding(),gt.totalStake(),gt.totalDues(),gt.sponsorCapital(),
+            gt.issuerHeld(),gt.issuerSpent(),gt.guaranteeCount(),gt.token(),
+            token.balanceOf(GT),token.totalSupply(),p.getBlockNumber()
+          ]);
+          console.log('block='+block);
+          console.log('token='+t);
+          console.log('reserve='+r);
+          console.log('outstanding='+o);
+          console.log('totalStake='+s);
+          console.log('totalDues='+d);
+          console.log('sponsorCapital='+c);
+          console.log('issuerHeld='+held);
+          console.log('issuerSpent='+spent);
+          console.log('guaranteeCount='+count);
+          console.log('tokenBalance='+b);
+          console.log('tokenSupply='+supply);
+          console.log('identity_token='+(b===r+s));
+          console.log('identity_reserve='+(r===c+d));
+          const eventAbi=[
+            'event ParamsSet(uint256 maxShareBps,uint256 floorMultiple,uint256 contributionBps,uint256 contributionCap,uint256 remitWindow,uint256 lineCap,uint256 attestCap,uint256 maxAttesters,uint256 maxOpenAttestees)',
+            'event ReserveFunded(address indexed from,uint256 amount,uint256 reserve)',
+            'event Staked(address indexed member,uint256 amount,uint256 stake)',
+            'event LineSet(address indexed member,uint256 line,uint256 issuerHeld)',
+            'event ConsentSet(address indexed member,address indexed attester,bool allowed,address submittedBy)',
+            'event Attested(address indexed attester,address indexed member,uint256 amount,uint256 backing)',
+            'event GuaranteeOpened(uint256 indexed id,address indexed worker,bytes32 indexed clientId,bytes32 groupId,uint256 amount,uint256 fromBacking,uint256 fromLine,uint256 fromDues,bytes32 termsHash,uint64 settleBy)',
+            'event GuaranteeCancelled(uint256 indexed id)',
+            'event GuaranteePaid(uint256 indexed id,uint256 wage,uint256 contributionDue)',
+            'event ContributionRemitted(uint256 indexed id,address indexed payer,address indexed worker,uint256 amount)',
+            'event Claimed(uint256 indexed id,address indexed worker,bytes32 indexed clientId,uint256 amount,bytes32 evidenceHash)',
+            'event BackingConsumed(uint256 indexed id,address indexed attester,address indexed member,uint256 amount,uint256 stakeSlashed)',
+            'event LineConsumed(uint256 indexed id,address indexed member,uint256 amount)',
+            'event DuesConsumed(uint256 indexed id,address indexed member,uint256 amount)'
+          ];
+          const iface=new Interface(eventAbi);
+          const logs=await p.getLogs({address:GT,fromBlock:Math.max(0,block-199),toBlock:block});
+          const decoded=[];
+          for (const l of logs) {
+            try {
+              const x=iface.parseLog(l);
+              const vals=x.args.toArray().map(v=>typeof v==='bigint'?v.toString():String(v));
+              decoded.push({block:l.blockNumber,tx:l.transactionHash,event:x.name,args:vals});
+            } catch {}
           }
-          await chain('ETHEREUM_SEPOLIA','https://ethereum-sepolia-rpc.publicnode.com',[
-            ['CIRCLE_USDC','0x1c7d4b196cb0c7b01d743fbc6116a902379c7238']
-          ]);
-          await chain('BASE_SEPOLIA','https://sepolia.base.org',[
-            ['CIRCLE_USDC','0x036CbD53842c5426634e7929541eC2318f3dCF7'],
-            ['GUARANTEETRUST_TOKEN','0x86fF3d60bE81B1531eCC5c756C519B97c382C047']
-          ]);
+          console.log('decodedEventCount='+decoded.length);
+          for (const x of decoded) console.log('EV '+JSON.stringify(x));
           NODE
-          node check.mjs
+          node verify.mjs
