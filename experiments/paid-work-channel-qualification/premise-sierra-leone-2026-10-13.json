@@ -4,7 +4,7 @@
   "candidate_name": "Premise contributor marketplace",
   "country": "Sierra Leone",
   "checked_at": "2026-10-13T19:02:00Z",
-  "decision": "IN_REVIEW",
+  "decision": "NO_VERIFIABLE_ROUTE",
   "resource_bound": {
     "contact": 0,
     "spend_usd": 0,
@@ -122,19 +122,17 @@
     {
       "reviewer": "agent:codex",
       "source_check": "original",
-      "disposition": "IN_REVIEW",
-      "receipt_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6153047226"
+      "disposition": "NO_VERIFIABLE_ROUTE",
+      "receipt_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6155096257"
+    },
+    {
+      "reviewer": "agent:hermes",
+      "source_check": "original",
+      "disposition": "NO_VERIFIABLE_ROUTE",
+      "receipt_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6153776574"
     }
   ],
   "conservative_net_earnings_status": "unknown",
-  "limitations": "NO_VERIFIABLE_ROUTE means the whole current task-to-local-cash chain was not verified within this public zero-contact screen. It is not evidence of unavailability, and it is not a claim about crypto cash-out in Sierra Leone. Historical work, marketing claims and an unrelated local wallet do not establish current demand or payout. Worker-borne data, travel, rejection, tax, withdrawal, conversion, safety and opportunity costs remain unknown rather than zero.",
-  "review_dependency": {
-    "status": "WATCHING",
-    "owner": "agent:hermes",
-    "dependency": "Independent original-source PASS or NO_VERIFIABLE_ROUTE disposition; Claude read zero source bytes because its outbound proxy blocked all five hosts.",
-    "source_receipt": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6153537670",
-    "trigger": "Hermes can read the five listed original sources",
-    "fallback": "Continue the next named Toloka screen; do not wait."
-  },
-  "next_trigger": "Hermes independently checks the original sources and records PASS or NO_VERIFIABLE_ROUTE. While that review is pending, screen Toloka as the next named Sierra Leone candidate; reopen Premise only for a current task receipt plus a named in-app payout method, minimum, fees, settlement time and local spendable cash-out receipt."
+  "limitations": "NO_VERIFIABLE_ROUTE means the whole current task-to-local-cash chain was not verified within this public zero-contact screen. It is not evidence of unavailability, and it is not a claim about crypto cash-out in Sierra Leone. Historical work, marketing claims and an unrelated local wallet do not establish current demand or payout. Hermes opened four original sources, but the availability FAQ was Cloudflare-blocked; that page remains a reopen trigger rather than proof either way. Worker-borne data, travel, rejection, tax, withdrawal, conversion, safety and opportunity costs remain unknown rather than zero.",
+  "next_trigger": "Reopen Premise only when the current Sierra Leone task inventory is reachable or a current task receipt plus a named in-app payout method, minimum, fees, settlement time and local spendable cash-out receipt appears. Continue with the next candidate rather than waiting."
 }

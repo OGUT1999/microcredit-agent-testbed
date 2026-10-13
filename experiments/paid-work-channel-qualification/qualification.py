@@ -9,12 +9,17 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 from urllib.parse import urlparse
 
 REQUIRED_GATES = ("current_access", "current_demand", "worker_eligibility", "spendable_payout")
 ALLOWED_GATE_STATES = {"verified", "unverified", "failed"}
 ALLOWED_DECISIONS = {"IN_REVIEW", "PASS", "NO_VERIFIABLE_ROUTE"}
+ALLOWED_NET_STATES = {"positive", "unknown", "nonpositive"}
+GITHUB_RECEIPT = re.compile(
+    r"^/[^/]+/[^/]+/(?:issues|pull)/[1-9][0-9]*(?:#issuecomment-[1-9][0-9]*|#discussion_r[1-9][0-9]*)$"
+)
 
 
 def _require(condition: bool, message: str, errors: list[str]) -> None:
@@ -66,6 +71,9 @@ def validate(record: dict) -> list[str]:
             _require(gate.get("status") in ALLOWED_GATE_STATES, f"gate {gate_name} has invalid status", errors)
             _require(isinstance(gate.get("chain_complete"), bool),
                      f"gate {gate_name}.chain_complete must be boolean", errors)
+            if gate.get("status") in ALLOWED_GATE_STATES and isinstance(gate.get("chain_complete"), bool):
+                _require((gate["status"] == "verified") == gate["chain_complete"],
+                         f"gate {gate_name} must be verified exactly when its evidence chain is complete", errors)
             refs = gate.get("source_ids")
             _require(isinstance(refs, list) and len(refs) >= 1, f"gate {gate_name} needs source_ids", errors)
             if isinstance(refs, list):
@@ -87,15 +95,23 @@ def validate(record: dict) -> list[str]:
             reviewer = review.get("reviewer")
             _require(isinstance(reviewer, str) and bool(reviewer), f"review[{index}].reviewer is required", errors)
             if isinstance(reviewer, str):
-                _require(reviewer not in reviewers, f"duplicate reviewer {reviewer}", errors)
-                reviewers.add(reviewer)
+                canonical_reviewer = reviewer.strip().casefold()
+                _require(canonical_reviewer.startswith("agent:"),
+                         f"review[{index}].reviewer must use a canonical agent: id", errors)
+                _require(canonical_reviewer not in reviewers, f"duplicate reviewer {reviewer}", errors)
+                reviewers.add(canonical_reviewer)
             _require(review.get("source_check") == "original", f"review[{index}] must check original sources", errors)
             _require(review.get("disposition") == record.get("decision"),
                      f"review[{index}] must assent to the recorded decision", errors)
             receipt = review.get("receipt_url", "")
             parsed = urlparse(receipt) if isinstance(receipt, str) else None
-            _require(bool(parsed and parsed.scheme == "https" and parsed.netloc == "github.com"),
-                     f"review[{index}] needs an attributable GitHub receipt", errors)
+            _require(bool(parsed and parsed.scheme == "https" and parsed.netloc == "github.com"
+                          and GITHUB_RECEIPT.fullmatch(parsed.path + (f"#{parsed.fragment}" if parsed.fragment else ""))),
+                     f"review[{index}] needs an attributable GitHub issue or PR comment receipt", errors)
+
+    net_status = record.get("conservative_net_earnings_status")
+    _require(isinstance(net_status, str) and net_status in ALLOWED_NET_STATES,
+             "conservative_net_earnings_status must be positive, unknown or nonpositive", errors)
 
     if isinstance(gates, dict) and set(gates) == set(REQUIRED_GATES):
         statuses = [gates[name].get("status") for name in REQUIRED_GATES if isinstance(gates[name], dict)]
