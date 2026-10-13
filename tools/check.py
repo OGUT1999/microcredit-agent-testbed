@@ -20,6 +20,7 @@ SUITES = (
     "bootstrap", "coordination", "scripts", "metrics", "team-mail", "world-model", "retry-fixture",
     "retry-fixture/reference", "retry-fixture/chain/base-sepolia", "retry-fixture/chain/base-sepolia/reconcile",
     "research/calibration-v3-replay-archive", "experiments/revolving-guarantee",
+    "experiments/paid-work-channel-qualification",
 )
 REFERENCE_CHECKS = (
     "run_email_cases", "scorecard", "horizon_score", "resend_authority", "shipped_gate", "in_progress_409",
