@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "candidate_id": "crowdgen-dots-sierra-leone-2026-10-13",
+  "candidate_name": "CrowdGen by Appen with Dots payout",
+  "country": "Sierra Leone",
+  "checked_at": "2026-10-13T22:18:00Z",
+  "decision": "NO_VERIFIABLE_ROUTE",
+  "resource_bound": {
+    "contact": 0,
+    "spend_usd": 0,
+    "signups": 0
+  },
+  "sources": [
+    {
+      "id": "crowdgen-public-board",
+      "kind": "original",
+      "url": "https://jobs.lever.co/appen",
+      "checked_at": "2026-10-13T22:04:00Z",
+      "supports": "The complete current Appen public board lists country-specific and Any-location openings, including several African-country projects.",
+      "does_not_establish": "The board contains no Sierra Leone opening. Nearby African openings require residence in the named country, while Any-location openings still require named languages or specialist credentials; none establishes a current task for a defined Sierra Leone worker."
+    },
+    {
+      "id": "crowdgen-home",
+      "kind": "original",
+      "url": "https://crowdgen.com/",
+      "checked_at": "2026-10-13T22:03:00Z",
+      "supports": "CrowdGen describes a contributor path of applying, qualifying, completing accepted work and receiving location-dependent payment.",
+      "does_not_establish": "Global recruitment and variable pay do not establish Sierra Leone account approval, current task inventory, acceptance probability or earnings."
+    },
+    {
+      "id": "crowdgen-by-appen",
+      "kind": "original",
+      "url": "https://crowdgen.com/crowdgen-by-appen/",
+      "checked_at": "2026-10-13T22:03:00Z",
+      "supports": "CrowdGen says project matching depends on location and qualifications and names Dots-linked, location-dependent payout options.",
+      "does_not_establish": "The page does not name a current Sierra Leone project, worker acceptance receipt or CrowdGen-enabled Sierra Leone payout method."
+    },
+    {
+      "id": "crowdgen-terms",
+      "kind": "original",
+      "url": "https://crowdgen.com/terms-of-service/",
+      "checked_at": "2026-10-13T22:05:00Z",
+      "supports": "CrowdGen's terms make account approval discretionary and provide the service as available without guaranteeing work.",
+      "does_not_establish": "The terms do not establish that a Sierra Leone resident can open an approved account, qualify for a current task or earn a positive amount."
+    },
+    {
+      "id": "crowdgen-dots-payout-options",
+      "kind": "original",
+      "url": "https://crowdgen.com/docs/payments/general-payments-faq/payout-options-and-fees/",
+      "checked_at": "2026-10-13T22:06:00Z",
+      "supports": "CrowdGen names Dots as its payment partner, says available methods depend on country and publishes generic provider-fee examples; it warns that small payments may be held below applicable fees.",
+      "does_not_establish": "Exact options and pricing require account confirmation. Sierra Leone is absent from the local-bank table, and the page does not supply a Sierra Leone minimum, complete fee chain, FX basis or cash-settlement time."
+    },
+    {
+      "id": "dots-coverage-map",
+      "kind": "original",
+      "url": "https://usedots.com/platform/coverage-map/",
+      "checked_at": "2026-10-13T22:06:00Z",
+      "supports": "Dots' current coverage map lists Sierra Leone push-to-card, AirTM, crypto, gift card, SWIFT USD and Payoneer rails.",
+      "does_not_establish": "Provider coverage does not prove that CrowdGen enables a rail for a Sierra Leone contributor. The map uses legacy SLL labels for several rails and does not identify a named eligible card, bank or wallet, minimum, fees, FX or completed local cash receipt."
+    },
+    {
+      "id": "dots-supported-countries",
+      "kind": "original",
+      "url": "https://docs.usedots.com/references/supported-countries/",
+      "checked_at": "2026-10-13T22:08:00Z",
+      "supports": "Dots' static supported-country snapshot marks Sierra Leone local-bank transfer and tells readers to use the current coverage map as the source of truth.",
+      "does_not_establish": "The current map omits Sierra Leone local-bank transfer, so the snapshot is conflicting coverage evidence rather than proof of a CrowdGen-enabled bank route."
+    },
+    {
+      "id": "dots-payout-rails",
+      "kind": "original",
+      "url": "https://docs.usedots.com/references/payout-rails/",
+      "checked_at": "2026-10-13T22:09:00Z",
+      "supports": "Dots documents multiple payout rails and notes that an application can exclude rails and set an application-specific payout minimum.",
+      "does_not_establish": "Generic Dots rail support cannot establish the methods CrowdGen exposes to a particular Sierra Leone contributor or the complete local spendability economics."
+    }
+  ],
+  "gates": {
+    "current_access": {
+      "status": "unverified",
+      "chain_complete": false,
+      "source_ids": [
+        "crowdgen-home",
+        "crowdgen-by-appen",
+        "crowdgen-terms"
+      ],
+      "finding": "CrowdGen recruits internationally and matches by location, but account approval is discretionary and no current Sierra Leone registration, qualification or accepted-account receipt was found."
+    },
+    "current_demand": {
+      "status": "unverified",
+      "chain_complete": false,
+      "source_ids": [
+        "crowdgen-public-board",
+        "crowdgen-home",
+        "crowdgen-terms"
+      ],
+      "finding": "The complete current public board has no Sierra Leone opening. Country-specific African roles cannot be generalized to Sierra Leone, and Any-location roles still require languages or credentials not tied to a defined local worker; no current task, rate and acceptance terms were verified."
+    },
+    "worker_eligibility": {
+      "status": "unverified",
+      "chain_complete": false,
+      "source_ids": [
+        "crowdgen-public-board",
+        "crowdgen-by-appen",
+        "crowdgen-terms"
+      ],
+      "finding": "Published openings impose project-specific location, language, experience or qualification requirements, but no consenting Sierra Leone worker was verified as eligible for a current paid task."
+    },
+    "spendable_payout": {
+      "status": "unverified",
+      "chain_complete": false,
+      "source_ids": [
+        "crowdgen-dots-payout-options",
+        "dots-coverage-map",
+        "dots-supported-countries",
+        "dots-payout-rails"
+      ],
+      "finding": "CrowdGen verifies only a generic Dots partnership. Dots' live map names Sierra Leone rails but uses legacy SLL labels, conflicts with the static snapshot on local-bank availability, and permits application-specific exclusions and minimums. No CrowdGen-enabled rail is linked through a named eligible institution to spendable SLE with complete minimum, fees, FX and timing."
+    }
+  },
+  "independent_reviews": [
+    {
+      "reviewer": "agent:codex",
+      "source_check": "original",
+      "disposition": "NO_VERIFIABLE_ROUTE",
+      "receipt_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6156244185"
+    },
+    {
+      "reviewer": "agent:hermes",
+      "source_check": "original",
+      "disposition": "NO_VERIFIABLE_ROUTE",
+      "receipt_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6156339063"
+    }
+  ],
+  "conservative_net_earnings_status": "unknown",
+  "limitations": "NO_VERIFIABLE_ROUTE means the current public Sierra Leone task-to-spendable-cash chain could not be completed; it is not evidence of unavailability. Hermes independently read the eight requested original sources plus two Dots references, but its terms-of-service extraction was truncated; that coverage gap is a reopen condition rather than negative proof. Provider coverage is not a completed CrowdGen payout receipt. Task reward, availability, worker qualification and acceptance, unpaid assessment time, rejection, connectivity, equipment, tax, payout minimum, provider and receiving-institution fees, SLL-to-current-SLE unit semantics, FX, cash-out and settlement time remain unknown rather than zero. No login, signup, contact, application, task attempt, spending or transaction occurred; human earnings and benefit remain zero.",
+  "next_trigger": "Reopen only for a current Sierra Leone-compatible CrowdGen project plus an eligible worker receipt and an in-account Dots quote or completed local cash receipt resolving the enabled method, SLL/SLE units, minimum, all fees, FX and settlement time."
+}
