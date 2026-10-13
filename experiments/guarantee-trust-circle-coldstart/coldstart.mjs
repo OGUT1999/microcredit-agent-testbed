@@ -88,6 +88,7 @@ const consentTypes = {Consent: [
 ].map(([name, type]) => ({name, type}))};
 const manifest = {
   schema: 'guarantee-trust-circle-coldstart/1', sourceCommit: SOURCE,
+  runnerSha256: sha(fs.readFileSync(fileURLToPath(import.meta.url))),
   artifactSha256: sha(artifactBytes), chainId: 84532, token: TOKEN, decimals: 6,
   rehearsal: REHEARSAL,
   policySeed: SEED, prng: 'mulberry32', rounds: ROUNDS, compressedRounds: true,
@@ -136,6 +137,7 @@ if (process.argv.includes('--validate')) {
 }
 
 const out = path.resolve(process.env.COLDSTART_OUT || path.join(HERE, 'coldstart-evidence'));
+if (fs.existsSync(out) && fs.readdirSync(out).length > 0) throw Error('Evidence output directory is not empty; preserve it and choose a fresh directory');
 fs.mkdirSync(out, {recursive: true});
 if (fs.existsSync(path.join(out, 'checkpoint.json'))) throw Error('Existing execution checkpoint; inspect it before choosing a new output directory');
 const write = (name, value) => {
@@ -159,12 +161,14 @@ async function freshRead(fn) {
   }
 }
 function errorCode(e) {return /^[A-Z0-9_]+$/.test(String(e?.code)) ? e.code : 'REDACTED_EXECUTION_FAILURE';}
+const safeFailureMessages = new Set([...fs.readFileSync(fileURLToPath(import.meta.url), 'utf8').matchAll(/throw Error\('([^']+)'\)/g)].map(m => m[1]));
 process.on('uncaughtException', e => stop(e));
 process.on('unhandledRejection', e => stop(e));
 function stop(e) {
-  write('stopped.json', {atUTC: new Date().toISOString(), errorCode: errorCode(e), checkpoint,
+  const safeReason = safeFailureMessages.has(e?.message) ? e.message : null;
+  write('stopped.json', {atUTC: new Date().toISOString(), errorCode: errorCode(e), safeReason, checkpoint,
     transactionCount: journal.length, warning: 'Inspect mined/pending public hashes before any recovery; do not replay blindly.'});
-  console.error(`STOPPED ${errorCode(e)}; evidence preserved in ${path.basename(out)}`);
+  console.error(`STOPPED ${errorCode(e)} ${safeReason || ''}; evidence preserved in ${path.basename(out)}`);
   process.exit(1);
 }
 const rootKey = process.env.TEST_WALLET_PRIVATE_KEY;
@@ -256,6 +260,15 @@ if (process.env.COLDSTART_GT) {
   if (await gt.guaranteeCount() !== 0n || await gt.reserve() !== 0n || await gt.totalStake() !== 0n) {
     throw Error('Provided deployment is not an unused cold-start contract');
   }
+  if (!process.env.COLDSTART_DEPLOYMENT_HASH) throw Error('Prior deployment receipt required for explicit resume');
+  const prior = await provider.getTransactionReceipt(process.env.COLDSTART_DEPLOYMENT_HASH);
+  if (!prior || prior.status !== 1 || prior.contractAddress !== gt.target || prior.from !== EXPECT_ROOT) {
+    throw Error('Prior deployment receipt does not match the unused contract');
+  }
+  lastMinedBlock = prior.blockNumber;
+  write('prior-deployment.json', {hash: prior.hash, contract: prior.contractAddress, blockNumber: prior.blockNumber,
+    status: prior.status, from: prior.from, gasUsed: prior.gasUsed.toString(), feeWei: prior.fee.toString(),
+    note: 'Confirmed creation from the earlier stopped preflight; no new deployment transaction.'});
 } else {
   const deployTx = await factory.getDeployTransaction(TOKEN, EXPECT_ROOT, EXPECT_ROOT, EXPECT_ROOT, u('6'), U);
   const r = await send('deploy-GuaranteeTrust-r6-Circle', rootActor, 'constructor',
@@ -265,7 +278,11 @@ if (process.env.COLDSTART_GT) {
 }
 const GT = await gt.getAddress();
 checkpoint.contract = GT; checkpoint.token = TOKEN; checkpoint.phase = 'deployed'; saveCheckpoint();
-const code = await provider.getCode(GT);
+const code = await freshRead(async () => {
+  const value = await provider.getCode(GT, lastMinedBlock);
+  if (value === '0x') throw Error('Confirmed deployment code not yet available from RPC');
+  return value;
+});
 function maskRuntime(hex) {
   const bytes = Uint8Array.from(Buffer.from(hex.slice(2), 'hex'));
   for (const refs of Object.values(artifact.immutableReferences || artifact.deployedBytecode.immutableReferences || {})) {
@@ -273,8 +290,13 @@ function maskRuntime(hex) {
   }
   return `0x${Buffer.from(bytes).toString('hex')}`;
 }
-if (maskRuntime(code) !== maskRuntime(runtime) || await gt.token() !== TOKEN || await gt.owner() !== EXPECT_ROOT
-  || await gt.adjudicator() !== EXPECT_ROOT || await gt.issuer() !== EXPECT_ROOT) {
+const deploymentTag = {blockTag: lastMinedBlock};
+const boundRoles = await freshRead(() => Promise.all([gt.token(deploymentTag), gt.owner(deploymentTag), gt.adjudicator(deploymentTag), gt.issuer(deploymentTag)]));
+write('runtime-check.json', {blockNumber: lastMinedBlock, expectedMaskedHash: keccak256(maskRuntime(runtime)),
+  actualMaskedHash: keccak256(maskRuntime(code)), runtimeBytes: (code.length - 2) / 2, token: boundRoles[0],
+  owner: boundRoles[1], adjudicator: boundRoles[2], issuer: boundRoles[3]});
+if (maskRuntime(code) !== maskRuntime(runtime) || boundRoles[0] !== TOKEN || boundRoles[1] !== EXPECT_ROOT
+  || boundRoles[2] !== EXPECT_ROOT || boundRoles[3] !== EXPECT_ROOT) {
   throw Error('Reviewed runtime/token/role binding failed');
 }
 const domain = {name: 'GuaranteeTrust', version: '2', chainId: 84532, verifyingContract: GT};
@@ -299,7 +321,7 @@ for (const [id, expected] of Object.entries(expectedImmutables)) {
   }
 }
 write('deployment.json', {sourceCommit: SOURCE, contract: GT, token: TOKEN,
-  deploymentHash: journal.find(x => x.call === 'constructor')?.hash || null,
+  deploymentHash: journal.find(x => x.call === 'constructor')?.hash || process.env.COLDSTART_DEPLOYMENT_HASH || null,
   runtimeHash: keccak256(code), maskedRuntimeHash: keccak256(maskRuntime(code)), artifactSha256: sha(artifactBytes),
   owner: EXPECT_ROOT, issuer: EXPECT_ROOT, adjudicator: EXPECT_ROOT, chainId: 84532, rehearsal: REHEARSAL,
   verifiedImmutableValues: expectedImmutables});
@@ -318,7 +340,7 @@ function acceptance(worker, client, amount, termsHash) {
 const zero = acceptance(workers[0], clients[0], u('0.2'), hash({kind: 'zero-reserve-control'}));
 const zeroSig = await workers[0].wallet.signTypedData(domain, acceptanceTypes, zero);
 let zeroError = null;
-try {await gt.openGuarantee.staticCall(zero, zeroSig);} catch (e) {
+try {await gt.openGuarantee.staticCall(zero, zeroSig, {blockTag: lastMinedBlock});} catch (e) {
   try {zeroError = iface.parseError(e.data || e.info?.error?.data)?.name;} catch {}
   zeroError ||= errorCode(e);
 }
@@ -441,7 +463,7 @@ for (let round = 1; round <= ROUNDS; round++) {
     const signature = await worker.wallet.signTypedData(domain, acceptanceTypes, signed);
     // Validate exact live acceptance before broadcasting; a static refusal is recorded honestly.
     let id;
-    try {id = await gt.openGuarantee.staticCall(signed, signature);} catch (e) {
+    try {id = await gt.openGuarantee.staticCall(signed, signature, {blockTag: lastMinedBlock});} catch (e) {
       let name; try {name = iface.parseError(e.data || e.info?.error?.data)?.name;} catch {}
       if (!name) throw e;
       refuse(round, client, worker, name, amount); continue;
