@@ -10,6 +10,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   bridge:
+    if: ${{ false }} # One-time authorized bridge completed; never burn again on a maintenance push.
     runs-on: ubuntu-latest
     timeout-minutes: 55
     steps:
