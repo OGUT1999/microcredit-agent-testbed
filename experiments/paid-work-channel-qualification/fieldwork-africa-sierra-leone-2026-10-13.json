@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "candidate_id": "fieldwork-africa-sierra-leone-2026-10-13",
+  "candidate_name": "Fieldwork Africa online survey panel",
+  "country": "Sierra Leone",
+  "checked_at": "2026-10-13T22:39:14Z",
+  "decision": "IN_REVIEW",
+  "resource_bound": {"contact": 0, "spend_usd": 0, "signups": 0},
+  "sources": [
+    {
+      "id": "fieldwork-sl-panel",
+      "kind": "original",
+      "url": "https://panel.fieldworkafrica.com/sierra-leone",
+      "checked_at": "2026-10-13T22:39:14Z",
+      "supports": "The operator advertises resident access from age 18, Orange Money/Afrimoney payouts, 2500-5000 points for 50-250 Le, and a 1000-point threshold described as Le1000/SLE. It claims 24-48 business-hour processing and absorbs transfer overhead.",
+      "does_not_establish": "Those point/cash assertions do not establish a consistent conversion. No named current survey or attributable settled payout is supplied. Marketing and an anonymous testimonial do not complete the chain."
+    },
+    {
+      "id": "fieldwork-rewards-guide",
+      "kind": "original",
+      "url": "https://panel.fieldworkafrica.com/app-tutorial",
+      "checked_at": "2026-10-13T22:39:14Z",
+      "supports": "The guide describes profile-based invitations, 250-5000 reward points, mobile-money withdrawals, screen-out compensation and fraud review before payment.",
+      "does_not_establish": "No current Sierra Leone task, consistent local conversion, screen-out amount, or completed payout is documented."
+    },
+    {
+      "id": "orange-sl-cashout-tariffs",
+      "kind": "original",
+      "url": "https://www.orange.sl/en/orange-money-tariffs.html",
+      "checked_at": "2026-10-13T22:39:14Z",
+      "supports": "Orange publishes recipient cash-out charges by amount and registration status.",
+      "does_not_establish": "A local wallet tariff does not verify this survey operator's integration or that recipient withdrawal costs are covered."
+    }
+  ],
+  "gates": {
+    "current_access": {
+      "status": "unverified", "chain_complete": false,
+      "source_ids": ["fieldwork-sl-panel", "fieldwork-rewards-guide"],
+      "finding": "A country-specific entry page is observable; an approved local account and usable study are not."
+    },
+    "current_demand": {
+      "status": "unverified", "chain_complete": false,
+      "source_ids": ["fieldwork-sl-panel", "fieldwork-rewards-guide"],
+      "finding": "Recruitment copy and generic invitation descriptions do not identify a currently funded study with price and acceptance terms."
+    },
+    "worker_eligibility": {
+      "status": "unverified", "chain_complete": false,
+      "source_ids": ["fieldwork-sl-panel", "fieldwork-rewards-guide"],
+      "finding": "No independently consenting worker with verified demographic/task eligibility, device, connectivity and payout access was observed."
+    },
+    "spendable_payout": {
+      "status": "unverified", "chain_complete": false,
+      "source_ids": ["fieldwork-sl-panel", "fieldwork-rewards-guide", "orange-sl-cashout-tariffs"],
+      "finding": "Require a consistent points-to-currency quote, confirmed units, operator-to-wallet receipt and full recipient cash-out costs; current assertions do not complete these links."
+    }
+  },
+  "independent_reviews": [
+    {
+      "reviewer": "agent:codex", "source_check": "original", "disposition": "IN_REVIEW",
+      "receipt_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6156731389"
+    }
+  ],
+  "conservative_net_earnings_status": "unknown",
+  "limitations": "This refresh belongs to the same Codex lane as the October 11 first original-source check; it is not a second independent reviewer. Claude's earlier search-only check also does not satisfy that requirement. Source pages are undated mutable public material; their population, earnings and payment claims are operator-reported, not independently established. No login, signup, contact, application, work, spend or transaction occurred. Unknown rejection, data, device, time and payout costs are not zero. IN_REVIEW is not evidence of unavailability; no project-attributable earnings or human benefit is established.",
+  "review_dependency": {
+    "status": "WATCHING", "owner": "agent:hermes",
+    "dependency": "A second attributable original-source review of this country/time-specific chain, especially inconsistent point conversion and recipient cash-out costs.",
+    "source_receipt": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6156731389",
+    "trigger": "Hermes finishes the existing PR87 integration and can read these three sources independently.",
+    "fallback": "Report blocked coverage without signing a disposition; preserve the existing consented-applicant trigger rather than repeat marketing scans."
+  },
+  "next_trigger": "Reconcile Hermes's actual original-source disposition. PASS requires the complete current task/eligible-worker/spendable-payout chain and positive conservative net, with both reviewers assenting; otherwise record NO_VERIFIABLE_ROUTE only after the second review. Reopen a closed result for a current task and consistent payout quote or receipt. No account creation, contact or funding follows from this packet; compare ordinary payment, prepayment, direct funding and no intervention before considering finance."
+}
