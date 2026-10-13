@@ -31,6 +31,17 @@ class GateTests(unittest.TestCase):
     def test_no_negative_nonfinite_or_boolean_amount(self):
         for v in ('nan','Infinity',-2,True):
             self.assertIsNone(first_day_cash_gap(v,0))
+    def test_confirmation_flags_require_literal_boolean_true(self):
+        invalid = ("yes", "no", "false", 1, 0, None, [], {})
+        for value in invalid:
+            with self.subTest(flag="employer_confirmed", value=value):
+                self.assertEqual(
+                    classify_assistance(OK, 100, 0, value, True)['finance'],
+                    'UNKNOWN_COSTS_NO_LOAN')
+            with self.subTest(flag="actual_worker_cost_known", value=value):
+                self.assertEqual(
+                    classify_assistance(OK, 100, 0, True, value)['finance'],
+                    'UNKNOWN_COSTS_NO_LOAN')
     def test_decimal_exact(self):
         self.assertEqual(str(first_day_cash_gap('0.30','0.20')),'0.10')
     def test_mandatory_cv_and_cover_letter(self):

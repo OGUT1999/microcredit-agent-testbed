@@ -63,7 +63,7 @@ def classify_assistance(e: Eligibility, fare=None, prepayment_cash=None,
     if admission != "ELIGIBLE_TO_CONSIDER_VOLUNTARY_APPLICATION":
         return {"admission": admission, "finance": "NO_LOAN_NO_GUARANTEE", "gap": None}
     gap = first_day_cash_gap(fare, prepayment_cash)
-    if not employer_confirmed or not actual_worker_cost_known or gap is None:
+    if employer_confirmed is not True or actual_worker_cost_known is not True or gap is None:
         return {"admission": admission, "finance": "UNKNOWN_COSTS_NO_LOAN", "gap": None}
     if gap == 0:
         return {"admission": admission, "finance": "NO_LOAN_NO_GUARANTEE", "gap": "0"}
