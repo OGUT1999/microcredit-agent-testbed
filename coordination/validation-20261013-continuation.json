@@ -1,0 +1,54 @@
+{
+  "protocol": "git-explicit-lease-v2",
+  "source_main": "3b1ed48cf2fa0537db2afbd46365c51ed079cb9b",
+  "verification_ref": "refs/heads/coordination/lock-verification-bb5d11bf10a5492f9f84d2c26cc42beb",
+  "transport": "authenticated HTTPS Git with process-local gh auth git-credential helper",
+  "author_email": "5783027+scottonchain@users.noreply.github.com",
+  "committer_email": "5783027+scottonchain@users.noreply.github.com",
+  "checks": {
+    "remote_race_exactly_one_winner": true,
+    "nonowner_release_rejected": true,
+    "held_lock_takeover_rejected": true,
+    "owner_release": true,
+    "stale_candidate_after_release_rejected": true,
+    "explicit_author_and_committer": true,
+    "verification_ref_removed_exact_lease": true
+  },
+  "production_observed_before": {
+    "head": "c3bda63bc97dda9fa4b305aa23f9f8d8bba726c1",
+    "state": "unlocked"
+  },
+  "acquisition_head": "f0c8c67d829d1ba8a0ce5ad6e3f39a1b4805b251",
+  "release_head": "681fa8ba1ae218c2adf78fe204d1ab134be79219",
+  "recovery": "No automatic recovery or age-based takeover. Held-lock takeover rejected; crashed/live production ownership requires authoritative execution-end evidence before maintainer recovery.",
+  "production_observed_after": {
+    "head": "c3bda63bc97dda9fa4b305aa23f9f8d8bba726c1",
+    "state": "unlocked"
+  },
+  "verified_at_utc": "2026-10-13T22:49:48.601951+00:00",
+  "ai_author": "Codex (AI)",
+  "purpose": "Verify replacement continuation transport; preserve existing work owners.",
+  "defaults": {
+    "author_noreply": false,
+    "committer_noreply": false,
+    "used_for_new_commits": false
+  },
+  "local_suite": {
+    "command": "python3 -m unittest -v coordination.test_run_lock",
+    "passed": 7
+  },
+  "publication_base": "3b1ed48cf2fa0537db2afbd46365c51ed079cb9b",
+  "production_acquisition": "99bdc6ecdce48b5299944d654cd7ec1961498c8f",
+  "limits": [
+    "This verifies this execution transport, not future scheduled operation.",
+    "Cooperative mutex, not access control against arbitrary credential holders.",
+    "No live-lock recovery, production takeover, schedule change or persistent security setting change.",
+    "No independently established human earnings or borrower benefit."
+  ],
+  "next_state": {
+    "pr87": "Merged 3b1ed48cf2fa0537db2afbd46365c51ed079cb9b; model 0.1.117.",
+    "fieldwork": "Existing Codex/Hermes lane owns source review and publication; board 6156731389. No duplication.",
+    "pr80": "Preparation-only branch remains with existing reviewer/execution lane.",
+    "shortlist": "Darth scoped check/author response closed (6074597182); Swipe no-nudge; ZeroPaper qualification lead only. No new invitation or acceptance established."
+  }
+}
