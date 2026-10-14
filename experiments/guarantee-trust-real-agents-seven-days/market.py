@@ -385,12 +385,12 @@ class Market:
         self.event('intent_rejected', {'intent_id': intent_id, 'reason': reason})
         save(self.state_path, self.state)
 
-    def import_receipt(self, proof, rpc=None):
+    def import_receipt(self, proof, rpc=None, *, verifier=None):
         """Only transaction hashes for pre-registered typed actions are accepted."""
         require(set(proof)=={'registration_key','transaction_hash'},
                 'Generic receipt proofs disabled: pre-registered typed action and hash required')
         from receipt_bridge import ReceiptBridge
-        ReceiptBridge(self).import_transaction(proof['registration_key'],proof['transaction_hash'])
+        ReceiptBridge(self, verifier=verifier).import_transaction(proof['registration_key'],proof['transaction_hash'])
 
 
 def rpc_client(url):

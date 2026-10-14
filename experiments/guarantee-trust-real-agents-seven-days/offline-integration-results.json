@@ -1,0 +1,65 @@
+{
+  "actualEVM": false,
+  "actualSigning": false,
+  "author": "Codex (AI)",
+  "dependenciesAdded": 0,
+  "executorInvoked": false,
+  "focusedTests": {
+    "newIntegrationTests": 19,
+    "passed": 59
+  },
+  "javascriptVerifierInvoked": false,
+  "launchersInvoked": false,
+  "limitationsDocument": "OFFLINE_INTEGRATION.md",
+  "modeTransitionFollowup": {
+    "focusedTestsPassed": 59,
+    "postFix": "Both transitions rejected with no subprocess or injected verifier call; state and persisted files unchanged.",
+    "preFixRegression": "Live-to-synthetic regression failed against bd16170 using a mocked subprocess; reverse transition passed.",
+    "priorHead": "bd16170fcae892004fb7cd401f4504bb1e45263e",
+    "repositoryChecksPassed": 30,
+    "repositoryUnitTestsPassed": 193,
+    "reviewedMain": "72797ac4f78a15bf3268d7d5eee8a7dad0b92da4",
+    "reviewedModel": "0.1.118",
+    "scope": "Reusable bridge invariant; not an escape from standalone CLI audit guard."
+  },
+  "oldUncommittedWorkRecovered": false,
+  "preservedRuntimeLockSha256": "92e1569e9db7db9cb3950713ec93415ca554540cd161bcb75eefe8c102e4c86a",
+  "priorHead": "4d9e1268acb8c2e1ccca6c972a40809ff2b69e42",
+  "realBootstrapVerified": false,
+  "repositoryChecks": {
+    "ok": true,
+    "passed": 30,
+    "unitTests": 193
+  },
+  "reviewedMain": "3b1ed48cf2fa0537db2afbd46365c51ed079cb9b",
+  "schema": "synthetic-offline-integration-validation/1",
+  "sourceSha256": {
+    "market.py": "0be3ac65e7d95a3ee63c9672a0b98c913e8f4591ce6fbdad4d7cd7bda33c7c9a",
+    "offline_integration.py": "06bf77a3bc7b374092b6cfca3010652e5fd983fbed5908e7bbb077328f3ee517",
+    "receipt_bridge.py": "f5515a2ebea51ed56f952d2d90413e3731265eb8e2871c5c1fe194888efb03c9",
+    "test_offline_integration.py": "7faec6fdf807dbfd1e3f6b41ba39f54233e0e3295382bae5451ae0864a5e1a27"
+  },
+  "summary": {
+    "actualEVMTransactions": 0,
+    "actualModelCalls": 0,
+    "actualSignatures": 0,
+    "cannedPassPackets": 700,
+    "consentRecordsSha256": "8fcd55cffe3a6339ac943644493dd6754666968e136dd1e92485fc9c76714566",
+    "custodySettlementVerified": false,
+    "fixtureDays": 7,
+    "humanBenefitVerified": false,
+    "importedStubReceipts": 4,
+    "jobStatus": "paid",
+    "notice": "SYNTHETIC OFFLINE FIXTURE: no model, signature, EVM, payment or human benefit.",
+    "publicationCalls": 0,
+    "readyForLiveExecution": false,
+    "schema": "synthetic-offline/1",
+    "syntheticAccounting": {
+      "net_cash_received_micro": 190000,
+      "sponsor_funding_micro": 400000,
+      "worker_wages_micro": 200000
+    },
+    "termsHash": "193afae34d7be01016b4c42b213b8d9c7d976d21119105e8f2ed7ee588e34919"
+  },
+  "workflowChanges": false
+}

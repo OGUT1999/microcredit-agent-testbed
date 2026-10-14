@@ -76,3 +76,11 @@ After day seven, `days_complete` means the seven turn rounds ended. It does not 
 - Separate executor and shutdown receipts: actual transactions and pinned live readbacks.
 
 Choose the story after examining all seven days. Favor a character with a concrete dilemma, original work, a meaningful negotiation and a verified consequence. Quote only exact recorded two-character messages and identify the experience as fictional. A compelling story is not a substitute for a completed run.
+
+## Separate synthetic offline integration
+
+See [OFFLINE_INTEGRATION.md](OFFLINE_INTEGRATION.md) for the deterministic
+standard-library entrypoint, 17 adversarial integration tests, inherited open
+gates and honest limits. [offline-integration-results.json](offline-integration-results.json)
+records this preparation-only continuation. Injected receipts and 700 canned pass
+packets are synthetic test data, not a live seven-day demo or EVM rehearsal.

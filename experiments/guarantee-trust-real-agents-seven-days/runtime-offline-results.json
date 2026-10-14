@@ -1,0 +1,85 @@
+{
+  "schema": "real-agents-offline-preparation/1",
+  "checks": [
+    {
+      "check": "market and receipt bridge",
+      "status": "passed",
+      "exitCode": 0,
+      "output": "........................................\n----------------------------------------------------------------------\nRan 40 tests in 0.403s\n\nOK"
+    },
+    {
+      "check": "syntax: comment-launcher.mjs",
+      "status": "passed",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "check": "syntax: executor.mjs",
+      "status": "passed",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "check": "syntax: fixture-builder.mjs",
+      "status": "passed",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "check": "syntax: receipt_verifier.mjs",
+      "status": "passed",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "check": "comment-launcher.mjs self-test",
+      "status": "passed",
+      "exitCode": 0,
+      "output": "{\"launcherOfflineChecks\":10,\"passed\":true}"
+    },
+    {
+      "check": "fixture-builder.mjs self-test",
+      "status": "passed",
+      "exitCode": 0,
+      "output": "{\"fixtureShape\":\"passed\",\"sevenDays\":true,\"modelInvocations\":0,\"EVMExecuted\":false}"
+    },
+    {
+      "check": "executor metadata validation",
+      "status": "passed",
+      "exitCode": 0,
+      "output": "{\n  \"schema\": \"real-agents-executor/1\",\n  \"chainId\": 84532,\n  \"token\": \"0x036CbD53842c5426634e7929541eC2318f3dCF7e\",\n  \"root\": \"0x38e9845A1Df22c59Bfc693bf2CEAa3361158d6d1\",\n  \"sourceCommit\": \"ec93c76779b5e2d52ab7b87cf82b3fd400205969\",\n  \"sourceGitBlob\": \"98630ab1d9273e01772b7be484c7fdec97795946\",\n  \"roles\": {\n    \"client\": 40,\n    \"worker\": 40,\n    \"backer\": 14,\n    \"sponsor\": 4\n  },\n  \"virtualDays\": 7,\n  \"bootstrapTokenTotal\": \"38.2\",\n  \"maxTokenSpend\": \"40\",\n  \"maxFeesETH\": \"0.005\",\n  \"maxGasFundingETH\": \"0.002\",\n  \"implemented\": [\n    \"fresh-contract\",\n    \"character-token-funding\",\n    \"receipt-verification\",\n    \"balance-snapshot\",\n    \"review-gated-market-packets\"\n  ],\n  \"unsupported\": [\n    \"automatic-market-resume\",\n    \"automatic-settlement-shutdown\"\n  ],\n  \"marketReady\": false\n}"
+    },
+    {
+      "check": "guarantee-trust-real-agents.yml disabled job guard",
+      "status": "passed"
+    },
+    {
+      "check": "guarantee-trust-real-agents-comment.yml disabled job guard",
+      "status": "passed"
+    },
+    {
+      "check": "pinned artifact SHA256",
+      "status": "passed"
+    }
+  ],
+  "sourceSha256": {
+    "comment-launcher.mjs": "6dc19a70825d1dde07e608db91a73060b61912b25b8ed00a46f319c4629ce9c5",
+    "executor.mjs": "792d81b9bb7453f4f653878c04237bcd4b3d4b0233a04230d3c1a6ba22000d96",
+    "fixture-builder.mjs": "293e86ed4c0a0dfb8876e524dd0d35656f748483342ef0bc712817db516dfa61",
+    "market.py": "ffac5f5293a031ad79a41a5874b8cc366ffb5009088e5434c84372627f86f946",
+    "offline-check.py": "76fb80603f7ece244a15a9079b092031c83445c38bedda55df9f2341c7ee317c",
+    "receipt_bridge.py": "63cdf2d5a67e9c28cfc532130742c6bea44ae40cb67e886fafa564ee7519819f",
+    "receipt_verifier.mjs": "9871c7b3a5c5c3ebd3470a94bc358280fbd17604426744d9959aeff18c351f60",
+    "test_market.py": "192d9d534ab50070e35d8a7481f707fd7602fb29c88c633b190d57437b185c01",
+    "test_receipt_bridge.py": "e276d71288f897b9b2a092b3f1aba6bcf4dd4f1bbdd1fe0c18d40785ee852807"
+  },
+  "runtimeSha256": {
+    "dependency-review.json": "4aca146db9bc7a6ab795fcdb2291390be6230e38136bb1dda7689584019f7b7d",
+    "package-lock.json": "92e1569e9db7db9cb3950713ec93415ca554540cd161bcb75eefe8c102e4c86a",
+    "package.json": "d6d8e7d40e9519b55e5860b8d37ad441cc2a3ddee1f9d9ff298794f935a6d329"
+  },
+  "modelInvocations": 0,
+  "EVMExecuted": false,
+  "signingExecuted": false,
+  "readyForLiveExecution": false
+}

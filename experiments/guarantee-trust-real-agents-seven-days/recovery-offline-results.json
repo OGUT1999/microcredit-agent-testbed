@@ -1,0 +1,80 @@
+{
+  "schema": "real-agents-offline-preparation/1",
+  "checks": [
+    {
+      "check": "market and receipt bridge",
+      "status": "passed",
+      "exitCode": 0,
+      "output": "........................................\n----------------------------------------------------------------------\nRan 40 tests in 0.447s\n\nOK"
+    },
+    {
+      "check": "syntax: comment-launcher.mjs",
+      "status": "passed",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "check": "syntax: executor.mjs",
+      "status": "passed",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "check": "syntax: fixture-builder.mjs",
+      "status": "passed",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "check": "syntax: receipt_verifier.mjs",
+      "status": "passed",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "check": "comment-launcher.mjs self-test",
+      "status": "passed",
+      "exitCode": 0,
+      "output": "{\"launcherOfflineChecks\":10,\"passed\":true}"
+    },
+    {
+      "check": "fixture-builder.mjs self-test",
+      "status": "passed",
+      "exitCode": 0,
+      "output": "{\"fixtureShape\":\"passed\",\"sevenDays\":true,\"modelInvocations\":0,\"EVMExecuted\":false}"
+    },
+    {
+      "check": "executor metadata validation",
+      "status": "blocked",
+      "exitCode": 1,
+      "output": "Existing ethers@6.15.0 dependency missing; nothing installed."
+    },
+    {
+      "check": "guarantee-trust-real-agents.yml disabled job guard",
+      "status": "passed"
+    },
+    {
+      "check": "guarantee-trust-real-agents-comment.yml disabled job guard",
+      "status": "passed"
+    },
+    {
+      "check": "pinned artifact SHA256",
+      "status": "passed"
+    }
+  ],
+  "sourceSha256": {
+    "comment-launcher.mjs": "6dc19a70825d1dde07e608db91a73060b61912b25b8ed00a46f319c4629ce9c5",
+    "executor.mjs": "792d81b9bb7453f4f653878c04237bcd4b3d4b0233a04230d3c1a6ba22000d96",
+    "fixture-builder.mjs": "293e86ed4c0a0dfb8876e524dd0d35656f748483342ef0bc712817db516dfa61",
+    "market.py": "ffac5f5293a031ad79a41a5874b8cc366ffb5009088e5434c84372627f86f946",
+    "offline-check.py": "9680fe43dd2cfc19fbf2ef60655114c9dd9aba164d513c5f726ff3b2f9a492b7",
+    "receipt_bridge.py": "63cdf2d5a67e9c28cfc532130742c6bea44ae40cb67e886fafa564ee7519819f",
+    "receipt_verifier.mjs": "9871c7b3a5c5c3ebd3470a94bc358280fbd17604426744d9959aeff18c351f60",
+    "test_market.py": "192d9d534ab50070e35d8a7481f707fd7602fb29c88c633b190d57437b185c01",
+    "test_receipt_bridge.py": "e276d71288f897b9b2a092b3f1aba6bcf4dd4f1bbdd1fe0c18d40785ee852807"
+  },
+  "modelInvocations": 0,
+  "EVMExecuted": false,
+  "signingExecuted": false,
+  "readyForLiveExecution": false
+}
