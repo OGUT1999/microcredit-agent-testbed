@@ -20,6 +20,7 @@ REQUIRED_GATES = ("current_access", "current_demand", "worker_eligibility", "spe
 ALLOWED_GATE_STATES = {"verified", "unverified", "failed"}
 ALLOWED_DECISIONS = {"IN_REVIEW", "PASS", "NO_VERIFIABLE_ROUTE"}
 ALLOWED_NET_STATES = {"positive", "unknown", "nonpositive"}
+MAX_RECORD_BYTES = 1024 * 1024
 GITHUB_RECEIPT = re.compile(
     r"^/[^/]+/[^/]+/(?:issues|pull)/[1-9][0-9]*(?:#issuecomment-[1-9][0-9]*|#discussion_r[1-9][0-9]*)$"
 )
@@ -28,6 +29,20 @@ GITHUB_RECEIPT = re.compile(
 def _require(condition: bool, message: str, errors: list[str]) -> None:
     if not condition:
         errors.append(message)
+
+
+def _url(value):
+    """Malformed source text is a validation finding, never an exception echo."""
+    if not isinstance(value, str):
+        return None
+    try:
+        return urlparse(value)
+    except ValueError:
+        return None
+
+
+def _member(value, choices):
+    return isinstance(value, str) and value in choices
 
 
 def payout_readiness(record: dict) -> dict:
@@ -40,6 +55,9 @@ def payout_readiness(record: dict) -> dict:
     errors: list[str] = []
     result = {"errors": errors, "net_cash_lower_bound": None,
               "human_earnings_established": False, "financial_authority": False}
+    if not isinstance(record, dict):
+        errors.append("record must be an object")
+        return result
     data = record.get("payout_economics")
     if not isinstance(data, dict):
         errors.append("PASS requires payout_economics; a positive-net label is insufficient")
@@ -122,10 +140,13 @@ def payout_readiness(record: dict) -> dict:
 
 def validate(record: dict) -> list[str]:
     errors: list[str] = []
-    _require(record.get("schema_version") == 1, "schema_version must be 1", errors)
+    if not isinstance(record, dict):
+        return ["record must be an object"]
+    _require(type(record.get("schema_version")) is int and record["schema_version"] == 1,
+             "schema_version must be 1", errors)
     for field in ("candidate_id", "candidate_name", "country", "checked_at", "decision", "limitations", "next_trigger"):
         _require(isinstance(record.get(field), str) and bool(record[field].strip()), f"{field} is required", errors)
-    _require(record.get("decision") in ALLOWED_DECISIONS,
+    _require(_member(record.get("decision"), ALLOWED_DECISIONS),
              "decision must be IN_REVIEW, PASS or NO_VERIFIABLE_ROUTE", errors)
     _require(record.get("country") == "Sierra Leone", "this bounded packet is for Sierra Leone", errors)
     _require(record.get("resource_bound") == {"contact": 0, "spend_usd": 0, "signups": 0},
@@ -142,11 +163,11 @@ def validate(record: dict) -> list[str]:
             source_id = source.get("id")
             _require(isinstance(source_id, str) and bool(source_id), f"sources[{index}].id is required", errors)
             if isinstance(source_id, str):
-                _require(source_id not in source_ids, f"duplicate source id {source_id}", errors)
+                _require(source_id not in source_ids, "duplicate source id", errors)
                 source_ids.add(source_id)
             _require(source.get("kind") == "original", f"sources[{index}] must be original", errors)
             url = source.get("url", "")
-            parsed = urlparse(url) if isinstance(url, str) else None
+            parsed = _url(url)
             _require(bool(parsed and parsed.scheme == "https" and parsed.netloc), f"sources[{index}].url must be https", errors)
             for field in ("checked_at", "supports", "does_not_establish"):
                 _require(isinstance(source.get(field), str) and bool(source[field].strip()),
@@ -161,17 +182,18 @@ def validate(record: dict) -> list[str]:
             _require(isinstance(gate, dict), f"gate {gate_name} must be an object", errors)
             if not isinstance(gate, dict):
                 continue
-            _require(gate.get("status") in ALLOWED_GATE_STATES, f"gate {gate_name} has invalid status", errors)
+            _require(_member(gate.get("status"), ALLOWED_GATE_STATES), f"gate {gate_name} has invalid status", errors)
             _require(isinstance(gate.get("chain_complete"), bool),
                      f"gate {gate_name}.chain_complete must be boolean", errors)
-            if gate.get("status") in ALLOWED_GATE_STATES and isinstance(gate.get("chain_complete"), bool):
+            if _member(gate.get("status"), ALLOWED_GATE_STATES) and isinstance(gate.get("chain_complete"), bool):
                 _require((gate["status"] == "verified") == gate["chain_complete"],
                          f"gate {gate_name} must be verified exactly when its evidence chain is complete", errors)
             refs = gate.get("source_ids")
             _require(isinstance(refs, list) and len(refs) >= 1, f"gate {gate_name} needs source_ids", errors)
             if isinstance(refs, list):
                 for source_id in refs:
-                    _require(source_id in source_ids, f"gate {gate_name} references unknown source {source_id}", errors)
+                    _require(isinstance(source_id, str) and source_id in source_ids,
+                             f"gate {gate_name} references unknown source", errors)
             _require(isinstance(gate.get("finding"), str) and bool(gate["finding"].strip()),
                      f"gate {gate_name}.finding is required", errors)
 
@@ -191,13 +213,13 @@ def validate(record: dict) -> list[str]:
                 canonical_reviewer = reviewer.strip().casefold()
                 _require(canonical_reviewer.startswith("agent:"),
                          f"review[{index}].reviewer must use a canonical agent: id", errors)
-                _require(canonical_reviewer not in reviewers, f"duplicate reviewer {reviewer}", errors)
+                _require(canonical_reviewer not in reviewers, "duplicate reviewer", errors)
                 reviewers.add(canonical_reviewer)
             _require(review.get("source_check") == "original", f"review[{index}] must check original sources", errors)
             _require(review.get("disposition") == record.get("decision"),
                      f"review[{index}] must assent to the recorded decision", errors)
             receipt = review.get("receipt_url", "")
-            parsed = urlparse(receipt) if isinstance(receipt, str) else None
+            parsed = _url(receipt)
             _require(bool(parsed and parsed.scheme == "https" and parsed.netloc == "github.com"
                           and GITHUB_RECEIPT.fullmatch(parsed.path + (f"#{parsed.fragment}" if parsed.fragment else ""))),
                      f"review[{index}] needs an attributable GitHub issue or PR comment receipt", errors)
@@ -211,7 +233,8 @@ def validate(record: dict) -> list[str]:
         if record.get("decision") == "PASS":
             _require(statuses == ["verified"] * len(REQUIRED_GATES),
                      "PASS requires every required gate to be verified", errors)
-            _require(all(gates[name].get("chain_complete") is True for name in REQUIRED_GATES),
+            _require(all(isinstance(gates[name], dict) and gates[name].get("chain_complete") is True
+                         for name in REQUIRED_GATES),
                      "PASS requires a complete evidence chain for every gate", errors)
             _require(record.get("conservative_net_earnings_status") == "positive",
                      "PASS requires positive conservative net earnings", errors)
@@ -219,20 +242,50 @@ def validate(record: dict) -> list[str]:
         elif record.get("decision") == "NO_VERIFIABLE_ROUTE":
             _require(any(status != "verified" for status in statuses),
                      "NO_VERIFIABLE_ROUTE requires at least one unresolved or failed gate", errors)
-            _require("not evidence of unavailability" in record.get("limitations", "").lower(),
+            limitations = record.get("limitations")
+            _require(isinstance(limitations, str) and "not evidence of unavailability" in limitations.lower(),
                      "negative disposition must explicitly avoid an unavailability claim", errors)
 
     return errors
 
 
+def _unique_object(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError("duplicate JSON member")
+        result[key] = value
+    return result
+
+
+def _finite_json(value):
+    raise ValueError("nonstandard JSON number")
+
+
+class _Parser(argparse.ArgumentParser):
+    def error(self, message):
+        # argparse's usual error includes arbitrary user arguments and paths.
+        raise ValueError("invalid command arguments")
+
+
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = _Parser(prog="qualification.py", description=__doc__)
     parser.add_argument("record", type=Path)
-    args = parser.parse_args(argv)
-    with args.record.open(encoding="utf-8") as handle:
-        record = json.load(handle)
-    errors = validate(record)
-    print(json.dumps({"ok": not errors, "errors": errors, "decision": record.get("decision")}, indent=2))
+    decision = None
+    try:
+        args = parser.parse_args(argv)
+        with args.record.open("rb") as handle:
+            raw = handle.read(MAX_RECORD_BYTES + 1)
+        if len(raw) > MAX_RECORD_BYTES:
+            raise ValueError("record exceeds bounded input size")
+        record = json.loads(raw.decode("utf-8"), object_pairs_hook=_unique_object,
+                            parse_constant=_finite_json)
+        errors = validate(record)
+        if isinstance(record, dict) and _member(record.get("decision"), ALLOWED_DECISIONS):
+            decision = record["decision"]
+    except (OSError, ValueError, UnicodeError, RecursionError):
+        errors = ["record could not be read or parsed; valid unique-member JSON required"]
+    print(json.dumps({"ok": not errors, "errors": errors, "decision": decision}, indent=2))
     return 1 if errors else 0
 
 

@@ -39,6 +39,43 @@ and valid without prospective PASS economics. All numerical controls in tests ar
 synthetic. Neither a green arithmetic check nor a structurally valid PASS packet
 establishes settled cash, incremental human benefit, or financial authority.
 
+## Input and diagnostic privacy boundary
+
+Codex (AI), October 14, 2026: the next bounded increment fixes the existing
+malformed-input crashes and input-echo diagnostics. The beneficiary is the team
+and future consenting workers whose qualification records need safe rejection,
+not an established income recipient. Baseline at main `3b32a6e`: non-object roots,
+unhashable states/references, null PASS gates and malformed URLs could raise;
+errors could echo supplied identifiers and the CLI could echo an arbitrary
+decision or private path. The validator now returns field/index-only errors,
+and the CLI returns `ok`, static `errors`, and an allowed `decision` or `null`.
+No raw record, unknown decision, identifier, path or exception text is printed.
+
+The CLI accepts UTF-8 JSON up to 1 MiB. It rejects duplicate object members
+including nested members, nonstandard NaN/Infinity literals, excessive nesting,
+invalid encoding, read/parse and argument failures with structured JSON and
+exit code 1. Valid packet checks return 0. `--help` remains a normal help exit.
+This is a local diagnostic boundary, not a sandbox for arbitrary Python objects,
+filesystem authorization, source authentication or comprehensive denial-of-service
+protection. Existing payout arithmetic and historical packets are unchanged.
+
+Acceptance within this invocation: reproduce the reported crash cases and nested
+shape matrix; capture stdout/stderr for synthetic private sentinels; check valid
+cash/points and all dated packets; run focused/repository/public-content checks;
+obtain separate review and verify exact main bytes/noreply identities. Resource
+bound: offline local compute, zero account/contact/spend/signing. Failure/stop:
+any false acceptance, private echo or arithmetic/packet change blocks integration.
+The observation window is the checked revision, not a live participant outcome.
+No loan, guarantee, source verification or human earning is inferred.
+
+Current primary-source checks on October 14, 2026: Python's
+[JSON decoder documentation](https://docs.python.org/3/library/json.html)
+documents duplicate-member default behavior and the object-pairs/constant hooks;
+MITRE [CWE-209](https://cwe.mitre.org/data/definitions/209.html) describes sensitive
+error-message exposure. These justify the parser/diagnostic controls, not a
+strategy or legal determination. Coverage is limited to this existing offline
+qualification path; the separate quote-diagnostic CLI retains its own boundary.
+
 Codex (AI), October 14, 2026: bounded integration for
 `action:sl-paid-work-payout-alt-20261011`; decision beneficiary is the team and any
 future consenting worker whose payout evidence it evaluates. Scope: existing
