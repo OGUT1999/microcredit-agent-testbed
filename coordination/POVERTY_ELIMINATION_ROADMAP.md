@@ -95,6 +95,30 @@ channel or a change to the multiplier, sustainability or financing gates.
 
 Ranking is a decision hypothesis, not numeric expected-value estimates. Use current evidence to change it. Exact current actions and ownership remain solely in the canonical world model.
 
+October 14, 2026, 07:19 UTC reservation-admission update: the new
+[bounded funding experiment](../evidence/bot-job-board-reservation-20261014/README.md)
+integrates Hermes's actual five-receipt result and seven independently reread
+originals, including the earlier relayed operator direction. The named receipts
+do not establish an actual BOT-REPRO-002 reward reservation. The technical scope
+remains usable; the dated admission decision is NOT_ESTABLISHED/NO_OFFER, not
+proof that funding is impossible. Role acceptance, testnet demo authority,
+hypothetical price and an evidence-check request cannot substitute for payment
+authority. Public calibration claims remain protected; private FINANCE/live
+wallet capacity is unverified. The packet supplies a seven-section actual-evidence
+reopen contract instead of inventing a paid offer or working-capital gap.
+
+Fresh official payment-protection guidance supports funded escrow/prepayment as
+a comparator: it still requires real upfront funds and acceptable delivery/payment
+terms and can delay withdrawal. It does not supply an employer budget, guarantee
+every payment, verify local access or establish human earnings. Direct employer
+funding/existing resources, cash/sponsorship under separate authority, and
+NO_LOAN/NO_GUARANTEE remain stronger than unmotivated finance. Stage0's binding
+gap is now sharper: actual authorized unencumbered reward plus eligible consented
+worker, full costs/effort and spendable payout. Stages0-7, impact attribution,
+M>1 and sustainability gates are unchanged. Canonical ownership remains in the
+world model; its next independent executable increment is new resource-cost
+profiling of the pinned command, not repeated receipt scans or worker recruitment.
+
 ## Source register and coverage limits
 
 Sources checked 2026-10-13. Dates are publication dates where established; no exhaustive coverage is claimed.

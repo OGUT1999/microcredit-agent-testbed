@@ -1,0 +1,358 @@
+{
+  "artifact_version": 1,
+  "operation_marker": "botrepro002-admission-extension-2bc80f9-6162802880-r1",
+  "source_main": "6dab77ed275ee5bd97aeb7affd172b2d618556d3",
+  "observed_at": "2026-10-14T07:19:00Z",
+  "canonical_action_id": "action:bot-job-board-created-demand",
+  "roadmap": "coordination/POVERTY_ELIMINATION_ROADMAP.md#near-term-decision-and-alternatives",
+  "job_id": "BOT-REPRO-002",
+  "demand": "CREATED_TEAM_DEMAND",
+  "decision": "NOT_ESTABLISHED",
+  "offer_state": "NO_OFFER",
+  "baseline": {
+    "scope_review": "WORKED; PR101 integrated",
+    "actual_authorized_reserved_reward": null,
+    "hypothetical_price": {
+      "amount": "0.500000",
+      "asset_label": "USDC",
+      "accepted_price": false,
+      "network": null
+    },
+    "mandatory_paid_input": "NONE_EVIDENCED",
+    "worker_full_costs": null,
+    "worker_effort": null,
+    "spendable_payout": null,
+    "consenting_eligible_worker": null
+  },
+  "source_scope": {
+    "hermes_original_receipt_reads": 5,
+    "codex_original_receipts_independently_reread": 7,
+    "additional_disconfirming_check": "Original relayed operator direction6051809348 does not name a job reward.",
+    "exhaustive_authorization_search": false,
+    "private_custody_or_ledger_audit": false,
+    "current_ledger_status": "Public OFFER/SLOTS bytes verified at source_main; private FINANCE/current wallet availability remains Hermes reported, unverified.",
+    "excluded": "No wallet/RPC probes, private histories, new contact, signing, transfers or presumed account access."
+  },
+  "original_sources": [
+    {
+      "id": "operator_direction",
+      "url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6051809348",
+      "created_at": "2026-10-08T03:52:12Z",
+      "updated_at": "2026-10-08T03:52:12Z",
+      "body_sha256": "16a2419de814b7f2fba314e9afa7ca501830e0752d99d2b3099f833515a5e38b",
+      "comment_id": 6051809348,
+      "checked_at": "2026-10-14T07:19:00Z",
+      "classification": "Relayed operator preference for creating a bot economy; no particular reward, amount or payer reserved.",
+      "attribution": {
+        "disclosed_author": "Claude relaying operator",
+        "github_account": "scottonchain",
+        "account_is_not_independent_author_identity": true
+      }
+    },
+    {
+      "id": "plan_decision",
+      "url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6052006392",
+      "created_at": "2026-10-08T04:08:58Z",
+      "updated_at": "2026-10-08T04:08:58Z",
+      "body_sha256": "2e44134cfc8519838b30f1a0f018aba8eb94a5409b73cd701963b228f753d062",
+      "comment_id": 6052006392,
+      "checked_at": "2026-10-14T07:19:00Z",
+      "classification": "Funding is an operator spending decision still posed for the sync; not a payment authorization.",
+      "attribution": {
+        "disclosed_author": "Claude",
+        "github_account": "scottonchain",
+        "account_is_not_independent_author_identity": true
+      }
+    },
+    {
+      "id": "role_acceptance",
+      "url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6052077734",
+      "created_at": "2026-10-08T04:15:09Z",
+      "updated_at": "2026-10-08T04:15:09Z",
+      "body_sha256": "95c4f1d40f9e2c79874e81f9817322cac845a3906523782607e5166e48d05741",
+      "comment_id": 6052077734,
+      "checked_at": "2026-10-14T07:19:00Z",
+      "classification": "Hermes accepts testnet employer-seat responsibilities; no reserved job amount, asset or payer.",
+      "attribution": {
+        "disclosed_author": "Hermes",
+        "github_account": "scottonchain",
+        "account_is_not_independent_author_identity": true
+      }
+    },
+    {
+      "id": "demo_authority",
+      "url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6142919679",
+      "created_at": "2026-10-13T09:51:37Z",
+      "updated_at": "2026-10-13T09:51:37Z",
+      "body_sha256": "d5b3e77fc5d881f39eba9c6bdd82a8d5d4759b58f2513547a21a4fb909bdb613",
+      "comment_id": 6142919679,
+      "checked_at": "2026-10-14T07:19:00Z",
+      "classification": "Specific test-USDC bridge/deployment/demo authorization; not created-job reward authority.",
+      "attribution": {
+        "disclosed_author": "Codex",
+        "github_account": "scottonchain",
+        "account_is_not_independent_author_identity": true
+      }
+    },
+    {
+      "id": "catalogue_review",
+      "url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6161736680",
+      "created_at": "2026-10-14T05:39:48Z",
+      "updated_at": "2026-10-14T05:39:48Z",
+      "body_sha256": "234a805ecaa9a1e804651b861b0c5c5f9cc843c9d2a6e8bdcd02491462a9b062",
+      "comment_id": 6161736680,
+      "checked_at": "2026-10-14T07:19:00Z",
+      "classification": "Hypothetical REPRO price and offline scope; funding explicitly not established.",
+      "attribution": {
+        "disclosed_author": "Codex",
+        "github_account": "scottonchain",
+        "account_is_not_independent_author_identity": true
+      }
+    },
+    {
+      "id": "bounded_check_request",
+      "url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6162738499",
+      "created_at": "2026-10-14T06:56:09Z",
+      "updated_at": "2026-10-14T06:56:09Z",
+      "body_sha256": "ff0ba01e16fa2bb27061a568563089708692d6da2d3e0f6706773792a190af9c",
+      "comment_id": 6162738499,
+      "checked_at": "2026-10-14T07:19:00Z",
+      "classification": "Requests <=10 existing receipt reads; explicitly not offer or spending authority.",
+      "attribution": {
+        "disclosed_author": "Codex manager",
+        "github_account": "scottonchain",
+        "account_is_not_independent_author_identity": true
+      }
+    },
+    {
+      "id": "reservation_result",
+      "url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6162802880",
+      "created_at": "2026-10-14T07:00:33Z",
+      "updated_at": "2026-10-14T07:00:33Z",
+      "body_sha256": "7315a12952e6e8c97e94fd81320733e05ce6405263d49ae99480bca52234b0ac",
+      "comment_id": 6162802880,
+      "checked_at": "2026-10-14T07:19:00Z",
+      "classification": "Actual bounded five-read NOT_ESTABLISHED response; calibration collision reported, not a fresh independently audited ledger.",
+      "attribution": {
+        "disclosed_author": "Hermes",
+        "github_account": "scottonchain",
+        "account_is_not_independent_author_identity": true
+      }
+    }
+  ],
+  "substitution_tests": [
+    {
+      "id": "A1",
+      "candidate": "General economy-creation direction is reward authorization",
+      "source_ids": [
+        "operator_direction",
+        "plan_decision"
+      ],
+      "result": "REJECTED_AS_AUTHORITY",
+      "basis": "Broad direction and a requested spending decision provide no reserved amount, payer or job-specific payment terms."
+    },
+    {
+      "id": "A2",
+      "candidate": "Employer-seat acceptance reserves the REPRO reward",
+      "source_ids": [
+        "role_acceptance"
+      ],
+      "result": "REJECTED_AS_AUTHORITY",
+      "basis": "Accepted role is testnet-only with technical conditions, not budget or reservation."
+    },
+    {
+      "id": "A3",
+      "candidate": "Authorized test-USDC demo assets fund the job",
+      "source_ids": [
+        "demo_authority"
+      ],
+      "result": "REJECTED_AS_AUTHORITY",
+      "basis": "Authorization scope is bridge/deployment/demo, not job payment; test value is not spendable human earnings."
+    },
+    {
+      "id": "A4",
+      "candidate": "Historical 0.5 USDC catalogue price is an accepted reward",
+      "source_ids": [
+        "catalogue_review"
+      ],
+      "result": "REJECTED_AS_AUTHORITY",
+      "basis": "Historical price is explicitly hypothetical and unfunded; no currency conversion or wage recommendation follows."
+    },
+    {
+      "id": "A5",
+      "candidate": "A request to check funding authorizes funding",
+      "source_ids": [
+        "bounded_check_request"
+      ],
+      "result": "REJECTED_AS_AUTHORITY",
+      "basis": "Request explicitly withholds offer/spend authority."
+    },
+    {
+      "id": "A6",
+      "candidate": "An agent-wallet balance can be used as unencumbered job money",
+      "source_ids": [
+        "reservation_result"
+      ],
+      "result": "COLLISION_GUARD_NOT_AUTHORITY_TEST",
+      "basis": "Public dated OFFER/SLOTS record three held calibration obligations; Hermes reports private FINANCE commitment. No live liquid balance/surplus audited. Preserve existing accepted obligations; even a balance alone grants no job-reward authority."
+    }
+  ],
+  "reopen_receipt_contract": {
+    "purpose": "Evidence intake specification, not an offer, budget, authorization, task ledger or new qualification engine.",
+    "required": {
+      "job_revision_and_scope": {
+        "value": null,
+        "gate": "Same named job and immutable source revision; acceptance tests/deliverables and revision/rework/dispute limits."
+      },
+      "operator_reward_authority": {
+        "value": null,
+        "gate": "Attributable current operator authorization naming exact job, amount, asset/currency, network/payment method, payer/source, cap and expiry. Public safe locator only."
+      },
+      "unencumbered_reward_reservation": {
+        "value": null,
+        "gate": "Evidence authorized reward is reserved, available at payment time, not committed to calibration/recovery/other workers; record liabilities and payer confirmation, no balance-only inference. Preserve all calibration claims, including three held claims in dated SLOTS; refresh custody-owner capacity evidence before allocation. Require as_of, expiry and objective exclusivity/reservation proof; payer confirmation or balance alone is insufficient."
+      },
+      "worker_terms_and_consent": {
+        "value": null,
+        "gate": "Specific eligible worker freely accepts amount, scope, rejection/rework policy, timing and reasonable effort; no unsolicited worker test, recruitment or application."
+      },
+      "full_cost_and_effort_quote": {
+        "value": null,
+        "gate": "Worker cash costs and setup/active/rework/support time; owner inference/gas/fees/subscriptions/setup/support/rework/pay and subsidy source; unknowns remain unknown, actual controller runtime is not worker labor."
+      },
+      "spendable_payout_quote": {
+        "value": null,
+        "gate": "Consented eligible worker's lawful account-specific withdrawal method, currency/FX, minimums, fees, holds/timing and cash accessibility; private account/address stays in authorized custody, public safe locator only."
+      },
+      "counterfactual_and_welfare_bound": {
+        "value": null,
+        "gate": "Credible no-assistance alternative, foregone earnings, fair-pay/effort threshold, displacement/harms and incremental net benefit; separate owner economics and M>1 plausibility before any fundraising."
+      }
+    },
+    "require_all_before_offer": true,
+    "reservation_alone_passes": false,
+    "quote_alone_is_earned_income": false,
+    "review_rule": "Existing non-author acceptance of this artifact is not worker consent or a joint strategy decision; a future changed packet needs attributable review of its actual version.",
+    "stop_conditions": [
+      "Private details or new authority required: stop public collection, retain safe receipt references.",
+      "Nonpositive conservative incremental net benefit, excessive effort, unsafe terms, payout inaccessible or conflicting obligations: no offer; change route.",
+      "No new funded/worker evidence: do not repeat this receipt scan, rerun unchanged tests as progress, or manufacture a financing gap."
+    ],
+    "different_buyer_revision": "An independently funded buyer/prepayment route would be a different demand/funding revision: require that payer's attributable commitment and project acceptance, not presumed operator-only funding forever.",
+    "decision_rule": "Necessary before offer: all seven required sections have non-null current attributable reviewed evidence, positive conservative incremental net/acceptable effort, lawful eligible consented payout and collision check passes. These necessary checks do not themselves grant offer authority or establish earnings.",
+    "snapshot_offer_admissible": false
+  },
+  "decision_limits": {
+    "funded_order": false,
+    "observed_revenue": false,
+    "market_qualified": false,
+    "human_outcome_established": false,
+    "poverty_outcome_established": false,
+    "loan": "NO_LOAN",
+    "guarantee": "NO_GUARANTEE",
+    "new_spending_authority": false
+  },
+  "acceptance": {
+    "success_metric": "Seven original comment bindings, two pinned public obligation files, six explicit dispositions, seven null required sections and deterministic no-offer result; source interpretation accepted by independent review. Eight synthetic snapshot-tampering controls rejected; five historical files unchanged.",
+    "failure_threshold": "Any source grants the exact reward/reservation, any unknown encoded as zero/false evidence of absence, any private custody value exposed, historical bytes changed, or a role/direction/price/balance treated as job funds: reject/amend before integration.",
+    "observation_window": "This bounded checked snapshot only; later actual authorization/reservation and consented terms invalidate the negative admission conclusion for re-review.",
+    "resource_bound": "Seven named GitHub comment rereads, two public obligation files, two official comparator pages and offline packet audit; zero spend, RPC, contact, recruitment, signing or transactions; no new account/dependency.",
+    "beneficiary": "Prospective consenting worker: avoid unpaid/speculative work and fund diversion before a real paid opportunity exists."
+  },
+  "public_obligation_sources": [
+    {
+      "path": "calibration-v1/OFFER.md",
+      "sha256": "cc2558dd33104071ab0b2463a92546aa6f1d720f28b264f7895e4e73e5475541",
+      "finding": "Immutable rev4 covers only accepted calibration submissions; no future job promise."
+    },
+    {
+      "path": "calibration-v1/SLOTS.md",
+      "sha256": "3cdded2bd2f6405f5d62f021f6df656fb8069ad56bd5584066601fa55d1ffe00",
+      "finding": "Dated ledger at source_main records five paid and three held 1-USDC contingent obligations. Not a live balance or payment-capacity read."
+    }
+  ],
+  "current_admission_matrix": {
+    "job_revision_and_scope": {
+      "state": "PINNED_TECHNICAL_SCOPE_ONLY",
+      "evidence_ids": [
+        "catalogue_review"
+      ],
+      "artifact": "evidence/bot-job-board-review-20261014/review.json"
+    },
+    "reward_authority": {
+      "state": "NOT_ESTABLISHED",
+      "evidence_ids": [
+        "operator_direction",
+        "plan_decision",
+        "role_acceptance",
+        "demo_authority",
+        "bounded_check_request"
+      ]
+    },
+    "reward_amount": {
+      "state": "NOT_ESTABLISHED",
+      "evidence_ids": [
+        "catalogue_review",
+        "reservation_result"
+      ]
+    },
+    "asset_network_and_payer_source": {
+      "state": "NOT_ESTABLISHED",
+      "evidence_ids": [
+        "role_acceptance",
+        "demo_authority",
+        "reservation_result"
+      ]
+    },
+    "exclusive_reservation": {
+      "state": "NOT_ESTABLISHED",
+      "evidence_ids": [
+        "reservation_result"
+      ]
+    },
+    "worker_terms_and_consent": {
+      "state": "NOT_ESTABLISHED",
+      "evidence_ids": [
+        "catalogue_review",
+        "reservation_result"
+      ]
+    },
+    "full_cost_and_effort": {
+      "state": "NOT_ESTABLISHED",
+      "evidence_ids": [
+        "catalogue_review",
+        "reservation_result"
+      ]
+    },
+    "spendable_payout": {
+      "state": "NOT_ESTABLISHED",
+      "evidence_ids": [
+        "reservation_result"
+      ]
+    },
+    "mandatory_paid_input": {
+      "state": "NONE_EVIDENCED",
+      "evidence_ids": [
+        "catalogue_review"
+      ]
+    },
+    "collision": {
+      "state": "UNRESOLVED_CUSTODY_CAPACITY_WITH_THREE_PUBLIC_CONTINGENT_OBLIGATIONS",
+      "evidence_ids": [
+        "reservation_result"
+      ],
+      "public_paths": [
+        "calibration-v1/OFFER.md",
+        "calibration-v1/SLOTS.md"
+      ]
+    }
+  },
+  "integration_base": "2bc80f91ab1d9cab2c1e91ca18e45c2268299081",
+  "integrated_reservation_baseline": {
+    "path": "evidence/bot-job-board-reservation-20261014/review.json",
+    "sha256": "78fce6fb58a0009510c02c63a496aa6f27e69137c28667396da7cdc09883c9ba",
+    "pr": 104,
+    "main": "2bc80f91ab1d9cab2c1e91ca18e45c2268299081",
+    "finding": "Already integrated basic H reservation receipt. This packet extends its original evidence without replacing the immutable review or adding another H originating event."
+  }
+}
