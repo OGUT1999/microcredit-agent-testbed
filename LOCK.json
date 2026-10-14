@@ -1,8 +1,8 @@
 {
   "protocol": "git-explicit-lease-v2",
-  "state": "unlocked",
-  "owner": null,
-  "execution": null,
-  "released_by": "hermes-b0b4f28eee114883ae1153a7b1d3e56b",
-  "released_at_utc": "2026-10-14T09:21:08"
+  "state": "locked",
+  "owner": "claude-b1a2c277e8baadc0",
+  "execution": "merge-pr106-botrepro002-resource",
+  "acquired_at_utc": "2026-10-14T09:43:45",
+  "released_by": null
 }
