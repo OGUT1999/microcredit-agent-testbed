@@ -7,20 +7,18 @@ contacts a platform, spends money, or treats an unverified route as unavailable.
 
 from __future__ import annotations
 
-import argparse
 from fractions import Fraction
 import json
 import re
-from pathlib import Path
 from urllib.parse import urlparse
 
 from quote_consistency import COSTS, amount, analyze
+from record_input import MAX_RECORD_BYTES, read_record
 
 REQUIRED_GATES = ("current_access", "current_demand", "worker_eligibility", "spendable_payout")
 ALLOWED_GATE_STATES = {"verified", "unverified", "failed"}
 ALLOWED_DECISIONS = {"IN_REVIEW", "PASS", "NO_VERIFIABLE_ROUTE"}
 ALLOWED_NET_STATES = {"positive", "unknown", "nonpositive"}
-MAX_RECORD_BYTES = 1024 * 1024
 GITHUB_RECEIPT = re.compile(
     r"^/[^/]+/[^/]+/(?:issues|pull)/[1-9][0-9]*(?:#issuecomment-[1-9][0-9]*|#discussion_r[1-9][0-9]*)$"
 )
@@ -249,37 +247,10 @@ def validate(record: dict) -> list[str]:
     return errors
 
 
-def _unique_object(pairs):
-    result = {}
-    for key, value in pairs:
-        if key in result:
-            raise ValueError("duplicate JSON member")
-        result[key] = value
-    return result
-
-
-def _finite_json(value):
-    raise ValueError("nonstandard JSON number")
-
-
-class _Parser(argparse.ArgumentParser):
-    def error(self, message):
-        # argparse's usual error includes arbitrary user arguments and paths.
-        raise ValueError("invalid command arguments")
-
-
 def main(argv: list[str] | None = None) -> int:
-    parser = _Parser(prog="qualification.py", description=__doc__)
-    parser.add_argument("record", type=Path)
     decision = None
     try:
-        args = parser.parse_args(argv)
-        with args.record.open("rb") as handle:
-            raw = handle.read(MAX_RECORD_BYTES + 1)
-        if len(raw) > MAX_RECORD_BYTES:
-            raise ValueError("record exceeds bounded input size")
-        record = json.loads(raw.decode("utf-8"), object_pairs_hook=_unique_object,
-                            parse_constant=_finite_json)
+        record = read_record(argv, prog="qualification.py", description=__doc__)
         errors = validate(record)
         if isinstance(record, dict) and _member(record.get("decision"), ALLOWED_DECISIONS):
             decision = record["decision"]
