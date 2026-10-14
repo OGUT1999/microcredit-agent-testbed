@@ -147,6 +147,20 @@ strategy. Calendar dates and technical defects alone do not reopen the track.
 Stages0-7, M>1 and the learning/sustainability gates remain unchanged; actual
 opportunity/consent/funding and household additionality remain the bottleneck.
 
+October14, 2026 inquiry-evidence increment: the
+[receipt-review crosswalk](../evidence/inquiry-payout-intent-20261014/README.md)
+uses the site's EXISTING inquiry/commitment/outcome distinction and seven-field
+brief rather than creating a new intake or validator. The narrower gap is a
+same-assignment, payer-reservation, worker-consent and account-specific payout
+threshold for prospective intent. A synthetic funded-but-unwithdrawable case
+retains genuine earlier terms without falsely promoting spendability; complete
+reported wage fields can also coexist with negative net cash. Current primary
+payment-provider documents reinforce the distinction between funding, release,
+holds and usable withdrawal, not any qualified project job. Live site adoption
+belongs to its existing maintainer; H retains the already-answered Vina thread
+and manager-owned new-invitation reply. Stages0-7, M>1, learning/sustainability
+and consent/custody/spending gates are unchanged; no earnings are established.
+
 ## Source register and coverage limits
 
 Sources checked 2026-10-13. Dates are publication dates where established; no exhaustive coverage is claimed.
