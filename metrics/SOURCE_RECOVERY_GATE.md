@@ -106,6 +106,46 @@ type checks. Stat/open races, filesystem authorization and comprehensive
 denial-of-service isolation remain outside this boundary. Numeric/address records
 are not anonymized or authorized for public disclosure.
 
+### Opened-file race correction, October 14, 2026 UTC
+
+At baseline main `6e2fc6c`, a deterministic synthetic replacement of a regular
+file with a FIFO after the path check reproduced a one-second timeout with no
+writer; the child was terminated. The existing shared reader now uses a
+nonblocking open where supported and checks `fstat` on the opened descriptor
+before reading. The path check remains, the opened nonregular file rejects with
+the same static caller failure, and the descriptor closes on rejection. This
+closes that POSIX FIFO-substitution hang, not every filesystem race or special
+device behavior. Regular-file symlinks remain supported; no path authorization,
+file-content immutability or comprehensive resource sandbox is claimed.
+
+Six regression groups cover regular-file parity/exact byte bounds, supported
+symlinks, descriptor rejection/closure, unchanged duplicate/nonstandard literals
+and direct-reader plus CLI subprocess FIFO races with empty stderr/private-sentinel rejection
+and all authority/outcome flags false. Reproduce with
+`python3 -m unittest scripts.test_record_input -v`. Resource bound: one offline
+increment, zero RPC/key/signing/contact/spend. Stop on changed decoder or financial
+semantics, descriptor leaks or a remaining hang in this named control. Actual
+source-five recovery remains blocked; this correction returns no funds.
+
+Primary source checked October 14, 2026 UTC:
+[Python OS](https://docs.python.org/3.12/library/os.html) documents `os.open`,
+platform-dependent flags and descriptor-based `os.fstat`. The earlier stat/open
+limitation remains historical evidence; only the named FIFO race is corrected.
+
+Publication review also exposed an inherited decoder-limit test assumption on
+Hermes's CPython 3.14 host. Both the deep array and 5,000-digit integer are valid
+JSON; a capable decoder can reach existing static packet rejection. Root
+independently reproduced the integer gap-text mismatch with the digit limit
+disabled on baseline `6e2fc6c`. Hermes's exact failing case/configuration remains
+unverified; its reported wrong-root message can be reached by a decoded array.
+Portable tests accept only decoder failure or the unchanged classifier's static
+rejection for each named shape, retaining strict decoder failures for malformed
+JSON/UTF-8. Explicit subprocess controls enable (4,300) and disable (0) the
+integer limit. All reject privately with false outcome/authority flags. The
+decoder and numeric/financial policy are unchanged. Python's
+[integer conversion limit](https://docs.python.org/3.12/library/stdtypes.html#integer-string-conversion-length-limitation)
+is configurable; do not infer its default from a Python version alone.
+
 At Base Sepolia block **48,084,119**, hash
 `0x13c2cdc8d9db9edf0de03843ed09f7c2b93fbd6e55f76563d4838bfcc3f88c6a`,
 2026-10-14T00:08:46Z, a read-only internal audit still found source funder **5**,

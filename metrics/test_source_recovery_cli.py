@@ -17,8 +17,13 @@ PRIVATE = "PRIVATE_RECOVERY_SENTINEL"
 
 
 class SourceRecoveryCLITests(unittest.TestCase):
-    def call(self, args, *, cwd=None):
-        result = subprocess.run([sys.executable, str(CLI), *map(str, args)], cwd=cwd,
+    def call(self, args, *, cwd=None, int_limit=None):
+        command = [sys.executable, str(CLI), *map(str, args)]
+        if int_limit is not None:
+            program = ("import runpy,sys;sys.set_int_max_str_digits(int(sys.argv[1]));"
+                       "sys.argv=sys.argv[2:];runpy.run_path(sys.argv[0],run_name='__main__')")
+            command = [sys.executable, "-c", program, str(int_limit), str(CLI), *map(str, args)]
+        result = subprocess.run(command, cwd=cwd,
                                 capture_output=True, text=True, timeout=2)
         self.assertNotIn(PRIVATE, result.stdout + result.stderr)
         self.assertNotIn("Traceback", result.stdout + result.stderr)
@@ -77,10 +82,33 @@ class SourceRecoveryCLITests(unittest.TestCase):
             self.assertEqual((rc, result["state"]), (1, "INVALID_PACKET"))
 
     def test_invalid_utf8_json_depth_and_large_integer_have_static_failure(self):
-        for raw in (b"\xff", b"{", b"[" * 20000 + b"]" * 20000,
-                    b'{"n":' + b"1" * 5000 + b"}"):
+        for raw in (b"\xff", b"{"):
             result = self.rejected(raw)
             self.assertEqual(result["gaps"], ["unreadable or invalid JSON packet"])
+        # Deep arrays are valid JSON too. A decoder with sufficient capacity
+        # can reach the existing static wrong-root rejection instead.
+        result = self.rejected(b"[" * 20000 + b"]" * 20000)
+        self.assertIn(result["gaps"], [["unreadable or invalid JSON packet"],
+                                     gate.classify([])["gaps"]])
+        # A large integer is standard JSON. Whether it reaches the unchanged
+        # packet classifier depends on this interpreter's configured digit limit.
+        result = self.rejected(b'{"n":' + b"1" * 5000 + b"}")
+        self.assertIn(result["gaps"], [["unreadable or invalid JSON packet"],
+                                     gate.classify({"n": 0})["gaps"]])
+
+    @unittest.skipUnless(hasattr(sys, "set_int_max_str_digits"), "configurable integer limit")
+    def test_integer_digit_limit_enabled_and_disabled_remain_private_rejections(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / (PRIVATE + ".json")
+            path.write_bytes(b'{"n":' + b"1" * 5000 + b"}")
+            for limit in (4300, 0):
+                rc, result = self.call([path], cwd=folder, int_limit=limit)
+                self.assertEqual((rc, result["state"]), (1, "INVALID_PACKET"))
+                expected = (["unreadable or invalid JSON packet"] if limit else
+                            gate.classify({"n": 0})["gaps"])
+                self.assertEqual(result["gaps"], expected)
+                for flag in ("recovery_verified", "human_earnings_established", "transaction_authorized"):
+                    self.assertIs(result[flag], False)
 
     def test_nested_duplicates_and_nonstandard_numbers_reject_even_unused_fields(self):
         ready = json.dumps(synthetic_ready())
