@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "scope": "synthetic_exact_cash_control_not_worker_income",
+  "source_baseline": "1871ef2b10f7223ad43f5f6d9b328841f22a5e1c",
+  "prior_immutable_receipt": "evidence/human-outcome-cli-privacy-20261014/precision-limitation.json",
+  "received": "10000000000000000000000000000",
+  "additional_cost": "9999999999999999999999999999.99",
+  "prior_reported_net": "0",
+  "corrected_reported_net": "0.01",
+  "exact_net_rational": "1/100",
+  "maximum_integer_digits": 32,
+  "maximum_fractional_digits": 12,
+  "amount_domain": "nonnegative integer or bounded ASCII plain decimal text; no exponent, sign, float, underscore, whitespace or fraction",
+  "aggregation": "exact Fraction sums; integer-scale decimal output; withheld costs reported without second deduction",
+  "tests": "python -m unittest discover -s metrics -p test_human_outcome_cash.py",
+  "human_earnings_established": false,
+  "poverty_reduction_established": false,
+  "financial_authority": false,
+  "checked_at": "2026-10-14T04:33:02Z",
+  "limitations": [
+    "Synthetic extreme-magnitude control, not a worker, realistic quote, authenticated payment or outcome.",
+    "Input grammar intentionally narrows earlier unrestricted Decimal spellings; extending bounds requires review.",
+    "CLI amounts remain private financial data; this correction does not anonymize or authorize publication of real records.",
+    "Exact arithmetic preserves readiness guards but cannot authenticate consent, demand, source evidence, settlement or local spendability.",
+    "Private source-five custody, funding, external commitments and publication gates remain unchanged."
+  ]
+}
