@@ -133,6 +133,20 @@ consenting worker/full costs/spendable payout remain the binding human-benefit
 gate. Stages0-7, M>1, alternatives and learning/sustainability gates are unchanged.
 The original observations and historical catalogue are retained, not rewritten.
 
+October14, 2026 setup closure: the [one instrumented isolated setup observation](../evidence/botrepro002-setup-20261014/README.md)
+ran all11 pinned f3ce81ba groups in one venv without pip/bootstrap/package install.
+It records seven repository inputs and the full observed Python inventory with
+explicit native/OS/other-platform and instrumentation limits, not a standalone
+kit or universal free input. The older resource trials used a different
+record_input.py blob; their immutable timing is not relabelled as this source.
+No additional third-party Python package was required in this observed run;
+device/access/labor, full cost and actual spendable payout remain unknown.
+This completes the final bounded setup question: no further BOT-REPRO-002
+infrastructure absent the attributable payer/worker receipts in the current
+strategy. Calendar dates and technical defects alone do not reopen the track.
+Stages0-7, M>1 and the learning/sustainability gates remain unchanged; actual
+opportunity/consent/funding and household additionality remain the bottleneck.
+
 ## Source register and coverage limits
 
 Sources checked 2026-10-13. Dates are publication dates where established; no exhaustive coverage is claimed.
