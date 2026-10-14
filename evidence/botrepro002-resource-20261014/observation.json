@@ -1,0 +1,159 @@
+{
+  "checked_at": "2026-10-14T08:08:26.832204+00:00",
+  "source_base": "2bc80f91ab1d9cab2c1e91ca18e45c2268299081",
+  "code_unchanged_at_candidate": "71ab29d444bc27c18077b6d537871485ae33e36b",
+  "runtime": {
+    "implementation": "CPython",
+    "python": "3.12.14",
+    "os": "Linux",
+    "architecture": "x86_64"
+  },
+  "measurement": "POSIX wait4 resource accounting; fresh interpreter each trial, host/filesystem cache NOT cleared; baseline prewarms cache; 2ms polling overhead included in wall",
+  "baseline_control_groups": 11,
+  "trials": [
+    {
+      "trial": 1,
+      "wall_seconds": 0.07156,
+      "user_cpu_seconds": 0.0598,
+      "system_cpu_seconds": 0.011515,
+      "maxrss_kib": 13056
+    },
+    {
+      "trial": 2,
+      "wall_seconds": 0.084795,
+      "user_cpu_seconds": 0.074389,
+      "system_cpu_seconds": 0.008694,
+      "maxrss_kib": 13056
+    },
+    {
+      "trial": 3,
+      "wall_seconds": 0.069552,
+      "user_cpu_seconds": 0.060853,
+      "system_cpu_seconds": 0.008173,
+      "maxrss_kib": 13056
+    },
+    {
+      "trial": 4,
+      "wall_seconds": 0.081804,
+      "user_cpu_seconds": 0.076986,
+      "system_cpu_seconds": 0.004286,
+      "maxrss_kib": 13056
+    },
+    {
+      "trial": 5,
+      "wall_seconds": 0.082,
+      "user_cpu_seconds": 0.057652,
+      "system_cpu_seconds": 0.02324,
+      "maxrss_kib": 13056
+    },
+    {
+      "trial": 6,
+      "wall_seconds": 0.069963,
+      "user_cpu_seconds": 0.052686,
+      "system_cpu_seconds": 0.016168,
+      "maxrss_kib": 13056
+    },
+    {
+      "trial": 7,
+      "wall_seconds": 0.073512,
+      "user_cpu_seconds": 0.064561,
+      "system_cpu_seconds": 0.006956,
+      "maxrss_kib": 13056
+    },
+    {
+      "trial": 8,
+      "wall_seconds": 0.071592,
+      "user_cpu_seconds": 0.061845,
+      "system_cpu_seconds": 0.008704,
+      "maxrss_kib": 13056
+    },
+    {
+      "trial": 9,
+      "wall_seconds": 0.073707,
+      "user_cpu_seconds": 0.06533,
+      "system_cpu_seconds": 0.007611,
+      "maxrss_kib": 13056
+    },
+    {
+      "trial": 10,
+      "wall_seconds": 0.071827,
+      "user_cpu_seconds": 0.059991,
+      "system_cpu_seconds": 0.011266,
+      "maxrss_kib": 13056
+    },
+    {
+      "trial": 11,
+      "wall_seconds": 0.08408,
+      "user_cpu_seconds": 0.08011,
+      "system_cpu_seconds": 0.002846,
+      "maxrss_kib": 13056
+    },
+    {
+      "trial": 12,
+      "wall_seconds": 0.073529,
+      "user_cpu_seconds": 0.059229,
+      "system_cpu_seconds": 0.012042,
+      "maxrss_kib": 13056
+    }
+  ],
+  "summary": {
+    "wall_seconds": {
+      "minimum": 0.069552,
+      "median": 0.07352049999999999,
+      "maximum": 0.084795
+    },
+    "user_cpu_seconds": {
+      "minimum": 0.052686,
+      "median": 0.061349,
+      "maximum": 0.08011
+    },
+    "system_cpu_seconds": {
+      "minimum": 0.002846,
+      "median": 0.008699,
+      "maximum": 0.02324
+    },
+    "maxrss_kib": {
+      "minimum": 13056,
+      "median": 13056,
+      "maximum": 13056
+    }
+  },
+  "source_subset": [
+    {
+      "path": "metrics/test_human_outcome_cash.py",
+      "bytes": 7772,
+      "sha256": "3874de67c9359e03e79cb0dc95479fbe92dd3ba9848e3a213d3bf8bad9be7544"
+    },
+    {
+      "path": "metrics/human_outcome_gate.py",
+      "bytes": 16902,
+      "sha256": "38fb264f961f5c4a1f0dd41c1ede77890fde344901866d62d9419d5d0a507d9f"
+    },
+    {
+      "path": "metrics/test_human_outcome_gate.py",
+      "bytes": 13590,
+      "sha256": "ba802671a26e3850c1d46fcbb253f8ea79c39370630d7b2b1382a44da15deaf5"
+    },
+    {
+      "path": "metrics/test_human_outcome_cli.py",
+      "bytes": 8391,
+      "sha256": "7ced983ec04434a2ce1a71cf001c512c3603802def7380f50f28c9d307729404"
+    },
+    {
+      "path": "scripts/record_input.py",
+      "bytes": 1812,
+      "sha256": "88791ebe5302989a30f16c72431e0024ecd0d15c6069df62fcf72688ce94aa1c"
+    },
+    {
+      "path": "evidence/human-outcome-cli-privacy-20261014/precision-limitation.json",
+      "bytes": 1422,
+      "sha256": "a5bdfa8b0cdfe7cd33fd3cb3afd7ef85d62aac0a2d6b7eb9ac661c889403e11a"
+    }
+  ],
+  "new_installations_performed": 0,
+  "currency_price": null,
+  "worker_effort": null,
+  "full_owner_cost": null,
+  "network_instrumented": false,
+  "decision": "Existing team-host compute/setup floor only; no mandatory paid service added by this measured command. No wage, worker effort, accessible device, positive net pay, payout, outside demand or income inferred. Setup/dependency observations are scoped to existing configured host, not newcomer setup."
+}
