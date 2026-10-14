@@ -62,6 +62,14 @@ Qualitative ranking at this baseline:
 
 October 14, 2026 UTC implementation update: the [quote-consistency helper](../experiments/paid-work-channel-qualification/QUOTE_CONSISTENCY.md) reached main via [PR91](https://github.com/scottonchain/microcredit-agent-testbed/pull/91), and its qualification wiring via [PR93](https://github.com/scottonchain/microcredit-agent-testbed/pull/93). Their arithmetic readiness is not a new qualified channel or payout. The [source-five recovery receipt gate](../metrics/SOURCE_RECOVERY_GATE.md), integrated by [PR92](https://github.com/scottonchain/microcredit-agent-testbed/pull/92), addresses a concrete stewardship risk: restored pool cash alone can conceal changed lender ownership. Actual return/redeposit remains signer-dependent and has priority when the accepted route is executable. The existing qualification path now has a bounded [input/diagnostic privacy boundary](../experiments/paid-work-channel-qualification/README.md#input-and-diagnostic-privacy-boundary): malformed inputs reject without raw records, identifiers, paths or exception echo, while accepted payout arithmetic and historical evidence remain intact. Live actions remain only in the canonical model. These tactical readiness controls do not change stages0-7, the multiplier gates or NO_LOAN/NO_GUARANTEE; no current funded task, consented worker, earnings, human outcome or funding authority follows.
 
+October 14, 2026 UTC follow-up: the separately reproduced
+[quote CLI privacy boundary](../experiments/paid-work-channel-qualification/QUOTE_CONSISTENCY.md#cli-input-and-diagnostic-privacy-boundary)
+now shares the strict bounded input reader and omits supplied source labels from
+diagnostic output. Exact arithmetic and historical packets remain intact; numeric
+output is not anonymous data or permission to publish private records. Focused
+current Python/RFC source checks justify this control, not a strategic pivot.
+The live evidence/consent bottleneck and stages 0-7 remain unchanged.
+
 | Route | Expected incremental benefit and information | Feasibility, full cost, feedback and reversibility | Decision |
 | --- | --- | --- | --- |
 | Existing employer-funded work plus targeted access/skill-signaling help | Plausible but unmeasured; direct route to a real payout and identifiable barrier | Low-cost support can be reversible; eligibility/consent and applicant evidence block live use | Preserve owned channel; distinguish readiness from completion and earnings from attribution |

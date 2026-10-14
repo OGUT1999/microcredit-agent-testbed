@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Offline arithmetic diagnostic; never a channel PASS or an earnings claim."""
-import argparse
 from fractions import Fraction
 import json
-from pathlib import Path
 import re
+
+from record_input import read_record
 
 NUMBER = re.compile(r"[0-9]{1,18}(?:\.[0-9]{1,12})?\Z")
 COSTS = ("provider_transfer_fee", "recipient_cashout_fee", "other_worker_costs")
@@ -96,14 +96,20 @@ def analyze(record):
     return {**result, "status": status}
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("record", type=Path)
-    args = parser.parse_args()
+def main(argv=None):
     try:
-        result = analyze(json.loads(args.record.read_text(encoding="utf-8")))
-    except (OSError, ValueError) as error:
-        result = {"status": "INVALID_QUOTE", "errors": [str(error)], "channel_pass": False}
+        result = analyze(read_record(argv, prog="quote_consistency.py", description=__doc__))
+    except (OSError, ValueError, UnicodeError, RecursionError):
+        result = {"scope": "offline_quote_arithmetic_only", "status": "INVALID_QUOTE",
+                  "errors": ["record could not be read or parsed; valid unique-member JSON required"],
+                  "channel_pass": False, "human_earnings_established": False,
+                  "rate_intervals": []}
+    # Keep the in-memory API's source labels for qualification plumbing, never
+    # emit them from the CLI. Invalid records have no usable interval output.
+    result["rate_intervals"] = [] if result["status"] == "INVALID_QUOTE" else [
+        {"interval_index": index, "low_cash_per_point": interval["low_cash_per_point"],
+         "high_cash_per_point": interval["high_cash_per_point"]}
+        for index, interval in enumerate(result["rate_intervals"])]
     print(json.dumps(result, indent=2))
     return 0 if result["status"] == "QUOTE_ARITHMETIC_CONSISTENT" else 1
 

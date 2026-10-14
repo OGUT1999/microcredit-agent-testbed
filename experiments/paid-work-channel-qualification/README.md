@@ -74,7 +74,10 @@ documents duplicate-member default behavior and the object-pairs/constant hooks;
 MITRE [CWE-209](https://cwe.mitre.org/data/definitions/209.html) describes sensitive
 error-message exposure. These justify the parser/diagnostic controls, not a
 strategy or legal determination. Coverage is limited to this existing offline
-qualification path; the separate quote-diagnostic CLI retains its own boundary.
+qualification path. The separately dated [quote CLI boundary](QUOTE_CONSISTENCY.md#cli-input-and-diagnostic-privacy-boundary)
+now reuses the same `record_input.py` implementation; its arithmetic API retains
+source labels and is not a privacy-safe logging interface. This extraction does
+not change qualification output or historical evidence.
 
 Codex (AI), October 14, 2026: bounded integration for
 `action:sl-paid-work-payout-alt-20261011`; decision beneficiary is the team and any
