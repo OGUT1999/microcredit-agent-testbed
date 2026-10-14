@@ -5,6 +5,7 @@ This is not filesystem authorization or a comprehensive resource sandbox.
 """
 import argparse
 import json
+import os
 import stat
 from pathlib import Path
 
@@ -36,7 +37,14 @@ def read_record(argv, *, prog, description, argument_name="record"):
     path = getattr(args, argument_name)
     if not stat.S_ISREG(path.stat().st_mode):
         raise ValueError("record must be a regular file")
-    with path.open("rb") as handle:
+    # POSIX FIFO substitution must not block open after the path check. Bind
+    # the regular-file check to the opened descriptor before reading any bytes.
+    def nonblocking_open(name, flags):
+        return os.open(name, flags | getattr(os, "O_NONBLOCK", 0))
+
+    with open(path, "rb", opener=nonblocking_open) as handle:
+        if not stat.S_ISREG(os.fstat(handle.fileno()).st_mode):
+            raise ValueError("record must be a regular file")
         raw = handle.read(MAX_RECORD_BYTES + 1)
     if len(raw) > MAX_RECORD_BYTES:
         raise ValueError("record exceeds bounded input size")
