@@ -1,9 +1,12 @@
 import json
 import copy
 import unittest
+import io
+from contextlib import redirect_stdout, redirect_stderr
+import tempfile
 from pathlib import Path
 
-from qualification import payout_readiness, validate
+from qualification import MAX_RECORD_BYTES, main, payout_readiness, validate
 
 
 def cash_economics():
@@ -70,6 +73,138 @@ def record(decision="NO_VERIFIABLE_ROUTE"):
 
 
 class QualificationTests(unittest.TestCase):
+    def test_malformed_roots_are_structured_rejections(self):
+        for value in (None, [], 1, True, "PRIVATE_SENTINEL"):
+            with self.subTest(value=type(value).__name__):
+                self.assertEqual(validate(value), ["record must be an object"])
+                result = payout_readiness(value)
+                self.assertTrue(result["errors"])
+                self.assertFalse(result["human_earnings_established"])
+                self.assertFalse(result["financial_authority"])
+
+    def test_nested_shape_matrix_rejects_without_crash_or_echo(self):
+        shapes = (None, [], {}, 1, True, "PRIVATE_SENTINEL")
+        paths = [("decision",), ("limitations",), ("sources",),
+                 ("independent_reviews",), ("gates",),
+                 ("gates", "current_demand"),
+                 ("gates", "current_demand", "status"),
+                 ("gates", "current_demand", "source_ids")]
+        for path in paths:
+            for value in shapes:
+                data = pass_record()
+                target = data
+                for key in path[:-1]:
+                    target = target[key]
+                target[path[-1]] = value
+                with self.subTest(path=path, kind=type(value).__name__):
+                    errors = validate(data)
+                    if path == ("limitations",) and isinstance(value, str):
+                        self.assertEqual(errors, [])  # Valid free text is not an error.
+                    else:
+                        self.assertTrue(errors)
+                    self.assertNotIn("PRIVATE_SENTINEL", json.dumps(errors))
+
+    def test_unhashable_references_and_malformed_urls_reject(self):
+        for value in ({}, [], None, 1):
+            data = pass_record()
+            data["gates"]["current_demand"]["source_ids"] = [value]
+            self.assertTrue(validate(data))
+        for collection, field in (("sources", "url"), ("independent_reviews", "receipt_url")):
+            data = record()
+            data[collection][0][field] = "https://[PRIVATE_SENTINEL"
+            errors = validate(data)
+            self.assertTrue(errors)
+            self.assertNotIn("PRIVATE_SENTINEL", json.dumps(errors))
+
+    def test_duplicate_and_unknown_identifiers_never_echo(self):
+        for mode in ("source", "reviewer", "reference"):
+            data = record()
+            if mode == "source":
+                for source in data["sources"]:
+                    source["id"] = "PRIVATE_SENTINEL"
+            elif mode == "reviewer":
+                for review in data["independent_reviews"]:
+                    review["reviewer"] = "agent:PRIVATE_SENTINEL"
+            else:
+                data["gates"]["current_demand"]["source_ids"] = ["PRIVATE_SENTINEL"]
+            errors = validate(data)
+            self.assertTrue(errors)
+            self.assertNotIn("PRIVATE_SENTINEL", json.dumps(errors))
+
+    def test_schema_version_boolean_is_not_integer_one(self):
+        data = record(); data["schema_version"] = True
+        self.assertTrue(validate(data))
+
+    def test_validation_preserves_supplied_record(self):
+        for data in (record(), pass_record(), points_record()):
+            before = copy.deepcopy(data)
+            validate(data); payout_readiness(data)
+            self.assertEqual(data, before)
+
+    def _cli(self, argv):
+        out, err = io.StringIO(), io.StringIO()
+        with redirect_stdout(out), redirect_stderr(err):
+            rc = main(argv)
+        self.assertEqual(err.getvalue(), "")
+        self.assertNotIn("PRIVATE_SENTINEL", out.getvalue())
+        self.assertNotIn("Traceback", out.getvalue())
+        return rc, json.loads(out.getvalue())
+
+    def test_cli_valid_packets_and_private_unused_field(self):
+        with tempfile.TemporaryDirectory(prefix="PRIVATE_SENTINEL_") as directory:
+            path = Path(directory) / "record.json"
+            for data in (record(), pass_record(), points_record()):
+                data["private_unused"] = "PRIVATE_SENTINEL"
+                path.write_text(json.dumps(data), encoding="utf-8")
+                rc, result = self._cli([str(path)])
+                self.assertEqual(rc, 0)
+                self.assertTrue(result["ok"])
+                self.assertEqual(result["decision"], data["decision"])
+
+    def test_cli_invalid_json_duplicate_members_and_constants_reject(self):
+        with tempfile.TemporaryDirectory(prefix="PRIVATE_SENTINEL_") as directory:
+            path = Path(directory) / "record.json"
+            texts = ["PRIVATE_SENTINEL", '{"decision":"PRIVATE_SENTINEL",}',
+                     '{"decision":"PASS","decision":"NO_VERIFIABLE_ROUTE"}',
+                     '{"unused":{"PRIVATE_SENTINEL":1,"PRIVATE_SENTINEL":2}}']
+            for constant in ("NaN", "Infinity", "-Infinity"):
+                texts.append(json.dumps(pass_record())[:-1] + ',"unused":' + constant + '}')
+            for value in texts:
+                path.write_text(value, encoding="utf-8")
+                rc, result = self._cli([str(path)])
+                self.assertEqual(rc, 1)
+                self.assertFalse(result["ok"])
+                self.assertIsNone(result["decision"])
+
+    def test_cli_missing_directory_encoding_and_depth_reject_privately(self):
+        with tempfile.TemporaryDirectory(prefix="PRIVATE_SENTINEL_") as directory:
+            path = Path(directory) / "record.json"
+            for value in (b'\xffPRIVATE_SENTINEL', b'[' * 10000 + b']' * 10000,
+                          b' ' * (MAX_RECORD_BYTES + 1), b'1' * 10000):
+                path.write_bytes(value)
+                rc, result = self._cli([str(path)])
+                self.assertEqual(rc, 1)
+                self.assertFalse(result["ok"])
+                self.assertIsNone(result["decision"])
+            for target in (Path(directory) / "missing.json", Path(directory)):
+                rc, result = self._cli([str(target)])
+                self.assertEqual(rc, 1)
+                self.assertFalse(result["ok"])
+
+    def test_cli_invalid_decision_and_arguments_never_echo(self):
+        with tempfile.TemporaryDirectory(prefix="PRIVATE_SENTINEL_") as directory:
+            path = Path(directory) / "record.json"
+            for value in ("PRIVATE_SENTINEL", {"PRIVATE_SENTINEL": 1}, ["PRIVATE_SENTINEL"]):
+                data = record(); data["decision"] = value
+                path.write_text(json.dumps(data), encoding="utf-8")
+                rc, result = self._cli([str(path)])
+                self.assertEqual(rc, 1)
+                self.assertIsNone(result["decision"])
+            for argv in ([], ["--PRIVATE_SENTINEL"], [str(path), "PRIVATE_SENTINEL"]):
+                rc, result = self._cli(argv)
+                self.assertEqual(rc, 1)
+                self.assertIsNone(result["decision"])
+
     def test_negative_record_passes(self):
         self.assertEqual(validate(record()), [])
 
