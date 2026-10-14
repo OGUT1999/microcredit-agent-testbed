@@ -1,0 +1,31 @@
+{
+  "author": "Codex (AI)",
+  "scope": "one_new_replay_method_validation_not_replacement_for_original_12_trials",
+  "checked_at": "2026-10-14T09:05:58.634476+00:00",
+  "source_base": "1f53dae53cee804d71f8d6f971cf9900c580b1b3",
+  "replay_script_at_review_sha256": "355ba4b9c61cc3843023f7cd517046d06545c7dfc993432f17ac8dbd4f7162c2",
+  "replay_script_hash_scope": "Reviewed later summary-display revision; not an immutable at-run witness. Measurement/child logic unchanged; original run preceded Decimal display normalization.",
+  "command": "python scripts/botrepro_resource.py --run --trials 1 --timeout 2",
+  "result": {
+    "status": "REPRODUCTION_PASS",
+    "runtime": {"implementation": "CPython", "python": "3.12.14", "os": "Linux", "architecture": "x86_64"},
+    "trials": [{"trial": 1, "wall_seconds": 0.07237084099961066, "user_cpu_seconds": 0.052246999999999995, "system_cpu_seconds": 0.019282, "maxrss_kib": 13696}],
+    "summary": {
+      "wall_seconds": {"minimum": 0.07237084099961066, "median": 0.07237084099961066, "maximum": 0.07237084099961066},
+      "user_cpu_seconds": {"minimum": 0.052246999999999995, "median": 0.052246999999999995, "maximum": 0.052246999999999995},
+      "system_cpu_seconds": {"minimum": 0.019282, "median": 0.019282, "maximum": 0.019282},
+      "maxrss_kib": {"minimum": 13696, "median": 13696, "maximum": 13696}
+    },
+    "currency_price": null,
+    "worker_effort": null,
+    "full_owner_cost": null,
+    "network_instrumented": false,
+    "decision": "HOST_SPECIFIC_ONLY_NO_OFFER"
+  },
+  "notes": [
+    "One prewarming baseline validated exit0, exactly11 tests and OK; this validates new replay code, not worker income or a timing population.",
+    "The harness and launch context changed relative to the original observation. Different RSS is consistent with the documented process/harness caveat; no causal memory mechanism measured.",
+    "Raw values retained. Later summary display Decimal normalization does not alter these observations or the timing/poll/child code.",
+    "No installation, paid call, RPC, contact or transaction performed. Full owner economics and newcomer setup remain unknown."
+  ]
+}

@@ -119,6 +119,20 @@ M>1 and sustainability gates are unchanged. Canonical ownership remains in the
 world model; its next independent executable increment is new resource-cost
 profiling of the pinned command, not repeated receipt scans or worker recruitment.
 
+October14, 2026 resource benchmark increment:
+[source-pinned observations and bounded replay](../evidence/botrepro002-resource-20261014/README.md)
+now separate measured team-host resources from unknown human economics. Twelve
+fresh processes after a prewarming baseline have median wall0.0735205seconds;
+Linux process-peak RSS may include inherited harness state and is not a universal
+minimum RAM requirement. The six-file49889byte subset is not complete dependency
+closure. Current Python3.12/Linux syscall docs support the accounting limitations;
+no worker price, payout eligibility or earnings follows. This narrows the next
+setup question to a minimal reproducible input/dependency manifest and isolated
+local-venv setup check, with no downloads/paid tools. The funded opportunity,
+consenting worker/full costs/spendable payout remain the binding human-benefit
+gate. Stages0-7, M>1, alternatives and learning/sustainability gates are unchanged.
+The original observations and historical catalogue are retained, not rewritten.
+
 ## Source register and coverage limits
 
 Sources checked 2026-10-13. Dates are publication dates where established; no exhaustive coverage is claimed.
