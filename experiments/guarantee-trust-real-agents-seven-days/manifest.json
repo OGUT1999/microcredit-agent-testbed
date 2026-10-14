@@ -21,13 +21,17 @@
   ],
   "no_run_claim": "Implementation and unit fixtures are not evidence of an actual seven-day model-agent run.",
   "validation": {
-    "offline_tests_passed": 37,
+    "offline_tests_passed": 40,
     "node_syntax_check": "passed",
     "live_rpc_receipt_rehearsal": "not_run",
     "fork_rehearsal": "not_run",
     "virtual_days_executed": 0,
     "character_day_model_turns_executed": 0,
-    "typed_action_confirmation_model_turns_executed": 0
+    "typed_action_confirmation_model_turns_executed": 0,
+    "executor_offline_checks_passed": 17,
+    "launcher_offline_checks_passed": 10,
+    "seven_day_fixture_shape": "passed; zero EVM execution and zero model invocations"
   },
-  "execution_readiness": "Peer review and live/fork rehearsal still required; preparation is not approval for live execution."
+  "execution_readiness": "Peer review and live/fork rehearsal still required; preparation is not approval for live execution.",
+  "execution_blocker": "GitHub writer credential rejected workflow creation without workflow scope; both proposed workflows remain disabled and unpublished."
 }
