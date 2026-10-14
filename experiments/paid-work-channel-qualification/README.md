@@ -75,7 +75,8 @@ MITRE [CWE-209](https://cwe.mitre.org/data/definitions/209.html) describes sensi
 error-message exposure. These justify the parser/diagnostic controls, not a
 strategy or legal determination. Coverage is limited to this existing offline
 qualification path. The separately dated [quote CLI boundary](QUOTE_CONSISTENCY.md#cli-input-and-diagnostic-privacy-boundary)
-now reuses the same `record_input.py` implementation; its arithmetic API retains
+now reuses the canonical `scripts/record_input.py` implementation through a thin
+local compatibility forwarder; its arithmetic API retains
 source labels and is not a privacy-safe logging interface. This extraction does
 not change qualification output or historical evidence.
 

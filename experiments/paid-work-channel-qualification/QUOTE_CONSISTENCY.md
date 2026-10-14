@@ -22,7 +22,9 @@ showed supplied quote identifiers in successful output and a supplied private pa
 in a missing-file error. The previous qualification CLI was already protected;
 that did not protect this separate entrypoint.
 
-Both CLIs now use the same stdlib-only `record_input.py` reader, with a 1 MiB
+Both qualification CLIs and the human-outcome CLI now use the same stdlib-only
+`scripts/record_input.py` reader (the local `record_input.py` forwards for
+compatibility), with a 1 MiB
 UTF-8 input bound, duplicate-member rejection at every object depth, and rejection
 of NaN/Infinity literals. File, encoding, parsing, recursion and argument failures
 produce static structured errors without raw input, labels, paths or exception

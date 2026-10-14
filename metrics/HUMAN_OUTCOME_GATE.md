@@ -19,10 +19,76 @@ python -m unittest discover -s metrics -p test_human_outcome_gate.py -v
 ```
 
 Exit 0 means only that the JSON was parsed and classified. Invalid types,
-unsupported fields and malformed dates produce exit 2. Missing records produce
+unsupported fields and malformed dates produce structured `INVALID_PACKET`
+JSON and exit 2. Missing records produce
 `NOT_ESTABLISHED` and explicit gaps, never a zero outcome. There is no impact
 estimate, sponsor multiplier, poverty elimination flag or automatic decision to
 lend, guarantee, spend or contact anyone.
+
+## CLI input and diagnostic privacy boundary
+
+Codex (AI), October 14, 2026 UTC. Beneficiary: future consenting workers and the
+team handling their private evidence, not an established earnings recipient.
+At baseline main `01ed84a`, synthetic missing-path and unsupported-field controls
+both echoed supplied private text. A finite very large cost could also raise an
+uncaught Decimal arithmetic exception. The existing classification API remains
+unchanged; this increment contains failures at the CLI boundary.
+
+The CLI now uses the existing reader's single canonical implementation in
+`scripts/record_input.py`. The qualification directory's `record_input.py` is a
+compatibility forwarder, not another parser. All three evidence CLIs share the
+1 MiB UTF-8 limit, nested duplicate-member/nonstandard-literal rejection and
+pre-existing regular-file check. Read, parse, recursion, argument, classification
+and Decimal exceptions give one static error, without path, raw field name,
+record, label, exception or traceback echo. `--help` keeps its normal exit.
+
+Successful output preserves the three readiness states, their gaps and numerical
+results. It removes the supplied arithmetic `currency` label and adds
+`currency_label_omitted: true`; units still must be checked privately against the
+original source. Every CLI result explicitly keeps `human_earnings_established`,
+`poverty_reduction_established` and `financial_authority` false. `classify()`
+retains the original private-review API, including its unit label and exceptions;
+it is **not a privacy-safe logging interface**. Amounts are still printed by the
+CLI: neither interface anonymizes financial data or grants publication consent.
+The reader is not filesystem authorization or comprehensive denial-of-service
+protection; a stat/open path-replacement race remains possible.
+
+Acceptance at this revision: 18 existing classification test groups unchanged,
+plus 11 new CLI groups for success equivalence/redaction, missing versus invalid
+records, negative/deducted cash, nested unsupported fields, file/encoding/parse/
+depth/integer/argument errors, duplicates/constants, size boundary, Decimal
+overflow, normal help, three-CLI FIFO rejection from another directory, and
+reader forwarding identity. FIFO controls execute on Linux and explicitly skip
+where unsupported. Required repository/public-content checks, separate exact-head
+review and independent main-byte/identity verification precede completion.
+Bound: one offline increment, zero signup, outside contact, spend or signing;
+compute and labor costs remain unpriced. Observation window: this source revision,
+not a live household outcome. Any input echo, changed readiness/numeric API,
+historical packet change or false earnings flag blocks integration.
+
+Focused primary-source research checked October 14, 2026 UTC:
+[Python 3.12 JSON documentation](https://docs.python.org/3.12/library/json.html)
+describes decoder hooks and recommends limiting untrusted input; MITRE
+[CWE-209](https://cwe.mitre.org/data/definitions/209.html) describes sensitive
+error-message exposure. These support this diagnostic control only, not complete
+source coverage, authenticated outcomes or a changed poverty/financing strategy.
+
+The official [Python 3.12 Decimal documentation](https://docs.python.org/3.12/library/decimal.html),
+checked October 14, 2026 UTC, describes the default 28-place precision,
+arithmetic-context rounding and exception signals. This supports the separate
+precision-risk diagnosis below; it does not establish an authenticated wage.
+
+Known separate numerical limitation, reproduced with a synthetic control:
+under the default Decimal context, received `10000000000000000000000000000`
+minus additional cost `9999999999999999999999999999.99` reports zero rather than
+the exact `0.01`. This privacy increment deliberately preserves the API rather
+than silently changing arithmetic. Numerical precision/bounds require a separate
+reviewed correction before relying on such inputs. This is not a worker record
+or an earnings finding; live actions remain only in the world model.
+
+The separately dated [synthetic precision receipt](../evidence/human-outcome-cli-privacy-20261014/precision-limitation.json)
+retains operands, context, reported/exact values, check time and reproduction
+instructions. It is a falsifier for numerical correctness, not a human outcome.
 
 ## Three review stages
 

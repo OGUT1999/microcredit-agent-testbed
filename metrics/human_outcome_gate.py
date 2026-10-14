@@ -5,12 +5,15 @@ No network, custody, transactions, financing recommendation, or poverty estimate
 Missing evidence is NOT_ESTABLISHED. A complete packet is READY_FOR_REVIEW only.
 Amounts are nonnegative decimal strings or integers, never binary floats.
 """
-import argparse
 from datetime import date, datetime
-from decimal import Decimal, InvalidOperation
+from decimal import Decimal, DecimalException, InvalidOperation
 import json
 from pathlib import Path
 import re
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from scripts.record_input import read_record
 
 
 COST_CATEGORIES = (
@@ -276,13 +279,24 @@ def classify(packet):
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("packet", type=Path, help="Private JSON evidence packet; avoid public personal data")
-    args = parser.parse_args(argv)
     try:
-        report = classify(json.loads(args.packet.read_text()))
-    except (OSError, ValueError) as error:
-        parser.exit(2, "Invalid packet: " + str(error) + "\n")
+        report = classify(read_record(argv, prog="human_outcome_gate.py",
+                                      description=__doc__, argument_name="packet"))
+    except (OSError, ValueError, TypeError, UnicodeError, RecursionError, DecimalException):
+        report = {"scope": "SUPPLIED_PACKET_READINESS_ONLY; no authentication, causal inference or poverty finding",
+                  "status": "INVALID_PACKET",
+                  "errors": ["packet could not be read, parsed or classified; bounded unique-member JSON required"],
+                  "human_earnings_established": False, "poverty_reduction_established": False,
+                  "financial_authority": False}
+        print(json.dumps(report, indent=2))
+        return 2
+    # The API retains the reported unit for private review. CLI diagnostics must
+    # not repeat arbitrary supplied labels; amounts still require private handling.
+    if "reported_earnings_arithmetic" in report:
+        del report["reported_earnings_arithmetic"]["currency"]
+        report["reported_earnings_arithmetic"]["currency_label_omitted"] = True
+    report.update(human_earnings_established=False, poverty_reduction_established=False,
+                  financial_authority=False)
     print(json.dumps(report, indent=2))
     return 0  # Parsing success only; consumers must read each readiness state.
 

@@ -70,6 +70,15 @@ output is not anonymous data or permission to publish private records. Focused
 current Python/RFC source checks justify this control, not a strategic pivot.
 The live evidence/consent bottleneck and stages 0-7 remain unchanged.
 
+October 14, 2026 UTC human-outcome follow-up: the
+[existing outcome CLI](../metrics/HUMAN_OUTCOME_GATE.md#cli-input-and-diagnostic-privacy-boundary)
+now shares that reader and returns input-free failures, preserving its readiness
+API. It does not authenticate household evidence or authorize publication.
+Its separately recorded synthetic Decimal precision falsifier requires a bounded
+numerical correction before relying on extreme accepted amounts; it is not a
+human-earnings result. This remains stage-0 integrity work, not a new earning
+channel or a change to the multiplier, sustainability or financing gates.
+
 | Route | Expected incremental benefit and information | Feasibility, full cost, feedback and reversibility | Decision |
 | --- | --- | --- | --- |
 | Existing employer-funded work plus targeted access/skill-signaling help | Plausible but unmeasured; direct route to a real payout and identifiable barrier | Low-cost support can be reversible; eligibility/consent and applicant evidence block live use | Preserve owned channel; distinguish readiness from completion and earnings from attribution |

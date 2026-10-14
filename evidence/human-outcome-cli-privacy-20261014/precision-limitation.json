@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "scope": "synthetic_precision_control_not_worker_income",
+  "source_baseline": "01ed84ac031a6fb2af0be3a6f0d28d31ae5c8c20",
+  "decimal_precision": 28,
+  "received": "10000000000000000000000000000",
+  "additional_cost": "9999999999999999999999999999.99",
+  "reported_net": "0",
+  "exact_net_rational": "1/100",
+  "human_earnings_established": false,
+  "poverty_reduction_established": false,
+  "financial_authority": false,
+  "checked_at": "2026-10-14T04:06:46Z",
+  "reproduce": "From repo root: sys.path.insert(0,'metrics'); import classify from human_outcome_gate and packet from test_human_outcome_gate; set packet.job.payout.amount=received and packet.job.worker_costs.other.amount=additional_cost; call classify under Decimal context precision28; inspect reported_earnings_arithmetic.net_cash. All other amounts in packet() are zero. Compare exact Fraction(received)-Fraction(additional_cost).",
+  "limitations": [
+    "Synthetic extreme-magnitude control, not a realistic task, worker record, authenticated payment or poverty outcome.",
+    "Privacy increment preserves classify() arithmetic; this finding does not change numeric acceptance or claim a corrected result.",
+    "Default Decimal context precision was28 for this reproduction; caller-modified contexts are not surveyed.",
+    "Correctness repair and explicit amount/precision bounds require separate exact-source review."
+  ]
+}
