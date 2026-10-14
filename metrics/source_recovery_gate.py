@@ -4,10 +4,13 @@
 No RPC, signer, credential, transaction, private input echo, or financial action.
 Only the existing Base Sepolia RETURN then original-lender REDEPOSIT is supported.
 """
-import argparse
 import json
 from pathlib import Path
 import re
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from scripts.record_input import read_record, _unique_object
 
 CHAIN = 84532
 TOKEN = "0x036cbd53842c5426634e7929541ec2318f3dcf7e"
@@ -209,21 +212,16 @@ def classify(packet):
 
 
 def unique_object(pairs):
-    result = {}
-    for key, value in pairs:
-        require(key not in result, "duplicate JSON field")
-        result[key] = value
-    return result
+    """Legacy decoder hook forwards to the one maintained bounded reader."""
+    return _unique_object(pairs)
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("packet", type=Path)
-    args = parser.parse_args(argv)
     try:
-        packet = json.loads(args.packet.read_text(encoding="utf-8"), object_pairs_hook=unique_object)
+        packet = read_record(argv, prog="source_recovery_gate.py", description=__doc__,
+                             argument_name="packet")
         result = classify(packet)
-    except (OSError, UnicodeError, ValueError):
+    except (OSError, UnicodeError, ValueError, TypeError, RecursionError):
         result = {"state": "INVALID_PACKET", "recovery_verified": False,
                   "human_earnings_established": False, "transaction_authorized": False,
                   "gaps": ["unreadable or invalid JSON packet"]}
