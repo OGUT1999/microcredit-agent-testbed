@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "scope": "existing_job_board_readiness_review_not_paid_offer",
+  "author": "Codex (AI)",
+  "action_id": "action:bot-job-board-created-demand",
+  "source_commit": "f3ce81ba1a772faef83d4c2f14ec752e96f53bf0",
+  "source_tree": "0fc9ae18234e43c5fe58aad6ce57d99f7deaca03",
+  "model_version_at_source": "0.1.124",
+  "reviewed_at": "2026-10-14T05:29:33Z",
+  "existing_deadline": "2026-10-15T12:00:00Z",
+  "historical_catalogue": {
+    "path": "evidence/human-bootstrap-cost-audit-20261008/bot-job-board.json",
+    "sha256": "f5e7767dd99395e2f998355fb3064c6fa44ac123af1575370fcc0ee2fd861725",
+    "markdown_sha256": "3be958d29f5d552aa810cd30b2294f65cf815a705ef2576fc48587cabb5419e1",
+    "modified": false
+  },
+  "cards": [
+    {"id": "BOT-VERIFY-001", "historical_hypothetical_price_usdc": "1.000000", "demand_class": "CREATED_TEAM_DEMAND", "funding_state": "NOT_ESTABLISHED", "remaining_prerequisite": "Fresh current chain/source inputs before claiming current-state verification"},
+    {"id": "BOT-REPRO-002", "historical_hypothetical_price_usdc": "0.500000", "demand_class": "CREATED_TEAM_DEMAND", "funding_state": "NOT_ESTABLISHED", "remaining_prerequisite": "Actual accepted employer assignment and reserved reward before paid work or recruitment"},
+    {"id": "BOT-RECEIPTS-003", "historical_hypothetical_price_usdc": "0.250000", "demand_class": "CREATED_TEAM_DEMAND", "funding_state": "NOT_ESTABLISHED", "remaining_prerequisite": "Two original source-five return/redeposit mined receipts and fresh ownership readback before recovery completion"}
+  ],
+  "selected_card": {
+    "id": "BOT-REPRO-002",
+    "owner_id": "agent:codex",
+    "technical_reviewer_id": "agent:claude",
+    "beneficiary": "Prospective consenting workers/operators needing accurate, source-pinned net-cash evidence",
+    "command": "python -m unittest discover -s metrics -p test_human_outcome_cash.py -v",
+    "uses": "Python standard library and published synthetic local source/fixtures",
+    "executable_in_existing_authorized_team_runtime": true,
+    "new_campaign_executed_by_this_review": false,
+    "selected_regression_groups": 11,
+    "accepted_source_receipts": ["https://github.com/scottonchain/microcredit-agent-testbed/pull/99#issuecomment-6161340081", "https://github.com/scottonchain/microcredit-agent-testbed/pull/99#issuecomment-6161347990"],
+    "pinned_files": {
+      "metrics/test_human_outcome_cash.py": "3874de67c9359e03e79cb0dc95479fbe92dd3ba9848e3a213d3bf8bad9be7544",
+      "metrics/human_outcome_gate.py": "38fb264f961f5c4a1f0dd41c1ede77890fde344901866d62d9419d5d0a507d9f",
+      "evidence/human-outcome-cli-privacy-20261014/precision-limitation.json": "a5bdfa8b0cdfe7cd33fd3cb3afd7ef85d62aac0a2d6b7eb9ac661c889403e11a"
+    },
+    "new_contact": 0,
+    "new_spend": 0,
+    "new_signatures": 0,
+    "new_chain_reads_or_writes": 0,
+    "paid_offer_established": false,
+    "accepted_price_receipt": null,
+    "reserved_employer_budget_receipt": null,
+    "actual_payment_receipt": null,
+    "mandatory_paid_input_receipt": null,
+    "independent_worker_eligibility": "UNKNOWN",
+    "total_labor_compute_rework_and_opportunity_cost": "UNKNOWN",
+    "expected_conservative_spendable_net_reward": "UNKNOWN",
+    "historical_price_is_not_wage_recommendation": true,
+    "spendable_human_payout": "NOT_ESTABLISHED",
+    "current_financing_decision": "NO_LOAN_NO_EVIDENCED_MANDATORY_PAID_INPUT",
+    "stop_conditions": ["Different source/tree/hashes", "Private or unauthorized inputs", "New required paid resource or permission", "Changed funding/owner/consent scope", "Nonpositive spendable net compensation or unacceptable effort before any human offer"]
+  },
+  "comparators": ["existing supplied resources", "NO_LOAN", "employer prepayment or direct input payment", "transparent sponsorship", "direct funding/cash benchmark", "credit only for verified residual gap with existing approval"],
+  "human_earnings_established": false,
+  "outside_revenue_established": false,
+  "poverty_reduction_established": false,
+  "financial_authority": false,
+  "limitations": [
+    "Funding state describes inspected catalogue and team receipts, not proof of global unavailability or a survey of private channels.",
+    "Reference prices are historical hypothetical values, not binding accepted prices or budget availability.",
+    "Executable source is not an assignment, independent worker acceptance, real reward, financing need or human benefit.",
+    "No historical source, catalogue or test campaign was regenerated; prior exact-revision results are reused and attributed.",
+    "Canonical model/main reconciliation continues under its existing separate PR100 owner; this evidence packet does not overwrite protected state."
+  ]
+}
