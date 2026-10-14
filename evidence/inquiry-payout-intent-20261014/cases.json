@@ -1,0 +1,57 @@
+{
+  "kind": "synthetic_manual_review_examples",
+  "not_executable_lifecycle_schema": true,
+  "real_participants_or_transactions": false,
+  "source_commit": "203e0268c01cdc486b56c59af6371d451966a623",
+  "purpose": "Falsify promotion from funded terms or packet completeness to spendable positive human earnings; no new checker or intake ledger.",
+  "cases": [
+    {
+      "id": "synthetic-funded-but-unreachable-withdrawal",
+      "assumptions_not_observations": {
+        "same_revision_payer_and_work_eligible_worker_terms_accepted": true,
+        "exclusive_authorized_reward_reservation_units": "10",
+        "currency": "SYNTHETIC_LOCAL_UNIT",
+        "only_withdrawal_route_minimum_units": "20",
+        "additional_earnings_or_accessible_alternative_evidenced": false,
+        "actual_useful_work_accepted": false,
+        "actual_settlement": false
+      },
+      "manual_review_expectation": {
+        "accepted_funded_external_terms": "established_inside_synthetic_assumptions_only",
+        "payout_ready_intent": "NOT_ESTABLISHED",
+        "settled_spendable_wage": "NOT_ESTABLISHED",
+        "positive_human_earnings_established": false,
+        "project_offer_or_financial_authority": false,
+        "reason": "Exclusive funding and signed scope do not make a ten-unit reward withdrawable through a twenty-unit minimum. Preserve the earlier contractual fact, stop promotion, compare an actually accessible route; do not borrow to manufacture proof."
+      }
+    },
+    {
+      "id": "synthetic-payout-route-fixed-only",
+      "changed_assumption": "All existing pre-offer evidence sections, fictional payer authority and affordable lawful payout are reviewed in this fictional case; separate PROJECT offer/financial authority remains absent.",
+      "manual_review_expectation": {
+        "payout_ready_intent": "prospective_readiness_possible_inside_synthetic_assumptions_only",
+        "actual_useful_work_accepted": false,
+        "actual_settlement": false,
+        "positive_human_earnings_established": false,
+        "project_offer_or_financial_authority": false,
+        "reason": "Correcting prospective payout evidence does not perform work, obtain completed-work acceptance, settle payment or grant authority."
+      }
+    },
+    {
+      "id": "synthetic-complete-but-nonpositive-cash",
+      "assumptions_not_observations": {
+        "all_earned_income_packet_fields_reported_complete": true,
+        "reported_settled_wage_units": "10",
+        "reported_additional_worker_cost_units": "12",
+        "currency": "SYNTHETIC_LOCAL_UNIT"
+      },
+      "manual_review_expectation": {
+        "existing_tool_packet_completeness_may_be": "READY_FOR_REVIEW",
+        "net_cash_manual_exact_units": "-2",
+        "positive_human_earnings_established": false,
+        "incremental_benefit_or_poverty_reduction_established": false,
+        "reason": "The existing outcome tool reports completeness and arithmetic, not positive-net admission or authenticated earnings. A reviewer must reject a positive-earnings claim despite complete fields."
+      }
+    }
+  ]
+}

@@ -1,0 +1,1598 @@
+{
+  "additional_paid_software_dependency_established": false,
+  "checked_at": "2026-10-14T15:05:56.485532+00:00",
+  "command": [
+    "<venv>/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "metrics",
+    "-p",
+    "test_human_outcome_cash.py",
+    "-v"
+  ],
+  "decision": "NO_OFFER_NO_LOAN_NO_GUARANTEE",
+  "downloads_performed_by_harness": 0,
+  "environment_interventions": [
+    "minimal inherited environment",
+    "PYTHONPATH=<observer>",
+    "PYTHONNOUSERSITE=1",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "TMPDIR=<temporary-test-input>"
+  ],
+  "execution_exit": 0,
+  "execution_seconds_instrumented": 0.0949378040022566,
+  "expected_groups": 11,
+  "financial_authority": false,
+  "full_os_native_or_other_platform_closure_established": false,
+  "generated_data_inputs": "Synthetic temporary JSON records generated from the pinned test code; no external participant records.",
+  "human_earnings_established": false,
+  "immutable_data_inputs": [
+    {
+      "path": "evidence/human-outcome-cli-privacy-20261014/precision-limitation.json",
+      "sha256": "a5bdfa8b0cdfe7cd33fd3cb3afd7ef85d62aac0a2d6b7eb9ac661c889403e11a"
+    }
+  ],
+  "include_system_site_packages": false,
+  "isolation_checks_passed": true,
+  "observation": {
+    "attempted_import_names": [
+      "_ast",
+      "_bisect",
+      "_bz2",
+      "_collections",
+      "_compression",
+      "_datetime",
+      "_decimal",
+      "_functools",
+      "_heapq",
+      "_json",
+      "_locale",
+      "_lzma",
+      "_opcode",
+      "_operator",
+      "_posixsubprocess",
+      "_random",
+      "_sha2",
+      "_sre",
+      "_tokenize",
+      "_weakrefset",
+      "_winapi",
+      "argparse",
+      "ast",
+      "bisect",
+      "bz2",
+      "collections",
+      "collections.abc",
+      "contextlib",
+      "copy",
+      "copyreg",
+      "dataclasses",
+      "datetime",
+      "decimal",
+      "difflib",
+      "dis",
+      "enum",
+      "errno",
+      "fcntl",
+      "fnmatch",
+      "fractions",
+      "functools",
+      "gettext",
+      "heapq",
+      "human_outcome_gate",
+      "importlib",
+      "importlib._abc",
+      "importlib.machinery",
+      "importlib.util",
+      "inspect",
+      "ipaddress",
+      "itertools",
+      "json",
+      "json.decoder",
+      "json.encoder",
+      "json.scanner",
+      "keyword",
+      "linecache",
+      "locale",
+      "lzma",
+      "math",
+      "msvcrt",
+      "nt",
+      "ntpath",
+      "numbers",
+      "opcode",
+      "operator",
+      "pathlib",
+      "pprint",
+      "random",
+      "re",
+      "re._casefix",
+      "re._compiler",
+      "re._constants",
+      "re._parser",
+      "reprlib",
+      "runpy",
+      "scripts",
+      "scripts.record_input",
+      "select",
+      "selectors",
+      "shutil",
+      "signal",
+      "subprocess",
+      "tempfile",
+      "test_human_outcome_cash",
+      "test_human_outcome_cli",
+      "test_human_outcome_gate",
+      "textwrap",
+      "threading",
+      "token",
+      "tokenize",
+      "traceback",
+      "types",
+      "unittest",
+      "unittest.case",
+      "unittest.loader",
+      "unittest.main",
+      "unittest.result",
+      "unittest.runner",
+      "unittest.signals",
+      "unittest.suite",
+      "unittest.util",
+      "urllib",
+      "urllib.parse",
+      "warnings",
+      "weakref",
+      "zlib"
+    ],
+    "modules": [
+      {
+        "name": "__main__",
+        "namespace_locations": [],
+        "origin": "<stdlib>/unittest/__main__.py",
+        "phase": "startup",
+        "sha256": "ff6b9a100d32001715b40d61bc4d613623b139edb1fdc3566427b83c331caae3"
+      },
+      {
+        "name": "_abc",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "_ast",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_bisect",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_bz2",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_codecs",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "_collections",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_collections_abc",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "_compression",
+        "namespace_locations": [],
+        "origin": "<stdlib>/_compression.py",
+        "phase": "command_or_later",
+        "sha256": "3ad5d60627477a60939ee44fc1bb3a05dbe8fb52f0f75039b8f5d8f1a278b981"
+      },
+      {
+        "name": "_datetime",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_decimal",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_frozen_importlib",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "_frozen_importlib_external",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "_functools",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_heapq",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_imp",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "_io",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "_json",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_locale",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_lzma",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_opcode",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_operator",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_posixsubprocess",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_random",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_sha2",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_signal",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "_sitebuiltins",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "_sre",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_stat",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "_thread",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "_tokenize",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "_warnings",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "_weakref",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "_weakrefset",
+        "namespace_locations": [],
+        "origin": "<stdlib>/_weakrefset.py",
+        "phase": "command_or_later",
+        "sha256": "91895a451d06e9f521a1171b31b9b19bc9740f35af00d4fa106338ab7167c9ac"
+      },
+      {
+        "name": "abc",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "argparse",
+        "namespace_locations": [],
+        "origin": "<stdlib>/argparse.py",
+        "phase": "command_or_later",
+        "sha256": "7cc582dcb3b76e2c957f78a3f74e9809d6c311d6aab7bcaa2c9954d0cbff5f30"
+      },
+      {
+        "name": "ast",
+        "namespace_locations": [],
+        "origin": "<stdlib>/ast.py",
+        "phase": "command_or_later",
+        "sha256": "b515c23dbbc459329d3b802a3aac742cc456d7472e66f7ed6e9dc97e40596d7d"
+      },
+      {
+        "name": "atexit",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "observer_bootstrap",
+        "sha256": null
+      },
+      {
+        "name": "bisect",
+        "namespace_locations": [],
+        "origin": "<stdlib>/bisect.py",
+        "phase": "command_or_later",
+        "sha256": "f1cf7b85fc36b5da249813fc5ab97d9464f8cc1bc817f7146206fa2713e35999"
+      },
+      {
+        "name": "builtins",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "bz2",
+        "namespace_locations": [],
+        "origin": "<stdlib>/bz2.py",
+        "phase": "command_or_later",
+        "sha256": "76ab3252924e71e859d7d90e8d3db13b6554975cfcac0fdadced4de7f8779330"
+      },
+      {
+        "name": "codecs",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "collections",
+        "namespace_locations": [],
+        "origin": "<stdlib>/collections/__init__.py",
+        "phase": "command_or_later",
+        "sha256": "7fdb04dd248ab37909f46d2085bfee56b32d7e91e49ad3a2fad99c453295659b"
+      },
+      {
+        "name": "collections.abc",
+        "namespace_locations": [],
+        "origin": "<stdlib>/collections/abc.py",
+        "phase": "command_or_later",
+        "sha256": "9cb4208f99128a0489b6c8e6c61637617dd7d4250c59e065491957eda084dd10"
+      },
+      {
+        "name": "contextlib",
+        "namespace_locations": [],
+        "origin": "<stdlib>/contextlib.py",
+        "phase": "command_or_later",
+        "sha256": "8b7a477f978a8532852fd81e241c78182516bc4975d672d580a5848a76e11eb6"
+      },
+      {
+        "name": "copy",
+        "namespace_locations": [],
+        "origin": "<stdlib>/copy.py",
+        "phase": "command_or_later",
+        "sha256": "cbd25547933176fcf6bb05c2adc9f4796d15ac20b9b82dcf890daea7203daeab"
+      },
+      {
+        "name": "copyreg",
+        "namespace_locations": [],
+        "origin": "<stdlib>/copyreg.py",
+        "phase": "command_or_later",
+        "sha256": "c8eda41f05c6bf95a4da4726a530409d2485ae060b8d019b3a8034389a15d3e9"
+      },
+      {
+        "name": "dataclasses",
+        "namespace_locations": [],
+        "origin": "<stdlib>/dataclasses.py",
+        "phase": "command_or_later",
+        "sha256": "d242aea5fcf6408b1c1f622442f88f68b9526ce1f8bd2890d74a144677c427d9"
+      },
+      {
+        "name": "datetime",
+        "namespace_locations": [],
+        "origin": "<stdlib>/datetime.py",
+        "phase": "command_or_later",
+        "sha256": "ef20dc6b3554cd585dddffdc573f1f9a7a54c522f2a3fb4576c44edbb1e14238"
+      },
+      {
+        "name": "decimal",
+        "namespace_locations": [],
+        "origin": "<stdlib>/decimal.py",
+        "phase": "command_or_later",
+        "sha256": "c3e37c55ef72b3dd6cb7b466a907b966467b6a9c58d85302193e64cbb5fd53d0"
+      },
+      {
+        "name": "difflib",
+        "namespace_locations": [],
+        "origin": "<stdlib>/difflib.py",
+        "phase": "command_or_later",
+        "sha256": "3eb2d371b4a171b063921de6bbf115108bc39de8bf72866315868ce2599213b7"
+      },
+      {
+        "name": "dis",
+        "namespace_locations": [],
+        "origin": "<stdlib>/dis.py",
+        "phase": "command_or_later",
+        "sha256": "44c0b389c96124d8fb5cb0bc41c7a2aa7a6848ef4001b4000dcbd858efa4a1a2"
+      },
+      {
+        "name": "encodings",
+        "namespace_locations": [],
+        "origin": "<stdlib>/encodings/__init__.py",
+        "phase": "startup",
+        "sha256": "78c4744d407690f321565488710b5aaf6486b5afa8d185637aa1e7633ab59cd8"
+      },
+      {
+        "name": "encodings.aliases",
+        "namespace_locations": [],
+        "origin": "<stdlib>/encodings/aliases.py",
+        "phase": "startup",
+        "sha256": "6fdcc49ba23a0203ae6cf28e608f8e6297d7c4d77d52e651db3cb49b9564c6d2"
+      },
+      {
+        "name": "encodings.utf_8",
+        "namespace_locations": [],
+        "origin": "<stdlib>/encodings/utf_8.py",
+        "phase": "startup",
+        "sha256": "ba0cac060269583523ca9506473a755203037c57d466a11aa89a30a5f6756f3d"
+      },
+      {
+        "name": "enum",
+        "namespace_locations": [],
+        "origin": "<stdlib>/enum.py",
+        "phase": "command_or_later",
+        "sha256": "f35e542d8c4c1d2b5e910138d726fa48774925f3c4dc5462793ebcb66aa55501"
+      },
+      {
+        "name": "errno",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "fcntl",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "fnmatch",
+        "namespace_locations": [],
+        "origin": "<stdlib>/fnmatch.py",
+        "phase": "command_or_later",
+        "sha256": "6683da36e47af523f3f41e18ad244d837783e19e98911cc0b7415dea81494ebc"
+      },
+      {
+        "name": "fractions",
+        "namespace_locations": [],
+        "origin": "<stdlib>/fractions.py",
+        "phase": "command_or_later",
+        "sha256": "d52d1ab9d5be26924e4914a5e40069c992bbfa68f773694c2e5ee8452d0766a0"
+      },
+      {
+        "name": "functools",
+        "namespace_locations": [],
+        "origin": "<stdlib>/functools.py",
+        "phase": "command_or_later",
+        "sha256": "de4a1d37c795e2a065124b5c49357893433bc6bb111b41277ccc9930ef08d4c9"
+      },
+      {
+        "name": "genericpath",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "gettext",
+        "namespace_locations": [],
+        "origin": "<stdlib>/gettext.py",
+        "phase": "command_or_later",
+        "sha256": "a5c249a522b6b8e3aa6f1b12a8bcc09508b99ad612b58d2fc973db27ea3b7cc3"
+      },
+      {
+        "name": "heapq",
+        "namespace_locations": [],
+        "origin": "<stdlib>/heapq.py",
+        "phase": "command_or_later",
+        "sha256": "6d43277e5c76fc0f073cd388fcff852d14d068f6bb6d4886c340f8b75a1229a9"
+      },
+      {
+        "name": "human_outcome_gate",
+        "namespace_locations": [],
+        "origin": "<repo>/metrics/human_outcome_gate.py",
+        "phase": "command_or_later",
+        "sha256": "38fb264f961f5c4a1f0dd41c1ede77890fde344901866d62d9419d5d0a507d9f"
+      },
+      {
+        "name": "importlib",
+        "namespace_locations": [],
+        "origin": "<stdlib>/importlib/__init__.py",
+        "phase": "command_or_later",
+        "sha256": "d540b5ac137fcb3e26a8d5f2939649e34373c6685f98a30a9f682cf231be5854"
+      },
+      {
+        "name": "importlib._abc",
+        "namespace_locations": [],
+        "origin": "<stdlib>/importlib/_abc.py",
+        "phase": "command_or_later",
+        "sha256": "80aab7931dc999dee581c8b8b56fcd973fe156335a96ceeaf6acfc03cebf10e8"
+      },
+      {
+        "name": "importlib._bootstrap",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "importlib._bootstrap_external",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "importlib.machinery",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "importlib.util",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "inspect",
+        "namespace_locations": [],
+        "origin": "<stdlib>/inspect.py",
+        "phase": "command_or_later",
+        "sha256": "5c54ebf0bfdc25397750e5d0f63800751650ee50e65325ff3ea4069c9bfa5f75"
+      },
+      {
+        "name": "io",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "ipaddress",
+        "namespace_locations": [],
+        "origin": "<stdlib>/ipaddress.py",
+        "phase": "command_or_later",
+        "sha256": "ba8d3389ff084fcb232b48204ec04f2b3ea4bd0eadf7b18c814947d185de2c64"
+      },
+      {
+        "name": "itertools",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "json",
+        "namespace_locations": [],
+        "origin": "<stdlib>/json/__init__.py",
+        "phase": "command_or_later",
+        "sha256": "d5d41e2c29049515d295d81a6d40b4890fbec8d8482cfb401630f8ef2f77e4d5"
+      },
+      {
+        "name": "json.decoder",
+        "namespace_locations": [],
+        "origin": "<stdlib>/json/decoder.py",
+        "phase": "command_or_later",
+        "sha256": "382cd02af6f7efede5a6d4abbcda1015e5c7a75794b0016022878f9cf32a24f6"
+      },
+      {
+        "name": "json.encoder",
+        "namespace_locations": [],
+        "origin": "<stdlib>/json/encoder.py",
+        "phase": "command_or_later",
+        "sha256": "52bfb1b66029cc70fa3bd7fe11df9f2e03922d413407a341b387a22c987f24f8"
+      },
+      {
+        "name": "json.scanner",
+        "namespace_locations": [],
+        "origin": "<stdlib>/json/scanner.py",
+        "phase": "command_or_later",
+        "sha256": "572958017eae8842eeddd0e3d18d3c56cc0a197348224915e1d87ce937841764"
+      },
+      {
+        "name": "keyword",
+        "namespace_locations": [],
+        "origin": "<stdlib>/keyword.py",
+        "phase": "command_or_later",
+        "sha256": "18c2be738c04ad20ad375f6a71db34b3823c7f40b0340f5294d0e89f3c9b093b"
+      },
+      {
+        "name": "linecache",
+        "namespace_locations": [],
+        "origin": "<stdlib>/linecache.py",
+        "phase": "command_or_later",
+        "sha256": "9eb9194707991b49f9fea67a5222b0e6a0e49c865cdffc69fbc80a1f829e77fb"
+      },
+      {
+        "name": "locale",
+        "namespace_locations": [],
+        "origin": "<stdlib>/locale.py",
+        "phase": "command_or_later",
+        "sha256": "3988c5419552d5b9f0bef3695102376f79357f0f440e9cd1f32c501f966e6ef3"
+      },
+      {
+        "name": "lzma",
+        "namespace_locations": [],
+        "origin": "<stdlib>/lzma.py",
+        "phase": "command_or_later",
+        "sha256": "58fb9d2fdc8a8af7b25e218f17ea3b51bdfa53bdf40f440ab33c605974ca5c2e"
+      },
+      {
+        "name": "marshal",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "math",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "ntpath",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "numbers",
+        "namespace_locations": [],
+        "origin": "<stdlib>/numbers.py",
+        "phase": "command_or_later",
+        "sha256": "ac381960a3dc1db0498b0bd43d8ef278d6599713121a186b153ff09d9552e0db"
+      },
+      {
+        "name": "opcode",
+        "namespace_locations": [],
+        "origin": "<stdlib>/opcode.py",
+        "phase": "command_or_later",
+        "sha256": "192f6008508f28d3273bff42eaea9b01c8394dab1607cd36aea778bdd166c3a6"
+      },
+      {
+        "name": "operator",
+        "namespace_locations": [],
+        "origin": "<stdlib>/operator.py",
+        "phase": "command_or_later",
+        "sha256": "b2af20f67667203c1730e686cc5d0427becc94db4c97f1d3efe3ed2158473f6a"
+      },
+      {
+        "name": "os",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "os.path",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "pathlib",
+        "namespace_locations": [],
+        "origin": "<stdlib>/pathlib.py",
+        "phase": "command_or_later",
+        "sha256": "10ba48ae8063cfe7589436041d0d4628c05f427c7709cf8e75e486f8930cc32c"
+      },
+      {
+        "name": "posix",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "posixpath",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "pprint",
+        "namespace_locations": [],
+        "origin": "<stdlib>/pprint.py",
+        "phase": "command_or_later",
+        "sha256": "1585c8d74d7f485590db2af46680ae0a73737ca9fb66022b2bcbbc4c4925e203"
+      },
+      {
+        "name": "pwd",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "random",
+        "namespace_locations": [],
+        "origin": "<stdlib>/random.py",
+        "phase": "command_or_later",
+        "sha256": "de48263a837339c7e01cf9f3c4d756696e0e0775f7778eb9cf81ad5b00134569"
+      },
+      {
+        "name": "re",
+        "namespace_locations": [],
+        "origin": "<stdlib>/re/__init__.py",
+        "phase": "command_or_later",
+        "sha256": "8ff3c37c63b917fcf8dc8d50993a502292a3dc159e41de4f4018c72a53d1c07b"
+      },
+      {
+        "name": "re._casefix",
+        "namespace_locations": [],
+        "origin": "<stdlib>/re/_casefix.py",
+        "phase": "command_or_later",
+        "sha256": "1b12d9136f23db6c3f6f26053fefc15ca964b886838c7b9c1fabf8d2efc1e5c8"
+      },
+      {
+        "name": "re._compiler",
+        "namespace_locations": [],
+        "origin": "<stdlib>/re/_compiler.py",
+        "phase": "command_or_later",
+        "sha256": "c75620761098a70ed75b9accef63ef2881d8abb6d4e5cbfd10074bd165eefe4d"
+      },
+      {
+        "name": "re._constants",
+        "namespace_locations": [],
+        "origin": "<stdlib>/re/_constants.py",
+        "phase": "command_or_later",
+        "sha256": "fa4fdb200f238f9e7817b63892b0d69833d8165134801e775e10cc113348a375"
+      },
+      {
+        "name": "re._parser",
+        "namespace_locations": [],
+        "origin": "<stdlib>/re/_parser.py",
+        "phase": "command_or_later",
+        "sha256": "a51a85b37cf3f44ba7ff25754da5f31306e4ccfa6eb3c017f9d37bdf4e770840"
+      },
+      {
+        "name": "reprlib",
+        "namespace_locations": [],
+        "origin": "<stdlib>/reprlib.py",
+        "phase": "command_or_later",
+        "sha256": "e177bc70da83a7fbcde6fd261dc15da34e8a20873b1cccd4f9a1f8f27cca3779"
+      },
+      {
+        "name": "runpy",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "scripts",
+        "namespace_locations": [],
+        "origin": "<repo>/scripts/__init__.py",
+        "phase": "command_or_later",
+        "sha256": "dbc44e7c7ae32451aaf14c6644569e92d33f68cb814fda3122dd544750f70ea1"
+      },
+      {
+        "name": "scripts.record_input",
+        "namespace_locations": [],
+        "origin": "<repo>/scripts/record_input.py",
+        "phase": "command_or_later",
+        "sha256": "7226cfd988e4242b084f195d40a9e56edaa33549e2a6095ca8234da2730727fc"
+      },
+      {
+        "name": "select",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      },
+      {
+        "name": "selectors",
+        "namespace_locations": [],
+        "origin": "<stdlib>/selectors.py",
+        "phase": "command_or_later",
+        "sha256": "1eeb102373e18c96311203f30c516e785bd8642275aa0bd66e43a284c9692385"
+      },
+      {
+        "name": "shutil",
+        "namespace_locations": [],
+        "origin": "<stdlib>/shutil.py",
+        "phase": "command_or_later",
+        "sha256": "53496e06742fe008fee2bccc8caeac77473e69923bec05358bd43eea467db1f8"
+      },
+      {
+        "name": "signal",
+        "namespace_locations": [],
+        "origin": "<stdlib>/signal.py",
+        "phase": "command_or_later",
+        "sha256": "0363c964c90ac0b3e515de5749205e6e6454051a1211058375d84d91eab6071a"
+      },
+      {
+        "name": "site",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "sitecustomize",
+        "namespace_locations": [],
+        "origin": "<observer>/sitecustomize.py",
+        "phase": "observer_bootstrap",
+        "sha256": "d6420820045db357638947638a461d23796d1a4804b3f076a11c2b9b6279365c"
+      },
+      {
+        "name": "stat",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "subprocess",
+        "namespace_locations": [],
+        "origin": "<stdlib>/subprocess.py",
+        "phase": "command_or_later",
+        "sha256": "85d29b2bf0249f5436838298c9a60ee93508b1102e9ac43b001f8a7e7ae8f375"
+      },
+      {
+        "name": "sys",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "tempfile",
+        "namespace_locations": [],
+        "origin": "<stdlib>/tempfile.py",
+        "phase": "command_or_later",
+        "sha256": "2eea4401f4f29d0d3647ed6fc8bcf6aa1daf879c8aa407a8ea310edac9dfc317"
+      },
+      {
+        "name": "test_human_outcome_cash",
+        "namespace_locations": [],
+        "origin": "<repo>/metrics/test_human_outcome_cash.py",
+        "phase": "command_or_later",
+        "sha256": "3874de67c9359e03e79cb0dc95479fbe92dd3ba9848e3a213d3bf8bad9be7544"
+      },
+      {
+        "name": "test_human_outcome_cli",
+        "namespace_locations": [],
+        "origin": "<repo>/metrics/test_human_outcome_cli.py",
+        "phase": "command_or_later",
+        "sha256": "7ced983ec04434a2ce1a71cf001c512c3603802def7380f50f28c9d307729404"
+      },
+      {
+        "name": "test_human_outcome_gate",
+        "namespace_locations": [],
+        "origin": "<repo>/metrics/test_human_outcome_gate.py",
+        "phase": "command_or_later",
+        "sha256": "ba802671a26e3850c1d46fcbb253f8ea79c39370630d7b2b1382a44da15deaf5"
+      },
+      {
+        "name": "textwrap",
+        "namespace_locations": [],
+        "origin": "<stdlib>/textwrap.py",
+        "phase": "command_or_later",
+        "sha256": "62867e40cdea6669b361f72af4d7daf0359f207c92cbeddfc7c7506397c1f31c"
+      },
+      {
+        "name": "threading",
+        "namespace_locations": [],
+        "origin": "<stdlib>/threading.py",
+        "phase": "command_or_later",
+        "sha256": "846f450ae794e4aab823a163f8c71d27751148af33e91dd3de886686a4e8ebfb"
+      },
+      {
+        "name": "time",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "token",
+        "namespace_locations": [],
+        "origin": "<stdlib>/token.py",
+        "phase": "command_or_later",
+        "sha256": "1a4d994ce9744f4bfe2d964fc24d112a1e76796a08c2e45a2d73c82a8587f922"
+      },
+      {
+        "name": "tokenize",
+        "namespace_locations": [],
+        "origin": "<stdlib>/tokenize.py",
+        "phase": "command_or_later",
+        "sha256": "026f566ac63e60d69c8185a3880831b657accc5eac984fadf271fc99a5e5825d"
+      },
+      {
+        "name": "traceback",
+        "namespace_locations": [],
+        "origin": "<stdlib>/traceback.py",
+        "phase": "command_or_later",
+        "sha256": "2c44af2848836d9af0c7b3547469695cd22586c64274d362eafcf466af284bd6"
+      },
+      {
+        "name": "types",
+        "namespace_locations": [],
+        "origin": "<stdlib>/types.py",
+        "phase": "command_or_later",
+        "sha256": "345474ef027a1273f353da9bdc1f7c18f65335e72e681bcc0376774cc51f2405"
+      },
+      {
+        "name": "unittest",
+        "namespace_locations": [],
+        "origin": "<stdlib>/unittest/__init__.py",
+        "phase": "command_or_later",
+        "sha256": "32ed48385c0377bc2900a76e9a6acc3705aeef402c72de8554b3c637420506f0"
+      },
+      {
+        "name": "unittest.case",
+        "namespace_locations": [],
+        "origin": "<stdlib>/unittest/case.py",
+        "phase": "command_or_later",
+        "sha256": "45bac6d80a4fc3a0dea8340a80681e30b263f017b4a5002cb8f489a632e0f987"
+      },
+      {
+        "name": "unittest.loader",
+        "namespace_locations": [],
+        "origin": "<stdlib>/unittest/loader.py",
+        "phase": "command_or_later",
+        "sha256": "7f0af414bfa7fe8612a424b14cfcf8a3c34fcac999d976461beb738ef8b211b8"
+      },
+      {
+        "name": "unittest.main",
+        "namespace_locations": [],
+        "origin": "<stdlib>/unittest/main.py",
+        "phase": "command_or_later",
+        "sha256": "db58280574389c0d6cba9559cc51e1787f5b418c4e85d354aa55ca43335c487a"
+      },
+      {
+        "name": "unittest.result",
+        "namespace_locations": [],
+        "origin": "<stdlib>/unittest/result.py",
+        "phase": "command_or_later",
+        "sha256": "5db286bdd3821d64150377e554d7edbdd58db7bb8b950772f977e9ec1d535617"
+      },
+      {
+        "name": "unittest.runner",
+        "namespace_locations": [],
+        "origin": "<stdlib>/unittest/runner.py",
+        "phase": "command_or_later",
+        "sha256": "76d9beb9c21d0d367a1b040a921ad43f90b7971fcc8cacfccd6f9760bedf1ce2"
+      },
+      {
+        "name": "unittest.signals",
+        "namespace_locations": [],
+        "origin": "<stdlib>/unittest/signals.py",
+        "phase": "command_or_later",
+        "sha256": "f8286e818ca56e10e03745bc056cdfd31147678f9a1dc8cb6b0fe96ef9a4362a"
+      },
+      {
+        "name": "unittest.suite",
+        "namespace_locations": [],
+        "origin": "<stdlib>/unittest/suite.py",
+        "phase": "command_or_later",
+        "sha256": "ed2da92bc9f97c53403ee2d3d12cc53b16a96e85d596ebc887b5a93458f3f6bc"
+      },
+      {
+        "name": "unittest.util",
+        "namespace_locations": [],
+        "origin": "<stdlib>/unittest/util.py",
+        "phase": "command_or_later",
+        "sha256": "fdcc640c3505d16deab9c32eae7c3f5f67c3b5e81c563dc6698fa7fcf403854d"
+      },
+      {
+        "name": "urllib",
+        "namespace_locations": [],
+        "origin": "<stdlib>/urllib/__init__.py",
+        "phase": "command_or_later",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "urllib.parse",
+        "namespace_locations": [],
+        "origin": "<stdlib>/urllib/parse.py",
+        "phase": "command_or_later",
+        "sha256": "e6af7f475262f1de335bb2e41e26adb94d6103977cf5fe1ddc430dc6a3b1623f"
+      },
+      {
+        "name": "warnings",
+        "namespace_locations": [],
+        "origin": "<stdlib>/warnings.py",
+        "phase": "command_or_later",
+        "sha256": "6405e281882932205eae641b2d31fba7776f94517a206d289465a1caffbf310e"
+      },
+      {
+        "name": "weakref",
+        "namespace_locations": [],
+        "origin": "<stdlib>/weakref.py",
+        "phase": "command_or_later",
+        "sha256": "56f8d313fb74019e53eb9287400702fbce788b7fe30e097b0b6e06296f3f080c"
+      },
+      {
+        "name": "zipimport",
+        "namespace_locations": [],
+        "origin": "frozen",
+        "phase": "startup",
+        "sha256": null
+      },
+      {
+        "name": "zlib",
+        "namespace_locations": [],
+        "origin": "built-in",
+        "phase": "command_or_later",
+        "sha256": null
+      }
+    ],
+    "observer_serialization_added": [
+      "_blake2",
+      "_hashlib",
+      "hashlib"
+    ],
+    "open_event_cap_reached": false,
+    "open_events": [
+      {
+        "mode": "r",
+        "origin": "<stdlib>/importlib/__pycache__/__init__.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/warnings.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/importlib/__pycache__/_abc.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/types.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/unittest/__pycache__/__init__.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/unittest/__pycache__/result.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/traceback.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/collections/__pycache__/__init__.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/keyword.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/operator.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/reprlib.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/collections/__pycache__/abc.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/linecache.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/functools.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/tokenize.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/re/__pycache__/__init__.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/enum.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/re/__pycache__/_compiler.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/re/__pycache__/_parser.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/re/__pycache__/_constants.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/re/__pycache__/_casefix.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/copyreg.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/token.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/textwrap.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/contextlib.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/unittest/__pycache__/util.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/unittest/__pycache__/case.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/difflib.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/heapq.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/pprint.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/dataclasses.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/copy.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/weakref.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/_weakrefset.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/inspect.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/ast.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/dis.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/opcode.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/unittest/__pycache__/suite.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/unittest/__pycache__/loader.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/fnmatch.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/unittest/__pycache__/main.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/argparse.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/gettext.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/unittest/__pycache__/runner.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/unittest/__pycache__/signals.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/signal.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/unittest/__pycache__/__main__.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/locale.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/shutil.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/bz2.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/_compression.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/lzma.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<repo>/metrics/__pycache__/test_human_outcome_cash.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<repo>/metrics/test_human_outcome_cash.py"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/decimal.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/numbers.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/fractions.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/json/__pycache__/__init__.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/json/__pycache__/decoder.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/json/__pycache__/scanner.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/json/__pycache__/encoder.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/pathlib.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/urllib/__pycache__/__init__.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/urllib/__pycache__/parse.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/ipaddress.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/random.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/bisect.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<repo>/metrics/__pycache__/human_outcome_gate.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<repo>/metrics/human_outcome_gate.py"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/datetime.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<repo>/scripts/__pycache__/__init__.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<repo>/scripts/__init__.py"
+      },
+      {
+        "mode": "r",
+        "origin": "<repo>/scripts/__pycache__/record_input.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<repo>/scripts/record_input.py"
+      },
+      {
+        "mode": "r",
+        "origin": "<repo>/metrics/__pycache__/test_human_outcome_gate.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<repo>/metrics/test_human_outcome_gate.py"
+      },
+      {
+        "mode": "r",
+        "origin": "<repo>/metrics/__pycache__/test_human_outcome_cli.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<repo>/metrics/test_human_outcome_cli.py"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/subprocess.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/threading.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/selectors.cpython-312.pyc"
+      },
+      {
+        "mode": "r",
+        "origin": "<stdlib>/__pycache__/tempfile.cpython-312.pyc"
+      },
+      {
+        "mode": null,
+        "origin": "<temporary-test-input>"
+      },
+      {
+        "mode": "w",
+        "origin": "<temporary-test-input>"
+      },
+      {
+        "mode": "r",
+        "origin": "<temporary-test-input>"
+      },
+      {
+        "mode": null,
+        "origin": "<temporary-test-input>"
+      },
+      {
+        "mode": "w",
+        "origin": "<temporary-test-input>"
+      },
+      {
+        "mode": "r",
+        "origin": "<temporary-test-input>"
+      },
+      {
+        "mode": null,
+        "origin": "<temporary-test-input>"
+      },
+      {
+        "mode": "r",
+        "origin": "<repo>/evidence/human-outcome-cli-privacy-20261014/precision-limitation.json"
+      },
+      {
+        "mode": "r",
+        "origin": "<repo>/evidence/human-outcome-cli-privacy-20261014/precision-limitation.json"
+      }
+    ],
+    "platform": "linux",
+    "runtime": "3.12.14",
+    "venv_prefix_differs": true
+  },
+  "observer_sha256": "d6420820045db357638947638a461d23796d1a4804b3f076a11c2b9b6279365c",
+  "package_installs": 0,
+  "pip_bootstrap": false,
+  "raw_stderr_sha256_private_not_published": "558ccd76da62182f536b7d6e638ad465a82b1375ddadd49a51a12219f13d85ad",
+  "repository_module_inputs": [
+    {
+      "name": "human_outcome_gate",
+      "namespace_locations": [],
+      "origin": "<repo>/metrics/human_outcome_gate.py",
+      "phase": "command_or_later",
+      "sha256": "38fb264f961f5c4a1f0dd41c1ede77890fde344901866d62d9419d5d0a507d9f"
+    },
+    {
+      "name": "scripts",
+      "namespace_locations": [],
+      "origin": "<repo>/scripts/__init__.py",
+      "phase": "command_or_later",
+      "sha256": "dbc44e7c7ae32451aaf14c6644569e92d33f68cb814fda3122dd544750f70ea1"
+    },
+    {
+      "name": "scripts.record_input",
+      "namespace_locations": [],
+      "origin": "<repo>/scripts/record_input.py",
+      "phase": "command_or_later",
+      "sha256": "7226cfd988e4242b084f195d40a9e56edaa33549e2a6095ca8234da2730727fc"
+    },
+    {
+      "name": "test_human_outcome_cash",
+      "namespace_locations": [],
+      "origin": "<repo>/metrics/test_human_outcome_cash.py",
+      "phase": "command_or_later",
+      "sha256": "3874de67c9359e03e79cb0dc95479fbe92dd3ba9848e3a213d3bf8bad9be7544"
+    },
+    {
+      "name": "test_human_outcome_cli",
+      "namespace_locations": [],
+      "origin": "<repo>/metrics/test_human_outcome_cli.py",
+      "phase": "command_or_later",
+      "sha256": "7ced983ec04434a2ce1a71cf001c512c3603802def7380f50f28c9d307729404"
+    },
+    {
+      "name": "test_human_outcome_gate",
+      "namespace_locations": [],
+      "origin": "<repo>/metrics/test_human_outcome_gate.py",
+      "phase": "command_or_later",
+      "sha256": "ba802671a26e3850c1d46fcbb253f8ea79c39370630d7b2b1382a44da15deaf5"
+    }
+  ],
+  "schema": "botrepro002-setup-observation/1",
+  "setup_attempts": 1,
+  "setup_command": [
+    "<base-python>",
+    "-m",
+    "venv",
+    "--without-pip",
+    "<venv>"
+  ],
+  "setup_exit": 0,
+  "setup_seconds": 0.0477720090020739,
+  "source_commit": "f3ce81ba1a772faef83d4c2f14ec752e96f53bf0",
+  "source_tree": "0fc9ae18234e43c5fe58aad6ce57d99f7deaca03",
+  "status": "INSTRUMENTED_SETUP_PASS",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "test_executions": 1,
+  "tests": [
+    "test_all_six_costs_aggregate_exactly_and_not_twice",
+    "test_cli_exact_cent_and_invalid_bounds_keep_private_error_flags",
+    "test_common_amount_grammar_applies_to_time_welfare_and_person_days",
+    "test_decimal_precision_rounding_traps_and_flags_cannot_change_cash",
+    "test_immutable_precision_falsifier_now_yields_exact_cent",
+    "test_input_not_mutated_and_original_readiness_guards_preserved",
+    "test_maximum_per_operand_and_aggregate_carry_are_exact",
+    "test_missing_cost_or_evidence_still_suppresses_arithmetic",
+    "test_oversize_exponent_special_sign_and_non_decimal_inputs_reject",
+    "test_seeded_integer_scale_oracle_for_cost_split_and_sign",
+    "test_zero_and_negative_smallest_unit_retained"
+  ],
+  "unattributed_module_names": [],
+  "venv_site_packages_empty": true,
+  "worker_effort_price_device_access_and_payout": null
+}

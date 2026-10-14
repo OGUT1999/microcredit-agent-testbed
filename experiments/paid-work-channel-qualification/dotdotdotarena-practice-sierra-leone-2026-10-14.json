@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "candidate_id": "dotdotdotarena-practice-sierra-leone-2026-10-14",
+  "candidate_name": "DOTDOTDOT Practice invitation, not an accepted wage assignment",
+  "country": "Sierra Leone",
+  "checked_at": "2026-10-14T17:16:19Z",
+  "decision": "NO_VERIFIABLE_ROUTE",
+  "resource_bound": {"contact": 0, "spend_usd": 0, "signups": 0},
+  "sources": [
+    {
+      "id": "arena-original-invitation",
+      "kind": "original",
+      "url": "https://www.moltbook.com/post/93b2eef6-033c-482a-8c79-f42ad5b89d82",
+      "checked_at": "2026-10-14T17:01:53Z",
+      "supports": "Original comment3a8cf59c created/updated15:10:13.285Z compares collateral accounting and invites Practice. Actual H replycadf174c created/updated16:22:19.843Z declines participation and distinguishes testnet from human opportunity.",
+      "does_not_establish": "No commissioned useful work, independent wage payer, reward reservation, worker consent/eligibility, actual settlement or spendable human payout."
+    },
+    {
+      "id": "arena-public-entry-guide",
+      "kind": "original",
+      "url": "https://dotdotdotarena.com/llms.txt?from=moltbook",
+      "checked_at": "2026-10-14T17:03:23Z",
+      "supports": "Full6633-byte response SHA88ceca0063e621dfdadf838f6dd09c3b73692db41283802f461c1924aa7fbbcb describes game entry paths and explicitly noncash public-account chips.",
+      "does_not_establish": "A game path is not human job access, a paid useful task, country eligibility or cash-out. Dynamic publication date unknown."
+    },
+    {
+      "id": "arena-client-guide",
+      "kind": "original",
+      "url": "https://dotdotdotarena.com/skill.md",
+      "checked_at": "2026-10-14T17:03:27Z",
+      "supports": "Full27881-byte response SHA857a553d79a0f57a6b315ec703546bd096cadde9cc218471bf539fbce84dcb8d documents no-payout Practice, hypothetical comparison results, noncash open chips and a separate human CCD stake mode.",
+      "does_not_establish": "Neither no-payout practice nor described stake-contest proceeds establishes a wage assignment, eligible consenting worker, positive net work income or lawful Sierra Leone cash-out. No live deployment audit or account-specific quote."
+    },
+    {
+      "id": "arena-protocol",
+      "kind": "original",
+      "url": "https://dotdotdotarena.com/protocol/v1",
+      "checked_at": "2026-10-14T17:03:32Z",
+      "supports": "Full42521-byte response SHA2ca37f7b7e9ad78a01bd4259b4b9ffc2672b1bc9934ed8be393bf32c56fa6cd4; selected root sections5.7/7.6/8/14 document partial-margin collateral-limited game settlement. Separate internal reader fully read protocol.",
+      "does_not_establish": "Documented enforcement is not full-face wage funding or audited live behavior. Retain open-vs-ccd and generic20-vs-scoped50 fee ambiguity; no current normalized quote, human assignment or local payout chain."
+    }
+  ],
+  "gates": {
+    "current_access": {
+      "status": "unverified", "chain_complete": false,
+      "source_ids": ["arena-public-entry-guide", "arena-client-guide"],
+      "finding": "Public entry instructions establish a game invitation, not current Sierra Leone access to useful paid human work; no account or country access was tested."
+    },
+    "current_demand": {
+      "status": "unverified", "chain_complete": false,
+      "source_ids": ["arena-original-invitation", "arena-client-guide"],
+      "finding": "No independent buyer commissioned a useful wage assignment or reserved its reward. The particular invited Practice mode is documented without payout; hypothetical game results are not demand."
+    },
+    "worker_eligibility": {
+      "status": "unverified", "chain_complete": false,
+      "source_ids": ["arena-public-entry-guide", "arena-client-guide"],
+      "finding": "No specific consenting eligible Sierra Leone worker, assignment-version assent, lawful account or country eligibility was established. Described game wallet/Badge requirements do not complete work eligibility."
+    },
+    "spendable_payout": {
+      "status": "unverified", "chain_complete": false,
+      "source_ids": ["arena-client-guide", "arena-protocol"],
+      "finding": "Practice has no payout; chips are noncash and described CCD game settlement is not an earned wage. No worker-specific local cash route, unit/FX/minimum/all fees/holds/timing/full costs or positive conservative net earning is verified."
+    }
+  },
+  "independent_reviews": [
+    {
+      "reviewer": "agent:codex", "source_check": "original", "disposition": "NO_VERIFIABLE_ROUTE",
+      "receipt_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6173926051"
+    },
+    {
+      "reviewer": "agent:hermes", "source_check": "original", "disposition": "NO_VERIFIABLE_ROUTE",
+      "receipt_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6174063135"
+    }
+  ],
+  "conservative_net_earnings_status": "unknown",
+  "limitations": "INVITATION_ONLY/PAID_ASSIGNMENT_NOT_ESTABLISHED and NO_VERIFIABLE_ROUTE for this inbound event are not evidence of unavailability or a legal finding. Actual separate canonical-lane Hermes original-source assent6174063135 is present, not merely requested. Both lanes are internal, not outside witnesses/operators. H read full llms, selected skill Practice/stake/CCD sections plus keyword pass, and protocol5.7/7.6/14; H explicitly did not read protocol8/9 or all skill line by line. A separate internal Codex checker matched all three complete response fingerprints and read the full originals but remains the same Codex lane. Dynamic source dates, actual chain/code/settlement, account/country/legal eligibility, full worker/owner costs, fair effort, first-funding/subsidy, counterfactual, displacement and harms remain unknown, not zero. Docs ambiguities stay unresolved. No game, remote-code execution, account, signup, contact, signing, stake, RPC, spending or transaction occurred; existing H reply owner preserved.",
+  "next_trigger": "Reopen this invitation only on changed original independently commissioned useful assignment and authorized reserved reward, eligible worker consent, and full conservative positive-net local spendable payout evidence. No new invite/date/gameplay/marketing scan qualifies. Preserve nLine applicant owner and fund recovery; next independent ACTIVE is the reproduced existing nLine helper Decimal-context arithmetic integrity correction, without new financial authority or recruitment."
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "marker": "NLINE-CASH-CONTEXT-203e-r1",
+  "author": "Codex (AI)",
+  "checks_started_at": "2026-10-14T19:03:14Z",
+  "checked_by": "2026-10-14T19:04:42Z",
+  "main_read": "203e0268c01cdc486b56c59af6371d451966a623",
+  "source_parent": "c46eac39970ce724d02bcf92be3aac1857d91e30",
+  "parent_is_main": false,
+  "previous_falsifier": "evidence/arena-inbound-3a8cf59c-20261014/validation.json:nline_follow_on_falsifier",
+  "synthetic_control": {
+    "same_unit": true,
+    "fare": "123.45",
+    "cash": "1.00",
+    "caller_precision": 3,
+    "before": "122",
+    "expected": "122.45",
+    "after": "122.45",
+    "actual_worker": false,
+    "real_finance_need": false
+  },
+  "changed_code_sha256": "90b01f88eb811804965608ab4c4a3cc101b3cc5be5dc52e3aec1cc4dcbfae41b",
+  "changed_tests_sha256": "0f69cdc0bc1003888e521cdbef7cdcad98d2774f49b412f3c81f463410b2836b",
+  "focused": {
+    "command": "python -m unittest discover -s experiments/nline-applicant-access-gate-20261013 -p 'test_*.py'",
+    "tests": 25,
+    "passed": true
+  },
+  "repository": {
+    "command": "python tools/check.py --json",
+    "ok": true,
+    "checks": 31,
+    "tests": 356,
+    "live_operations": false
+  },
+  "internal_review": {
+    "kind": "same-lane read-only technical review",
+    "scope": "exact code/tests hashes and existing suite registration",
+    "decision": "ACCEPT",
+    "focused_tests": 25,
+    "additional_reported_reference_pairs": 5000,
+    "additional_reference_result": "exact Fraction oracle matched under hostile caller/default contexts; reported by separate internal execution, not independently rerun by root",
+    "not_maintainer": true,
+    "not_outside_witness": true
+  },
+  "primary_sources": [
+    {
+      "url": "https://docs.python.org/3.12/library/decimal.html",
+      "checked_by": "2026-10-14T19:03:14Z",
+      "scope": "construction, explicit Context, mutable DefaultContext, precision and flags; Python3.12.15 docs/local3.12.14 runtime",
+      "publication_date": null
+    },
+    {
+      "url": "https://nline-inc.breezy.hr/p/f933afb58414-field-surveyor",
+      "checked_by": "2026-10-14T18:57:54Z",
+      "scope": "full rendered employer listing, deadline/payment timing/eligibility; not actual application, account, hiring, legal or payout verification",
+      "publication_date": null
+    }
+  ],
+  "source_published": false,
+  "maintainer_acceptance_verified": false,
+  "default_integration_verified": false,
+  "financial_authority": false,
+  "contact_or_application": false,
+  "paid_work_established": false,
+  "human_earnings_established": false,
+  "poverty_reduction_established": false,
+  "limitations": "Local synthetic correction and source-based documentation only. Source/main publication and acceptance receipts must be independently verified; this dated record is not a mutable completion ledger. Amount units, provenance, actual costs/cash/payout/full owner costs/counterfactual remain unverified."
+}

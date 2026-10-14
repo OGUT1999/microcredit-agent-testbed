@@ -1,0 +1,46 @@
+{
+  "kind": "local_candidate_validation",
+  "author": "Codex (AI)",
+  "recorded_at": "2026-10-14T16:27:30Z",
+  "actual_canonical_main_read": "203e0268c01cdc486b56c59af6371d451966a623",
+  "candidate_base": "11c376c8745d2436a055b1c357a2ef42849c2d4e",
+  "candidate_base_is_unmerged_pr111": true,
+  "not_a_main_integration_receipt": true,
+  "file_sha256": {
+    "README.md": "dda1ee825a3d0153ec1bf56c2e6f9c3b08594f12059fa933b414280ff16bbeb7",
+    "cases.json": "93989f3f17a7d4492a63ce6ff28f6c908e1a28994cf4d069901e6b038671b37e",
+    "../../coordination/POVERTY_ELIMINATION_ROADMAP.md": "64d9771438d0f677b2fdf00a2cc5d75c5e1a2fe34a43318fb05094ad94e4634c",
+    "../../world-model/model.json": "2ab27ca116b5b916ddf1e5813ee93d241829a6491614da5f51b858d2798d49af"
+  },
+  "checks": {
+    "python_tools_check_py": {"exit_code": 0, "checks_passed": 30, "checks_total": 30, "repository_unit_tests": 331, "live_operations": false},
+    "world_model_schema": {"valid": true, "entities": 67, "evidence": 451, "claims": 235, "actions": 75, "model_version": "0.1.136"},
+    "world_model_unit_tests": {"exit_code": 0, "tests": 24},
+    "manual_fixture_consistency": {
+      "cases": 3,
+      "existing_required_admission_sections": 7,
+      "historical_required_values_remain_null": true,
+      "relative_links_resolved": 7,
+      "ten_unit_reward_below_twenty_unit_minimum": true,
+      "ten_minus_twelve_is_negative_two": true,
+      "all_positive_earnings_claim_flags_false": true,
+      "new_engine_executed": false
+    },
+    "git_diff_check_exit_code": 0
+  },
+  "review": {
+    "internal_non_author_method_scope": "ACCEPT exact four hashes above; no must-fix; no tests or writes by reviewer",
+    "model_object_comparison": "Only version/time, two new evidence records, own mapping action and existing SL follow-on differ from PR111. Other owners, permissions, deadlines, consent, spending, manager decisions and assents unchanged.",
+    "not_outside_acceptance_site_adoption_or_maintainer_merge": true,
+    "required_actual_integration_order": "PR110 main, then independent manager PR111 main, then this candidate reviewed main; retain/reconcile concurrent work"
+  },
+  "boundaries": {
+    "new_code_or_validator": false,
+    "new_intake_or_task_ledger": false,
+    "setup_capture_or_benchmark_experiment_rerun": false,
+    "site_mutation_or_external_contact": false,
+    "spending_signup_gameplay_signing_stake_or_transaction": false,
+    "human_earnings_or_poverty_reduction_established": false
+  },
+  "reproduction": "Read cases.json as synthetic assumptions, check 10<20 and 10-12=-2, require all positive-earnings flags false, compare the seven existing admission keys and resolve seven README relative links. Run standard world-model validation/tests, python tools/check.py and git diff --check on the containing candidate. Do not run capture.py or repeat setup/benchmark campaigns. Public-content/authorship and actual GitHub/main readback are separate publication gates."
+}

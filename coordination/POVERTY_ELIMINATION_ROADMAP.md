@@ -133,7 +133,70 @@ consenting worker/full costs/spendable payout remain the binding human-benefit
 gate. Stages0-7, M>1, alternatives and learning/sustainability gates are unchanged.
 The original observations and historical catalogue are retained, not rewritten.
 
+October14, 2026 setup closure: the [one instrumented isolated setup observation](../evidence/botrepro002-setup-20261014/README.md)
+ran all11 pinned f3ce81ba groups in one venv without pip/bootstrap/package install.
+It records seven repository inputs and the full observed Python inventory with
+explicit native/OS/other-platform and instrumentation limits, not a standalone
+kit or universal free input. The older resource trials used a different
+record_input.py blob; their immutable timing is not relabelled as this source.
+No additional third-party Python package was required in this observed run;
+device/access/labor, full cost and actual spendable payout remain unknown.
+This completes the final bounded setup question: no further BOT-REPRO-002
+infrastructure absent the attributable payer/worker receipts in the current
+strategy. Calendar dates and technical defects alone do not reopen the track.
+Stages0-7, M>1 and the learning/sustainability gates remain unchanged; actual
+opportunity/consent/funding and household additionality remain the bottleneck.
+
+October14, 2026 inquiry-evidence increment: the
+[receipt-review crosswalk](../evidence/inquiry-payout-intent-20261014/README.md)
+uses the site's EXISTING inquiry/commitment/outcome distinction and seven-field
+brief rather than creating a new intake or validator. The narrower gap is a
+same-assignment, payer-reservation, worker-consent and account-specific payout
+threshold for prospective intent. A synthetic funded-but-unwithdrawable case
+retains genuine earlier terms without falsely promoting spendability; complete
+reported wage fields can also coexist with negative net cash. Current primary
+payment-provider documents reinforce the distinction between funding, release,
+holds and usable withdrawal, not any qualified project job. Live site adoption
+belongs to its existing maintainer; H retains the already-answered Vina thread
+and manager-owned new-invitation reply. Stages0-7, M>1, learning/sustainability
+and consent/custody/spending gates are unchanged; no earnings are established.
+
 ## Source register and coverage limits
+
+October 14, 2026 existing nLine readiness correction:
+[bounded explicit-context cash arithmetic](../evidence/nline-cash-context-20261014/README.md)
+repairs the recorded synthetic `123.45 - 1.00` precision-3 failure (`122`
+instead of `122.45`) without creating a financing mechanism or finding actual
+travel costs. Current primary Python docs support explicit Context isolation;
+the employer listing remains readable but does not supply an actual consenting
+eligible applicant, departure fare/cash, guaranteed hire or spendable payout.
+The existing applicant owner/October 23 trigger remains. Employer resources,
+advance/direct ticket and NO_LOAN/NO_GUARANTEE still dominate an invented gap.
+Same-unit identity must be verified separately; exact arithmetic is not FX,
+affordability, causal benefit or poverty reduction. Stages 0-7, M>1 and the
+learning/sustainability gates are unchanged; actual default integration is a
+separate acceptance requirement, not supplied by a candidate source or green tests.
+
+October14, 2026 inbound-opportunity update:
+the [bounded Practice-invitation disposition](../evidence/arena-inbound-3a8cf59c-20261014/README.md)
+reuses the existing country-qualification schema. Original game documentation
+does not turn the new collateral-comparison invitation into useful commissioned
+work: Practice lacks payout and public chips are noncash, while a separately
+described stake contest is not a wage assignment. Mode/fee contradictions remain
+unresolved, not normalized into a current quote. No country/account access,
+worker assent, commissioned task, conservative positive-net spendable payout or
+live enforcement was verified. Actual Codex and Hermes original-source assents
+close the packet as NO_VERIFIABLE_ROUTE, not unavailability; both remain internal
+readers, not outside paid-work or human-outcome witnesses.
+NO_LOAN/NO_GUARANTEE/no participation dominate inventing financing need for this
+invitation. Reopen only on changed assignment/worker/payout evidence, not gameplay
+or another invitation. Preserve mechanism ideas as hypotheses and existing
+employer-resource/prepayment/protection/direct-funding/cash comparators.
+This narrows Stage0 opportunity classification without changing stages0-7,
+M>1, learning/sustainability gates, authority or the human-outcome baseline.
+Actual source/default-branch integration is required; live next actions remain
+only in the world model, including the separately reproduced existing human-access
+helper arithmetic risk, not another BOT-REPRO infrastructure increment.
 
 Sources checked 2026-10-13. Dates are publication dates where established; no exhaustive coverage is claimed.
 
