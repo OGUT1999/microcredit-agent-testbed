@@ -155,3 +155,29 @@ Use a branch and focused checks. Maintainer integration follows actual current
 operator authority; cleanup permission does not grant public-chain execution.
 Report a later scheduled worker as verified only after its own capability check,
 new-input processing and outcome receipt, not from this manual setup/runbook.
+
+## Bounded history archival
+
+Comment 5999201336 remains the authoritative live state. When its size approaches
+GitHub's comment limit, preserve an exact UTF-8 body snapshot with source URL,
+source updated timestamp and SHA-256 in `coordination/archives/`. These immutable
+historical snapshots are evidence, never another cursor, scheduler or live ledger.
+Use the existing lease, explicit noreply identities, public-content checks and
+maintainer review for publication. Do not prune the live comment merely because
+an archive branch or PR exists.
+
+After the archive is reviewed and incorporated into main, an owned-lease writer
+may replace only matching entries from `previous_continuation_receipts` with a
+`continuation_receipt_archives` reference naming the immutable commit/path, source
+revision and body SHA-256. First verify the remote snapshot hash and complete JSON
+round trip, reread current state, and compare every removed key/value against the
+snapshot. Retain newer or changed entries. Keep completed-trigger IDs, latest
+receipts, ownership, unresolved dependencies and all other live fields unchanged;
+never advance an unresolved cursor. Check the resulting comment, PATCH only after
+an unchanged-body reread, and verify the response. Archive lookup supplies the
+removed historical entries; it does not supersede the live record. Do not delete
+or rewrite a published snapshot. Missing review or hash mismatch stops pruning.
+
+The initial snapshot `archives/issue-12-5999201336-20261014T210452Z.json`
+retains the entire body as last updated at 21:04:52 UTC, including all historical
+receipt values. This source change alone does not alter or prune the live record.
