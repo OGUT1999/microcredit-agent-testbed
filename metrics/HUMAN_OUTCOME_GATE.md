@@ -78,17 +78,63 @@ checked October 14, 2026 UTC, describes the default 28-place precision,
 arithmetic-context rounding and exception signals. This supports the separate
 precision-risk diagnosis below; it does not establish an authenticated wage.
 
-Known separate numerical limitation, reproduced with a synthetic control:
+Historical numerical limitation at PR98, reproduced with a synthetic control:
 under the default Decimal context, received `10000000000000000000000000000`
 minus additional cost `9999999999999999999999999999.99` reports zero rather than
-the exact `0.01`. This privacy increment deliberately preserves the API rather
-than silently changing arithmetic. Numerical precision/bounds require a separate
-reviewed correction before relying on such inputs. This is not a worker record
+the exact `0.01`. The PR98 privacy increment deliberately preserved the API rather
+than silently changing arithmetic. The separate correction below addresses this
+failure within an explicitly bounded input domain. This is not a worker record
 or an earnings finding; live actions remain only in the world model.
 
 The separately dated [synthetic precision receipt](../evidence/human-outcome-cli-privacy-20261014/precision-limitation.json)
 retains operands, context, reported/exact values, check time and reproduction
 instructions. It is a falsifier for numerical correctness, not a human outcome.
+
+## Exact bounded reported-cash arithmetic
+
+Codex (AI), October 14, 2026 UTC; baseline main `1871ef2`. This separate
+correction uses exact rational amounts and a fixed integer-scale conversion for
+output, not context-sensitive Decimal arithmetic or rounded float formatting.
+The dated falsifier now yields exactly `0.01`; its original receipt remains
+unchanged. Caller Decimal precision, exponent limits, rounding and traps cannot
+alter sums or subtractions within the supported domain.
+
+Every amount field accepts only a nonnegative integer or ASCII plain decimal
+string with 1–32 integer digits and, optionally, 1–12 fractional digits. Leading
+zeros count toward the bound. Exponents, signs, whitespace, underscores,
+fractions, booleans, floats and nonfinite numbers reject. These are computational
+bounds, not legal currency precision or a realistic wage limit. The same parser
+also covers worker time, household amounts, person-days and the poverty line;
+previous unrestricted exponent/precision spellings are intentionally unsupported.
+
+The six fixed worker-cost categories may carry into a 33-digit aggregate; input
+limits are not reapplied to a derived sum. Output is exact canonical decimal text,
+with trailing fractional zeros removed, no exponent or rational slash, and no
+negative zero. Negative net cash remains negative. Costs already withheld from
+the settled wage are reported separately and never deducted twice; unknown costs
+and incomplete consent/source/settlement evidence still suppress the arithmetic.
+All readiness states and the CLI's false outcome/authority flags remain intact.
+Currency labels are still privately checked, not normalized or authenticated.
+
+Acceptance: 11 new test groups reproduce the immutable falsifier, vary Decimal
+contexts/traps, check all cost categories and withheld semantics, smallest units,
+negative/zero values, maximum input and aggregate carry, rejected grammar/bounds,
+common amount fields, missing evidence, input immutability, 100 seeded independent
+integer-scale controls and CLI privacy. Source, tests and required checks need
+separate exact-head review and GitHub integration before completion. Bound: one
+offline correction, no contact/signup/spend/signing. Stop on changed readiness,
+rounding, double deduction, source/consent bypass, changed historical evidence or
+private diagnostic echo. A real case outside these bounds needs an explicit
+reviewed extension, never silent rounding or relaxation.
+
+Primary sources checked October 14, 2026 UTC: Python's
+[Fraction documentation](https://docs.python.org/3.12/library/fractions.html)
+supports exact rational construction; the
+[Decimal documentation](https://docs.python.org/3.12/library/decimal.html)
+explains the precision/context behavior that motivated the correction. The
+implementation restricts Fraction's broader accepted input grammar before use.
+No verified receipt, positive income, causality, financing need or poverty
+reduction follows from these synthetic arithmetic tests.
 
 ## Three review stages
 

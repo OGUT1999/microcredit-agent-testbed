@@ -6,7 +6,8 @@ Missing evidence is NOT_ESTABLISHED. A complete packet is READY_FOR_REVIEW only.
 Amounts are nonnegative decimal strings or integers, never binary floats.
 """
 from datetime import date, datetime
-from decimal import Decimal, DecimalException, InvalidOperation
+from decimal import DecimalException
+from fractions import Fraction
 import json
 from pathlib import Path
 import re
@@ -22,6 +23,12 @@ COST_CATEGORIES = (
 )
 READY = "READY_FOR_REVIEW"
 UNKNOWN = "NOT_ESTABLISHED"
+MAX_INTEGER_DIGITS = 32
+MAX_FRACTIONAL_DIGITS = 12
+AMOUNT_TEXT = re.compile(
+    rf"[0-9]{{1,{MAX_INTEGER_DIGITS}}}(?:\.[0-9]{{1,{MAX_FRACTIONAL_DIGITS}}})?\Z"
+)
+CASH_SCALE = 10 ** MAX_FRACTIONAL_DIGITS
 
 
 def _object(value, keys, path, gaps):
@@ -61,13 +68,23 @@ def _amount(obj, key, path, gaps):
         return None
     if type(value) not in (str, int):
         raise ValueError(path + "." + key + ": use decimal string or integer")
-    try:
-        result = Decimal(value)
-    except InvalidOperation as error:
-        raise ValueError(path + "." + key + ": invalid decimal") from error
-    if not result.is_finite() or result < 0:
-        raise ValueError(path + "." + key + ": expected finite nonnegative amount")
-    return result
+    text = str(value)
+    if not AMOUNT_TEXT.fullmatch(text):
+        raise ValueError(path + "." + key + ": bounded nonnegative decimal required")
+    # Parse only the bounded grammar above, never float or unrestricted exponent
+    # syntax. Rational sums/subtractions do not use a caller's Decimal context.
+    return Fraction(text)
+
+
+def _cash_text(value):
+    """Exact canonical decimal text; no formatting rounding or negative zero."""
+    scaled = value * CASH_SCALE
+    if scaled.denominator != 1:
+        raise ValueError("cash exceeds supported fractional precision")
+    units = scaled.numerator
+    whole, fraction = divmod(abs(units), CASH_SCALE)
+    tail = str(fraction).zfill(MAX_FRACTIONAL_DIGITS).rstrip("0")
+    return ("-" if units < 0 else "") + str(whole) + ("." + tail if tail else "")
 
 
 def _date(obj, key, path, gaps):
@@ -151,8 +168,8 @@ def classify(packet):
         _true(payout, key, "payout", earnings)
     _reference(payout.get("evidence"), "payout.evidence", earnings)
     costs = _object(job.get("worker_costs"), COST_CATEGORIES, "worker_costs", earnings)
-    already_deducted = Decimal(0)
-    additional_costs = Decimal(0)
+    already_deducted = Fraction(0)
+    additional_costs = Fraction(0)
     for key in COST_CATEGORIES:
         entry = _object(costs.get(key), ("amount", "currency", "evidence", "already_deducted_from_payout"), "costs." + key, earnings)
         amount = _amount(entry, "amount", "costs." + key, earnings)
@@ -270,10 +287,10 @@ def classify(packet):
     if not earnings:
         result["reported_earnings_arithmetic"] = {
             "label": "Reported settled earned cash received minus additional worker cash costs; NOT verified or incremental earnings",
-            "currency": currency, "settled_wage_received": str(received),
-            "worker_costs_already_deducted": str(already_deducted),
-            "additional_worker_cash_costs": str(additional_costs),
-            "net_cash": str(received - additional_costs),
+            "currency": currency, "settled_wage_received": _cash_text(received),
+            "worker_costs_already_deducted": _cash_text(already_deducted),
+            "additional_worker_cash_costs": _cash_text(additional_costs),
+            "net_cash": _cash_text(received - additional_costs),
         }
     return result
 
