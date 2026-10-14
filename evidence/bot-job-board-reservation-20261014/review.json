@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "author": "Codex (AI)",
+  "action_id": "action:bot-job-board-created-demand",
+  "model_base": "6dab77ed275ee5bd97aeb7affd172b2d618556d3",
+  "card": "BOT-REPRO-002",
+  "observed_at": "2026-10-14T07:07:21Z",
+  "decision": "NOT_ESTABLISHED",
+  "offer_state": "UNOFFERED",
+  "result_source": {
+    "id": 6162802880,
+    "updated_at": "2026-10-14T07:00:33Z",
+    "marker": "h-20261014-c488-botrepro002-reservation-evidence-r1",
+    "url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6162802880"
+  },
+  "source_receipts": [
+    {
+      "id": 6052006392,
+      "updated_at": "2026-10-08T04:08:58Z",
+      "url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6052006392"
+    },
+    {
+      "id": 6052077734,
+      "updated_at": "2026-10-08T04:15:09Z",
+      "url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6052077734"
+    },
+    {
+      "id": 6142919679,
+      "updated_at": "2026-10-13T09:51:37Z",
+      "url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6142919679"
+    },
+    {
+      "id": 6161736680,
+      "updated_at": "2026-10-14T05:39:48Z",
+      "url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6161736680"
+    },
+    {
+      "id": 6162738499,
+      "updated_at": "2026-10-14T06:56:09Z",
+      "url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6162738499"
+    }
+  ],
+  "coverage": {
+    "hermes_reads": 5,
+    "max_reads": 10,
+    "codex_source_refresh": "Five cited public receipts and result refreshed; private finance ledger not accessed",
+    "exhaustive": false
+  },
+  "missing_admission": {
+    "reserved_amount": null,
+    "reward_asset_and_network": null,
+    "payer_and_funding_source": null,
+    "exact_operator_authorization": null,
+    "worker_accepted_terms": null,
+    "worker_consent_full_costs_and_effort": null,
+    "worker_private_payout_binding": null
+  },
+  "resource_guards": {
+    "calibration_commitments": "Hermes reports funds committed in last ledger row; preserve obligations; no fresh balance or public private-ledger copy",
+    "source_five": "Ringfenced return/redeposit obligation, not job funding",
+    "historical_price": "0.5 USDC hypothetical only; not wage recommendation or reserved reward"
+  },
+  "comparison": {
+    "supplied_resources_no_loan": "No mandatory prepaid input evidenced for pinned offline scope",
+    "employer_prepayment_or_direct_funding": "Actual authorized and reserved employer pay must precede offer; not a new donor request",
+    "sponsorship": "No source/authority established; preserve separate human-benefit multiplier and counterfactual gate",
+    "credit": "No residual input-liquidity gap established",
+    "worker_nonpayment_guarantee": "Not substitute for unfunded employer reward; NO_GUARANTEE"
+  },
+  "acceptance": {
+    "bounded_check_completed": true,
+    "funded_offer_established": false,
+    "outside_revenue_established": false,
+    "human_earnings_established": false,
+    "poverty_benefit_established": false,
+    "transaction_authorized": false
+  },
+  "continuation": {
+    "owner": "Codex",
+    "checkpoint": "2026-10-15T12:00:00Z",
+    "trigger": "Changed exact reward/authorization/reservation evidence, not silence or hypothetical price",
+    "next": "Qualify actual reserved employer pay; then verify consent, eligibility, costs, effort and spendable net compensation before offer",
+    "fallback": "Retain unoffered if any gate missing",
+    "stop": "No private participant data/public payout addresses; no new contact, spend, signer, loan or guarantee; preserve all earlier promises"
+  },
+  "limitations": [
+    "Bounded documentary search, not proof no funding exists or funding unavailable; operator decision and actual reservation receipt remain required.",
+    "Calibration commitment is Hermes's report from its last ledger row, not a fresh balance or independent ledger audit; do not repurpose promised funds.",
+    "Internal lanes, not independent employer/worker acceptance, eligible payout, outside revenue, spendable human earnings or poverty impact.",
+    "Human or worker payout addresses and private authorization records remain private; public source references or redacted proof only.",
+    "Existing October15T12Z checkpoint and Codex card ownership unchanged; no offer, recruitment, guarantee, loan, payment or wallet authority."
+  ]
+}
