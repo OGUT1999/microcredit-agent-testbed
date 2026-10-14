@@ -1,0 +1,693 @@
+{
+  "format": "public-dns-route-observations-v1",
+  "purpose": "Read-only DNS qualification of existing Taskmarket questions-first inquiry; NOT SMTP or delivery proof",
+  "queries": [
+    {
+      "resolver": "google",
+      "name": "taskmarket.dev",
+      "query_type": "MX",
+      "url": "https://dns.google/resolve?name=taskmarket.dev&type=MX",
+      "read_at": "2026-10-14T21:58:43.210296Z",
+      "raw_response_bytes": 378,
+      "raw_response_sha256": "8e47591a4173ec692f45019acad90aea1d18eeb45f8353c353279311caab7c8a",
+      "raw_response_utf8": "{\"Status\":0,\"TC\":false,\"RD\":true,\"RA\":true,\"AD\":false,\"CD\":false,\"Question\":[{\"name\":\"taskmarket.dev.\",\"type\":15}],\"Answer\":[{\"name\":\"taskmarket.dev.\",\"type\":15,\"TTL\":49,\"data\":\"26 route2.mx.cloudflare.net.\"},{\"name\":\"taskmarket.dev.\",\"type\":15,\"TTL\":49,\"data\":\"42 route1.mx.cloudflare.net.\"},{\"name\":\"taskmarket.dev.\",\"type\":15,\"TTL\":49,\"data\":\"26 route3.mx.cloudflare.net.\"}]}",
+      "parsed_response": {
+        "Status": 0,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": false,
+        "CD": false,
+        "Question": [
+          {
+            "name": "taskmarket.dev.",
+            "type": 15
+          }
+        ],
+        "Answer": [
+          {
+            "name": "taskmarket.dev.",
+            "type": 15,
+            "TTL": 49,
+            "data": "26 route2.mx.cloudflare.net."
+          },
+          {
+            "name": "taskmarket.dev.",
+            "type": 15,
+            "TTL": 49,
+            "data": "42 route1.mx.cloudflare.net."
+          },
+          {
+            "name": "taskmarket.dev.",
+            "type": 15,
+            "TTL": 49,
+            "data": "26 route3.mx.cloudflare.net."
+          }
+        ]
+      }
+    },
+    {
+      "resolver": "cloudflare",
+      "name": "taskmarket.dev",
+      "query_type": "MX",
+      "url": "https://cloudflare-dns.com/dns-query?name=taskmarket.dev&type=MX",
+      "read_at": "2026-10-14T21:58:43.395041Z",
+      "raw_response_bytes": 377,
+      "raw_response_sha256": "b27b586eff3f63662fae64831695b4a35ef7af361760f25264d3f1abe0be0b40",
+      "raw_response_utf8": "{\"Status\":0,\"TC\":false,\"RD\":true,\"RA\":true,\"AD\":false,\"CD\":false,\"Question\":[{\"name\":\"taskmarket.dev\",\"type\":15}],\"Answer\":[{\"name\":\"taskmarket.dev\",\"type\":15,\"TTL\":300,\"data\":\"26 route2.mx.cloudflare.net.\"},{\"name\":\"taskmarket.dev\",\"type\":15,\"TTL\":300,\"data\":\"26 route3.mx.cloudflare.net.\"},{\"name\":\"taskmarket.dev\",\"type\":15,\"TTL\":300,\"data\":\"42 route1.mx.cloudflare.net.\"}]}",
+      "parsed_response": {
+        "Status": 0,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": false,
+        "CD": false,
+        "Question": [
+          {
+            "name": "taskmarket.dev",
+            "type": 15
+          }
+        ],
+        "Answer": [
+          {
+            "name": "taskmarket.dev",
+            "type": 15,
+            "TTL": 300,
+            "data": "26 route2.mx.cloudflare.net."
+          },
+          {
+            "name": "taskmarket.dev",
+            "type": 15,
+            "TTL": 300,
+            "data": "26 route3.mx.cloudflare.net."
+          },
+          {
+            "name": "taskmarket.dev",
+            "type": 15,
+            "TTL": 300,
+            "data": "42 route1.mx.cloudflare.net."
+          }
+        ]
+      }
+    },
+    {
+      "resolver": "google",
+      "name": "taskmarket.dev",
+      "query_type": "A",
+      "url": "https://dns.google/resolve?name=taskmarket.dev&type=A",
+      "read_at": "2026-10-14T21:58:43.315173Z",
+      "raw_response_bytes": 232,
+      "raw_response_sha256": "f7842bee77debd1f0ae73116bd27ea77bc82d1a7d66b9a6742dc01363c1d806c",
+      "raw_response_utf8": "{\"Status\":0,\"TC\":false,\"RD\":true,\"RA\":true,\"AD\":false,\"CD\":false,\"Question\":[{\"name\":\"taskmarket.dev.\",\"type\":1}],\"Answer\":[{\"name\":\"taskmarket.dev.\",\"type\":1,\"TTL\":60,\"data\":\"69.46.46.1\"}],\"Comment\":\"Response from 108.162.194.90.\"}",
+      "parsed_response": {
+        "Status": 0,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": false,
+        "CD": false,
+        "Question": [
+          {
+            "name": "taskmarket.dev.",
+            "type": 1
+          }
+        ],
+        "Answer": [
+          {
+            "name": "taskmarket.dev.",
+            "type": 1,
+            "TTL": 60,
+            "data": "69.46.46.1"
+          }
+        ],
+        "Comment": "Response from 108.162.194.90."
+      }
+    },
+    {
+      "resolver": "cloudflare",
+      "name": "taskmarket.dev",
+      "query_type": "A",
+      "url": "https://cloudflare-dns.com/dns-query?name=taskmarket.dev&type=A",
+      "read_at": "2026-10-14T21:58:43.403297Z",
+      "raw_response_bytes": 188,
+      "raw_response_sha256": "f461a5ccec5ebb0483814b449f8f3a3dc6a1234c7e17601e0f549cdb48f69e0e",
+      "raw_response_utf8": "{\"Status\":0,\"TC\":false,\"RD\":true,\"RA\":true,\"AD\":false,\"CD\":false,\"Question\":[{\"name\":\"taskmarket.dev\",\"type\":1}],\"Answer\":[{\"name\":\"taskmarket.dev\",\"type\":1,\"TTL\":60,\"data\":\"69.46.46.1\"}]}",
+      "parsed_response": {
+        "Status": 0,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": false,
+        "CD": false,
+        "Question": [
+          {
+            "name": "taskmarket.dev",
+            "type": 1
+          }
+        ],
+        "Answer": [
+          {
+            "name": "taskmarket.dev",
+            "type": 1,
+            "TTL": 60,
+            "data": "69.46.46.1"
+          }
+        ]
+      }
+    },
+    {
+      "resolver": "google",
+      "name": "route1.mx.cloudflare.net",
+      "query_type": "A",
+      "url": "https://dns.google/resolve?name=route1.mx.cloudflare.net&type=A",
+      "read_at": "2026-10-14T21:58:43.314025Z",
+      "raw_response_bytes": 415,
+      "raw_response_sha256": "9c4b0a60554418a4e8c8b07db03ee487a102aea98fdbb0647dea516dfac138fd",
+      "raw_response_utf8": "{\"Status\":0,\"TC\":false,\"RD\":true,\"RA\":true,\"AD\":true,\"CD\":false,\"Question\":[{\"name\":\"route1.mx.cloudflare.net.\",\"type\":1}],\"Answer\":[{\"name\":\"route1.mx.cloudflare.net.\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.13\"},{\"name\":\"route1.mx.cloudflare.net.\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.12\"},{\"name\":\"route1.mx.cloudflare.net.\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.11\"}],\"Comment\":\"Response from 172.64.40.250.\"}",
+      "parsed_response": {
+        "Status": 0,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": true,
+        "CD": false,
+        "Question": [
+          {
+            "name": "route1.mx.cloudflare.net.",
+            "type": 1
+          }
+        ],
+        "Answer": [
+          {
+            "name": "route1.mx.cloudflare.net.",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.13"
+          },
+          {
+            "name": "route1.mx.cloudflare.net.",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.12"
+          },
+          {
+            "name": "route1.mx.cloudflare.net.",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.11"
+          }
+        ],
+        "Comment": "Response from 172.64.40.250."
+      }
+    },
+    {
+      "resolver": "cloudflare",
+      "name": "route1.mx.cloudflare.net",
+      "query_type": "A",
+      "url": "https://cloudflare-dns.com/dns-query?name=route1.mx.cloudflare.net&type=A",
+      "read_at": "2026-10-14T21:58:43.398812Z",
+      "raw_response_bytes": 370,
+      "raw_response_sha256": "4059324316a7a9834c6ba78bd35edf72a2af25737f380b0ac1bfb8ef75640c6c",
+      "raw_response_utf8": "{\"Status\":0,\"TC\":false,\"RD\":true,\"RA\":true,\"AD\":true,\"CD\":false,\"Question\":[{\"name\":\"route1.mx.cloudflare.net\",\"type\":1}],\"Answer\":[{\"name\":\"route1.mx.cloudflare.net\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.11\"},{\"name\":\"route1.mx.cloudflare.net\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.12\"},{\"name\":\"route1.mx.cloudflare.net\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.13\"}]}",
+      "parsed_response": {
+        "Status": 0,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": true,
+        "CD": false,
+        "Question": [
+          {
+            "name": "route1.mx.cloudflare.net",
+            "type": 1
+          }
+        ],
+        "Answer": [
+          {
+            "name": "route1.mx.cloudflare.net",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.11"
+          },
+          {
+            "name": "route1.mx.cloudflare.net",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.12"
+          },
+          {
+            "name": "route1.mx.cloudflare.net",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.13"
+          }
+        ]
+      }
+    },
+    {
+      "resolver": "google",
+      "name": "route1.mx.cloudflare.net",
+      "query_type": "AAAA",
+      "url": "https://dns.google/resolve?name=route1.mx.cloudflare.net&type=AAAA",
+      "read_at": "2026-10-14T21:58:43.313590Z",
+      "raw_response_bytes": 422,
+      "raw_response_sha256": "a2191da4186d31488432fa85815e3a2e29f154d7951fff134c57d85f97170ffc",
+      "raw_response_utf8": "{\"Status\":0,\"TC\":false,\"RD\":true,\"RA\":true,\"AD\":true,\"CD\":false,\"Question\":[{\"name\":\"route1.mx.cloudflare.net.\",\"type\":28}],\"Answer\":[{\"name\":\"route1.mx.cloudflare.net.\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::d\"},{\"name\":\"route1.mx.cloudflare.net.\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::c\"},{\"name\":\"route1.mx.cloudflare.net.\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::b\"}],\"Comment\":\"Response from 172.64.40.253.\"}",
+      "parsed_response": {
+        "Status": 0,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": true,
+        "CD": false,
+        "Question": [
+          {
+            "name": "route1.mx.cloudflare.net.",
+            "type": 28
+          }
+        ],
+        "Answer": [
+          {
+            "name": "route1.mx.cloudflare.net.",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::d"
+          },
+          {
+            "name": "route1.mx.cloudflare.net.",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::c"
+          },
+          {
+            "name": "route1.mx.cloudflare.net.",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::b"
+          }
+        ],
+        "Comment": "Response from 172.64.40.253."
+      }
+    },
+    {
+      "resolver": "cloudflare",
+      "name": "route1.mx.cloudflare.net",
+      "query_type": "AAAA",
+      "url": "https://cloudflare-dns.com/dns-query?name=route1.mx.cloudflare.net&type=AAAA",
+      "read_at": "2026-10-14T21:58:43.337686Z",
+      "raw_response_bytes": 377,
+      "raw_response_sha256": "0f73aba362ab1b8c83aaa29f43b3c66f0c4c9fd7235a78e5b37f4a3a43af0ff0",
+      "raw_response_utf8": "{\"Status\":0,\"TC\":false,\"RD\":true,\"RA\":true,\"AD\":true,\"CD\":false,\"Question\":[{\"name\":\"route1.mx.cloudflare.net\",\"type\":28}],\"Answer\":[{\"name\":\"route1.mx.cloudflare.net\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::b\"},{\"name\":\"route1.mx.cloudflare.net\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::c\"},{\"name\":\"route1.mx.cloudflare.net\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::d\"}]}",
+      "parsed_response": {
+        "Status": 0,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": true,
+        "CD": false,
+        "Question": [
+          {
+            "name": "route1.mx.cloudflare.net",
+            "type": 28
+          }
+        ],
+        "Answer": [
+          {
+            "name": "route1.mx.cloudflare.net",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::b"
+          },
+          {
+            "name": "route1.mx.cloudflare.net",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::c"
+          },
+          {
+            "name": "route1.mx.cloudflare.net",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::d"
+          }
+        ]
+      }
+    },
+    {
+      "resolver": "google",
+      "name": "route2.mx.cloudflare.net",
+      "query_type": "A",
+      "url": "https://dns.google/resolve?name=route2.mx.cloudflare.net&type=A",
+      "read_at": "2026-10-14T21:58:45.944257Z",
+      "raw_response_bytes": 436,
+      "raw_response_sha256": "37ed3c278b2f2286859178c7691501b351ea44ca5c6f84f2c21c72e32ffc2ed5",
+      "raw_response_utf8": "{\"Status\":0,\"TC\":false,\"RD\":true,\"RA\":true,\"AD\":true,\"CD\":false,\"Question\":[{\"name\":\"route2.mx.cloudflare.net.\",\"type\":1}],\"Answer\":[{\"name\":\"route2.mx.cloudflare.net.\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.18\"},{\"name\":\"route2.mx.cloudflare.net.\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.17\"},{\"name\":\"route2.mx.cloudflare.net.\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.19\"}],\"Comment\":\"Response from 2a06:98c1:56:1:2cfa:9492:6ca2:c6fc.\"}",
+      "parsed_response": {
+        "Status": 0,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": true,
+        "CD": false,
+        "Question": [
+          {
+            "name": "route2.mx.cloudflare.net.",
+            "type": 1
+          }
+        ],
+        "Answer": [
+          {
+            "name": "route2.mx.cloudflare.net.",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.18"
+          },
+          {
+            "name": "route2.mx.cloudflare.net.",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.17"
+          },
+          {
+            "name": "route2.mx.cloudflare.net.",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.19"
+          }
+        ],
+        "Comment": "Response from 2a06:98c1:56:1:2cfa:9492:6ca2:c6fc."
+      }
+    },
+    {
+      "resolver": "cloudflare",
+      "name": "route2.mx.cloudflare.net",
+      "query_type": "A",
+      "url": "https://cloudflare-dns.com/dns-query?name=route2.mx.cloudflare.net&type=A",
+      "read_at": "2026-10-14T21:58:48.296594Z",
+      "raw_response_bytes": 370,
+      "raw_response_sha256": "0702cfd41328e5847aee33e7f92030cd2d02508baec883916568bb7414dac28b",
+      "raw_response_utf8": "{\"Status\":0,\"TC\":false,\"RD\":true,\"RA\":true,\"AD\":true,\"CD\":false,\"Question\":[{\"name\":\"route2.mx.cloudflare.net\",\"type\":1}],\"Answer\":[{\"name\":\"route2.mx.cloudflare.net\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.17\"},{\"name\":\"route2.mx.cloudflare.net\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.18\"},{\"name\":\"route2.mx.cloudflare.net\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.19\"}]}",
+      "parsed_response": {
+        "Status": 0,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": true,
+        "CD": false,
+        "Question": [
+          {
+            "name": "route2.mx.cloudflare.net",
+            "type": 1
+          }
+        ],
+        "Answer": [
+          {
+            "name": "route2.mx.cloudflare.net",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.17"
+          },
+          {
+            "name": "route2.mx.cloudflare.net",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.18"
+          },
+          {
+            "name": "route2.mx.cloudflare.net",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.19"
+          }
+        ]
+      }
+    },
+    {
+      "resolver": "google",
+      "name": "route2.mx.cloudflare.net",
+      "query_type": "AAAA",
+      "url": "https://dns.google/resolve?name=route2.mx.cloudflare.net&type=AAAA",
+      "read_at": "2026-10-14T21:58:45.987703Z",
+      "raw_response_bytes": 424,
+      "raw_response_sha256": "6eff61c8012428740bcf7d5807f28cf6356c8781551c800edf81db42c307aafa",
+      "raw_response_utf8": "{\"Status\":0,\"TC\":false,\"RD\":true,\"RA\":true,\"AD\":true,\"CD\":false,\"Question\":[{\"name\":\"route2.mx.cloudflare.net.\",\"type\":28}],\"Answer\":[{\"name\":\"route2.mx.cloudflare.net.\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::e\"},{\"name\":\"route2.mx.cloudflare.net.\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::f\"},{\"name\":\"route2.mx.cloudflare.net.\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::10\"}],\"Comment\":\"Response from 162.159.60.250.\"}",
+      "parsed_response": {
+        "Status": 0,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": true,
+        "CD": false,
+        "Question": [
+          {
+            "name": "route2.mx.cloudflare.net.",
+            "type": 28
+          }
+        ],
+        "Answer": [
+          {
+            "name": "route2.mx.cloudflare.net.",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::e"
+          },
+          {
+            "name": "route2.mx.cloudflare.net.",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::f"
+          },
+          {
+            "name": "route2.mx.cloudflare.net.",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::10"
+          }
+        ],
+        "Comment": "Response from 162.159.60.250."
+      }
+    },
+    {
+      "resolver": "cloudflare",
+      "name": "route2.mx.cloudflare.net",
+      "query_type": "AAAA",
+      "url": "https://cloudflare-dns.com/dns-query?name=route2.mx.cloudflare.net&type=AAAA",
+      "read_at": "2026-10-14T21:58:48.212077Z",
+      "raw_response_bytes": 378,
+      "raw_response_sha256": "88ebb4fd6b4e0733cd2da17022e088bedc8466e5c4098178eb6b89c7461661e6",
+      "raw_response_utf8": "{\"Status\":0,\"TC\":false,\"RD\":true,\"RA\":true,\"AD\":true,\"CD\":false,\"Question\":[{\"name\":\"route2.mx.cloudflare.net\",\"type\":28}],\"Answer\":[{\"name\":\"route2.mx.cloudflare.net\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::e\"},{\"name\":\"route2.mx.cloudflare.net\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::f\"},{\"name\":\"route2.mx.cloudflare.net\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::10\"}]}",
+      "parsed_response": {
+        "Status": 0,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": true,
+        "CD": false,
+        "Question": [
+          {
+            "name": "route2.mx.cloudflare.net",
+            "type": 28
+          }
+        ],
+        "Answer": [
+          {
+            "name": "route2.mx.cloudflare.net",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::e"
+          },
+          {
+            "name": "route2.mx.cloudflare.net",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::f"
+          },
+          {
+            "name": "route2.mx.cloudflare.net",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::10"
+          }
+        ]
+      }
+    },
+    {
+      "resolver": "google",
+      "name": "route3.mx.cloudflare.net",
+      "query_type": "A",
+      "url": "https://dns.google/resolve?name=route3.mx.cloudflare.net&type=A",
+      "read_at": "2026-10-14T21:58:46.010869Z",
+      "raw_response_bytes": 435,
+      "raw_response_sha256": "cd8b0969db29baaadd09140f2f2b1808d77ac06ebf5de18935a90d63290c90ee",
+      "raw_response_utf8": "{\"Status\":0,\"TC\":false,\"RD\":true,\"RA\":true,\"AD\":true,\"CD\":false,\"Question\":[{\"name\":\"route3.mx.cloudflare.net.\",\"type\":1}],\"Answer\":[{\"name\":\"route3.mx.cloudflare.net.\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.24\"},{\"name\":\"route3.mx.cloudflare.net.\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.23\"},{\"name\":\"route3.mx.cloudflare.net.\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.25\"}],\"Comment\":\"Response from 2803:f800:52:1:d48b:2cd:ac40:28fe.\"}",
+      "parsed_response": {
+        "Status": 0,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": true,
+        "CD": false,
+        "Question": [
+          {
+            "name": "route3.mx.cloudflare.net.",
+            "type": 1
+          }
+        ],
+        "Answer": [
+          {
+            "name": "route3.mx.cloudflare.net.",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.24"
+          },
+          {
+            "name": "route3.mx.cloudflare.net.",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.23"
+          },
+          {
+            "name": "route3.mx.cloudflare.net.",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.25"
+          }
+        ],
+        "Comment": "Response from 2803:f800:52:1:d48b:2cd:ac40:28fe."
+      }
+    },
+    {
+      "resolver": "cloudflare",
+      "name": "route3.mx.cloudflare.net",
+      "query_type": "A",
+      "url": "https://cloudflare-dns.com/dns-query?name=route3.mx.cloudflare.net&type=A",
+      "read_at": "2026-10-14T21:58:48.295983Z",
+      "raw_response_bytes": 370,
+      "raw_response_sha256": "73a7b160f404f43fa67c3015d6d97288da0c00a654d28ced65e156ecacb65504",
+      "raw_response_utf8": "{\"Status\":0,\"TC\":false,\"RD\":true,\"RA\":true,\"AD\":true,\"CD\":false,\"Question\":[{\"name\":\"route3.mx.cloudflare.net\",\"type\":1}],\"Answer\":[{\"name\":\"route3.mx.cloudflare.net\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.23\"},{\"name\":\"route3.mx.cloudflare.net\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.24\"},{\"name\":\"route3.mx.cloudflare.net\",\"type\":1,\"TTL\":300,\"data\":\"162.159.205.25\"}]}",
+      "parsed_response": {
+        "Status": 0,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": true,
+        "CD": false,
+        "Question": [
+          {
+            "name": "route3.mx.cloudflare.net",
+            "type": 1
+          }
+        ],
+        "Answer": [
+          {
+            "name": "route3.mx.cloudflare.net",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.23"
+          },
+          {
+            "name": "route3.mx.cloudflare.net",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.24"
+          },
+          {
+            "name": "route3.mx.cloudflare.net",
+            "type": 1,
+            "TTL": 300,
+            "data": "162.159.205.25"
+          }
+        ]
+      }
+    },
+    {
+      "resolver": "google",
+      "name": "route3.mx.cloudflare.net",
+      "query_type": "AAAA",
+      "url": "https://dns.google/resolve?name=route3.mx.cloudflare.net&type=AAAA",
+      "read_at": "2026-10-14T21:58:46.018888Z",
+      "raw_response_bytes": 426,
+      "raw_response_sha256": "2f09baf96d26fe8b252151a256b8fbaf2d0ce6578044f68e2a6ae70ef8653ca1",
+      "raw_response_utf8": "{\"Status\":0,\"TC\":false,\"RD\":true,\"RA\":true,\"AD\":true,\"CD\":false,\"Question\":[{\"name\":\"route3.mx.cloudflare.net.\",\"type\":28}],\"Answer\":[{\"name\":\"route3.mx.cloudflare.net.\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::13\"},{\"name\":\"route3.mx.cloudflare.net.\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::11\"},{\"name\":\"route3.mx.cloudflare.net.\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::12\"}],\"Comment\":\"Response from 162.159.60.252.\"}",
+      "parsed_response": {
+        "Status": 0,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": true,
+        "CD": false,
+        "Question": [
+          {
+            "name": "route3.mx.cloudflare.net.",
+            "type": 28
+          }
+        ],
+        "Answer": [
+          {
+            "name": "route3.mx.cloudflare.net.",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::13"
+          },
+          {
+            "name": "route3.mx.cloudflare.net.",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::11"
+          },
+          {
+            "name": "route3.mx.cloudflare.net.",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::12"
+          }
+        ],
+        "Comment": "Response from 162.159.60.252."
+      }
+    },
+    {
+      "resolver": "cloudflare",
+      "name": "route3.mx.cloudflare.net",
+      "query_type": "AAAA",
+      "url": "https://cloudflare-dns.com/dns-query?name=route3.mx.cloudflare.net&type=AAAA",
+      "read_at": "2026-10-14T21:58:48.287430Z",
+      "raw_response_bytes": 380,
+      "raw_response_sha256": "38ccb4361d4da28e51155aa674a9558b5133730571dfef9be85601ca119ff061",
+      "raw_response_utf8": "{\"Status\":0,\"TC\":false,\"RD\":true,\"RA\":true,\"AD\":true,\"CD\":false,\"Question\":[{\"name\":\"route3.mx.cloudflare.net\",\"type\":28}],\"Answer\":[{\"name\":\"route3.mx.cloudflare.net\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::11\"},{\"name\":\"route3.mx.cloudflare.net\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::12\"},{\"name\":\"route3.mx.cloudflare.net\",\"type\":28,\"TTL\":300,\"data\":\"2606:4700:f5::13\"}]}",
+      "parsed_response": {
+        "Status": 0,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": true,
+        "CD": false,
+        "Question": [
+          {
+            "name": "route3.mx.cloudflare.net",
+            "type": 28
+          }
+        ],
+        "Answer": [
+          {
+            "name": "route3.mx.cloudflare.net",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::11"
+          },
+          {
+            "name": "route3.mx.cloudflare.net",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::12"
+          },
+          {
+            "name": "route3.mx.cloudflare.net",
+            "type": 28,
+            "TTL": 300,
+            "data": "2606:4700:f5::13"
+          }
+        ]
+      }
+    }
+  ]
+}
