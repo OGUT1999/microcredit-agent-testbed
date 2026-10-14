@@ -4,8 +4,25 @@ Only consumes applicant-authorized eligibility flags and aggregate costs. Never
 stores name, address, contact, identity documents, or application credentials.
 """
 from dataclasses import dataclass
-from decimal import Decimal, InvalidOperation
+from decimal import (Context, Decimal, DecimalException, Inexact, InvalidOperation,
+                     Rounded, ROUND_HALF_EVEN)
 from typing import Optional
+
+
+# Same magnitude/scale bounds as the existing human-outcome cash gate. This
+# in-memory API retains Decimal/int/float inputs and Decimal output; importing
+# that gate's private Fraction parser would change its contract and diagnostics.
+MAX_INTEGER_DIGITS = 32
+MAX_FRACTIONAL_DIGITS = 12
+MAX_AMOUNT_TEXT = 96
+
+
+def _cash_context():
+    # Fresh, explicit context: never inherit caller precision, traps or flags.
+    return Context(prec=MAX_INTEGER_DIGITS + MAX_FRACTIONAL_DIGITS,
+                   rounding=ROUND_HALF_EVEN, Emin=-MAX_FRACTIONAL_DIGITS,
+                   Emax=MAX_INTEGER_DIGITS - 1, capitals=1, clamp=0, flags=[],
+                   traps=[InvalidOperation, Inexact, Rounded])
 
 
 @dataclass(frozen=True)
@@ -35,26 +52,39 @@ def application_gate(e: Eligibility) -> str:
 
 
 def money(x):
-    if x is None or isinstance(x, bool):
+    if type(x) not in (str, int, float, Decimal):
+        return None
+    if type(x) is int and (x < 0 or x >= 10 ** MAX_INTEGER_DIGITS):
+        return None
+    if type(x) is str and len(x) > MAX_AMOUNT_TEXT:
         return None
     try:
-        value = Decimal(str(x))
-    except (InvalidOperation, ValueError, TypeError):
+        value = x if type(x) is Decimal else Decimal(str(x), context=_cash_context())
+    except (DecimalException, ValueError, TypeError):
         return None
-    return value if value.is_finite() and value >= 0 else None
+    if not value.is_finite() or value < 0:
+        return None
+    _, digits, exponent = value.as_tuple()
+    if (len(digits) > MAX_INTEGER_DIGITS + MAX_FRACTIONAL_DIGITS
+            or exponent < -MAX_FRACTIONAL_DIGITS
+            or exponent > MAX_INTEGER_DIGITS - 1
+            or value.adjusted() >= MAX_INTEGER_DIGITS):
+        return None
+    return value
 
 
 def first_day_cash_gap(outbound_fare, cash_before_first_employer_payment):
     """Provisional departure-date gap only; cannot establish financing necessity.
 
-    Returns None if terms or actual costs are unknown. Does not count uncertain
+    Same-unit amounts only; no currency conversion is inferred. Returns None
+    for unknown/invalid amounts or unsupported magnitude/scale. Does not count uncertain
     training/per-diem reimbursement as cash available before the trip.
     """
     fare = money(outbound_fare)
     cash = money(cash_before_first_employer_payment)
     if fare is None or cash is None:
         return None
-    return max(fare - cash, Decimal(0))
+    return max(_cash_context().subtract(fare, cash), Decimal(0))
 
 
 def classify_assistance(e: Eligibility, fare=None, prepayment_cash=None,

@@ -163,6 +163,20 @@ and consent/custody/spending gates are unchanged; no earnings are established.
 
 ## Source register and coverage limits
 
+October 14, 2026 existing nLine readiness correction:
+[bounded explicit-context cash arithmetic](../evidence/nline-cash-context-20261014/README.md)
+repairs the recorded synthetic `123.45 - 1.00` precision-3 failure (`122`
+instead of `122.45`) without creating a financing mechanism or finding actual
+travel costs. Current primary Python docs support explicit Context isolation;
+the employer listing remains readable but does not supply an actual consenting
+eligible applicant, departure fare/cash, guaranteed hire or spendable payout.
+The existing applicant owner/October 23 trigger remains. Employer resources,
+advance/direct ticket and NO_LOAN/NO_GUARANTEE still dominate an invented gap.
+Same-unit identity must be verified separately; exact arithmetic is not FX,
+affordability, causal benefit or poverty reduction. Stages 0-7, M>1 and the
+learning/sustainability gates are unchanged; actual default integration is a
+separate acceptance requirement, not supplied by a candidate source or green tests.
+
 October14, 2026 inbound-opportunity update:
 the [bounded Practice-invitation disposition](../evidence/arena-inbound-3a8cf59c-20261014/README.md)
 reuses the existing country-qualification schema. Original game documentation
