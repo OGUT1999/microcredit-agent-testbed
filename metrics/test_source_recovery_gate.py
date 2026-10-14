@@ -2,6 +2,8 @@
 import copy
 import io
 import json
+from pathlib import Path
+import tempfile
 from contextlib import redirect_stdout
 import unittest
 from unittest.mock import patch
@@ -176,8 +178,10 @@ class RecoveryGate(unittest.TestCase):
 
     def test_cli_duplicate_keys_rejected_without_echo(self):
         raw = json.dumps(self.p).replace('"schema_version": 1', '"schema_version": 2, "schema_version": 1')
-        with patch.object(g.Path, "read_text", return_value=raw), redirect_stdout(io.StringIO()) as out:
-            self.assertEqual(g.main(["private.json"]), 1)
+        with tempfile.TemporaryDirectory() as folder, redirect_stdout(io.StringIO()) as out:
+            path = Path(folder) / "private.json"
+            path.write_text(raw, encoding="utf-8")
+            self.assertEqual(g.main([str(path)]), 1)
         self.assertEqual(json.loads(out.getvalue())["state"], "INVALID_PACKET")
 
     def test_approval_meta_or_wrong_amount_calldata_rejected(self):
@@ -245,15 +249,17 @@ class RecoveryGate(unittest.TestCase):
 
     def test_cli_read_failure_is_json_and_no_private_path_echo(self):
         for error in (OSError("PRIVATE_SENTINEL"), UnicodeError("PRIVATE_SENTINEL"), ValueError("PRIVATE_SENTINEL")):
-            with patch.object(g.Path, "read_text", side_effect=error), redirect_stdout(io.StringIO()) as out:
+            with patch.object(g, "read_record", side_effect=error), redirect_stdout(io.StringIO()) as out:
                 self.assertEqual(g.main(["private.json"]), 1)
             self.assertEqual(json.loads(out.getvalue())["state"], "INVALID_PACKET")
             self.assertNotIn("PRIVATE_SENTINEL", out.getvalue())
 
     def test_cli_ready_and_invalid_shapes(self):
         for p, code in ((self.p, 0), ([], 1), ({}, 1)):
-            with patch.object(g.Path, "read_text", return_value=json.dumps(p)), redirect_stdout(io.StringIO()) as out:
-                self.assertEqual(g.main(["private.json"]), code)
+            with tempfile.TemporaryDirectory() as folder, redirect_stdout(io.StringIO()) as out:
+                path = Path(folder) / "private.json"
+                path.write_text(json.dumps(p), encoding="utf-8")
+                self.assertEqual(g.main([str(path)]), code)
             self.assertFalse(json.loads(out.getvalue())["recovery_verified"])
 
 

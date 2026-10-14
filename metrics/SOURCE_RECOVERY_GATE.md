@@ -70,6 +70,42 @@ human earning outcome or evidence that credit is needed.
 
 ## Current audit, not recovery
 
+### CLI input boundary, October 14, 2026 UTC
+
+Codex (AI), baseline main `f3ce81b`, checked 2026-10-14T05:37:44Z. Synthetic
+controls reproduced private-argument echo (exit 2) and a named pipe blocked
+without a writer until the one-second test timeout. This bounded correction
+reuses the already-reviewed `scripts/record_input.py`, without a new parser,
+calculator, transaction route or recovery ledger. The legacy duplicate hook
+forwards to its shared implementation. All recovery classification and receipt,
+role, token, order and ownership rules remain unchanged.
+
+The CLI reads only existing regular files, at most 1 MiB of UTF-8 JSON. Nested
+duplicates, nonstandard NaN/Infinity, decoder-recursion failures, invalid encoding, file and
+argument failures produce a static `INVALID_PACKET` and exit 1, with no input,
+private path, exception text or traceback. `--help` remains a normal exit 0;
+consistent packets remain exit 0 and incomplete packets exit 1. All recovery,
+earnings and transaction-authority flags remain false. This intentionally makes
+argument errors consistent with existing recovery failure exits. Standard JSON
+and existing valid RPC fields remain supported; API classifications are unchanged.
+
+Acceptance: retain all 31 original test groups (CLI fixtures now exercise real
+files), add subprocess controls for independent-directory imports, parity, missing
+receipts, wrong owner, private arguments/paths, FIFO, encoding/depth/integers,
+nested duplicates/nonstandard literals and exact byte bounds. Resource bound:
+one offline increment; zero contact, signup, spend, RPC, key access or signing.
+Stop on a changed classifier, false recovery, raw diagnostics or historical-byte
+change. This safeguards receipt processing while the actual signer dependency
+remains WATCHING; it does not return funds or produce income.
+
+Primary sources checked October 14, 2026 UTC:
+[Python JSON](https://docs.python.org/3.12/library/json.html) recommends bounded
+untrusted input and documents the decoder hooks;
+[Python stat](https://docs.python.org/3.12/library/stat.html) documents regular-file
+type checks. Stat/open races, filesystem authorization and comprehensive
+denial-of-service isolation remain outside this boundary. Numeric/address records
+are not anonymized or authorized for public disclosure.
+
 At Base Sepolia block **48,084,119**, hash
 `0x13c2cdc8d9db9edf0de03843ed09f7c2b93fbd6e55f76563d4838bfcc3f88c6a`,
 2026-10-14T00:08:46Z, a read-only internal audit still found source funder **5**,
