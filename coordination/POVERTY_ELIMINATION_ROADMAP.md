@@ -163,6 +163,27 @@ and consent/custody/spending gates are unchanged; no earnings are established.
 
 ## Source register and coverage limits
 
+October14, 2026 inbound-opportunity update:
+the [bounded Practice-invitation disposition](../evidence/arena-inbound-3a8cf59c-20261014/README.md)
+reuses the existing country-qualification schema. Original game documentation
+does not turn the new collateral-comparison invitation into useful commissioned
+work: Practice lacks payout and public chips are noncash, while a separately
+described stake contest is not a wage assignment. Mode/fee contradictions remain
+unresolved, not normalized into a current quote. No country/account access,
+worker assent, commissioned task, conservative positive-net spendable payout or
+live enforcement was verified. Actual Codex and Hermes original-source assents
+close the packet as NO_VERIFIABLE_ROUTE, not unavailability; both remain internal
+readers, not outside paid-work or human-outcome witnesses.
+NO_LOAN/NO_GUARANTEE/no participation dominate inventing financing need for this
+invitation. Reopen only on changed assignment/worker/payout evidence, not gameplay
+or another invitation. Preserve mechanism ideas as hypotheses and existing
+employer-resource/prepayment/protection/direct-funding/cash comparators.
+This narrows Stage0 opportunity classification without changing stages0-7,
+M>1, learning/sustainability gates, authority or the human-outcome baseline.
+Actual source/default-branch integration is required; live next actions remain
+only in the world model, including the separately reproduced existing human-access
+helper arithmetic risk, not another BOT-REPRO infrastructure increment.
+
 Sources checked 2026-10-13. Dates are publication dates where established; no exhaustive coverage is claimed.
 
 | ID | Primary/authoritative source and date | Exact URL | What it supports and limitation |
