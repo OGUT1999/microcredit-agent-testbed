@@ -8,10 +8,13 @@ contacts a platform, spends money, or treats an unverified route as unavailable.
 from __future__ import annotations
 
 import argparse
+from fractions import Fraction
 import json
 import re
 from pathlib import Path
 from urllib.parse import urlparse
+
+from quote_consistency import COSTS, amount, analyze
 
 REQUIRED_GATES = ("current_access", "current_demand", "worker_eligibility", "spendable_payout")
 ALLOWED_GATE_STATES = {"verified", "unverified", "failed"}
@@ -25,6 +28,96 @@ GITHUB_RECEIPT = re.compile(
 def _require(condition: bool, message: str, errors: list[str]) -> None:
     if not condition:
         errors.append(message)
+
+
+def payout_readiness(record: dict) -> dict:
+    """Prospective PASS arithmetic only; supplied sources still need human review.
+
+    Cash amounts are conservative lower bounds, all costs conservative upper
+    bounds in the same explicitly confirmed unit. Points use the existing fixed
+    conversion diagnostic, never an inferred currency or endpoint pairing.
+    """
+    errors: list[str] = []
+    result = {"errors": errors, "net_cash_lower_bound": None,
+              "human_earnings_established": False, "financial_authority": False}
+    data = record.get("payout_economics")
+    if not isinstance(data, dict):
+        errors.append("PASS requires payout_economics; a positive-net label is insufficient")
+        return result
+    gates = record.get("gates", {})
+    gate = gates.get("spendable_payout", {}) if isinstance(gates, dict) else {}
+    allowed = gate.get("source_ids", []) if isinstance(gate, dict) else []
+    allowed = {s for s in allowed if isinstance(s, str)} if isinstance(allowed, list) else set()
+
+    def refs(value, label):
+        valid = (isinstance(value, list) and 1 <= len(value) <= 20
+                 and all(isinstance(s, str) and s in allowed for s in value)
+                 and len(set(value)) == len(value))
+        _require(valid, label + " needs unique spendable_payout source_ids", errors)
+
+    currency = data.get("currency")
+    _require(isinstance(currency, str) and bool(currency.strip()), "payout currency required", errors)
+    _require(data.get("currency_unit_confirmed") is True,
+             "payout currency unit must be explicitly confirmed; no SLL/SLE normalization", errors)
+    refs(data.get("currency_source_ids"), "currency confirmation")
+    costs = data.get("costs")
+    cost_refs = data.get("cost_source_ids")
+    _require(isinstance(costs, dict) and set(costs) == set(COSTS),
+             "payout needs all three conservative worker-borne cost upper bounds", errors)
+    _require(isinstance(cost_refs, dict) and set(cost_refs) == set(COSTS),
+             "payout needs source_ids for each worker-borne cost", errors)
+    parsed_costs = []
+    for name in COSTS:
+        refs(cost_refs.get(name) if isinstance(cost_refs, dict) else None, name)
+        try:
+            parsed_costs.append(amount(costs.get(name) if isinstance(costs, dict) else None))
+        except ValueError:
+            errors.append(name + " upper bound unknown or invalid; never zero by default")
+    basis = data.get("basis")
+    gross = None
+    refs(data.get("gross_source_ids"), "current task gross lower bound")
+    demand = gates.get("current_demand", {}) if isinstance(gates, dict) else {}
+    demand_refs = demand.get("source_ids", []) if isinstance(demand, dict) else []
+    gross_refs = data.get("gross_source_ids", [])
+    _require(isinstance(gross_refs, list) and isinstance(demand_refs, list)
+             and any(isinstance(s, str) and s in demand_refs for s in gross_refs),
+             "gross lower bound must share a source with current_demand", errors)
+    if basis == "cash":
+        try:
+            gross = amount(data.get("gross_cash_min"))
+        except ValueError:
+            errors.append("gross_cash_min must be a nonnegative exact amount")
+        _require("quotes" not in data and "task_points_min" not in data,
+                 "cash basis cannot bypass a supplied points conversion", errors)
+    elif basis == "points":
+        diagnostic = analyze(data)
+        _require(diagnostic["status"] == "QUOTE_ARITHMETIC_CONSISTENT",
+                 "points payout requires QUOTE_ARITHMETIC_CONSISTENT: " + diagnostic["status"], errors)
+        _require(data.get("fixed_conversion_confirmed") is True,
+                 "points payout requires source-confirmed fixed conversion, not a hypothesis", errors)
+        refs(data.get("conversion_source_ids"), "fixed conversion confirmation")
+        quotes = data.get("quotes")
+        if isinstance(quotes, list) and 2 <= len(quotes) <= 20:
+            for quote in quotes:
+                if isinstance(quote, dict):
+                    refs(quote.get("source_ids"), "conversion quote")
+                    _require(quote.get("currency") == currency,
+                             "conversion quote currency must match payout unit exactly", errors)
+        try:
+            points = amount(data.get("task_points_min"))
+            if diagnostic["status"] == "QUOTE_ARITHMETIC_CONSISTENT":
+                # Intersection lower bound, not independently paired endpoints.
+                rate = max(Fraction(q["low_cash_per_point"]) for q in diagnostic["rate_intervals"])
+                gross = points * rate
+        except ValueError:
+            errors.append("task_points_min must be a nonnegative exact amount")
+    else:
+        errors.append("payout basis must be cash or points")
+    if not errors and gross is not None:
+        net = gross - sum(parsed_costs)
+        result["net_cash_lower_bound"] = str(net)
+        _require(net > 0, "PASS requires strictly positive same-unit conservative net cash", errors)
+    return result
 
 
 def validate(record: dict) -> list[str]:
@@ -122,6 +215,7 @@ def validate(record: dict) -> list[str]:
                      "PASS requires a complete evidence chain for every gate", errors)
             _require(record.get("conservative_net_earnings_status") == "positive",
                      "PASS requires positive conservative net earnings", errors)
+            errors.extend(payout_readiness(record)["errors"])
         elif record.get("decision") == "NO_VERIFIABLE_ROUTE":
             _require(any(status != "verified" for status in statuses),
                      "NO_VERIFIABLE_ROUTE requires at least one unresolved or failed gate", errors)

@@ -6,6 +6,50 @@ This offline gate prevents a historical country project or a generic payment cla
 
 `PASS` requires original-source evidence for all four links in the same country: current access, current demand, worker eligibility, and a named spendable payout route. Each gate must mark its country-and-time-specific evidence chain complete; historical work, generic payment marketing or an unrelated local wallet cannot complete one. The record must also show positive conservative net earnings after worker-borne connectivity, travel, rejection, withdrawal and conversion costs. Two attributable reviewers must independently check original sources and assent to the exact disposition.
 
+Prospective `PASS` records additionally require `payout_economics`. A manually
+entered `positive` label is insufficient. The object uses one literal `currency`
+label, `currency_unit_confirmed: true`, and `currency_source_ids`; no inferred
+Le/SLE/SLL normalization. `costs` contains exact decimal-text conservative upper
+bounds for `provider_transfer_fee`, `recipient_cashout_fee` and
+`other_worker_costs`, with corresponding `cost_source_ids` lists. A documented
+worker-borne zero is valid; an unknown fee is not zero. `other_worker_costs` must
+cover the full connectivity, travel, rejection/rework, conversion and other costs
+for the scoped task, not just one selected expense. Non-worker-borne provider costs
+still need an explicit zero bound and source for that allocation. Every reference
+must occur in the spendable-payout gate's original source list. These structural
+links do not authenticate sources or establish their coverage: both reviewers must
+check the actual account-specific quote, unit, costs, task and eligibility.
+
+For `basis: "cash"`, supply `gross_cash_min` and `gross_source_ids`, which must
+also share a source with `current_demand`. For `basis: "points"`, supply
+`task_points_min`, `gross_source_ids`, `fixed_conversion_confirmed: true`,
+`conversion_source_ids`, and two to twenty `quotes` in the existing
+[quote diagnostic format](QUOTE_CONSISTENCY.md); each quote needs its own
+`source_ids` and exactly the payout currency label. The shared diagnostic must
+return `QUOTE_ARITHMETIC_CONSISTENT`. Source confirmation must cover that fixed
+conversion for this task, not merely compatibility of marketing ranges. Its common
+rate-interval lower bound times task points gives conservative gross cash; subtract
+all three cost upper bounds with exact rational arithmetic. The result must be
+strictly positive. A cash label cannot bypass an attached points conversion.
+Tiered or differently denominated quotes need separately reviewed support, not
+silent normalization or an invented fixed-rate assertion.
+
+The historical `IN_REVIEW` and `NO_VERIFIABLE_ROUTE` packets remain byte-identical
+and valid without prospective PASS economics. All numerical controls in tests are
+synthetic. Neither a green arithmetic check nor a structurally valid PASS packet
+establishes settled cash, incremental human benefit, or financial authority.
+
+Codex (AI), October 14, 2026: bounded integration for
+`action:sl-paid-work-payout-alt-20261011`; decision beneficiary is the team and any
+future consenting worker whose payout evidence it evaluates. Scope: existing
+validator, tests and this guide only; zero accounts, contact, spend or signing.
+Acceptance: positive cash/points controls pass structurally; observed Fieldwork
+fixture, contradictory conversions, unknown units/costs, unrelated sources and
+nonpositive net cannot pass; all dated packets unchanged; focused/repository checks
+pass; Claude exact-head review required. Stop/change: real account-specific terms
+or a non-fixed conversion change the evidence and need a separately reviewed
+revision; do not restart generic channel scans. No loan or guarantee is inferred.
+
 `IN_REVIEW` preserves one source screen without claiming the candidate passed or failed. `NO_VERIFIABLE_ROUTE` requires a second attributable original-source review and means at least one link could not be verified within the recorded zero-contact, zero-spend screen. It is a stop decision for this candidate under present public evidence, not evidence that the service is unavailable. A current task-and-payout receipt can reopen the candidate.
 
 Run the packet and focused tests:
