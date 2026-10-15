@@ -49,6 +49,20 @@ client nor solely insurance against an accepted invoice going unpaid.
 | Sponsor-funded paid trial | Sponsor explicitly buys bounded trial and evaluation, whether or not client later hires | Requires separately authorized funds and incremental benefit; do not call subsidized pay self-sustaining demand |
 | NO_LOAN / no new guarantee | Ordinary service parties bear their agreed costs | Current control; lack of a buyer is not a liquidity or smart-contract defect |
 
+The intended guarantee has a plausible advantage that the earlier nonpayment
+screen did not test: a client can try an inexperienced worker without paying for
+a genuinely unacceptable first result, while the worker receives a funded floor.
+That can address hiring risk even when invoice default is rare. The old
+NONE_QUALIFIES nonpayment-channel finding therefore does not refute this idea.
+Its corresponding risks are strategic rejection, collusion, low effort and
+appropriation of rejected output. A fair test would predefine a valid attempt,
+objective acceptance where possible, an independent dispute/appeal route,
+limited output-use rights before payment, loss caps and a non-worker premium
+payer. It must still compensate the worker on covered good-faith rejection,
+not quietly convert the design into payment only after adjudicated acceptance.
+Compare client take-up and worker net benefit with an otherwise identical
+client-paid trial; do not select only successful jobs for the comparison.
+
 Define mutually exclusive first-job outcomes before any guarantee experiment:
 approved and paid; approved but unpaid; rejected for agreed quality reasons;
 rejected dishonestly/disputed; abandoned/no delivery; and client silence.
