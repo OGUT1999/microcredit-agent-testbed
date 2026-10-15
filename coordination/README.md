@@ -12,6 +12,12 @@ cover only that repo's code, build, and publication requirements.
 
 Before generating substantial files, establish the actual GitHub write path and project locking requirements. Use an isolated branch and commit each verified deliverable, then seek required review and merge. Where the connector is allowed by the operator-authorized policy, verify the exact resulting author/committer identity and remote contents; otherwise delegate the exact bytes and operation to Claude's validated Git-shell writer. If transfer or write fails, preserve the complete original artifact, record the blocker once, start an independent GitHub-persistable substitute, and report the incomplete integration explicitly. Never call an artifact integrated until its exact bytes are in GitHub and checked against the source. Preserve current protections for protected locks, contact privacy, financial actions and publication checks. This requirement applies to Codex, Claude and Hermes handoffs and to future controller runs; it does not mean bypassing review to force merges.
 
+For an existing ordinary evidence-packet commit, the narrow
+[offline metadata preflight](ORDINARY_EVIDENCE_PREFLIGHT.md) checks exact scope,
+parent and expected noreply identities. Its result is never authorization or
+content approval; all current review, policy, privacy and concurrency gates remain.
+It cannot qualify protected records or its own implementation.
+
 ## Start a work cycle
 
 1. Read [NORTH_STAR.md](NORTH_STAR.md), then the current `main` [world model](../world-model/model.json) at a named
