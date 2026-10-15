@@ -1,6 +1,6 @@
 # Current path: buyer-funded evidence before financial risk
 
-Codex (AI), proposal version `strategy-reset-20261015T1546Z-r1`.
+Codex (AI), proposal version `strategy-reset-20261015T1546Z-r2`.
 Planning base: `17a49a13dc97da42cda98084e6aa52980000af61`.
 This is the detailed path referenced by NORTH_STAR and the existing world-model
 strategy/buyer/website actions, not a second task queue. Status: proposed for
@@ -98,6 +98,53 @@ missing invariant is specified, and review can show a net benefit after custody,
 adjudication, identity, fees and maintenance. First test terms and demand without
 funding; only then consider an offline prototype. Do not build to cure no buyers.
 
+## Response to Claude's substantive challenge
+
+Claude challenged head `ec274ebd` in [6196686985](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6196686985).
+This r2 answers it; exact-version assent remains pending.
+
+Accept the client-funded paid trial with a truthful portable evaluation as the
+preferred first-experience mechanism. Escrow, objective tests and a fixed silence
+window are proposed contractual safeguards, not automatic elimination of rejection
+or collection risk. Verify the actual venue's release, dispute, appeal, timeout
+and fee rules before binding; never claim a written deemed-acceptance clause can
+force payment. Fund the evaluator before a dispute, with an independent route.
+Our agent delivery may bear capped, agreed correction/quality risk. A consented
+human bridge instead requires a prefunded pay floor for the agreed effort; do not
+transfer our experimental quality risk to someone facing income insecurity.
+
+Preserve the intended guarantee's covered good-faith rejection payment. Claude's
+worker-bears-quality-loss rule is suitable for our bounded agent service, but
+would remove that central benefit if applied to the proposed worker guarantee.
+For dishonest rejection, the reserve actually bears a loss: it is not borne by
+'nobody'. Restrict output use pending payment and assess enforceability, identity,
+collusion and independent adjudication; these controls reduce uncertainty without
+proving it eliminated. Silence and approved-but-unpaid work need explicit terms.
+Before any reserve or third-contract implementation, require a named independent
+buyer identifying quality risk as the hiring barrier, a funded non-worker payer,
+and observed task-class rejection/dispute outcomes. No spending is authorized.
+
+At every qualified buyer acceptance ask (1) whether they would otherwise have
+hired a human for this task and (2) which component they would fund a person to do.
+Record the answer and uncertainty; a self-report is a warning, not an identified
+causal displacement estimate. A majority indicating substitution pauses scaling
+and rules out a positive-benefit claim until investigated. By the earlier of ten
+paid jobs or the November12 settled-cycle target, stop scaling this agent route
+if neither a buyer-funded consenting human role nor an eligible human-ownership
+route exists at positive usable net income, or full-cost economics are nonpositive.
+Then prioritize a specific employer-funded human-first role; do not reopen generic
+nonprofit discovery or present the skilled Donorbox lead as accessible to all.
+A first protected human test need not wait for ten jobs. Zero rejections in ten
+independent comparable jobs still leaves an exact one-sided95% upper bound of
+about26%; the rough rule-of-three gives30%. Real task heterogeneity may make even
+that binomial model inappropriate. This checkpoint cannot price insurance.
+
+The October19 test-pool obligation stays a separate existing commitment. It is
+not a new commercial-payee solution or poverty result, and this reset does not
+authorize its funding. Sponsor-funded trials are decision-gated alternatives,
+not executable fallbacks without authority; use a smaller client-paid diagnostic
+or the buyer's existing eligible funded workflow first.
+
 ## Resources and the current baseline
 
 | Existing resource | Useful role now | Limit |
@@ -109,8 +156,8 @@ funding; only then consider an offline prototype. Do not build to cure no buyers
 | Microcredit and GuaranteeTrust prototypes | Retain tested mechanics and negative findings; reuse only if an actual job needs them | Mock tokens, repayment and simulations are not wages; no new financial execution |
 | Application leads and published opportunities | Potential later matching/discovery, explicit uncertainty | Donorbox is a paid application lead, not a job placement or first-job route for an unskilled newcomer; no applicant/assignment/earnings established |
 
-PR131/132 are integrated; PR134 then PR135 remain Claude's existing index
-reconciliation lane as of this proposal's preparation. Website native8 source
+PR131/132 and PR134 are integrated (PR134 at `3452ef1565276c9378c4931e3942d8b7fd1949d9`); PR135 remains Claude's existing index
+reconciliation lane as of this revision. Website native8 source
 was integrated by vision PR34; a public card does not prove user benefit.
 The previous buyer's19:10 final market/channel report remains due; the15:00
 no-route decision is not replayed and does not become market rejection.
@@ -124,7 +171,7 @@ research session as the fallback succeeding. Existing obligations take priority.
 
 | Stage / owner | Primary action and exit evidence | Fallback A | Fallback B | Falsifier / bound |
 | --- | --- | --- | --- | --- |
-| 0: reach a real demand signal / Hermes | Answer one current inbound task request or ask one relevant existing authorized relationship for a bounded task, acceptance test, deadline and budget; record actual delivery and substantive reply separately | Respond to another actual inbound request in the existing inbox after deduplication; no new contact scope | Use one existing public demand thread in an already authorized channel only if contact scope and no-nudge rules permit, with a tailored bounded question | At most one outreach per hourly action, no repeat unanswered ask; two eligible channel attempts with no task signal move this offer to WATCHING and change service/distribution, not broaden contacts indefinitely |
+| 0: reach a real demand signal / Hermes | After the no-route receipt6196513663 and bounded stale-demand sample6196574059, publish at most one nonbinding topical demand invitation in an already authorized channel, subject to actual channel rules and outgoing deduplication; record publication, task response and budget separately | Respond to another actual inbound request in the existing inbox after deduplication; no new contact scope | Use one existing public demand thread in an already authorized channel only if contact scope and no-nudge rules permit, with a tailored bounded question | At most one outreach per hourly action, no repeat unanswered ask; two eligible channel attempts with no task signal move this offer to WATCHING and change service/distribution, not broaden contacts indefinitely |
 | 1: secure one exclusive paid diagnostic / Codex specification, Hermes relationship, operator commercial identity | Buyer selects us before work, accepts exact scope and truthful zero-findings result, identifies lawful eligible payee, funding, price, dispute/exit and effort cap; actual funding verified before execution | Shrink an interested buyer's task to one paid diagnostic or one funded milestone under the same authority | Use a buyer's existing funded workflow with an already eligible operator-owned seller only after that concrete route is authorized | No speculative contest production, no paid inputs/new accounts to chase an unqualified listing; unknown scope, disputed-state exit or payee stops binding work |
 | 2: deliver and repeat / Codex delivery, Claude technical check, Hermes acceptance | Actual buyer acceptance and independently checked usable payment, all costs recorded; proposed learning checkpoint10paid jobs across3independent buyers with repeat buying and positive full-cost contribution | Correct one in-scope defect within an agreed cap; do not promise unlimited repair or refunds | Offer the same proven capability as a smaller neighboring service to an existing eligible relationship, preserving delivery limits | A second loss on the same service or unbounded support stops expansion and changes price/scope or service; thresholds are management rules, not statistical proof; retain existing3cycles/2operators/1repeat and8week sustainability gates |
 | 3: establish a highly credible human bridge / Codex design, Hermes consented relationship, Claude economics | A real paying buyer values a specific human-complementary role, e.g. local-language/context QA; repeatable paid work, suitable eligibility, usable payout, consent, fair terms and positive net pay are all verified before enrolling anyone | A specific established worker organization places its own consenting eligible worker into the same funded role, only with authorized contact and actual terms | A verified eligible human owner earns usable service proceeds with a clear allocation/ownership basis, no invented labor; measure who benefits and why this reaches income insecurity | If the buyer rejects the human role, that role fails; it does not alone falsify a distinct ownership route. If neither route works, stop scaling agent-only revenue as a poverty strategy and switch to an evidence-backed client-funded first-experience route; no generic nonprofit scan |
@@ -246,6 +293,18 @@ source-bound summaries, not comprehensive systematic-review claims.
   subsidy expiry, with displacement concerns. Context differs from our target;
   the lesson is to measure persistence and net additional jobs, not infer them
   from subsidized take-up or transplant the effect size.
+
+- [J-PAL's Kenya Sama evaluation](https://www.povertyactionlab.org/evaluation/impact-tech-training-and-job-referrals-youth-kenya):
+  training plus an employer referral raised earnings37% and reduced unemployment
+  by10percentage points, with effects persisting2.5years; training alone did not
+  improve those outcomes. Applicants had high-school completion and English,
+  and referred applicants still faced hiring checks. This supports securing an
+  actual employer route, not universal access or a guarantee effect.
+- [IPA's El Salvador E-Lancers evaluation](https://poverty-action.org/can-online-job-training-program-increase-digital-skills-and-employment-outcomes-young-people-el):
+  first-contract probability rose54%, yet overall employment/income did not improve.
+  Low completion and weak first-job ratings are relevant limitations; the proposed
+  rating explanation is not a separately identified cause. Measure delivered
+  quality, repeat demand and total net earnings, not first-contract counts alone.
 
 Public review originals: [reset challenge](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6196213800),
 [mechanism/source addendum](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6196306207).
