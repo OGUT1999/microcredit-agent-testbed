@@ -1,0 +1,182 @@
+{
+  "marker": "OMNEQUA-INTAKE-MULTISCRIPT-12f3870-20261015-r1",
+  "author": "Codex (OpenAI AI assistant)",
+  "kind": "single_live_desktop_multiscript_transfer_experiment",
+  "url": "https://omnequa.org/partners/",
+  "testbed_planning_commit": "c98545f9c141abfa606d64a5b8c32946bd500445",
+  "model_version_at_start": "0.1.156",
+  "vision_reference": "12f3870e23f4d1ba55405719c0aa630bf55bc650",
+  "action_id": "action:omnequa-website-operate",
+  "roadmap_path": "coordination/POVERTY_ELIMINATION_ROADMAP.md",
+  "observations_enclosing_utc": [
+    "2026-10-15T23:02:42Z",
+    "2026-10-15T23:05:42Z"
+  ],
+  "time_limitation": "Known enclosing clock bounds for substantive multilingual actions; not individual request instants. Page opening and mobile preflight preceded this interval.",
+  "browser": "Chrome",
+  "dom_viewport_css_pixels": {
+    "width": 1363,
+    "height": 936
+  },
+  "document_width_css_pixels": {
+    "client": 1348,
+    "scroll": 1348
+  },
+  "screenshot_pixels": {
+    "width": 1348,
+    "height": 926
+  },
+  "mobile_preflight": {
+    "result": "BLOCKED",
+    "supported_resize_api": false,
+    "shortcuts_tried": [
+      "ctrl+plus",
+      "ctrl+equal"
+    ],
+    "document_width_after_each": {
+      "client": 1348,
+      "scroll": 1348
+    },
+    "mobile_320_or_400_percent_tested": false,
+    "team_capability_request": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6204080962"
+  },
+  "synthetic_inputs": {
+    "employer": "Synthetic équipe 学習 🧪",
+    "source": "https://example.org/public-task?lang=fr&unit=1",
+    "task": "INTERNAL TEST ONLY: not an available job.\nCompare café and café; retain 🧪.",
+    "eligibility": "Synthetic français / العربية / 日本語. No participant.",
+    "pay": "Unknown. No offer, budget or payment commitment.",
+    "payout": "Unknown. No account, transfer or cashout.",
+    "barrier": "Check Unicode copying and stale-draft invalidation only. Do not send."
+  },
+  "field_labels": {
+    "employer": "Employer / payer",
+    "source": "Original source",
+    "task": "Useful task and current availability",
+    "eligibility": "Eligibility and location",
+    "pay": "Pay and acceptance terms",
+    "payout": "Payment timing, method, costs and cashout",
+    "barrier": "Access barrier and proposed next step"
+  },
+  "observed_field_values": {
+    "employer": "Synthetic équipe 学習 🧪",
+    "source": "https://example.org/public-task?lang=fr&unit=1",
+    "task": "INTERNAL TEST ONLY: not an available job.\nCompare café and café; retain 🧪.",
+    "eligibility": "Synthetic français / العربية / 日本語. No participant.",
+    "pay": "Unknown. No offer, budget or payment commitment.",
+    "payout": "Unknown. No account, transfer or cashout.",
+    "barrier": "Check Unicode copying and stale-draft invalidation only. Do not send."
+  },
+  "initial_order_sensitive_harness": {
+    "result": false,
+    "expression": "JSON.stringify(observedFields) === JSON.stringify(inputs)",
+    "observed_key_order": [
+      "barrier",
+      "eligibility",
+      "employer",
+      "pay",
+      "payout",
+      "source",
+      "task"
+    ],
+    "expected_key_order": [
+      "employer",
+      "source",
+      "task",
+      "eligibility",
+      "pay",
+      "payout",
+      "barrier"
+    ],
+    "diagnosis": "Transport/object key order differs; all seven per-key exact comparisons true without input changes. Harness mismatch, not website data loss."
+  },
+  "per_key_exact": {
+    "employer": true,
+    "source": true,
+    "task": true,
+    "eligibility": true,
+    "pay": true,
+    "payout": true,
+    "barrier": true
+  },
+  "observed_prepared_brief": "Employer / payer:\nSynthetic équipe 学習 🧪\n\nOriginal source:\nhttps://example.org/public-task?lang=fr&unit=1\n\nUseful task and current availability:\nINTERNAL TEST ONLY: not an available job.\nCompare café and café; retain 🧪.\n\nEligibility and location:\nSynthetic français / العربية / 日本語. No participant.\n\nPay and acceptance terms:\nUnknown. No offer, budget or payment commitment.\n\nPayment timing, method, costs and cashout:\nUnknown. No account, transfer or cashout.\n\nAccess barrier and proposed next step:\nCheck Unicode copying and stale-draft invalidation only. Do not send.\n\nPlease review and remove private worker records before sending.\n",
+  "observed_clipboard_text": "Employer / payer:\nSynthetic équipe 学習 🧪\n\nOriginal source:\nhttps://example.org/public-task?lang=fr&unit=1\n\nUseful task and current availability:\nINTERNAL TEST ONLY: not an available job.\nCompare café and café; retain 🧪.\n\nEligibility and location:\nSynthetic français / العربية / 日本語. No participant.\n\nPay and acceptance terms:\nUnknown. No offer, budget or payment commitment.\n\nPayment timing, method, costs and cashout:\nUnknown. No account, transfer or cashout.\n\nAccess barrier and proposed next step:\nCheck Unicode copying and stale-draft invalidation only. Do not send.\n\nPlease review and remove private worker records before sending.\n",
+  "observed_decoded_mailto_body": "Employer / payer:\r\nSynthetic équipe 学習 🧪\r\n\r\nOriginal source:\r\nhttps://example.org/public-task?lang=fr&unit=1\r\n\r\nUseful task and current availability:\r\nINTERNAL TEST ONLY: not an available job.\r\nCompare café and café; retain 🧪.\r\n\r\nEligibility and location:\r\nSynthetic français / العربية / 日本語. No participant.\r\n\r\nPay and acceptance terms:\r\nUnknown. No offer, budget or payment commitment.\r\n\r\nPayment timing, method, costs and cashout:\r\nUnknown. No account, transfer or cashout.\r\n\r\nAccess barrier and proposed next step:\r\nCheck Unicode copying and stale-draft invalidation only. Do not send.\r\n\r\nPlease review and remove private worker records before sending.\r\n",
+  "brief_utf16_units": 638,
+  "brief_unicode_code_points": 636,
+  "brief_emoji_test_tube_count": 2,
+  "case_results": {
+    "prepared_exact": true,
+    "actual_keyboard_copy_exact": true,
+    "decoded_mailto_after_CRLF_to_LF_exact": true,
+    "decoded_mailto_only_CRLF_newlines": true,
+    "NFC_and_NFD_sequence_preserved_distinct": true,
+    "actual_keyboard_same_page_paste_exact": true,
+    "paste_invalidated_draft_and_href": true,
+    "unicode_edit_exact": true,
+    "unicode_edit_invalidated_draft_and_href": true,
+    "reprepared_after_unicode_edit_exact": true,
+    "reloaded_seven_fields_empty": true,
+    "reloaded_draft_empty": true,
+    "reloaded_panel_and_link_hidden": true,
+    "reloaded_href_null": true
+  },
+  "prepared_status": "Your brief is ready, but has not been sent. Copy it into your own email service or open the prepared draft below, then review before sending.",
+  "task_maxlength": 800,
+  "actual_paste_utf16_units": 638,
+  "revised_employer": "Synthetic équipe 学習 🧪 / révisé 🧭",
+  "invalidated_state": {
+    "brief_value": "",
+    "panel_hidden": true,
+    "link_hidden": true,
+    "href": null,
+    "status": "Answers changed. Prepare a new draft before copying or opening it."
+  },
+  "reprepared_readonly_attribute": "",
+  "screenshot": {
+    "path": "copied-state.jpg",
+    "bytes": 74267,
+    "sha256": "8684ed7954535d004dbb3ba6099ed6b0368bcd9432a2efe110df64e21f726b5f",
+    "scope": "Original JPEG after actual copy, lower selected brief visible. Does not visually show every glyph or prove full string equality."
+  },
+  "asset_sample": {
+    "url": "https://omnequa.org/intake.js",
+    "bytes": 2027,
+    "sha256": "2922c3a5e33bc50dc4f3469e37024d47f76f1efa1ae798bf46c4a4edf1a929aa",
+    "git_paths": [
+      "omnequa/assets/intake.js",
+      "omnequa/dist/intake.js"
+    ],
+    "git_blob": "11d46567ddac950267227e5c1568b5d881fd995e",
+    "check_upper_bound_utc": "2026-10-15T23:06:30Z",
+    "limit": "Contemporaneous HTTP sample and source bytes, not attestation of browser cache, executed bytes or complete deployment."
+  },
+  "sources_checked": [
+    {
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/reflow.html",
+      "publication_date": null
+    },
+    {
+      "url": "https://tc39.es/ecma262/multipage/global-object.html#sec-encodeuricomponent-uricomponent",
+      "publication_date": null
+    }
+  ],
+  "research_enclosing_utc": [
+    "2026-10-15T23:01:06Z",
+    "2026-10-15T23:05:42Z"
+  ],
+  "limitations": [
+    "One desktop browser, synthetic records, one run. Observer is Codex; internal source review is not independent live replay.",
+    "Not the first Unicode case: prior663-unit live case already included an em dash; current new coverage is multiscript, combining forms and supplementary characters.",
+    "No normalization correctness, visual bidi, localization, assistive technology, mobile/reflow or WCAG conformance claim.",
+    "638 UTF16 units and636 code points are not grapheme or displayed-character counts. Paste below800 cap does not test truncation/large input.",
+    "Decoded mailto body equality is not mail-client compatibility or delivery. No activation/send/contact/account/spend/participant.",
+    "No malformed-surrogate test, comprehensive network/telemetry audit or general reliability estimate.",
+    "No outside accepted/paid work, buyer, quote, funding, repeat buyer, earned pool return, incremental human earnings or poverty reduction established. Full costs and human time remain unmeasured."
+  ],
+  "decision": "WORKED_NARROW_MULTISCRIPT_TRANSFER_ONLY",
+  "complete_foundation_target": false,
+  "external_transaction_progress": false,
+  "human_outcome_established": false,
+  "roadmap_changed": false
+}
