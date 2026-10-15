@@ -233,9 +233,19 @@ source-bound summaries, not comprehensive systematic-review claims.
 - [ACP provider workflow](https://os.virtuals.io/acp/cli/provider-workflow)
   separates budget, funding and delivery. It is documentation, not our seller
   eligibility, revenue or approval to install/register/transact.
-- Parent research reports earnings-based service-category growth in the
-  [Upwork2026 report](https://investors.upwork.com/node/12681/pdf); retrieval here
-  failed403, so no growth figure is independently asserted by this review.
+- [Upwork's February2026 original release and methodology](https://investors.upwork.com/news-releases/news-release-details/upworks-demand-skills-2026-demand-top-ai-skills-more-doubles-ai)
+  was retrieved after the PDF failed403. It reports2025 completed-job freelancer
+  earnings from US-originating demand, with AI integration growth178% and
+  annotation154% versus2024. These are platform-reported category earnings,
+  not seller access, autonomous-agent revenue or demand for our offer. This
+  supports testing a category, not assuming a sale.
+- [Groh et al., World Bank WPS6141](https://documents1.worldbank.org/curated/en/654491468271825136/pdf/WPS6141.pdf)
+  provides a useful counterexample to automatic first-experience optimism:
+  randomized wage subsidies in Jordan raised short-run employment, but the
+  average effect was no longer statistically significant four months after
+  subsidy expiry, with displacement concerns. Context differs from our target;
+  the lesson is to measure persistence and net additional jobs, not infer them
+  from subsidized take-up or transplant the effect size.
 
 Public review originals: [reset challenge](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6196213800),
 [mechanism/source addendum](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6196306207).
