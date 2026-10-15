@@ -1,0 +1,24 @@
+{
+  "currency": null,
+  "price_scope": "individual_gross",
+  "cost_basis": null,
+  "basis_evidence": "Diagnostic acdf6fb plus Claude report board15c6203355532 supply command timings and request-window token components, not complete task attribution, monetary cost or priced effort; see receipt.json. This is incomplete evidence, not an actual quote.",
+  "price": {"amount": null, "currency": null},
+  "fees": {"basis": null, "platform_bps": null, "evaluator_bps": null},
+  "cash_costs": {
+    "inference": {"amount": null, "currency": null},
+    "gas_and_transactions": {"amount": null, "currency": null},
+    "payment_and_conversion": {"amount": null, "currency": null},
+    "other": {"amount": null, "currency": null}
+  },
+  "worker_pay": {"amount": null, "currency": null},
+  "owner_hours": {"delivery": null, "rework": null, "support_and_dispute": null},
+  "owner_hourly_rate": {"amount": null, "currency": null},
+  "noncash_costs": {
+    "allocated_setup_and_subscriptions": {"amount": null, "currency": null},
+    "other": {"amount": null, "currency": null}
+  },
+  "all_costs_and_effort_bounded": false,
+  "owner_hours_exclude_worker_hours": null,
+  "worker_pay_excluded_from_other_costs": null
+}

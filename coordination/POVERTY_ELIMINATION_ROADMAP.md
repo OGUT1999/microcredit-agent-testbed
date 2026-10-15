@@ -6,6 +6,19 @@ Preserve [the October 8 human-borrowing bootstrap plan](../docs/HUMAN_BORROWING_
 
 ## What is known, and what remains a hypothesis
 
+October 15 reconciliation at planning main `5f8e813772d0867740fbef7323263c47f6f71eb0`:
+the adopted lane scopes and buyer-funded diagnostic priority are in
+[CURRENT_PATH.md](CURRENT_PATH.md), version `strategy-reset-20261015T1546Z-r3`.
+The older baseline below is historical, not an instruction to restart a closed
+invitation or generic discovery. The
+[diagnostic cost-component case](../evidence/diagnostic-cost-admissibility-20261015/README.md)
+recovers reported request-window usage from the existing author, while separating
+interleaved publication, missing original-design effort and unpriced operating
+costs. It does not establish a full service cost, buyer, quote or human earnings.
+This narrows stage-0 measurement rather than changing stages 0-7, M > 1, the
+human-access/counterfactual requirements or the existing sustainability gates.
+Live actions and any remaining evidence dependencies stay in the world model.
+
 Baseline supplied from the named current testbed main revision `3953d2a0ee5129659496446b6fab4051ad198a27`: project-attributable human earnings are $0; there is no qualified channel establishing uncovered client nonpayment; the revolving first-job guarantee is a candidate on hold; the employer-funded nLine opportunity awaits consented eligible-applicant receipts. Testnet cold-start results demonstrate plumbing, not independent demand, real revenue, livelihood gains or poverty reduction. Reconcile newer remote evidence before changing this baseline.
 
 The strategic hypothesis is that the project can multiply existing demand, skills or institutional resources into additional spendable human earnings at a cost and harm burden below the strongest accessible alternative. Credit and GuaranteeTrust remain optional. A complete plan must include what follows if this hypothesis fails: change the mechanism, contribute a validated improvement to an existing livelihood or social-protection delivery system, or stop the project-specific intervention when it cannot add value.
