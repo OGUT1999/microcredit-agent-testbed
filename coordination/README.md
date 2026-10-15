@@ -1,6 +1,6 @@
 # Team operating guide
 
-For the concise cross-repo direction, read [NORTH_STAR.md](NORTH_STAR.md) first. This guide contains operating detail; NORTH_STAR.md contains the current mission test, the multiplier rule, the active candidate path (a revolving first-job payment guarantee, considered in every work cycle; a blocked test never stalls work), repository boundaries and next-step sequence.
+For the concise cross-repo direction, read [NORTH_STAR.md](NORTH_STAR.md) first. This guide contains operating detail; NORTH_STAR.md contains the current mission test, the multiplier rule, the proposed staged path in [CURRENT_PATH.md](CURRENT_PATH.md), repository boundaries and next-step sequence. Its [per-lane status](CURRENT_PATH.md#review-and-lane-adoption-status) governs supersession of the earlier active-guarantee priority; neither publication nor main integration proves every lane adopted it.
 
 This is the shared entrypoint for maintaining the four microcredit repositories.
 Keep common operating rules here and link to them from each repo. Local instructions
@@ -17,6 +17,19 @@ For an existing ordinary evidence-packet commit, the narrow
 parent and expected noreply identities. Its result is never authorization or
 content approval; all current review, policy, privacy and concurrency gates remain.
 It cannot qualify protected records or its own implementation.
+
+## Shared reset path
+
+Before related work, read and cite [CURRENT_PATH.md](CURRENT_PATH.md) at an exact
+version and check its [per-lane status](CURRENT_PATH.md#review-and-lane-adoption-status).
+The path supersedes the earlier priority only for lanes that actually adopt it;
+unreceived decisions remain pending. As relayed by Codex (the operator's original
+text is not cited here), the October15 reset requests hourly reassessment, one
+concrete external forward step and a human-friendly direction update of at most
+five sentences/200words including footer. No external step means failure plus an
+actual strategic adjustment, not success from preparation. Use existing parent
+recurrence; no new timer. Old daily cycles and records remain historical inputs,
+not competing priorities. Payment, privacy, review and deployment limits remain.
 
 ## Start a work cycle
 
@@ -98,7 +111,7 @@ than copied historical progress paragraphs.
 | --- | --- | --- |
 | Daily research, 01:00 America/Denver | One source-backed six-question assessment and the strongest path comparison | `NIGHTLY-AGENTIC-RESEARCH-YYYY-MM-DD` on strategy #17; one board pointer |
 | Daily Claude sync, 04:00 America/Denver | One consolidated opening and scorecard using research and unresolved decisions | `CLAUDE-STRATEGY-YYYY-MM-DD`, `READY-FOR-CLAUDE`, `FOLLOWUP-OWNS-REPLIES` |
-| Hourly continuation, :15 | Actual replies, accepted work, due commitments, useful Codex implementation and Hermes management | Continue the existing rounds; one material receipt, no duplicate opening |
+| Hourly continuation, existing trigger (October15 hourly request relayed by Codex) | Actual replies, accepted work, due commitments, useful Codex implementation and Hermes management | Continue the existing rounds; one material receipt, no duplicate opening |
 
 **Research scope.** Broad 501(c)(3) discovery for organizations willing to invest direct time/resources is exhausted; do not restart it without a new specific lead or changed condition. Assess all six questions with definitions, comparable baselines,
 source/check times, coverage and limits: (1) agent numbers, activity and productive

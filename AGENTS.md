@@ -22,15 +22,16 @@ At the start of each work cycle, answer four questions before selecting work:
    funding or NO_LOAN dominate it?
 4. What result would make us stop or change direction?
 
-The active candidate path in NORTH_STAR.md is a revolving first-job payment
-guarantee: a sponsor-funded reserve pays a first-time worker if the client does
-not pay, and paid workers return a small capped contribution. Every cycle considers
-it explicitly, compares it with NO_LOAN, client prepayment or funding and any better
-route, and advances its cheapest next evidence (a qualified channel, p, take-up, q,
-c, exposure) or switches to the best unblocked action; a blocked test never stalls
-work. The lending qualification (NONE QUALIFIES) and the stopped bounty scan remain
-evidence and fallback. Broad 501(c)(3) discovery is exhausted; do not restart it
-without a new specific lead.
+The October15 strategic-reset proposal, as relayed by Codex (original operator
+text not cited here), is detailed in [CURRENT_PATH.md](coordination/CURRENT_PATH.md).
+Read its [per-lane status](coordination/CURRENT_PATH.md#review-and-lane-adoption-status)
+and exact version before related activity; supersession applies only to actual
+adopting lanes, not from a PR or main integration alone. Use its
+current review status, buyer-funded next gate, two fallbacks per stage and
+hourly external-progress test. The operator's approval-contingent worker-payment
+guarantee is distinct from the earlier nonpayment mechanism; no third contract
+or financial execution is justified by missing buyers. Preserve historical
+negative findings and do not reopen exhausted generic scans without new evidence.
 
 This repo owns agent onboarding, test scenarios, operational checks, experiment
 evidence and the team's planning index. Start with `README.md` for the code map,
