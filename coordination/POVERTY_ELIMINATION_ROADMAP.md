@@ -163,6 +163,15 @@ and consent/custody/spending gates are unchanged; no earnings are established.
 
 ## Source register and coverage limits
 
+October 15, 2026 reported-alternative qualification: the
+[source-bound x402 case](../evidence/x402-merktop-qualification-20261015/README.md)
+excludes an unestablished settlement example from observed commerce while
+preserving the no-credit architectural alternative. Verification, settlement,
+useful paid work and spendable human benefit remain separate gates. This is
+Stage-0 evidence correction, not a new financing need or general protocol
+verdict. Stages 0-7, M>1, existing owners and all authority limits are unchanged;
+live actions remain solely in the world model.
+
 October 14, 2026 existing nLine readiness correction:
 [bounded explicit-context cash arithmetic](../evidence/nline-cash-context-20261014/README.md)
 repairs the recorded synthetic `123.45 - 1.00` precision-3 failure (`122`

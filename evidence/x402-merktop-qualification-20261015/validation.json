@@ -1,0 +1,28 @@
+{
+  "kind": "candidate_source_validation_not_main_receipt",
+  "recorded_at": "2026-10-15T03:17:06Z",
+  "source_base": "cde7ff79c900db6778c38f2f54a1e15c1d76efed",
+  "operation_marker": "x402-merktop-1d5baf50-r1",
+  "checks": {
+    "standard_repository_check": "PASS: 31 checks, 356 unit tests before the final additive action evidence/index links and later engagement note",
+    "final_model_schema_and_relationships": "PASS after final action index additions",
+    "final_world_model_unit_tests": "PASS: 24 tests after final action index additions",
+    "diff_whitespace": "PASS",
+    "manual_controls": "Three claim controls reviewed; hypothetical controls are not transactions or live tests",
+    "independent_internal_source_review": "ACCEPT: exact four original fingerprints, attribution, claim boundaries, privacy and local links; not maintainer approval",
+    "later_engagement": "Root and independent reader verified actual fifth Hermes reply; source snapshot preserved separately",
+    "initial_test_command_failure": "unittest discovery used nonexistent tests directory; corrected to world-model discovery and all 24 passed"
+  },
+  "sha256": {
+    "README.md": "ac88f8b7f45db112a9f0e4464ce66034f888fd10d0a3b5e869320f2c5a85cdb6",
+    "sources.json": "6f294905fec94249d7a4ac6c6831087e474f6b8bf5b6f3b94f163dfdb64efdf0",
+    "../../coordination/POVERTY_ELIMINATION_ROADMAP.md": "ed99f7b701e1b482dacaddb8064db32888e59e0591fe9f4609728f4fa0c47971",
+    "../../world-model/model.json": "e734dea740e0920b0127ef39223d6eb3fb17fdb03ae3352a15df9512c064ecb4"
+  },
+  "limits": [
+    "Candidate at the recorded base; concurrent main/model changes require fresh reconciliation, never replacement of another writer's model.",
+    "No new validator, actual paid API trial, account, signature, transaction, spend, recruitment or outside inquiry.",
+    "Provider report is not independently reproduced technical failure; neither settlement nor human earnings is established.",
+    "Source publication, maintainer acceptance and authorized default-branch integration are separate and require actual later receipts."
+  ]
+}
