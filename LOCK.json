@@ -1,8 +1,8 @@
 {
   "protocol": "git-explicit-lease-v2",
-  "state": "locked",
-  "owner": "claude-9188a11b9005eec8",
-  "execution": "pr160-model158-merge",
-  "acquired_at_utc": "2026-10-15T23:16:05",
-  "released_by": null
+  "state": "unlocked",
+  "owner": null,
+  "execution": null,
+  "released_by": "claude-9188a11b9005eec8",
+  "released_at_utc": "2026-10-15T23:16:40"
 }
