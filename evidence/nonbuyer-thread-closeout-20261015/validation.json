@@ -1,0 +1,18 @@
+{
+  "schema": "public-thread-disposition-check/1",
+  "source_sha256": "30455a58302a088ba8a6e576c75ab25fb11605fbf466c52588188000ad3f2e04",
+  "scope": "Offline internal consistency only; fingerprints were computed directly from fetched public content, no external controller or storage audit.",
+  "checks": [
+    "19 reported and nested rows, has_more false",
+    "3 unique selected original ids",
+    "parent chain participant -> Hermes -> participant",
+    "created and updated timestamps preserved",
+    "3 full SHA256 content fingerprints",
+    "returned verification flags verified, not spam/deleted",
+    "retrieval follows latest source update"
+  ],
+  "result": "PASS",
+  "financial_actions": false,
+  "outside_reply_sent": false,
+  "new_contact_authority": false
+}
