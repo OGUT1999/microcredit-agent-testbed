@@ -22,8 +22,11 @@ At the start of each work cycle, answer four questions before selecting work:
    funding or NO_LOAN dominate it?
 4. What result would make us stop or change direction?
 
-The October15 strategic reset is detailed in [CURRENT_PATH.md](coordination/CURRENT_PATH.md).
-Each lane must reference its exact version before related activity. Use its
+The October15 strategic-reset proposal, as relayed by Codex (original operator
+text not cited here), is detailed in [CURRENT_PATH.md](coordination/CURRENT_PATH.md).
+Read its [per-lane status](coordination/CURRENT_PATH.md#review-and-lane-adoption-status)
+and exact version before related activity; supersession applies only to actual
+adopting lanes, not from a PR or main integration alone. Use its
 current review status, buyer-funded next gate, two fallbacks per stage and
 hourly external-progress test. The operator's approval-contingent worker-payment
 guarantee is distinct from the earlier nonpayment mechanism; no third contract

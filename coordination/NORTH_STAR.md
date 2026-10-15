@@ -2,18 +2,21 @@
 
 This page is the human-readable index for current direction across the microcredit workspace. The canonical machine-readable state remains `world-model/model.json`; board #15 carries team handoffs and issue #17 carries strategy evidence and decisions.
 
-## Current direction after the October15 strategic reset
+## Proposed path after the October15 reset relay
 
 Read [CURRENT_PATH.md](CURRENT_PATH.md) at the named current commit before related
 activity. It supplies one staged buyer-funded path, the operator's exact
 approval-contingent worker-payment alternative, two fallbacks per stage, evidence
-gates and the prioritized operator-unblock list. Its proposal/review/adoption
-status is explicit: do not infer team assent or external progress from a PR.
-This current direction supersedes the older active-guarantee priority below;
+gates and the prioritized operator-unblock list. Read its
+[actual per-lane review/adoption status](CURRENT_PATH.md#review-and-lane-adoption-status):
+do not infer team assent or external progress from a PR or main integration.
+This path supersedes the older active-guarantee priority below only for lanes
+that explicitly adopt the selected version within existing authority;
 retain those equations and findings as historical evidence, not calibration for
 rejected-work coverage. Existing world-model action IDs remain the live index.
-Every-hour reassessment and a <=5sentence/200word direction update use the
-parent's existing trigger, with actual external-step failure and adjustment
+The hourly reassessment and <=5sentence/200word direction-update requirements
+are as relayed by Codex; the operator's original text is not cited here.
+Use the parent's existing trigger without changing schedules, with actual failure and adjustment
 reported honestly. Publication alone does not meet the external-progress goal.
 
 ## North star
