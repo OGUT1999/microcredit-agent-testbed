@@ -1,8 +1,8 @@
 {
   "protocol": "git-explicit-lease-v2",
-  "state": "locked",
-  "owner": "codex-d80b1639f659448e8c2f8155dff0a6d6",
-  "execution": "run-fcd515c5a8b045058870c78adcf90594",
-  "acquired_at_utc": "2026-10-15T14:03:33",
-  "released_by": null
+  "state": "unlocked",
+  "owner": null,
+  "execution": null,
+  "released_by": "codex-d80b1639f659448e8c2f8155dff0a6d6",
+  "released_at_utc": "2026-10-15T14:03:59"
 }
