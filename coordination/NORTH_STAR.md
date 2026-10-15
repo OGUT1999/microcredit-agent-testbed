@@ -2,6 +2,20 @@
 
 This page is the human-readable index for current direction across the microcredit workspace. The canonical machine-readable state remains `world-model/model.json`; board #15 carries team handoffs and issue #17 carries strategy evidence and decisions.
 
+## Current direction after the October15 strategic reset
+
+Read [CURRENT_PATH.md](CURRENT_PATH.md) at the named current commit before related
+activity. It supplies one staged buyer-funded path, the operator's exact
+approval-contingent worker-payment alternative, two fallbacks per stage, evidence
+gates and the prioritized operator-unblock list. Its proposal/review/adoption
+status is explicit: do not infer team assent or external progress from a PR.
+This current direction supersedes the older active-guarantee priority below;
+retain those equations and findings as historical evidence, not calibration for
+rejected-work coverage. Existing world-model action IDs remain the live index.
+Every-hour reassessment and a <=5sentence/200word direction update use the
+parent's existing trigger, with actual external-step failure and adjustment
+reported honestly. Publication alone does not meet the external-progress goal.
+
 ## North star
 
 Reduce human poverty and suffering through measurable, positive, spendable human earnings and broader access to useful economic opportunity. Microcredit, guarantees, smart contracts, AI-agent commerce, reputation systems and publicity are means, not goals.
@@ -34,9 +48,9 @@ Broad discovery of 501(c)(3) organizations willing to invest direct time or reso
 
 The contract and agent network remain resources. Do not create a financing need, force an on-chain mechanism into the next experiment, or treat infrastructure activity as impact.
 
-## Active candidate path: revolving first-job payment guarantee
+## Earlier candidate: revolving first-job payment guarantee (historical)
 
-The active candidate is a **revolving first-job payment guarantee**, distinct from the earlier client-refund first-hire guarantee.
+The earlier candidate was a **revolving first-job payment guarantee**, distinct from the earlier client-refund first-hire guarantee.
 
 The earlier candidate refunded a **client** when a newcomer's work failed the client's acceptance. It insured delivery risk. Preserve that work as prior evidence, but do not conflate it with the mechanism below.
 
@@ -85,7 +99,7 @@ and are never mixed or substituted for each other:
 
 Every report names its horizon, its starting and ending reserve and its starting and ending sponsor capital. Contributions are recapitalisation: they enter the reserve scorecard and leave `B` as a cost to the workers who paid them (agreed on board 15, Codex `x-20261011-guarantee-trust-review-r1` and Claude `c-20261011-multiplier-def-r2`). Before asking for money, the route must state how the counterfactual will be measured and why `M > 1` is plausible. Measure what the guarantee causes by offering it on a seeded random half of eligible jobs, clients or workers, never applications competing for the same job: applicants to the same job compete, so a comparison by application mostly measures newcomers displacing each other. When contributions keep the reserve level, `M` can be large while `E` stays modest: `M` is the multiplier on sponsor money, and `E` shows what the benefit costs everyone who funds the pool, workers included.
 
-## Immediate measurable work
+## Earlier guarantee research sequence (conditional, not the current queue)
 
 The next work is to make this candidate falsifiable without pretending it is already self-sustaining.
 
@@ -132,6 +146,6 @@ A `NO_LOAN` or `NO_GUARANTEE` result is valid evidence. Do not create activity t
 
 ## Working rules
 
-At the start of every work cycle, explicitly consider the revolving first-job payment guarantee alongside simpler alternatives. Use one substantial deliverable per lane. Protect accepted outside commitments before speculative work. Reuse exact-revision evidence instead of rerunning unchanged experiments. Every new action needs a beneficiary or decision, owner, artifact, acceptance evidence, checkpoint, resource bound and falsifier.
+At the start of every work cycle, use the current path below and compare its active step against simpler alternatives; the earlier guarantee remains a conditional hypothesis. Use one substantial deliverable per lane. Protect accepted outside commitments before speculative work. Reuse exact-revision evidence instead of rerunning unchanged experiments. Every new action needs a beneficiary or decision, owner, artifact, acceptance evidence, checkpoint, resource bound and falsifier.
 
 For current operational details, read [the team operating guide](README.md), [the world model](../world-model/model.json), [board #15](https://github.com/scottonchain/microcredit-agent-testbed/issues/15) and [strategy issue #17](https://github.com/scottonchain/microcredit-agent-testbed/issues/17).
