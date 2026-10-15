@@ -1,5 +1,5 @@
 {
-  "operation": "DONORBOX-4704121005-QUALIFICATION-r1",
+  "operation": "DONORBOX-4704121005-QUALIFICATION-r2",
   "author": "Codex (OpenAI AI assistant)",
   "planning_base": "c0c5d7267fc5585c189b2c76436d22859a72af2b",
   "action_id": "action:omnequa-website-operate",
@@ -39,12 +39,14 @@
     }
   ],
   "qualification": {
-    "decision": "NOT_ADMITTED",
-    "reason": "SPENDABLE_PAY_TERMS_UNVERIFIED",
+    "decision": "APPLICATION_LEAD_CONFIRMED",
+    "recommendation": "DEFERRED",
+    "count_note": "No Omnequa opportunity-card publication in this increment; do not promote observed annual salary to verified individual spendable receipt. Unknown costs alone do not disqualify a listing.",
     "usable_opportunity_count_increment": 0,
     "observed": ["current_employer_listing", "specific_work", "country_location", "annual_advertised_pay", "direct_application_route"],
-    "not_established": ["individual_eligibility_or_consent", "reserved_budget_or_job_offer", "pay_frequency", "country_specific_payment_method", "settlement_currency_and_conversion", "recipient_access_and_local_cashout_cost", "screening_assignment_time_and_compensation", "work_schedule_and_equipment_cost", "closing_date", "country_specific_benefit_entitlement", "positive_worker_net_earnings", "incremental_household_benefit"],
-    "reopen_requires": "Changed attributable role-and-country terms resolving pay schedule, payment and usable receipt with material costs, plus refreshed availability; consented individual terms before worker-specific assistance or outcome claims.",
+    "not_stated_on_inspected_surfaces": ["pay_frequency", "country_specific_payment_method", "settlement_currency_and_conversion", "recipient_access_and_local_cashout_cost", "screening_assignment_time_and_compensation", "work_schedule_and_equipment_cost", "closing_date", "country_specific_benefit_entitlement"],
+    "downstream_not_established_not_listing_prerequisites": ["individual_eligibility_or_consent", "reserved_budget_or_job_offer", "settled_worker_payment", "positive_worker_net_earnings", "incremental_household_benefit"],
+    "next_gate": "Before website recommendation review current availability and material country-specific payment questions under the existing charter, preserving explicit costs/unknowns. Consent and actual individual work/payment receipts are later gates, not prerequisites for recognizing this paid application lead.",
     "outside_contact_or_submission": false,
     "spend_or_finance_authorized": false,
     "human_earnings_established": false
@@ -54,6 +56,12 @@
     "Two targeted first-party check rounds: exact role/form, then employer provenance/index. Common employer origin is not independent outside validation.",
     "A guessed /careers URL and the public ATS API did not open through the research client; actual company careers links and HTML ATS pages did open. No bypass or account used.",
     "No source edit/publication date, exhaustive employer policy census, hiring-manager reply, private contract, actual application, paid assignment, payroll transaction or recipient account tested.",
-    "Absence from inspected surfaces does not prove unavailable payment, bad employer conduct or inability to apply. No US benefits, third-party payroll-provider identity, local net rate, tax calculation or poverty threshold inferred."
-  ]
+    "Absence from inspected surfaces does not prove unavailable payment, bad employer conduct or inability to apply. No US benefits, third-party payroll-provider identity, local net rate, tax calculation or poverty threshold inferred.",
+    "Unknown costs alone do not disqualify an application lead. R1's categorical gate-failure interpretation is superseded, not silently rewritten or treated as new source facts."
+  ],
+  "revision": {
+    "supersedes": "DONORBOX-4704121005-QUALIFICATION-r1",
+    "historical_packet": "https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6191673827",
+    "reason": "Independent adversarial review narrowed overbroad listing-disqualification language; employer observations unchanged."
+  }
 }
