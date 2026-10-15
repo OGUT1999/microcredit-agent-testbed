@@ -1,0 +1,30 @@
+{
+  "operation": "WELO-ARTEMIS-3f8cc8aa-QUALIFICATION-r1",
+  "planning_main": "23daad035a7a3189400ee9d67e51da5e9980a7a3",
+  "model_version": "0.1.150",
+  "action_id": "action:omnequa-website-operate",
+  "read_window_utc": ["2026-10-15T15:04:50Z", "2026-10-15T15:09:13Z"],
+  "time_precision": "Clock-bounded root observation window, not individual retrieval timestamps; independent internal reader window 15:05-15:08 UTC.",
+  "decision": "APPLICATION_LEAD_CONFIRMED_WORK_AND_PAYOUT_DEFERRED",
+  "website_count_increment": 0,
+  "rate_literal": "$5/hour - Based on tasks completed",
+  "rate_currency_code": null,
+  "assigned_work": false,
+  "spendable_payment_verified": false,
+  "application_submitted": false,
+  "sources": [
+    {"id":"S1","url":"https://welodata.ai/join-the-community/","locator":"Apply now / FAQ payment and safety","supports":"Employer origin, onboarding determines method/frequency, no applicant fees","limits":"General process, not project terms or outcome","displayed_updated_at":null},
+    {"id":"S2","url":"https://jobs.lever.co/weloglobal?department=Welo+Data+-+AI+Services","locator":"Data Annotation: Artemis AI Data Rater - French; exact UUID3f8cc8aa-a677-4974-bd3d-cdf5991b9e91","supports":"Current official index links exact role","limits":"No task inventory, reserved funding or future availability promise","displayed_updated_at":null},
+    {"id":"S3","url":"https://jobs.lever.co/weloglobal/3f8cc8aa-a677-4974-bd3d-cdf5991b9e91","locator":"Project details / Requirements","supports":"Country, skills, prerequisites, conditional rate and variable hours","limits":"No explicit currency code, task price, paid-time definition or qualification compensation","displayed_updated_at":null},
+    {"id":"S4","url":"https://jobs.lever.co/weloglobal/3f8cc8aa-a677-4974-bd3d-cdf5991b9e91/apply","locator":"Country / English / French / rate agreement / AIS Availability 2024 heading","supports":"Readable application route and stale heading","limits":"Not submitted; heading is not proof of closure","displayed_updated_at":null},
+    {"id":"S5","url":"https://welocalizetalent.zendesk.com/hc/en-us/articles/115005879848-Payment-Terms","locator":"14/45/60-day bullets and following aged45 batch paragraph","supports":"Unresolved payment-clock discrepancy","limits":"No role-specific contract, invoice due date or confirmed entity","displayed_updated_at":"October 08, 2026 06:44; timezone not stated"},
+    {"id":"S6","url":"https://welocalizetalent.zendesk.com/hc/en-us/articles/29133112421783-Invoicing-to-Welo-Data-LLC","locator":"How do I know which business entity to invoice?","supports":"Actual purchase order selects entity, not worker location","limits":"No actual PO or contractual terms inspected","displayed_updated_at":"October 13, 2026 10:43; timezone not stated"},
+    {"id":"S7","url":"https://welocalizetalent.zendesk.com/hc/en-us/articles/360000225067-Fees-Payment-Methods","locator":"Morocco row; no Madagascar match; final fee/dormancy caveats","supports":"Reported MAD local bank route; account-specific fee caveat","limits":"No actual account, FX, bank fees, thresholds or timing verified; absence is not exclusion","displayed_updated_at":"September 30, 2026 04:17; timezone not stated"},
+    {"id":"S8","url":"https://welocalizetalent.zendesk.com/hc/en-us/articles/115014258708-Hyperwallet-F-A-Q","locator":"Account activation, verification and funds expiry","supports":"General first-invoice setup, identity/address and withdrawal friction","limits":"General provider guidance, no applicant-specific access or settlement","displayed_updated_at":"June 04, 2026 22:28; timezone not stated"},
+    {"id":"S9","url":"https://welocalizetalent.zendesk.com/hc/en-us/articles/17539694530199-NTA-No-Tasks-Available","locator":"Demand variability; Ads/Search reporting links","supports":"General disconfirming volume evidence","limits":"Not evidence of this Artemis queue or an individual assignment","displayed_updated_at":"October 14, 2026 02:43; timezone not stated"},
+    {"id":"S10","url":"https://welocalizetalent.zendesk.com/hc/en-us/articles/17509955857431-Recognizing-Scams-and-Confirming-Legitimate-Welocalize-Communications","locator":"Official hiring process / fee warning","supports":"Official board, agreement before work and no fee to obtain job","limits":"Policy is not proof of a particular sender, contract or payout","displayed_updated_at":"October 12, 2026 03:58; timezone not stated"}
+  ],
+  "coverage_gaps": ["No applicant, contract, PO, dashboard, bank or legal determination", "No current task quantity, exact task acceptance/rework or qualification pay", "Initial direct apply open failed; following the actual role link succeeded", "Old welocalize careers URL returned404; current employer community and official board supplied origin", "No exhaustive employer or local regulatory audit"],
+  "reopen_on": ["Changed original project/payment terms", "Consented eligible applicant's attributable task, agreement and account-specific evidence in authorized private custody"],
+  "authority": "Read-only public qualification; no spend, application, account, contact, financial service or transaction"
+}
