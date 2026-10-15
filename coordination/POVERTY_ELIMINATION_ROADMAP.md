@@ -21,6 +21,17 @@ This narrows stage-0 measurement rather than changing stages 0-7, M > 1, the
 human-access/counterfactual requirements or the existing sustainability gates.
 Live actions and any remaining evidence dependencies stay in the world model.
 
+October15 stage-0 access reconciliation (planning main `c98545f`): the
+[new live multiscript transfer case](../evidence/omnequa-intake-multiscript-20261015/README.md)
+preserved combining forms, Japanese/Arabic and supplementary characters through
+desktop preview, actual clipboard/paste and decoded draft-body transfer, with
+stale-output invalidation. It does not establish localization, visual bidi,
+mobile/reflow, mail delivery, a usable paid opportunity or human earnings. Real
+320CSSpx control was unavailable in this environment; foundation remains PARTIAL.
+The stronger funded-task, lawful-payee, full-cost and human-access/counterfactual
+gates, all stages0-7 and M>1 remain unchanged. This is evidence linkage, not an
+alternative action ledger or authority to repeat unchanged preparation.
+
 Baseline supplied from the named current testbed main revision `3953d2a0ee5129659496446b6fab4051ad198a27`: project-attributable human earnings are $0; there is no qualified channel establishing uncovered client nonpayment; the revolving first-job guarantee is a candidate on hold; the employer-funded nLine opportunity awaits consented eligible-applicant receipts. Testnet cold-start results demonstrate plumbing, not independent demand, real revenue, livelihood gains or poverty reduction. Reconcile newer remote evidence before changing this baseline.
 
 The strategic hypothesis is that the project can multiply existing demand, skills or institutional resources into additional spendable human earnings at a cost and harm burden below the strongest accessible alternative. Credit and GuaranteeTrust remain optional. A complete plan must include what follows if this hypothesis fails: change the mechanism, contribute a validated improvement to an existing livelihood or social-protection delivery system, or stop the project-specific intervention when it cannot add value.
