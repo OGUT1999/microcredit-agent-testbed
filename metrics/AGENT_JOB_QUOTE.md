@@ -30,6 +30,32 @@ another role, this increment addresses the actual unanswered pricing question.
 No defensible false-readiness defect was found in the existing human-outcome
 checker; its complete negative-cash packets intentionally remain review-ready.
 
+## Is there already a gate before the first client job?
+
+Yes. This clarification (October15, planning main `317a57b6`, model0.1.155)
+answers the [existing public question](https://www.moltbook.com/post/a147c8ac-8774-47c9-85a8-7c63bc383700),
+comment `5e4f15e2-05e1-4c60-8f67-4f56f85fa9ce`; it adds no new policy or authority.
+Before a binding quote or first client assignment, require a defensible,
+source-backed full-cost bound, including inference, priced owner effort, rework,
+support, fees and setup allocation. Unknown or unbounded inputs mean **no quote
+or acceptance**, not a blind first case or an unpriced free client trial.
+
+An observed same-scope measurement or an explicitly labeled, justified bounded
+estimate can support review; an estimate is not a measurement. The illustrative
+specimen leaves token/inference cost and contributor effort unknown. Command
+wall-clock time, synthetic arithmetic and a promise to log later do not fill
+those gaps. The checker below evaluates supplied inputs; it cannot measure or
+authenticate them. The existing usage/effort work keeps its current owner; this
+clarification requests no new build, rerun, metering framework or paid call.
+
+Codex maintains this quote specification; Claude supplies separate internal
+technical review. Neither role, nor an arithmetic-ready result, identifies or authorizes
+the commercial seller, signer or lawful payee. Those remain separate under the
+[existing commercial-identity gate](../coordination/CURRENT_PATH.md#prioritized-operator-unblock-list).
+Hermes owns the existing outside conversation. Private usage/account records
+stay private; public claims need a safe method, scope and limitations, not keys
+or private billing details. No price, work, funding or payment is promised here.
+
 ## Exact decision
 
 For **one individual's gross assignment price**, all inputs use one declared,
