@@ -1,0 +1,68 @@
+{
+  "marker": "OMNEQUA-INTAKE-BROWSER-ec6804cb-20261015-r1",
+  "author": "Codex (OpenAI AI assistant)",
+  "kind": "single_live_desktop_functional_experiment",
+  "url": "https://omnequa.org/partners/",
+  "testbed_base": "8194dee9a727c61314e91ec1ab6484776ec15b41",
+  "model_version_at_start": "0.1.152",
+  "vision_source_reference": "ec6804cb82f762bc4f41c39014aa81f16d9744b7",
+  "action_id": "action:omnequa-website-operate",
+  "observations_enclosing_utc": ["2026-10-15T19:03:55Z", "2026-10-15T19:08:10Z"],
+  "time_limitation": "Enclosing clock bounds; not exact request instants. Initial page opening preceded the lower bound.",
+  "browser": "Chrome",
+  "dom_viewport_css_pixels": {"width": 1363, "height": 936},
+  "document_width_css_pixels": {"client": 1348, "scroll": 1348},
+  "screenshot_pixels": {"width": 1348, "height": 926},
+  "synthetic_inputs": {
+    "employer": "SYNTHETIC BROWSER TEST — NOT AN EMPLOYER",
+    "source": "https://example.org/omnequa-browser-test",
+    "task": "Synthetic diagnostic only; no work is available or commissioned.",
+    "eligibility": "Synthetic test; no applicant or person is identified.",
+    "pay": "Unknown. No price, funding, acceptance or payment is promised.",
+    "payout": "Unknown. No payout account, currency or cashout route exists.",
+    "barrier": "Test preparation and copying only. Do not send this brief."
+  },
+  "observed_brief_characters": 663,
+  "clipboard_equals_prepared_text": true,
+  "same_page_paste_equals_prepared_text": true,
+  "observed_tab_destinations": ["source", "task", "eligibility", "pay", "payout", "barrier", "prepare-draft", "plain-draft"],
+  "focused_brief_outline": "rgb(33, 60, 52) solid 3px",
+  "case_results": {
+    "empty_required_rejected": "PASS",
+    "seven_field_keyboard_prepare": "PASS",
+    "tab_navigation_and_actual_copy": "PASS",
+    "edit_clears_stale_draft_and_href": "PASS",
+    "space_reprepare_and_invalid_url": "PASS",
+    "required_field_after_reprepare": "PASS",
+    "reload_clears_inputs_and_output": "PASS"
+  },
+  "invalid_source_probe": {"value": "not a URL", "typeMismatch": true, "valid": false, "focused": true},
+  "missing_employer_probe": {"valueMissing": true, "valid": false, "focused": true},
+  "after_invalidation": {"brief_value": "", "panel_hidden": true, "draft_link_hidden": true, "draft_link_href": null},
+  "after_reload": {"all_eight_input_output_values_empty": true, "panel_hidden": true, "draft_link_hidden": true, "draft_link_href": null},
+  "screenshot": {
+    "path": "copied-state.jpg",
+    "bytes": 74843,
+    "sha256": "834e4007fe858c8fc1ea36fc0ecdbd2e2cfa485b2582c55f5687af60e6eb4b1c",
+    "scope": "Synthetic readonly brief selected after actual keyboard copy; not an email sent or delivered."
+  },
+  "sources_checked": [
+    {"url": "https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html", "page_updated": "2026-05-11"},
+    {"url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html", "page_updated": null},
+    {"url": "https://www.w3.org/WAI/WCAG22/Understanding/reflow.html", "page_updated": null}
+  ],
+  "limitations": [
+    "One desktop browser, one page, synthetic data. No human usability participant or independent outside witness.",
+    "No supported mobile viewport or reflow, screen reader, other-browser or all-page verification performed.",
+    "Earlier Prepare screenshot did not confirm the DOM-focused button visually; no broad focus conformance claim.",
+    "No new native deployment or cryptographic live/source identity claim; no traffic capture or comprehensive telemetry audit.",
+    "No mailto activation, email sending, new contact, account, financial transaction, paid task, human earnings or poverty outcome.",
+    "DOM and screenshot dimensions differ and are reported separately.",
+    "Single observed pass is not a reliability estimate; future changed behavior reopens the corresponding case."
+  ],
+  "decision": "WORKED_NARROW_DESKTOP_COPY_INVALIDATION_ONLY",
+  "complete_foundation_target": false,
+  "external_transaction_progress": false,
+  "human_outcome_established": false,
+  "roadmap_changed": false
+}
