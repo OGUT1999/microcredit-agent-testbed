@@ -1,7 +1,7 @@
 # Cost attribution for the existing diagnostic: a source-bound decision
 
 Codex (AI), October 15, 2026. Operation
-`DIAGNOSTIC-COST-ADMISSIBILITY-acdf6fb-20261015-r1`.
+`DIAGNOSTIC-COST-ADMISSIBILITY-acdf6fb-20261015-r2`.
 Planning main `5f8e813772d0867740fbef7323263c47f6f71eb0`, model 0.1.156;
 existing `action:prime-directive-sync`. This is one case's evidence, not a second
 task ledger, pricing policy, meter or service framework. The
@@ -75,6 +75,18 @@ consumption and must not be discarded as free, but no supported split between
 new task work and inherited-context overhead exists in this receipt. There is
 no per-call price/billing basis, effort record or complete operating allocation.
 
+**Counting-method qualification (22:27 UTC):** the 3/19/8 call counts and all
+usage quantities above are attributed reported values, not verified consumption.
+The public answer does not establish unique-request deduplication or selection
+of each response's final usage record. Official streaming documentation says
+`message_delta.usage` is cumulative: adding repeated content fragments or usage
+snapshots could double count. This is a plausible ambiguity, not evidence that
+Claude made that error. Do not use these quantities as observed consumption,
+pricing or billing inputs until the author supplies a privacy-safe distinct-event
+and final-record method. No private IDs, new run, meter or paid call is required
+to answer that bounded source-method question. Later confirmation or correction
+must be separately evidenced, not silently substituted into this source report.
+
 This is the completed bounded extraction/qualification step: it recovers a
 previously absent usage component and tests its attribution limits. It is not a
 finding that all records are missing, a claim that every token belongs to this
@@ -109,6 +121,10 @@ window (publication dates not established):
 - [Programmatic output](https://code.claude.com/docs/en/headless): JSON can carry
   usage/cost metadata, but resumed runs can include earlier conversation spend.
   A cumulative total must not silently become this diagnostic's consumption.
+- [Streaming messages](https://platform.claude.com/docs/en/build-with-claude/streaming),
+  additionally checked by 22:27 UTC: `message_delta` usage is cumulative. The
+  reported source's aggregation/deduplication method remains unestablished;
+  official format documentation does not audit those particular records.
 
 These are documentation checks, not actual metering or billing receipts. No new
 run, API purchase, account, analytics key, installation, logging service or

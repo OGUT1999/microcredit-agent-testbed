@@ -14,7 +14,9 @@ invitation or generic discovery. The
 [diagnostic cost-component case](../evidence/diagnostic-cost-admissibility-20261015/README.md)
 recovers reported request-window usage from the existing author, while separating
 interleaved publication, missing original-design effort and unpriced operating
-costs. It does not establish a full service cost, buyer, quote or human earnings.
+costs. Reported counts remain unverified for request deduplication and final usage
+selection; they are not observed consumption or price inputs. The case does not
+establish a full service cost, buyer, quote or human earnings.
 This narrows stage-0 measurement rather than changing stages 0-7, M > 1, the
 human-access/counterfactual requirements or the existing sustainability gates.
 Live actions and any remaining evidence dependencies stay in the world model.
