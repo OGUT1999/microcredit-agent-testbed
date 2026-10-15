@@ -1,0 +1,63 @@
+{
+  "operation": "OMNEQUA-INTERNAL-INQUIRY-63cb8a2-20261015-r1",
+  "author": "Codex (OpenAI AI assistant)",
+  "planning_main": "b56046a9e15bf84067c445f8e124166878255e63",
+  "model_version": "0.1.154",
+  "source_commit": "9e347ca86dcca057e683ac534c7d841eed9ed89f",
+  "source_path": "omnequa/assets/intake.js",
+  "live_url": "https://omnequa.org/partners/",
+  "observation_window": {
+    "from": "2026-10-15T20:02:01Z",
+    "through": "2026-10-15T20:05:14Z",
+    "meaning": "Known enclosing bounds, not individual request timestamps. Page opening and unsupported zoom probe preceded this lower bound."
+  },
+  "classification": "WORKED_INTERNAL_PROVIDER_READBACK_ONLY",
+  "broader_external_inquiry_delivery": "NOT_ESTABLISHED",
+  "synthetic_brief": "Employer / payer:\nINTERNAL TEST - no real employer\n\nOriginal source:\nhttps://example.com/\n\nUseful task and current availability:\nOMNEQUA-INTERNAL-INQUIRY-63cb8a2-20261015-r1. Synthetic delivery test only; no work offered or accepted.\n\nEligibility and location:\nNo applicant, participant or location eligibility is established.\n\nPay and acceptance terms:\nNo wage, price, funding, guarantee or payment commitment.\n\nPayment timing, method, costs and cashout:\nInternal transport check only; usable commercial payout remains unverified.\n\nAccess barrier and proposed next step:\nVerify receipt of the exact copied brief in the advertised project inquiry inbox. Do not contact any outside person.\n\nPlease review and remove private worker records before sending.\n",
+  "mail_suffix": "\n--\nCodex (OpenAI AI assistant). INTERNAL synthetic website-inquiry delivery test only; not outside engagement, a task, an offer or financial authority.\nCredit Among Strangers: https://github.com/scottonchain/microcredit-vision\n",
+  "provider_added_suffix": "\n\n--\nSent via AgentMail",
+  "observed": {
+    "copied_characters": 754,
+    "submitted_characters": 982,
+    "received_characters": 1005,
+    "provider_added_characters": 23,
+    "copy_equals_visible_readonly_text": true,
+    "received_starts_with_exact_submitted_text": true,
+    "received_starts_with_exact_brief": true,
+    "received_equals_submitted_text": false,
+    "one_combined_sent_received_record": true,
+    "provider_sent_and_received_timestamps_identical": true,
+    "manual_send_calls": 1,
+    "recipients": 1,
+    "recipient_is_own_advertised_inquiry_inbox": true,
+    "search_for_same_operation_before_send_returned": 0,
+    "independent_browser_or_mail_witness": false
+  },
+  "claims": {
+    "outside_inquiry": false,
+    "qualified_buyer": false,
+    "offered_work": false,
+    "accepted_work": false,
+    "settled_payment": false,
+    "human_earnings": false,
+    "poverty_reduction": false,
+    "new_financial_authority": false,
+    "external_smtp_route_verified": false,
+    "email_app_handler_tested": false,
+    "foundation_complete": false
+  },
+  "privacy": {
+    "public_only_synthetic_payload": true,
+    "private_message_thread_account_headers_omitted": true,
+    "original_screenshot": "prepared-state.jpg"
+  },
+  "limits": [
+    "Sender and recipient are the same existing project inbox at one provider. A single combined sent/received message record is not two independent witnesses or proof that an external SMTP hop occurred.",
+    "Provider sent/received timestamps are identical. No end-to-end latency, external MX/SPF/DKIM/DMARC result or outside deliverability claim is made.",
+    "The website only prepares text. One explicit send was made through the existing provider connector, not by clicking mailto or by an automatic website send.",
+    "The exact 754-character brief and 982-character submitted prefix survived. Full returned text differs because a 23-character provider footer was appended; no silent normalization or full-body equality claim.",
+    "No actual employer, applicant, job, funding, consented participant, accepted commercial terms or payout is represented.",
+    "One desktop browser. An attempted browser zoom shortcut left viewport metrics unchanged (1363x936 CSS, DPR1, client/scroll width1348); no mobile/reflow test is claimed.",
+    "Raw correspondence, message/thread identifiers and account/session details remain private in existing authorized custody. Search the operation marker there to recover the one test; do not resend."
+  ]
+}
