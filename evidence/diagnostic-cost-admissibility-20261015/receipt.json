@@ -1,0 +1,89 @@
+{
+  "operation": "DIAGNOSTIC-COST-ADMISSIBILITY-acdf6fb-20261015-r2",
+  "author": "Codex (AI)",
+  "planning_main": "5f8e813772d0867740fbef7323263c47f6f71eb0",
+  "existing_action": "action:prime-directive-sync",
+  "question": "Which service-cost components can be attributed to the existing illustrative diagnostic without inventing missing data?",
+  "source_read_upper_bound": "2026-10-15T22:10:24Z",
+  "specimen": {
+    "commit": "acdf6fb4081832139d7ba70846d40e828a188b5b",
+    "path": "evidence/regression-diagnostic-specimen-20261015/README.md",
+    "sha256": "eeadbc4e390e15640392a39956ec56a42ec291c074dcfb70d1c73cff53540463",
+    "original_observer": "Claude Code (AI)",
+    "source_kind": "reported_command_timings_not_raw_metering_receipt",
+    "directory_files": ["README.md"]
+  },
+  "reported_resource_components": [
+    {"activity": "cold_build_and_acceptance", "wall_seconds": "46.2", "user_cpu_seconds": "32.6"},
+    {"activity": "warm_acceptance", "wall_seconds": "4.0", "user_cpu_seconds": "2.2"},
+    {"activity": "negative_control_recompile_and_run", "wall_seconds": "28.2", "user_cpu_seconds": "26.2"}
+  ],
+  "derived_resource_totals": {
+    "wall_seconds": "78.4",
+    "user_cpu_seconds": "61.0",
+    "classification": "arithmetic_from_Claude_report_not_independent_measurement",
+    "scope": "three_reported_commands_only",
+    "excludes": ["restore_verification_run", "original_test_development", "analysis_and_report_generation", "publication", "review", "waiting", "support_and_dispute"],
+    "owner_labor_hours": null,
+    "monetary_value": null
+  },
+  "author_usage_component_report": {
+    "url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6203355532",
+    "author_and_original_observer": "Claude Code (AI)",
+    "published_at": "2026-10-15T22:12:51Z",
+    "source_updated_at": "2026-10-15T22:12:51Z",
+    "source_body_bytes": 2108,
+    "source_body_sha256": "9415994a917d0737cdd4c77060e23fcba6d7c7020775158bf8733fc33b496ab8",
+    "root_read_upper_bound": "2026-10-15T22:14:13Z",
+    "classification": "Claude_reported_existing_per_call_log_extraction_not_independent_raw_log_audit",
+    "model_identifier_reported": "claude-sonnet-5-5",
+    "pricing_basis": null,
+    "raw_private_records_reviewed_by_Codex": false,
+    "unique_request_deduplication_and_final_usage_selection_verified": false,
+    "usage_quantities_admissible_as_observed_consumption_or_price_inputs": false,
+    "counting_method_primary_source": "https://platform.claude.com/docs/en/build-with-claude/streaming",
+    "counting_method_source_check_upper_bound": "2026-10-15T22:27:04Z",
+    "windows": [
+      {"name": "A_measurement_run", "call_timestamp_first": "2026-10-15T18:08:01Z", "call_timestamp_last": "2026-10-15T18:09:50Z", "call_count": 3, "input_tokens": 6, "cache_read_tokens": 2320348, "cache_creation_tokens": 10971, "output_tokens": 6431, "complete_task_cost": false},
+      {"name": "B_publication_window_interleaves_other_work", "call_timestamp_first": "2026-10-15T18:11:10Z", "call_timestamp_last": "2026-10-15T18:13:04Z", "call_count": 19, "input_tokens": 38, "cache_read_tokens": 1732326, "cache_creation_tokens": 57641, "output_tokens": 9887, "complete_task_cost": false},
+      {"name": "B_narrow_commit_push_PR_subset", "subset_of": "B_publication_window_interleaves_other_work", "call_count": 8, "input_tokens": 16, "cache_read_tokens": 650391, "cache_creation_tokens": 33240, "output_tokens": 3626, "complete_task_cost": false}
+    ],
+    "limitations": [
+      "All 3/19/8 counts and usage quantities remain attributed reported values: unique-request deduplication and final-usage-record selection are unverified. Cumulative streaming snapshots must not be summed. This is a plausible ambiguity, not evidence of an actual counting error; no observed-consumption, pricing or billing use until the method is established.",
+      "Windows are identified by call timestamps, not a complete task boundary or contributor-effort measurement.",
+      "The narrow eight-call B group is a subset of the nineteen-call B group; never add both as separate consumption.",
+      "Context re-reading is real resource consumption, not free or automatically discarded. No split into task work versus inherited-context overhead is established here.",
+      "Original discovery and design for contract PR37 predate these windows; publication window B interleaves other work. Neither A alone nor A plus B is the full service.",
+      "No recorded per-call price/billing basis, owner rate/time, machine/CI allocation or complete support/setup cost. No model alias or USD/USDC conversion is inferred."
+    ]
+  },
+  "unestablished_cost_components": [
+    "reported_usage_unique_request_deduplication_and_final_record_selection",
+    "complete_task_attribution_and_scope_for_reported_usage_windows",
+    "applicable_model_and_billing_or_subscription_allocation",
+    "priced_owner_effort_for_delivery_rework_and_support",
+    "machine_and_CI_allocation",
+    "setup_and_other_subscription_allocation",
+    "worker_pay_and_nonoverlapping_labor_scope",
+    "actual_buyer_price_currency_and_route_specific_fees"
+  ],
+  "quote_checker": {
+    "path": "metrics/agent_job_quote.py",
+    "commit": "5f8e813772d0867740fbef7323263c47f6f71eb0",
+    "sha256": "4529cd0c4b46f56d535fd0dce3d401c32217992ab75a67b794d5d6c1ab7affd9",
+    "new_case_input": "quote-input.json",
+    "expected_status": "INCOMPLETE_QUOTE",
+    "expected_arithmetic": null,
+    "expected_exit_code": 1
+  },
+  "decision_scope": "this_specimen_and_available_sources_only_not_service_profitability_or_market_availability",
+  "completed_result": "WORKED_USAGE_COMPONENT_RECOVERY_ONLY_FULL_COST_UNESTABLISHED",
+  "direct_operation_scope": "original specimen reports offline local fixtures, with no RPC, fork, live chain, signature or transaction; this review does not rerun them",
+  "full_service_cost": null,
+  "price_recommendation": null,
+  "offer_authorized": false,
+  "funding_established": false,
+  "settled_payment_established": false,
+  "human_earnings_established": false,
+  "poverty_reduction_established": false
+}
