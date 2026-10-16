@@ -1,0 +1,84 @@
+{
+  "schema": "named-paid-route-qualification/1",
+  "marker": "CLAWTASKS-PAID-ROUTE-20261016-r1",
+  "observer": "Codex (OpenAI AI assistant)",
+  "planning_main": "1a33bbaf66db10cc409a11440b74ee5d50243bce",
+  "planning_model": "0.1.161",
+  "baseline_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6205586363",
+  "method": "Selected direct unauthenticated public GET response records, with separate section rechecks. No full-page copies or third-party personal/account data retained.",
+  "records": [
+    {
+      "url": "https://clawtasks.com/",
+      "started_at": "2026-10-16T01:05:48.021348Z",
+      "completed_at": "2026-10-16T01:05:53.407432Z",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "response_bytes": 15881,
+      "response_sha256": "049d1087a227f82ef488746a0ccc6748586562d2063e1de49235339bde7bf492",
+      "free_task_only_notice": true,
+      "paid_wind_down_notice": true,
+      "interpretation": "First-party current free-only product notice, alongside paid-flow marketing. Notice publication/effective date not supplied."
+    },
+    {
+      "url": "https://clawtasks.com/docs",
+      "started_at": "2026-10-16T01:05:53.407705Z",
+      "completed_at": "2026-10-16T01:05:59.034784Z",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "response_bytes": 23737,
+      "response_sha256": "8b91f36f1da225fc4968446f4ea9d572b0e690e4b5f2c3d609fa0b6c603638e4",
+      "free_task_only_notice": true,
+      "paid_wind_down_notice": true,
+      "interpretation": "Free-only and paid-wind-down notices coexist with paid staking/fee/rejection descriptions; paid-route availability and current applicability of those descriptions are not established."
+    },
+    {
+      "url": "https://clawtasks.com/skill.md",
+      "started_at": "2026-10-16T01:05:59.034913Z",
+      "completed_at": "2026-10-16T01:06:04.841851Z",
+      "http_status": 200,
+      "content_type": "text/markdown; charset=UTF-8",
+      "response_bytes": 33251,
+      "response_sha256": "aeb38dc36c82f10816ba3c3daf7911f3b7693da5500648c7a742638ec72704fe",
+      "free_task_only_notice": false,
+      "paid_wind_down_notice": false,
+      "interpretation": "Agent instructions describe a paid flow but do not establish that this flow is currently available. No instructions executed. Search retrieval could not parse text/markdown; direct public GET succeeded without bypass."
+    },
+    {
+      "url": "https://clawtasks.com/api/bounties?status=open",
+      "started_at": "2026-10-16T01:06:04.842436Z",
+      "completed_at": "2026-10-16T01:06:10.580076Z",
+      "http_status": 500,
+      "content_type": "application/json",
+      "response_bytes": 33,
+      "response_sha256": "f26dcd3580f26f3b494c17bd81ff4eb958401b104fc84698cb36495101190e44",
+      "json_top_level_keys": ["error"],
+      "usable_task_list": false,
+      "task_count": null,
+      "interpretation": "Error response is not an empty catalog, evidence of zero buyers or a market-demand test."
+    }
+  ],
+  "section_rechecks": [
+    {
+      "url": "https://clawtasks.com/docs",
+      "completed_at": "2026-10-16T01:08:40.068535Z",
+      "response_sha256": "8b91f36f1da225fc4968446f4ea9d572b0e690e4b5f2c3d609fa0b6c603638e4",
+      "finding": "Notice and paid-flow descriptions occur in extracted non-script/style HTML text. CSS visibility and graphical rendering not tested."
+    },
+    {
+      "url": "https://clawtasks.com/skill.md",
+      "completed_at": "2026-10-16T01:08:45.619692Z",
+      "response_sha256": "aeb38dc36c82f10816ba3c3daf7911f3b7693da5500648c7a742638ec72704fe",
+      "finding": "Selected paid fee/stake/rejection sections read; full body checked for the two notice phrases, neither present. No full-document interpretation or executable financial applicability claimed."
+    }
+  ],
+  "disposition": "CURRENT_OFFICIAL_FREE_TASK_ONLY_NOTICE_PAID_ROUTE_NOT_QUALIFIED",
+  "coverage_limits": [
+    "Selected public pages only; no authenticated dashboard, private offers, every task, contract code or chain/payout audit.",
+    "Current notice is platform-reported policy, not independent verification of all underlying operation or historical settlement.",
+    "No publication date supplied for the product notice; retrieval times do not establish when it changed.",
+    "No new task, buyer, worker, full cost, funding, earnings or impact is established; no global demand conclusion."
+  ],
+  "outside_messages_sent": false,
+  "account_created": false,
+  "financial_actions": false
+}
