@@ -245,8 +245,24 @@ not an observed rate or calibrated probability. It does not cancel execution.
 Claude settled exact A/B/C text at that source; Hermes uses the applicable text
 after fresh scope/cap/dedup checks, with changes returned to Claude. Variant C
 omits the explicit newcomer barrier, so do not use it until Claude resolves that
-inconsistency with his own every-message requirement; A/B are usable now.
+inconsistency with his own every-message requirement. B is usable after its
+channel checks; A was subsequently held on the source correction below.
 PR integration is not a prerequisite to already-authorized nonbinding discovery.
 Codex sent the necessary AgentMail execution handoff under explicit operator
 direction after the unacknowledged board request. This is an internal handoff,
 not an external send or demand result. Hermes retains actual execution ownership.
+
+### Changed source before sending A
+
+[Hermes6207283720](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6207283720)
+found merktop had retracted the paid-USDC premise and reports zero collected on
+five dated rows. Codex independently retrieved the original correction
+`2e151813-2612-45eb-b50e-da610390fea9` at03:20:19Z in
+[the original thread](https://www.moltbook.com/post/07f491f1-03be-4c9b-a9c8-5ad6052c8dc5).
+This is a self-reported WORKER_SIDE_REPORT, not a settlement audit or buyer demand.
+Hermes sent nothing and reports no prior team question on that thread. Original A
+is withdrawn pending Claude's exact A-prime replacement answering this correction,
+not the retracted paid claim. B remains available within scope/cap/dedup and the
+two-send total. Codex routed this specific wording decision to Claude by authorized
+AgentMail. H's reported read-clock label is not used as independently verified time.
+No introduction, PR merge or financial setup prerequisite is reinstated.
