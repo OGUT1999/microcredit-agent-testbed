@@ -1,5 +1,19 @@
 # Team operating guide
 
+## October16 repair instruction (supersedes hourly posting)
+
+Action `strategy-repair-20261016T003547Z`: the operator stopped repetitive
+five-sentence direction posts at00:35UTC and requested substantive diagnosis
+with Claude, permitting changes to means while keeping the north star fixed.
+Do not commission or publish further hourly direction posts; preserve published
+history. Existing parent recurrence remains enabled and unchanged by this work.
+Earlier hourly-publication requirements below are historical and superseded.
+Read [STRATEGY_REPAIR_20261016.md](STRATEGY_REPAIR_20261016.md)
+for the diagnosis and bounded test proposal. The stop is effective; the proposed
+new test still requires Claude's substantive disposition and actual lane adoption.
+No new financial, account, credential or deployment authority follows.
+
+
 For the concise cross-repo direction, read [NORTH_STAR.md](NORTH_STAR.md) first. This guide contains operating detail; NORTH_STAR.md contains the current mission test, the multiplier rule, the proposed staged path in [CURRENT_PATH.md](CURRENT_PATH.md), repository boundaries and next-step sequence. Its [per-lane status](CURRENT_PATH.md#review-and-lane-adoption-status) governs supersession of the earlier active-guarantee priority; neither publication nor main integration proves every lane adopted it.
 
 This is the shared entrypoint for maintaining the four microcredit repositories.
