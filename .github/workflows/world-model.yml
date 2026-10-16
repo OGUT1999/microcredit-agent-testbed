@@ -1,6 +1,7 @@
 name: Testbed verification
 on:
   pull_request:
+    types: [opened, synchronize, reopened, edited]
   push:
     branches: [main]
 permissions:
@@ -16,6 +17,40 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: PR metadata privacy check
+        if: github.event_name == 'pull_request'
+        run: |
+          set -euo pipefail
+          metadata_file="$(mktemp "${RUNNER_TEMP:?}/pr-metadata.XXXXXXXX")"
+          trap 'rm -f -- "$metadata_file"' EXIT
+          python - "$GITHUB_EVENT_PATH" "$metadata_file" <<'PY'
+          import json
+          from pathlib import Path
+          import sys
+
+          try:
+              event = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+              if not isinstance(event, dict):
+                  raise ValueError
+              pr = event.get("pull_request")
+              if not isinstance(pr, dict) or "title" not in pr or "body" not in pr:
+                  raise ValueError
+              title, body = pr["title"], pr["body"]
+              if not isinstance(title, str) or (body is not None and not isinstance(body, str)):
+                  raise ValueError
+              text = title + "\n" + (body or "") + "\n"
+              if "\0" in text:
+                  raise ValueError
+              Path(sys.argv[2]).write_text(text, encoding="utf-8")
+          except (OSError, ValueError, TypeError, UnicodeError):
+              print("PR metadata unavailable or invalid; privacy check failed.", file=sys.stderr)
+              sys.exit(1)
+          PY
+          # Do not copy even surrounding metadata into public logs.
+          if ! bash world-model/check-public-content.sh --text "$metadata_file" >/dev/null 2>&1; then
+            echo "PR metadata privacy check failed; inspect title and description privately." >&2
+            exit 1
+          fi
       - run: python -m pip install -r world-model/requirements.txt
       - run: python tools/check.py
       - name: Public-content check
