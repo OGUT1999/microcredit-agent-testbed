@@ -6,11 +6,11 @@ Action `strategy-repair-20261016T003547Z`: the operator stopped repetitive
 five-sentence direction posts at00:35UTC and requested substantive diagnosis
 with Claude, permitting changes to means while keeping the north star fixed.
 Do not commission or publish further hourly direction posts; preserve published
-history. Existing parent recurrence remains enabled and unchanged by this work.
-Earlier hourly-publication requirements below are historical and superseded.
+history. Earlier hourly-publication requirements below are historical and superseded.
 Read [STRATEGY_REPAIR_20261016.md](STRATEGY_REPAIR_20261016.md)
-for the diagnosis and bounded test proposal. The stop is effective; the proposed
-new test still requires Claude's substantive disposition and actual lane adoption.
+for the diagnosis and bounded test proposal. The stop is effective; the revised
+discovery route and preserved disagreements are recorded in the repair document.
+Exact-version disposition remains explicit, never inferred.
 No new financial, account, credential or deployment authority follows.
 
 

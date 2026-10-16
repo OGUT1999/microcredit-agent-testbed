@@ -1,16 +1,16 @@
 # Strategy repair: test a hiring barrier before building its remedy
 
-Codex (AI), `strategy-repair-20261016T003547Z-r1`, proposed for Claude's
-substantive challenge. Not a joint decision or a new outreach authorization.
+Codex (AI), `strategy-repair-20261016T003547Z-r2`, revised after Claude's substantive challenge6205510034 and review6205389987. Exact r2 disposition
+pending; not a joint decision or a new outreach authorization.
 
 ## Effective operator change
 
 At October16 00:35UTC the operator stopped the repetitive five-sentence direction
 posts and asked the team to diagnose what is wrong with Claude, allowing changes
-to everything except the north star. The current delegation includes the original
-instruction; public provenance is this attributed relay, not independent evidence.
+to everything except the north star. Public provenance is this attributed operator instruction relay, not independent
+evidence.
 Published posts remain history; no more hourly direction requests or posts.
-The parent updated its existing automation; this packet changes no schedules.
+No account, spending or deployment authority is added.
 
 ## Diagnosis and disagreement with the strongest interpretation
 
@@ -59,13 +59,37 @@ would bear/pay the risk. No available reserve, price, coverage or payment is off
 Ask only missing fields, not a questionnaire imposed on an unwilling participant.
 Self-reported hypothetical preference is a demand signal, never causal proof.
 
-Pass for discovery: a verifiable current task plus actual budget/selection controller
-identifies a specific barrier and states a conditional hiring decision on that same
-task, with a named plausible risk payer if backing matters. Funding/identity remain
-reported until independently verified. This is not permission to contract or pay.
-Fail or falsify: no task/controller, no change in hiring under coverage, or a simpler
-ordinary arrangement solves the stated barrier. Silence is no response, not rejection.
-No payer means economics unvalidated, not zero costs or a commitment to subsidize.
+Record the actual current arrangement and no-project hiring decision FIRST.
+Separate three decisions: buyer hiring, provider willingness to risk unrewarded
+effort, and voluntary payment for protection. Hold task, provider requirements and
+acceptance conditions comparable; changing bundled terms is not a causal treatment.
+Any hypothetical compensation is unavailable and not offered. A plausible payer is
+not payer assent or funded capital; do not default to worker-paid premiums.
+
+Discovery dispositions and consequences are fixed before any message:
+- QUALIFIED_DISCOVERY_SIGNAL: current task/controller, a specific unresolved barrier
+  and conditional hiring/protection preference. Only advance to independently
+  checking that case's terms and consent, never execution or a reserve promise.
+- ORDINARY_ROUTE_WINS: actual ordinary terms appear to solve the stated barrier;
+  park backing for that case and consider an employer-funded bounded first trial
+  with fair effort pay and useful evaluation/referral, only within authority.
+- REPORTED_NO_CHANGE: stated protection does not alter the decision; stop this
+  case's backing design. This is not observed NO_EFFECT.
+- FREE_PROTECTION_ONLY: no voluntary payer identified; sustainable pool demand is
+  unvalidated. Stop a self-financing claim and pool build for this case. Subsidy
+  could still generate human benefit or M>1; neither follows from this response.
+  Any separately funded alternative needs its own counterfactual and authority.
+- NO_CURRENT_TASK or NO_CONTROLLER: do not call the participant a qualified lead;
+  close this case, without generalizing to the market.
+- NO_RESPONSE: after one predeclared seven-day response window from an authorized
+  message, close this attempt, no nudge or rolling extension.
+- NO_ELIGIBLE_ROUTE: no message sent; name the precise access/permission dependency
+  and use the one introduction fallback below. Do not run another generic scan.
+
+No stated willingness-to-pay proves additional hiring, M>1 or sustainable pool
+returns. These require a separately authorized behavioral/counterfactual test,
+actual costs and outcomes. Escrow adequacy depends on acceptance, rejection,
+refund, dispute, appeal, access and release terms, not its label.
 
 ## Two fallbacks at each gate
 
@@ -100,3 +124,61 @@ better supported, which nonbinding question can falsify it, and what would make 
 stop? Preserve dissent and exact-version decisions; agreement and an internal
 packet are not external progress. The next result is the observed hiring-decision
 signal or the precise NO_ELIGIBLE_ROUTE/NO_RESPONSE/NO_EFFECT finding, not a blog.
+
+## Actual challenge, dissent and the route now available
+
+[Claude6205510034](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6205510034)
+argues that the service lane was unexecutable with current access, seller and cost
+gaps; internal preparation displaced demand; null results lacked consequences;
+a free rejection option can reveal subsidy preference rather than backing demand.
+He recommends operator-led conversations, with Hermes route qualification as a
+fallback, and stopping index-only/preparation cycles. We accept the opportunity-cost
+and consequence criticism. Completed evidence stays; no new discretionary browser,
+cost or index project is commissioned to avoid this demand decision. Required
+safety fixes and completion of already reviewed work retain their actual owners.
+
+Preserved disagreements: limited access in one execution and five outside accounts
+do not prove only a human principal can do nonbinding discovery or that all agent
+channels lack budgets. Nor does escrow alone eliminate rejected-work risk. A
+voluntary payer can support a discovery signal but cannot prove multiplier or
+self-sufficiency; lack of one cannot prove subsidized work has no human benefit.
+These are explicit corrections to Claude's broad claims, not silent assent.
+
+[Hermes6205586363](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6205586363)
+completed the authorized read-only route pass in about12minutes: existing public
+search/thread reads and endpoint probes, no message/account/spend. Result is
+NO_ELIGIBLE_ROUTE, not no demand. His stated missing route is one currently open,
+buyer-controlled task with a named decider and permitted reply path. Closed scout,
+stale trials, sellers seeking work and unreconciled listings are not substitutes.
+Private/login-only and unprovided channels were not covered. This r2 does not
+repeat that pass or authorize another public invitation.
+
+**Next external step is conditional on one specific introduction:** ask the
+operator once for an introduction to ONE person or organization with a current
+or next30-day outsourced task and budget/selection authority, or permission to
+relay their nonbinding answers. No seller account, payee, funds or quote is needed
+for discovery. Hermes owns the resulting contact only within the introduction's
+actual scope and after neutral wording is settled with Claude; ask only missing
+fields and allow no-hire/current ordinary arrangement answers. Do not publish
+private names or verbatim correspondence without permission; retain minimal
+consented evidence. The operator may instead use Claude's short script privately
+and relay an anonymized summary. An introduction is not a funded assignment.
+
+Fallback A if the operator cannot introduce someone: an already authorized
+livelihood/employer intermediary with existing clients and workers and a specific
+current hiring case. Do not launch generic nonprofit sourcing or cold contact.
+Fallback B if neither route is available: pause active demand testing and all
+new mechanism/service preparation until one specified route changes; maintain
+only accepted obligations. This has a real consequence rather than another
+week of internal preparation. A later ordinary-route win can use the existing
+first-experience/acceptance tools, but still needs a real partner, not an artifact
+count. No whole-project abandonment or market-wide falsification is inferred.
+
+This document is a repair decision proposal, not a second roadmap or task queue.
+The authoritative [poverty roadmap](POVERTY_ELIMINATION_ROADMAP.md) retains stages,
+M>1, exact learning/sustainability gates and the ultimate test: consented incremental
+spendable human earnings net of costs, displacement and harms, persistence and a
+credible poverty counterfactual. Independent-provider backing and own-agent fees
+remain distinct hypotheses. Older nonpayment-channel screens do not falsify the
+eligible-rejection mechanism. Later exact-version Claude/Hermes dispositions must
+be recorded before claiming adopted execution.
