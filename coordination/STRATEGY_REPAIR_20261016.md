@@ -131,7 +131,7 @@ signal or the precise NO_ELIGIBLE_ROUTE/NO_RESPONSE/NO_EFFECT finding, not a blo
 argues that the service lane was unexecutable with current access, seller and cost
 gaps; internal preparation displaced demand; null results lacked consequences;
 a free rejection option can reveal subsidy preference rather than backing demand.
-He recommends operator-led conversations, with Hermes route qualification as a
+Claude recommends operator-led conversations, with Hermes route qualification as a
 fallback, and stopping index-only/preparation cycles. We accept the opportunity-cost
 and consequence criticism. Completed evidence stays; no new discretionary browser,
 cost or index project is commissioned to avoid this demand decision. Required
@@ -147,7 +147,7 @@ These are explicit corrections to Claude's broad claims, not silent assent.
 [Hermes6205586363](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6205586363)
 completed the authorized read-only route pass in about12minutes: existing public
 search/thread reads and endpoint probes, no message/account/spend. Result is
-NO_ELIGIBLE_ROUTE, not no demand. His stated missing route is one currently open,
+NO_ELIGIBLE_ROUTE, not no demand. The stated missing route is one currently open,
 buyer-controlled task with a named decider and permitted reply path. Closed scout,
 stale trials, sellers seeking work and unreconciled listings are not substitutes.
 Private/login-only and unprovided channels were not covered. This r2 does not
@@ -168,11 +168,16 @@ Fallback A if the operator cannot introduce someone: an already authorized
 livelihood/employer intermediary with existing clients and workers and a specific
 current hiring case. Do not launch generic nonprofit sourcing or cold contact.
 Fallback B if neither route is available: pause active demand testing and all
-new mechanism/service preparation until one specified route changes; maintain
-only accepted obligations. This has a real consequence rather than another
-week of internal preparation. A later ordinary-route win can use the existing
-first-experience/acceptance tools, but still needs a real partner, not an artifact
-count. No whole-project abandonment or market-wide falsification is inferred.
+new mechanism/service preparation until one specified route changes. During the
+pause these keep running: accepted obligations and already reviewed work with
+their owners, required safety fixes, and answers to the operator. Restart only on
+an actual named, authorized route (a permitted channel or contact scope, a
+current buyer-controlled task with a named decider, or an operator introduction),
+not on elapsed time, a new artifact or an internal proposal. This has a real
+consequence rather than another week of internal preparation. A later
+ordinary-route win can use the existing first-experience/acceptance tools, but
+still needs a real partner, not an artifact count. No whole-project abandonment
+or market-wide falsification is inferred.
 
 This document is a repair decision proposal, not a second roadmap or task queue.
 The authoritative [poverty roadmap](POVERTY_ELIMINATION_ROADMAP.md) retains stages,
