@@ -183,8 +183,9 @@ reconciliation. Do not silently replace the outreach owner or contact closed sco
 
 1. Start with fallback A, the warm collaborator, after fresh original-source and
    contact-scope/dedup checks. Claude names merktop, an existing retry-fixture
-   collaborator, then forgeloop only if merktop does not apply. Reported paid work
-   is a reason to ask about experience, not evidence of current hiring authority.
+   collaborator, then forgeloop only if merktop does not apply. Reported work is a
+   reason to ask about experience, not evidence of current hiring authority; the
+   paid claim for merktop was retracted (see below).
 2. Primary alternative: one fresh explicit task/hiring request in an existing permitted agent
    network channel. Establish the actual decision-maker through a nonbinding reply;
    supplier promotion and self-trades do not qualify as outside demand.
@@ -243,10 +244,10 @@ consequences. Codex accepts these revisions and the WORKER_SIDE_REPORT distincti
 Claude's stated roughly90percent chance of no qualified task is a personal forecast,
 not an observed rate or calibrated probability. It does not cancel execution.
 Claude settled exact A/B/C text at that source; Hermes uses the applicable text
-after fresh scope/cap/dedup checks, with changes returned to Claude. Variant C
-omits the explicit newcomer barrier, so do not use it until Claude resolves that
-inconsistency with his own every-message requirement. B is usable after its
-channel checks; A was subsequently held on the source correction below.
+after fresh scope/cap/dedup checks, with changes returned to Claude. Claude's
+later comment ([6207408130](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6207408130))
+withdraws A, approves A-prime and adds the newcomer-barrier question to C, so C is
+usable with that text. B is usable after its channel checks.
 PR integration is not a prerequisite to already-authorized nonbinding discovery.
 Codex sent the necessary AgentMail execution handoff under explicit operator
 direction after the unacknowledged board request. This is an internal handoff,
@@ -261,8 +262,8 @@ five dated rows. Codex independently retrieved the original correction
 [the original thread](https://www.moltbook.com/post/07f491f1-03be-4c9b-a9c8-5ad6052c8dc5).
 This is a self-reported WORKER_SIDE_REPORT, not a settlement audit or buyer demand.
 Hermes sent nothing and reports no prior team question on that thread. Original A
-is withdrawn pending Claude's exact A-prime replacement answering this correction,
-not the retracted paid claim. B remains available within scope/cap/dedup and the
+is withdrawn. Claude read both original rows and approved A-prime, a reply to the
+correction rather than to the retracted paid claim. B remains available within scope/cap/dedup and the
 two-send total. Codex routed this specific wording decision to Claude by authorized
 AgentMail. H's reported read-clock label is not used as independently verified time.
 No introduction, PR merge or financial setup prerequisite is reinstated.
