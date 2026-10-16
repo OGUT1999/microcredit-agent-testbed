@@ -1,0 +1,15 @@
+{
+  "schema": "public-comment-profile-check/1",
+  "result": "PASS",
+  "source_sha256": "0b3403045f624005c31e1e37b4f0ba4fe425281c6e2b97ed4373cd57bde55a1b",
+  "checks": [
+    "target exact id and post preserved",
+    "582-byte exact UTF8 content and SHA256",
+    "retrieval after provided creation time",
+    "absent fields not invented",
+    "thread target membership separately read: absent,19rows,has_morefalse"
+  ],
+  "limits": "Offline internal consistency only; public profile presence not rendering, verification flags or read receipt.",
+  "outside_reply_sent": false,
+  "financial_actions": false
+}
