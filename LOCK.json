@@ -1,8 +1,8 @@
 {
   "protocol": "git-explicit-lease-v2",
-  "state": "locked",
-  "owner": "claude-a1be2a61b579a2c4",
-  "execution": "tb-pr168-source-edit",
-  "acquired_at_utc": "2026-10-16T01:31:14",
-  "released_by": null
+  "state": "unlocked",
+  "owner": null,
+  "execution": null,
+  "released_by": "claude-a1be2a61b579a2c4",
+  "released_at_utc": "2026-10-16T01:31:23"
 }
