@@ -1,0 +1,24 @@
+{
+  "schema": "named-paid-route-check/1",
+  "checked_at": "2026-10-16T01:10:34.834374Z",
+  "result": "PASS",
+  "source_sha256": "58b7a4487549b586dd6cac6e037a3f040c0047ee6040ffdb3f1a3a919a2d0e75",
+  "source_bytes": 4532,
+  "selected_response_records": 4,
+  "section_rechecks": 2,
+  "checks": [
+    "four distinct source URLs with ordered start/completion times and valid SHA256 fields",
+    "home and documentation HTTP200 with both selected notices",
+    "agent instructions HTTP200 without selected notices",
+    "API HTTP500 is an unusable list, with task count explicitly unknown",
+    "two independently repeated response hashes match their first selected reads",
+    "no outside message, account creation or financial action recorded"
+  ],
+  "limits": "Offline internal consistency of observer records, not independent source authentication, current task enumeration, contract or payout verification, demand or human impact.",
+  "economic_results": {
+    "new_accepted_assignment_established": false,
+    "new_payment_established": false,
+    "human_earnings_established": false,
+    "full_resource_cost": null
+  }
+}
