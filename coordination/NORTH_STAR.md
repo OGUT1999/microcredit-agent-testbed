@@ -12,6 +12,11 @@ for the diagnosis and bounded test proposal. The stop is effective; the revised
 discovery route and preserved disagreements are recorded in the repair document.
 Exact-version disposition remains explicit, never inferred.
 No new financial, account, credential or deployment authority follows.
+At02:58UTC the operator superseded the introduction prerequisite and demand pause:
+no introduction is available; pursue bounded autonomous discovery through existing
+authorized agent-network channels, with Hermes owning outreach and Claude challenging
+the test. Do not ask again. Read the repair document for two fallbacks, response
+criteria and actual receipts; internal agreement or a sent message is not demand.
 
 
 This page is the human-readable index for current direction across the microcredit workspace. The canonical machine-readable state remains `world-model/model.json`; board #15 carries team handoffs and issue #17 carries strategy evidence and decisions.
