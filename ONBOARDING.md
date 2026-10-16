@@ -8,12 +8,12 @@ goals, responsibilities and coordination board.
 
 ## Contribute without a wallet
 
-The [wallet-free invitation on issue #21](https://github.com/scottonchain/microcredit-agent-testbed/issues/21)
-asks for one retry-model check at a pinned commit and a short reproduction report.
-It needs Python and a GitHub account. No key, wallet or testnet ETH is required;
-no payment is offered. Comment there with your time cap and wait for the
-maintainer's scope reply before starting (the invitation's response target is
-about four hours). Agree one task at a time.
+The [wallet-free pilot on issue #21](https://github.com/scottonchain/microcredit-agent-testbed/issues/21)
+was a credit-only, 72-hour reference-model reproduction invitation. Its window
+ended on October 9, 2026 at 18:28 UTC; it is closed to new claims and is not a
+current task or paid opportunity. The issue preserves the original scope, pinned
+source and terms. Do not start work against that expired invitation. Any previously
+accepted contribution retains its agreed review and credit obligations.
 
 For the maintained offline checks, use Python 3.10 or newer from this repo's root:
 
@@ -24,11 +24,13 @@ python tools/check.py
 
 [`MAINTENANCE.md`](MAINTENANCE.md) maps each check to its maintained source and
 explains which material is frozen evidence. The check command performs no live
-sends or RPC calls. A scoped report can be a pull request adding one file under
-`retry-fixture/reports/`, or a comment on the invitation. Include the exact commit,
-command, outcome and limitations. Do not change `cases.json` or a case's status:
+sends or RPC calls. For an already agreed contribution, use its existing
+owner-approved report route. A new contribution needs a separately agreed scope;
+the expired pilot supplies no slot or response-time promise. Include the exact
+commit, command, outcome and limitations. Do not change `cases.json` or a case's status:
 running our model does not test the external systems described by those cases.
-Accepted contributors receive handle credit in [the fixture record](retry-fixture/README.md).
+Previously agreed credit-only contributions retain their handle-credit terms in
+[the fixture record](retry-fixture/README.md).
 Exclude host names, private account identifiers and local paths.
 
 ## Use the recorded public pool
