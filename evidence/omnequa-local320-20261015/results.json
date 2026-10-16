@@ -1,0 +1,163 @@
+{
+  "browser_version": "141.0.7390.37",
+  "runs": {
+    "w1280_control": {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "initial": {
+        "innerWidth": 1280,
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "bodyScrollWidth": 1280,
+        "horizontalScroll": false,
+        "dpr": 1,
+        "overflowingElementCount": 0,
+        "overflowingElements": []
+      },
+      "button_enabled_after_fill": true,
+      "prepare": {
+        "panel_visible": true,
+        "brief_equals_expected": true,
+        "brief_utf16_units": 638,
+        "status": "Your brief is ready, but has not been sent. Copy it into your own email service or open the prepared draft below, then review before sending.",
+        "link_visible": true,
+        "href_present": true
+      },
+      "after_prepare": {
+        "innerWidth": 1280,
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "bodyScrollWidth": 1280,
+        "horizontalScroll": false,
+        "dpr": 1,
+        "overflowingElementCount": 0,
+        "overflowingElements": []
+      },
+      "copy": {
+        "clipboard_equals_expected": true,
+        "clipboard_utf16_units": 638
+      },
+      "edit_invalidation": {
+        "brief_cleared": true,
+        "panel_hidden": true,
+        "link_hidden": true,
+        "href_removed": true,
+        "status": "Answers changed. Prepare a new draft before copying or opening it."
+      },
+      "reprepare_equals_expected": true,
+      "reload": {
+        "fields_empty": true,
+        "panel_hidden": true,
+        "link_hidden": true,
+        "href_null": true
+      },
+      "network": {
+        "localhost_requests": 8,
+        "external_blocked_requests": [],
+        "mailto_activated": false
+      },
+      "console": {
+        "messages": [],
+        "page_errors": []
+      }
+    },
+    "w320": {
+      "viewport": {
+        "width": 320,
+        "height": 640
+      },
+      "initial": {
+        "innerWidth": 320,
+        "clientWidth": 320,
+        "scrollWidth": 320,
+        "bodyScrollWidth": 320,
+        "horizontalScroll": false,
+        "dpr": 1,
+        "overflowingElementCount": 2,
+        "overflowingElements": [
+          {
+            "tag": "a",
+            "id": null,
+            "cls": null,
+            "left": 283,
+            "right": 323,
+            "width": 40
+          },
+          {
+            "tag": "a",
+            "id": null,
+            "cls": null,
+            "left": 341,
+            "right": 380,
+            "width": 39
+          }
+        ]
+      },
+      "button_enabled_after_fill": true,
+      "prepare": {
+        "panel_visible": true,
+        "brief_equals_expected": true,
+        "brief_utf16_units": 638,
+        "status": "Your brief is ready, but has not been sent. Copy it into your own email service or open the prepared draft below, then review before sending.",
+        "link_visible": true,
+        "href_present": true
+      },
+      "after_prepare": {
+        "innerWidth": 320,
+        "clientWidth": 320,
+        "scrollWidth": 320,
+        "bodyScrollWidth": 320,
+        "horizontalScroll": false,
+        "dpr": 1,
+        "overflowingElementCount": 2,
+        "overflowingElements": [
+          {
+            "tag": "a",
+            "id": null,
+            "cls": null,
+            "left": 283,
+            "right": 323,
+            "width": 40
+          },
+          {
+            "tag": "a",
+            "id": null,
+            "cls": null,
+            "left": 341,
+            "right": 380,
+            "width": 39
+          }
+        ]
+      },
+      "copy": {
+        "clipboard_equals_expected": true,
+        "clipboard_utf16_units": 638
+      },
+      "edit_invalidation": {
+        "brief_cleared": true,
+        "panel_hidden": true,
+        "link_hidden": true,
+        "href_removed": true,
+        "status": "Answers changed. Prepare a new draft before copying or opening it."
+      },
+      "reprepare_equals_expected": true,
+      "reload": {
+        "fields_empty": true,
+        "panel_hidden": true,
+        "link_hidden": true,
+        "href_null": true
+      },
+      "network": {
+        "localhost_requests": 8,
+        "external_blocked_requests": [],
+        "mailto_activated": false
+      },
+      "console": {
+        "messages": [],
+        "page_errors": []
+      }
+    }
+  }
+}

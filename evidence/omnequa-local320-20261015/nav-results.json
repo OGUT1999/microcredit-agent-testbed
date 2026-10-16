@@ -1,0 +1,262 @@
+{
+  "w1280_control": {
+    "innerWidth": 1280,
+    "docScrollWidth": 1280,
+    "navs": [
+      {
+        "cls": null,
+        "ariaLabel": "Main navigation",
+        "overflowX": "visible",
+        "display": "flex",
+        "flexWrap": "nowrap",
+        "clientWidth": 413,
+        "scrollWidth": 413,
+        "left": 635,
+        "right": 1049,
+        "links": [
+          {
+            "text": "Our mission",
+            "left": 635,
+            "right": 705,
+            "fullyVisible": true
+          },
+          {
+            "text": "Opportunities",
+            "left": 730,
+            "right": 807,
+            "fullyVisible": true
+          },
+          {
+            "text": "Work with us",
+            "left": 832,
+            "right": 913,
+            "fullyVisible": true
+          },
+          {
+            "text": "Results",
+            "left": 938,
+            "right": 981,
+            "fullyVisible": true
+          },
+          {
+            "text": "Journal",
+            "left": 1006,
+            "right": 1049,
+            "fullyVisible": true
+          }
+        ]
+      }
+    ],
+    "nav_ancestors": [
+      {
+        "tag": "nav",
+        "cls": "",
+        "overflowX": "visible",
+        "scrollWidth": 413,
+        "clientWidth": 413
+      },
+      {
+        "tag": "header",
+        "cls": "",
+        "overflowX": "visible",
+        "scrollWidth": 1280,
+        "clientWidth": 1280
+      },
+      {
+        "tag": "body",
+        "cls": "",
+        "overflowX": "visible",
+        "scrollWidth": 1280,
+        "clientWidth": 1280
+      }
+    ],
+    "tab_sequence": [
+      {
+        "tag": "a",
+        "text": "Skip to content",
+        "left": 16,
+        "right": 160,
+        "inViewport": true
+      },
+      {
+        "tag": "a",
+        "text": "oomnequa.",
+        "left": 77,
+        "right": 233,
+        "inViewport": true
+      },
+      {
+        "tag": "a",
+        "text": "Our mission",
+        "left": 635,
+        "right": 705,
+        "inViewport": true
+      },
+      {
+        "tag": "a",
+        "text": "Opportunities",
+        "left": 730,
+        "right": 807,
+        "inViewport": true
+      },
+      {
+        "tag": "a",
+        "text": "Work with us",
+        "left": 832,
+        "right": 913,
+        "inViewport": true
+      },
+      {
+        "tag": "a",
+        "text": "Results",
+        "left": 938,
+        "right": 981,
+        "inViewport": true
+      },
+      {
+        "tag": "a",
+        "text": "Journal",
+        "left": 1006,
+        "right": 1049,
+        "inViewport": true
+      },
+      {
+        "tag": "a",
+        "text": "Get in touch ↗",
+        "left": 1089,
+        "right": 1203,
+        "inViewport": true
+      }
+    ]
+  },
+  "w320": {
+    "innerWidth": 320,
+    "docScrollWidth": 320,
+    "navs": [
+      {
+        "cls": null,
+        "ariaLabel": "Main navigation",
+        "overflowX": "auto",
+        "display": "flex",
+        "flexWrap": "nowrap",
+        "clientWidth": 282,
+        "scrollWidth": 361,
+        "left": 19,
+        "right": 301,
+        "links": [
+          {
+            "text": "Our mission",
+            "left": 19,
+            "right": 83,
+            "fullyVisible": true
+          },
+          {
+            "text": "Opportunities",
+            "left": 101,
+            "right": 173,
+            "fullyVisible": true
+          },
+          {
+            "text": "Work with us",
+            "left": 191,
+            "right": 265,
+            "fullyVisible": true
+          },
+          {
+            "text": "Results",
+            "left": 283,
+            "right": 323,
+            "fullyVisible": false
+          },
+          {
+            "text": "Journal",
+            "left": 341,
+            "right": 380,
+            "fullyVisible": false
+          }
+        ]
+      }
+    ],
+    "nav_ancestors": [
+      {
+        "tag": "nav",
+        "cls": "",
+        "overflowX": "auto",
+        "scrollWidth": 361,
+        "clientWidth": 282
+      },
+      {
+        "tag": "header",
+        "cls": "",
+        "overflowX": "visible",
+        "scrollWidth": 320,
+        "clientWidth": 320
+      },
+      {
+        "tag": "body",
+        "cls": "",
+        "overflowX": "visible",
+        "scrollWidth": 320,
+        "clientWidth": 320
+      }
+    ],
+    "tab_sequence": [
+      {
+        "tag": "a",
+        "text": "Skip to content",
+        "left": 16,
+        "right": 154,
+        "inViewport": true
+      },
+      {
+        "tag": "a",
+        "text": "oomnequa.",
+        "left": 19,
+        "right": 164,
+        "inViewport": true
+      },
+      {
+        "tag": "a",
+        "text": "Our mission",
+        "left": 19,
+        "right": 83,
+        "inViewport": true
+      },
+      {
+        "tag": "a",
+        "text": "Opportunities",
+        "left": 101,
+        "right": 173,
+        "inViewport": true
+      },
+      {
+        "tag": "a",
+        "text": "Work with us",
+        "left": 191,
+        "right": 265,
+        "inViewport": true
+      },
+      {
+        "tag": "a",
+        "text": "Results",
+        "left": 283,
+        "right": 323,
+        "inViewport": false
+      },
+      {
+        "tag": "a",
+        "text": "Journal",
+        "left": 262,
+        "right": 301,
+        "inViewport": true
+      },
+      {
+        "tag": "a",
+        "text": "Tell us about the task ↗",
+        "left": 19,
+        "right": 230,
+        "inViewport": true
+      }
+    ]
+  }
+}
