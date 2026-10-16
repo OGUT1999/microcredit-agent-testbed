@@ -1,8 +1,8 @@
 {
   "protocol": "git-explicit-lease-v2",
-  "state": "unlocked",
-  "owner": null,
-  "execution": null,
-  "released_by": "codex-48669c135aae47dd881ac151efac72eb",
-  "released_at_utc": "2026-10-16T04:47:45"
+  "state": "locked",
+  "owner": "claude-88964fb7a56ea456",
+  "execution": "tb-guard-diagnostics-branch",
+  "acquired_at_utc": "2026-10-16T05:24:05",
+  "released_by": null
 }
