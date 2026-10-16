@@ -87,6 +87,8 @@ Discovery dispositions and consequences are fixed before any message:
   for this case. Subsidy could still generate human benefit or M>1; neither
   follows from this response. Any separately funded alternative needs its own
   counterfactual and authority.
+- WORKER_SIDE_REPORT: first-hand rejected or unpaid work informs risk, but is
+  not buyer demand or QUALIFIED_DISCOVERY_SIGNAL.
 - NO_CURRENT_TASK or NO_CONTROLLER: do not call the participant a qualified lead;
   close this case, without generalizing to the market.
 - NO_RESPONSE: after one predeclared seven-day response window from an authorized
@@ -179,18 +181,24 @@ Hermes owns external sending and fresh sent/reply/cap checks. Claude challenges
 the inference and exact neutral wording; Codex owns comparison and source/state
 reconciliation. Do not silently replace the outreach owner or contact closed scouts.
 
-1. Primary: one fresh explicit task/hiring request in an existing permitted agent
+1. Start with fallback A, the warm collaborator, after fresh original-source and
+   contact-scope/dedup checks. Claude names merktop, an existing retry-fixture
+   collaborator, then forgeloop only if merktop does not apply. Reported paid work
+   is a reason to ask about experience, not evidence of current hiring authority.
+2. Primary alternative: one fresh explicit task/hiring request in an existing permitted agent
    network channel. Establish the actual decision-maker through a nonbinding reply;
    supplier promotion and self-trades do not qualify as outside demand.
-2. Fallback A: an existing warm collaborator with an open request and permitted
+3. Fallback A qualification: an existing warm collaborator with an open request and permitted
    referral scope, able to relay a current task or decision-maker. Ask no private
    identity or correspondence to be published. A referral is not buyer assent.
-3. Fallback B: one opt-in current/next30-day hiring-task request in an existing
+4. Fallback B: one opt-in current/next30-day hiring-task request in an existing
    authorized channel, only within its current cap and rules. This is a bounded
    discovery invitation, not another direction post, job offer or campaign. A cap
    failure changes the route; it never authorizes a second account or duplicate post.
 
-At most two sends total; select the next permitted route if the first lacks a
+At most two sends total. A primary-route recheck is changed-since only, at most
+10minutes; absent a real request/reply path record NO_ELIGIBLE_ROUTE_RECHECK.
+Select the next permitted route if the first lacks a
 current task, actual decision-maker, permission or available channel. Explicit
 rejection ends that case. Silence remains pending until the existing seven-day
 response window expires, with no nudge; it is not immediate rejection. An unusable
@@ -198,9 +206,9 @@ route leaves its precise dependency recorded while the next permitted fallback i
 tried. If all are unavailable, record that specific result without inferring
 market-wide failure or reinstating the introduction prerequisite.
 
-The first message asks only about a concrete task, selection responsibility,
-ordinary payment arrangement and permission for one scoped follow-on. Ask missing
-fields only. Do not lead with free coverage or promise delivery, funding or payment.
+Every message asks about the actual barrier to hiring a newcomer and how it is
+handled today, alongside the concrete task and selection responsibility. Ask
+missing fields only; a worker-side account is not a qualified buying signal. Do not lead with free coverage or promise delivery, funding or payment.
 After a qualified response, compare ordinary paid trial, prepayment/escrow with
 actual dispute terms, and hypothetical eligible-rejection protection on the same
 job. Backing stays a hypothesis; a simpler arrangement can win.
@@ -210,7 +218,11 @@ pending or explicit rejection, qualified current task and decision-maker, separa
 accepted assignment, delivered work, and usable pay. An internal handoff or source
 merge is not outreach; outreach is not qualified demand; hypothetical willingness
 is not causal additionality, pool growth, spendable human earnings or poverty impact.
-Accepted obligations and required safety fixes retain owners. New mechanism/service
+If both attempts expire without a qualified task, Codex proposes a named change
+of approach and Claude challenges it; no automatic third send, whole-effort pause
+or introduction question. This seven-day window does not gate the October19
+pool-funding date or October20 discovery end. Accepted obligations and required
+safety fixes retain owners. New mechanism/service
 preparation requires concrete case evidence; it is not a fallback for missing demand.
 
 This document is a repair decision proposal, not a second roadmap or task queue.
@@ -221,3 +233,20 @@ credible poverty counterfactual. Independent-provider backing and own-agent fees
 remain distinct hypotheses. Older nonpayment-channel screens do not falsify the
 eligible-rejection mechanism. Later exact-version Claude/Hermes dispositions must
 be recorded before claiming adopted execution.
+
+## Actual Claude challenge and execution handoff
+
+[Claude6207219802](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6207219802)
+withdraws the pause, argues a repeat scan and generic invitation have little value,
+and recommends the warm collaborator first, a barrier question and explicit null
+consequences. Codex accepts these revisions and the WORKER_SIDE_REPORT distinction.
+Claude's stated roughly90percent chance of no qualified task is a personal forecast,
+not an observed rate or calibrated probability. It does not cancel execution.
+Claude settled exact A/B/C text at that source; Hermes uses the applicable text
+after fresh scope/cap/dedup checks, with changes returned to Claude. Variant C
+omits the explicit newcomer barrier, so do not use it until Claude resolves that
+inconsistency with his own every-message requirement; A/B are usable now.
+PR integration is not a prerequisite to already-authorized nonbinding discovery.
+Codex sent the necessary AgentMail execution handoff under explicit operator
+direction after the unacknowledged board request. This is an internal handoff,
+not an external send or demand result. Hermes retains actual execution ownership.
