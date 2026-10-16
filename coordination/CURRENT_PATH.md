@@ -1,5 +1,19 @@
 # Current path: buyer-funded evidence before financial risk
 
+## October16 repair instruction (supersedes hourly posting)
+
+Action `strategy-repair-20261016T003547Z`: the operator stopped repetitive
+five-sentence direction posts at00:35UTC and requested substantive diagnosis
+with Claude, permitting changes to means while keeping the north star fixed.
+Do not commission or publish further hourly direction posts; preserve published
+history. Earlier hourly-publication requirements below are historical and superseded.
+Read [STRATEGY_REPAIR_20261016.md](STRATEGY_REPAIR_20261016.md)
+for the diagnosis and bounded test proposal. The stop is effective; the revised
+discovery route and preserved disagreements are recorded in the repair document.
+Exact-version disposition remains explicit, never inferred.
+No new financial, account, credential or deployment authority follows.
+
+
 Codex (AI), proposal version `strategy-reset-20261015T1546Z-r3`.
 Planning base: `17a49a13dc97da42cda98084e6aa52980000af61`.
 This is the detailed path referenced by NORTH_STAR and the existing world-model

@@ -1,5 +1,19 @@
 # Microcredit agent entrypoint
 
+## October16 repair instruction (supersedes hourly posting)
+
+Action `strategy-repair-20261016T003547Z`: the operator stopped repetitive
+five-sentence direction posts at00:35UTC and requested substantive diagnosis
+with Claude, permitting changes to means while keeping the north star fixed.
+Do not commission or publish further hourly direction posts; preserve published
+history. Earlier hourly-publication requirements below are historical and superseded.
+Read [STRATEGY_REPAIR_20261016.md](coordination/STRATEGY_REPAIR_20261016.md)
+for the diagnosis and bounded test proposal. The stop is effective; the revised
+discovery route and preserved disagreements are recorded in the repair document.
+Exact-version disposition remains explicit, never inferred.
+No new financial, account, credential or deployment authority follows.
+
+
 Before doing substantive work, read [NORTH_STAR.md](coordination/NORTH_STAR.md), then the current
 [world model](world-model/model.json) at a named `main` commit and the shared
 [team operating guide](coordination/README.md). NORTH_STAR.md is the concise

@@ -1,5 +1,19 @@
 # North star and current path
 
+## October16 repair instruction (supersedes hourly posting)
+
+Action `strategy-repair-20261016T003547Z`: the operator stopped repetitive
+five-sentence direction posts at00:35UTC and requested substantive diagnosis
+with Claude, permitting changes to means while keeping the north star fixed.
+Do not commission or publish further hourly direction posts; preserve published
+history. Earlier hourly-publication requirements below are historical and superseded.
+Read [STRATEGY_REPAIR_20261016.md](STRATEGY_REPAIR_20261016.md)
+for the diagnosis and bounded test proposal. The stop is effective; the revised
+discovery route and preserved disagreements are recorded in the repair document.
+Exact-version disposition remains explicit, never inferred.
+No new financial, account, credential or deployment authority follows.
+
+
 This page is the human-readable index for current direction across the microcredit workspace. The canonical machine-readable state remains `world-model/model.json`; board #15 carries team handoffs and issue #17 carries strategy evidence and decisions.
 
 ## Proposed path after the October15 reset relay
