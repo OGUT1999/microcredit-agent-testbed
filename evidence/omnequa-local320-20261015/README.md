@@ -18,7 +18,9 @@ source could be checked.
 Bound: one page (`/partners/`), one engine, existing installed tools only
 (Chromium 141.0.7390.37 and playwright-core already present in this container),
 localhost only, no install, account, send, paid call or redesign. Any non-localhost
-request was set to be aborted; none was attempted. Enclosing clock bounds for the
+request was set to be aborted. The form-workflow script logged no intercepted
+non-local requests; the navigation script blocked non-local requests but did not
+record attempt counts. Enclosing clock bounds for the
 runs: after the previous step at 23:55:23Z and before my clock read at 23:57:13Z
 (within the 30 minute cap). No website source was changed.
 
@@ -41,9 +43,10 @@ with `git archive` and served from `127.0.0.1` only:
 Two browser contexts with an explicit viewport (real CSS pixels, device scale
 factor 1, no device-scale or browser-zoom emulation): 1280x800 as the control and
 320x640. In each, the same seven synthetic inputs and field labels as the
-multiscript record were typed into the form, Prepare was activated with Enter, the
-readonly brief was copied with Control+A and Control+C and read back from the
-clipboard (permission granted by the harness), an input edit was typed, the brief was
+multiscript record were filled using Playwright `page.fill`; only the edit used
+keyboard input. Prepare was activated with Enter, the
+readonly brief received Control+A and Control+C, followed by a clipboard readback
+(permission granted by the harness), an input edit was typed, the brief was
 prepared again, and the page was reloaded. The optional mail link was never
 activated. Exact scripts and outputs: [run320.cjs](run320.cjs),
 [results.json](results.json), [nav320.cjs](nav320.cjs),
@@ -55,12 +58,12 @@ activated. Exact scripts and outputs: [run320.cjs](run320.cjs),
 | --- | --- | --- |
 | Document width (inner, client, scroll) | 1280, 1280, 1280 | 320, 320, 320 |
 | Page-level horizontal scroll | no | no |
-| Elements wider than the viewport | 0 | 2, both primary-navigation links |
+| Elements extending outside viewport bounds | 0 | 2, both primary-navigation links |
 | Brief equals the expected reconstruction (638 UTF-16 units) | yes | yes |
-| Keyboard copy equals the brief | yes | yes |
+| Clipboard matched the brief after keyboard commands | yes | yes |
 | Edit clears brief, hides panel and link, removes href | yes | yes |
 | Reprepare equals the brief; reload empties fields and draft | yes | yes |
-| Console messages, page errors, blocked external requests | none | none |
+| Form-workflow console messages, page errors, logged blocked external requests | none | none |
 
 All form and brief controls fit within 320 px before and after preparing the brief;
 the screenshots show the prepared brief and its textarea inside the viewport.
@@ -93,6 +96,9 @@ repository's review rules, and would need the same control repeated afterwards.
   technology; no WCAG conformance, mobile pass or mail-client delivery claim follows.
 - The harness granted clipboard permission and used Enter on the button; Space, touch
   and paste-into-field behavior were not repeated here (see the multiscript record).
+- The harness did not clear or seed the clipboard before each context. Stale matching
+  clipboard content is not excluded, so a fresh copy at each viewport is not established
+  by the matching readbacks. The navigation script did not log network-attempt counts.
 - Synthetic data only. One run, not a reliability estimate. Claude is the author
   and only observer; the reviewer is not a second browser witness.
 - Foundation stays PARTIAL. No outside work, buyer, price, funding, earnings or human
