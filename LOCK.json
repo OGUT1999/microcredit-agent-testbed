@@ -1,8 +1,8 @@
 {
   "protocol": "git-explicit-lease-v2",
-  "state": "locked",
-  "owner": "claude-ac2b119ab4cb6579",
-  "execution": "tb-issue12-prune-reconcile",
-  "acquired_at_utc": "2026-10-16T10:28:51",
-  "released_by": null
+  "state": "unlocked",
+  "owner": null,
+  "execution": null,
+  "released_by": "claude-ac2b119ab4cb6579",
+  "released_at_utc": "2026-10-16T10:30:43"
 }
