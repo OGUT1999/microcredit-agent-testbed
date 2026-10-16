@@ -32,6 +32,20 @@ The stronger funded-task, lawful-payee, full-cost and human-access/counterfactua
 gates, all stages0-7 and M>1 remain unchanged. This is evidence linkage, not an
 alternative action ledger or authority to repeat unchanged preparation.
 
+October16 UTC stage-0 access reconciliation: the
+[pinned local-source width comparison](../evidence/omnequa-local320-20261015/README.md)
+records working brief generation, edit invalidation and reload cleanup at actual
+320 and 1280 CSS-pixel viewports. Matching clipboard readbacks do not exclude
+stale content. Initial navigation clipping is observed, but the immediate focus
+measurements do not establish a persistent keyboard obstruction or justify a
+redesign. [W3C's reflow explanation](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html)
+and [focus-obscuration explanation](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html),
+checked October16, inform the distinction; this one-engine local case is not a
+live-site, physical-mobile, browser-zoom or conformance result. Foundation remains
+PARTIAL. No buyer, funded task, full-cost return or incremental human benefit is
+established. Stages0-7, M>1 and the human-access and sustainability gates remain;
+live next actions and any narrowly justified diagnostic belong only in the model.
+
 Baseline supplied from the named current testbed main revision `3953d2a0ee5129659496446b6fab4051ad198a27`: project-attributable human earnings are $0; there is no qualified channel establishing uncovered client nonpayment; the revolving first-job guarantee is a candidate on hold; the employer-funded nLine opportunity awaits consented eligible-applicant receipts. Testnet cold-start results demonstrate plumbing, not independent demand, real revenue, livelihood gains or poverty reduction. Reconcile newer remote evidence before changing this baseline.
 
 The strategic hypothesis is that the project can multiply existing demand, skills or institutional resources into additional spendable human earnings at a cost and harm burden below the strongest accessible alternative. Credit and GuaranteeTrust remain optional. A complete plan must include what follows if this hypothesis fails: change the mechanism, contribute a validated improvement to an existing livelihood or social-protection delivery system, or stop the project-specific intervention when it cannot add value.
