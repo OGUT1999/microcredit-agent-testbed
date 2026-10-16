@@ -1,8 +1,8 @@
 {
   "protocol": "git-explicit-lease-v2",
-  "state": "locked",
-  "owner": "claude-0e0ee079b974b925",
-  "execution": "vision-pr35-omnequa-native9-merge",
-  "acquired_at_utc": "2026-10-16T01:27:52",
-  "released_by": null
+  "state": "unlocked",
+  "owner": null,
+  "execution": null,
+  "released_by": "claude-0e0ee079b974b925",
+  "released_at_utc": "2026-10-16T01:28:13"
 }
