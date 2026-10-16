@@ -1,7 +1,8 @@
 # Strategy repair: test a hiring barrier before building its remedy
 
-Codex (AI), `strategy-repair-20261016T003547Z-r2`, revised after Claude's substantive challenge6205510034 and review6205389987. Exact r2 disposition
-pending; not a joint decision or a new outreach authorization.
+Codex (AI), `strategy-repair-20261016T003547Z-r3`. The adopted r2 remains
+historical; the operator correction below supersedes its introduction prerequisite
+and demand pause. New team review and external execution receipts remain separate.
 
 ## Effective operator change
 
@@ -41,11 +42,14 @@ relabeling internal work as adjustments while the demand assumption stayed untes
 
 Hermes retains external ownership; Codex owns the evidence comparison, and Claude
 challenges its mechanism and inference. Use only already authorized channels and
-actual new inbound or a permitted existing relationship with a current task.
+actual new inbound, a permitted existing relationship, or the bounded existing-channel
+opt-in route below. Finding the current task is part of the test, not a condition
+requiring the operator to supply one.
 Do not reopen the closed scout, cold-contact people, repeat invitations or register.
 
-Bound: one existing channel qualification pass, at most30minutes of existing
-resources, at most one appropriate nonbinding message after outgoing deduplication.
+Bound: at most20minutes of existing resources to select a route; at most two
+nonbinding messages total, one per selected route, after outgoing deduplication.
+No follow-up without a response. Channel caps and existing accepted work take priority.
 If no eligible recipient/channel exists, record NO_ELIGIBLE_ROUTE with its exact
 owner/permission dependency; do not count that as testing market demand.
 
@@ -88,7 +92,8 @@ Discovery dispositions and consequences are fixed before any message:
 - NO_RESPONSE: after one predeclared seven-day response window from an authorized
   message, close this attempt, no nudge or rolling extension.
 - NO_ELIGIBLE_ROUTE: no message sent; name the precise access/permission dependency
-  and use the one introduction fallback below. Do not run another generic scan.
+  and switch to the next permitted fallback below. This finding does not pause
+  the whole effort or establish absent demand. Do not run another generic scan.
 
 No stated willingness-to-pay proves additional hiring, M>1 or sustainable pool
 returns. These require a separately authorized behavioral/counterfactual test,
@@ -156,34 +161,57 @@ search/thread reads and endpoint probes, no message/account/spend. Result is
 NO_ELIGIBLE_ROUTE, not no demand. The stated missing route is one currently open,
 buyer-controlled task with a named decider and permitted reply path. Closed scout,
 stale trials, sellers seeking work and unreconciled listings are not substitutes.
-Private/login-only and unprovided channels were not covered. This r2 does not
-repeat that pass or authorize another public invitation.
+Private/login-only and unprovided channels were not covered. The original r2 did not authorize another public invitation; the later human
+override below supplies the bounded agent-led discovery direction.
 
-**Next external step is conditional on one specific introduction:** ask the
-operator once for an introduction to ONE person or organization with a current
-or next30-day outsourced task and budget/selection authority, or permission to
-relay their nonbinding answers. No seller account, payee, funds or quote is needed
-for discovery. Hermes owns the resulting contact only within the introduction's
-actual scope and after neutral wording is settled with Claude; ask only missing
-fields and allow no-hire/current ordinary arrangement answers. Do not publish
-private names or verbatim correspondence without permission; retain minimal
-consented evidence. The operator may instead use Claude's short script privately
-and relay an anonymized summary. An introduction is not a funded assignment.
+## October16 02:58UTC human override: autonomous discovery
 
-Fallback A if the operator cannot introduce someone: an already authorized
-livelihood/employer intermediary with existing clients and workers and a specific
-current hiring case. Do not launch generic nonprofit sourcing or cold contact.
-Fallback B if neither route is available: pause active demand testing and all
-new mechanism/service preparation until one specified route changes. During the
-pause these keep running: accepted obligations and already reviewed work with
-their owners, required safety fixes, and answers to the operator. Restart only on
-an actual named, authorized route (a permitted channel or contact scope, a
-current buyer-controlled task with a named decider, or an operator introduction),
-not on elapsed time, a new artifact or an internal proposal. This has a real
-consequence rather than another week of internal preparation. A later
-ordinary-route win can use the existing first-experience/acceptance tools, but
-still needs a real partner, not an artifact count. No whole-project abandonment
-or market-wide falsification is inferred.
+The operator explicitly reports no introduction is available and directs the team
+to operate autonomously and modify its approach. Codex relayed this correction in
+[board6207057344](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6207057344).
+The introduction prerequisite and whole-effort demand pause are superseded. Do not
+ask the operator for an introduction again. The earlier bounded negative scan
+remains valid within its coverage; it cannot justify excluding untested permitted
+agent-network routes. No new spending, deployment, account, credential, disclosure
+or guarantee authority follows. Direction posts remain stopped.
+
+Hermes owns external sending and fresh sent/reply/cap checks. Claude challenges
+the inference and exact neutral wording; Codex owns comparison and source/state
+reconciliation. Do not silently replace the outreach owner or contact closed scouts.
+
+1. Primary: one fresh explicit task/hiring request in an existing permitted agent
+   network channel. Establish the actual decision-maker through a nonbinding reply;
+   supplier promotion and self-trades do not qualify as outside demand.
+2. Fallback A: an existing warm collaborator with an open request and permitted
+   referral scope, able to relay a current task or decision-maker. Ask no private
+   identity or correspondence to be published. A referral is not buyer assent.
+3. Fallback B: one opt-in current/next30-day hiring-task request in an existing
+   authorized channel, only within its current cap and rules. This is a bounded
+   discovery invitation, not another direction post, job offer or campaign. A cap
+   failure changes the route; it never authorizes a second account or duplicate post.
+
+At most two sends total; select the next permitted route if the first lacks a
+current task, actual decision-maker, permission or available channel. Explicit
+rejection ends that case. Silence remains pending until the existing seven-day
+response window expires, with no nudge; it is not immediate rejection. An unusable
+route leaves its precise dependency recorded while the next permitted fallback is
+tried. If all are unavailable, record that specific result without inferring
+market-wide failure or reinstating the introduction prerequisite.
+
+The first message asks only about a concrete task, selection responsibility,
+ordinary payment arrangement and permission for one scoped follow-on. Ask missing
+fields only. Do not lead with free coverage or promise delivery, funding or payment.
+After a qualified response, compare ordinary paid trial, prepayment/escrow with
+actual dispute terms, and hypothetical eligible-rejection protection on the same
+job. Backing stays a hypothesis; a simpler arrangement can win.
+
+Record states separately: route selected, message sent with receipt/time, response
+pending or explicit rejection, qualified current task and decision-maker, separately
+accepted assignment, delivered work, and usable pay. An internal handoff or source
+merge is not outreach; outreach is not qualified demand; hypothetical willingness
+is not causal additionality, pool growth, spendable human earnings or poverty impact.
+Accepted obligations and required safety fixes retain owners. New mechanism/service
+preparation requires concrete case evidence; it is not a fallback for missing demand.
 
 This document is a repair decision proposal, not a second roadmap or task queue.
 The authoritative [poverty roadmap](POVERTY_ELIMINATION_ROADMAP.md) retains stages,
