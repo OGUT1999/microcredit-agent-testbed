@@ -75,10 +75,14 @@ Discovery dispositions and consequences are fixed before any message:
   with fair effort pay and useful evaluation/referral, only within authority.
 - REPORTED_NO_CHANGE: stated protection does not alter the decision; stop this
   case's backing design. This is not observed NO_EFFECT.
-- FREE_PROTECTION_ONLY: no voluntary payer identified; sustainable pool demand is
-  unvalidated. Stop a self-financing claim and pool build for this case. Subsidy
-  could still generate human benefit or M>1; neither follows from this response.
-  Any separately funded alternative needs its own counterfactual and authority.
+- PAYER_UNVALIDATED: payer evidence is missing or unchecked. Make no
+  self-financing claim and build no pool for this case. This is not an observed
+  preference.
+- FREE_PROTECTION_ONLY: an explicit response prefers only free coverage; no
+  sustainable pool-demand inference. Stop a self-financing claim and pool build
+  for this case. Subsidy could still generate human benefit or M>1; neither
+  follows from this response. Any separately funded alternative needs its own
+  counterfactual and authority.
 - NO_CURRENT_TASK or NO_CONTROLLER: do not call the participant a qualified lead;
   close this case, without generalizing to the market.
 - NO_RESPONSE: after one predeclared seven-day response window from an authorized
@@ -122,8 +126,10 @@ commissioned as a demand fallback in this repair.
 Review must resolve Claude's actual objections: is backing or ordinary paid work
 better supported, which nonbinding question can falsify it, and what would make us
 stop? Preserve dissent and exact-version decisions; agreement and an internal
-packet are not external progress. The next result is the observed hiring-decision
-signal or the precise NO_ELIGIBLE_ROUTE/NO_RESPONSE/NO_EFFECT finding, not a blog.
+packet are not external progress. The next result is a reported case-specific
+hiring/protection preference or the precise NO_ELIGIBLE_ROUTE/NO_RESPONSE/
+REPORTED_NO_CHANGE finding, not a blog. No behavioral effect experiment was
+authorized.
 
 ## Actual challenge, dissent and the route now available
 
