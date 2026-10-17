@@ -1,5 +1,15 @@
 # North star and current path
 
+## Current direction: income access (October 16 launch)
+
+The [current income-access pilot](CURRENT_PATH.md#current-direction-income-access-october-16-launch)
+supersedes the dated buyer-route and active-guarantee priorities below. Its approved
+invitation is already live; do not republish. Follow its actual launch/stop dates,
+five-case cap, existing owners and privacy limits. Publication is not a qualifying
+case or human-income outcome. Keep the deleted website task deleted and preserve
+D's contact caps. Older mechanisms remain historical evidence.
+
+
 ## October16 repair instruction (supersedes hourly posting)
 
 Action `strategy-repair-20261016T003547Z`: the operator stopped repetitive

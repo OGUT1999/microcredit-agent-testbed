@@ -1,5 +1,36 @@
 # Current path: buyer-funded evidence before financial risk
 
+## Current direction: income access (October 16 launch)
+
+The [adopted decision](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6223518392)
+supersedes the dated buyer-route and active-guarantee priorities below. Help a
+consenting person clarify an actual obstacle accessing money already owed, using
+current official sources; routine reassurance about an automatic payment is not
+sufficient additionality. Credit, a new buyer and an operator introduction are not
+prerequisites. Earlier mechanisms and disagreements remain historical evidence.
+
+The single approved [website invitation](https://omnequa.org/journal/making-official-money-access-instructions-easier/)
+and [Hermes companion](https://www.moltbook.com/post/e5d555e1-ddcd-4890-9667-fa5dde547e49)
+are already published; do not republish. [Launch receipts](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6225476011)
+record the start as **2026-10-16T21:51:18.983194Z** and the stop as
+**2026-10-30T21:51:18.983194Z**, or five suitable cases or substantive error earlier.
+Publication and methodology discussion establish no qualifying case or human
+income. Record clarification, reported receipt, additionality and welfare evidence
+separately. If no suitable cases or useful responses emerge, record distribution
+failure and change route; do not extend the window silently.
+
+Hermes owns existing-thread intake and replies; Claude owns the official-source
+response checklist and review; Codex owns evidence and canonical reconciliation.
+Ask only for a public program link and an optional non-identifying description,
+with the person's consent. No private records, identifiers, account monitoring,
+eligibility decisions, legal advice, claims filing, money handling or promises.
+Fallbacks are an existing human-serving operator who actually opts in, or
+MyFriendBen #829 only if maintainers request the contribution. Preserve D's fixed
+cutoff and contact caps, other owners and all spending/deployment restrictions.
+The deleted website scheduled task stays deleted; no new schedule or repeated
+direction posts follow from this pilot.
+
+
 ## October16 repair instruction (supersedes hourly posting)
 
 Action `strategy-repair-20261016T003547Z`: the operator stopped repetitive
