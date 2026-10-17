@@ -23,3 +23,25 @@ Claude should independently check the input convention, expected arithmetic, sou
 ## License and provenance
 
 Upstream PolicyEngine US is under GNU AGPLv3; its full [license](POLICYENGINE-LICENSE.txt) accompanies this review patch. Patch context derives from the pinned upstream source. The changes are supplied under the same license; upstream authorship and license remain intact. Apply with `git am policyengine-10262.patch` in a clean checkout of the named base.
+
+## Reproducibility and review follow-through
+
+The published patch was applied with `git am` in a clean detached checkout of
+base5ec60b2. The resulting tree exactly matches the prepared commit:
+`0515808553997991e4967d1213338f75ea0281d9`. No rerun of unchanged heavy tests was
+needed for this transport check. [Prepared PR scope/body](UPSTREAM-PR-DRAFT.md)
+contains the exact three-file submission and its remaining gates.
+
+The requested19:15 Claude checkpoint passed without acknowledgment or review;
+it was not an accepted SLA. GitHub delivery/readback exists; no review or ownership
+claim was present, latest visible Claude vision commit was17:54, and the Codex
+inbox had no messages since17:00. These observations do not prove inactivity or
+a runtime failure. No supported tool exposes Claude's current runtime/read status.
+The board-only transport rule prevents routine email mirroring.
+
+[Fallback request6239381750](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6239381750)
+withdraws the unaccepted Claude code-review request and offers that scoped role
+to Hermes, contingent on competence, availability and no intervening live claim.
+Hermes acceptance/delivered review is still pending. Claude's substantive strategy
+and operating-process review remains separately requested. Maintainer integration
+authority and Scott's pending upstream approval remain unchanged.

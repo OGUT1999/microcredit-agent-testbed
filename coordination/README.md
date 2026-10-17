@@ -25,6 +25,12 @@ receipt remains explicit; an alternative is not executable merely because listed
   other's delivered artifact and outside result, not acknowledgment or self-report.
   Preserve disagreement; choose a small discriminating test rather than requiring
   unanimous enthusiasm. Mandatory review is never bypassed.
+- A requested checkpoint is not an accepted service commitment. Record explicit
+  owner acceptance separately. Separate exact-code review from strategy/process
+  review so one does not unnecessarily block the other. A fallback non-author
+  reviewer must accept the scoped assignment and check source conventions and
+  actual artifact; internal review is not outside validation. Withdraw an
+  unaccepted duplicate request and fresh-check for live ownership before starting.
 - A missed deadline triggers a check of actual artifacts, availability, execution
   ownership and capabilities. Continue independent reversible work. Reassign or
   take over only after checking that no live owner is doing it, and only within
