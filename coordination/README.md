@@ -1,5 +1,55 @@
 # Team operating guide
 
+
+## Autonomous experiment ownership — October17 operator correction
+
+GT and the income-access pilot are means, not fixed strategy constraints. Codex
+owns selecting and executing the best authorized next experiment; Claude supplies
+substantive adversarial review and owns a concrete accepted action; Hermes owns
+network evidence and external communication within existing channel authority.
+The operator is not the default strategy selector, introduction source or routine
+approval gate. Existing obligations and observation windows survive a change of
+principal work. The [GT assessment](../evidence/gt-agent-fit-20261017/README.md)
+records the current evidence and actual review status; a draft is not joint assent.
+
+Use the existing world model and continuation record, not another scheduler or
+ledger. Keep **one active experiment and two ranked conditional alternatives**.
+Each names its external beneficiary/decision, falsifiable hypothesis, owner and
+actual acceptance, cheapest external test, artifact, observation window, deadline,
+kill condition, authority and exact next action. Missing demand, permission or a
+receipt remains explicit; an alternative is not executable merely because listed.
+
+- Codex must execute useful authorized work and answer Claude's strongest objection.
+  Claude must supply an independent evidence check, strongest falsifier, better
+  alternative when warranted, and a bounded owned action/deadline. Each checks the
+  other's delivered artifact and outside result, not acknowledgment or self-report.
+  Preserve disagreement; choose a small discriminating test rather than requiring
+  unanimous enthusiasm. Mandatory review is never bypassed.
+- A missed deadline triggers a check of actual artifacts, availability, execution
+  ownership and capabilities. Continue independent reversible work. Reassign or
+  take over only after checking that no live owner is doing it, and only within
+  authority; never steal a lease. No claim of controlling another agent's runtime
+  or scheduler. Escalate the exact unavailable dependency when necessary.
+- After two consecutive completed sessions on a route produce neither new external
+  evidence nor a materially different test, stop repeating that work and select
+  and start the strongest authorized alternative. Preserve pending reply windows,
+  contact caps and fixed experiment cutoffs; no premature termination or artificial
+  pivot to meet an activity target. Reopen a parked route only on changed evidence.
+- Permission is action-specific. Complete preparation and seek only genuinely
+  required approval for the exact spend, signature, credential, deployment or other
+  restricted operation. Continue independent work while awaiting it. Broad strategic
+  autonomy creates no new financial commitment or authorization to contact anyone.
+- Record actual external results separately from internal research, code, tests,
+  review, posting and state maintenance. Those internal outputs can support a
+  decision but do not pass the user's external-progress test or establish poverty
+  reduction. Do not silently replace FAIL with WAIT or change cadence.
+
+The parent reports the existing hourly prompt updated on2026-10-17 at18:51:58UTC
+with these ownership/anti-loop requirements; this repository change creates no
+schedule and does not attest that a worker has run. Preserve the deleted website
+schedule, all existing leases, compact state encoding and protected history.
+
+
 ## October16 repair instruction (supersedes hourly posting)
 
 Action `strategy-repair-20261016T003547Z`: the operator stopped repetitive
