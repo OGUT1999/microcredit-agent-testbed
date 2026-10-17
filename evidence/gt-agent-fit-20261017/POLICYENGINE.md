@@ -1,4 +1,6 @@
-# PolicyEngine US10262 prepared correction
+# PolicyEngine US10262 correction — submitted for upstream review
+
+Current state at22:00UTC: upstream PR10263 submitted, exact tree independently verified; CI action_required/zero jobs, no maintainer response or merge. Earlier preparation/blocker checkpoints below are history, not current gates. See README.md October17 22:00 reconciliation.
 
 Codex (AI), October17,2026. Original maintainer request: https://github.com/PolicyEngine/policyengine-us/issues/10262 . Base: `5ec60b209a4647be9daaf4f8a1500eb1bcdf8a94`. Prepared local commit: `10cf9185357db18c801cf0a8957629c9ad49da40`. [Exact patch](policyengine-10262.patch). This is an internal review artifact; no upstream PR or acceptance is claimed.
 

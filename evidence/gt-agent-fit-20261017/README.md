@@ -1,6 +1,6 @@
 # GuaranteeTrust in agent commerce: mechanism and unmet-fit assessment
 
-Codex (AI), 2026-10-17. Draft for substantive Claude challenge; Hermes network evidence received and evaluated. Starting canonical revision: testbed `a9615087f0086cb37c189d98e5e37ff627135f2e`, model0.1.173. The operator's new direction makes GT a hypothesis to examine, not a mandatory product; agent-first evidence may precede human opening. Existing pilot observations and contact caps survive, but do not constrain the principal assessment to income-access searches. [Team investigation request](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6238887717); [autonomy correction and proposed experiment](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6238943956).
+Codex (AI), 2026-10-17. Claude and Hermes substantive responses received; exact revised process disposition remains pending. Starting canonical revision: testbed `a9615087f0086cb37c189d98e5e37ff627135f2e`, model0.1.173. The operator's new direction makes GT a hypothesis to examine, not a mandatory product; agent-first evidence may precede human opening. Existing pilot observations and contact caps survive, but do not constrain the principal assessment to income-access searches. [Team investigation request](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6238887717); [autonomy correction and proposed experiment](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6238943956).
 
 ## Provisional decision
 
@@ -87,7 +87,7 @@ The provisional external observation window is seven days from an authorized sub
 ACP44 was independently checked at`cc391518`: clean `npm ci --ignore-scripts` with an isolated cache succeeds on Node24.19/npm11.9; its one regression and TypeScript build pass. This differs from the author's older lockfile failure, but is environment-specific. It does not prove model-level prompt-injection resistance. The existing fix and cautionary documentation make a duplicate implementation unjustified. This completed bounded check is subordinate to the stronger PolicyEngine request, not an external-progress claim.
 Claude is asked to provide by19:15UTC an independent source/code check, strongest falsifier, ranked alternative and explicit bounded action ownership; acknowledgment is not a deliverable. Codex must answer the strongest objection and verify the resulting artifact. Hermes supplies contact history and external receipts, not merely contact counts. No scheduler control or response is assumed. Missing receipt triggers capability/ownership diagnosis and useful independent work; takeover of live implementation is forbidden. See proposed operating revision in `coordination/README.md`.
 
-## Review status
+## Earlier review status (superseded by the 22:00 reconciliation below)
 
 Hermes delivered [network evidence6239046545](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6239046545), accepted network/contact ownership, and challenged any further experiment dependent on inbound demand from this unproductive channel. His reported four dated ledgers find no qualifying funded order or guarantee-blocked hire: TSKX has zero purchases; BasedAgents open rows lack payment transaction references, while its reported cumulative paid totals increased by one task/$2 since October9. Raw manifests remain unpublished, so these are attributed observations, not independently reproduced settlement evidence. Zero inbound guarantee demand and no willing authorized counterparty support parking GT now. They do not establish that no agent market exists.
 
@@ -95,3 +95,59 @@ Codex accepts the challenge: PolicyEngine10262 proceeds from a specific existing
 
 
 Latest delivery state: Hermes source review accepted without objection; Scott specifically approved the upstream PR. Fork creation returned HTTP403 for this integration, so submission remains blocked on a capable authorized GitHub writer, not strategy consensus. See [delivery checkpoint](POLICYENGINE.md#october17-authorized-delivery-checkpoint). No upstream PR or impact is claimed.
+
+
+## October17 22:00 reconciliation and lead disposition
+
+[Hermes delivered PR10263](https://github.com/PolicyEngine/policyengine-us/pull/10263)
+at21:12:55UTC. Codex fetched head`e4cdfbc58ca227589748b8c2595abda81aa63ade` and
+verified tree`0515808553997991e4967d1213338f75ea0281d9` equals the prepared patch
+exactly: three files, safe noreply author and committer. Submission, fork and
+execution-ownership waits are closed. Workflow39069992770 is `action_required`,
+zero jobs, no maintainer comments/reviews or merge at read. No nudge or duplicate PR.
+
+[Claude's substantive challenge6241542546](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6241542546)
+accepts the PolicyEngine experiment and reports independent target-file7pass versus
+1fail/6pass with only the source-list correction reverted. Its installed dependency
+version2.48.0 differs from Codex's frozen environment. It did not rerun126tests or
+upstream CI. The tip-only-input risk is real for inconsistent callers, but does not
+invalidate this convention-preserving fix. No new patch or test campaign is justified.
+
+Codex accepts no funding, deployment or GT code change, and the same-task decision
+test only on a named funded case. Claude's unfunded-demand explanation is plausible
+for Hermes's sampled listings, not a demonstrated universal binding constraint:
+missing listing payment fields do not rule out off-list settlement, and the raw
+ledgers remain unreproduced. Escrow reduces nonpayment risk under its settlement
+conditions; it does not eliminate evaluator, implementation or dispute risk. These
+limits do not supply a qualified GT counterparty. No automatic seven-day market
+rescan is commissioned without a changed decision-relevant signal.
+
+Lead disposition on the four operating amendments: accept posted next-check times
+with explicit task acceptance (not inferred SLA or indefinite ownership); accept
+named external response events but distinguish CI approval from code acceptance;
+accept a second maintainer-requested fix as the conditional repeat test; shorten
+the operating section rather than append another permanent procedure. No response
+by the deadline falsifies uptake in this bounded window, not all possible future
+usefulness of the project. Claude's paid-adult trial remains unapproved and inactive:
+it is a gift-like transfer requiring a person/payment, not demonstrated demand or
+a multiplier. Do not ask Scott to select a person or make it a prerequisite.
+
+**Active experiment:** PR10263 maintainer response, owner Hermes for upstream
+monitoring/replies; Codex verifies exact receipts; Claude explicitly accepts git
+head/merge-ref monitoring and technical-reply preparation for Hermes, no upstream
+writes. Claude says next check about22:55UTC and <=75minute intervals; actual output
+will verify that commitment, not the statement alone. Cheapest external test is
+maintainer review, workflow approval, merge or decline. Observe to
+**2026-10-24T21:12:55Z** (exactly seven days from submission; Claude rounded21:13).
+No unanswered nudge. Kill for equivalent fix, decline or invalidated semantics;
+close the no-response window without erasing a later substantive review.
+
+**Ranked alternative1:** Codex qualifies one second, well-specified maintainer-requested
+PolicyEngine issue after acceptance of this contribution, checking current ownership
+and tests before implementation; stop for duplication/no useful defect/permission gap.
+**Ranked alternative2:** an actual opted-in official-source case within the existing
+pilot, Hermes intake/Codex evidence/Claude source review; original five-case/window
+and privacy limits remain, no suitable case currently verified. ACP44 remains parked
+without a new useful finding. Neither alternative is declared executable without
+its trigger. Current process rewrite awaits exact-version review/integration;
+substantive team responses are now received, but PR192 is not jointly adopted.

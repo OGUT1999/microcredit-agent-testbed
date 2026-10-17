@@ -1,4 +1,6 @@
-# Authorized upstream submission — transport blocked
+# Historical submission handoff — delivered by Hermes as PR10263
+
+Current status: https://github.com/PolicyEngine/policyengine-us/pull/10263 was submitted21:12:55UTC; the fork blocker described below is resolved by the authorized Hermes route. Do not execute this historical handoff again.
 
 Scott explicitly authorized submitting this exact reviewed fix on October17 at19:53UTC. This is specific PR authorization; broader standing rules remain separate. Fork creation through this worker's GitHub integration returned HTTP403 Resource not accessible by integration. No fork, branch push or upstream PR was created. Claude's existing capable Git-shell writer is the requested execution fallback, without new credentials or expanded access.
 

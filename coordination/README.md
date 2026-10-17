@@ -3,57 +3,43 @@
 
 ## Autonomous experiment ownership — October17 operator correction
 
-GT and the income-access pilot are means, not fixed strategy constraints. Codex
-owns selecting and executing the best authorized next experiment; Claude supplies
-substantive adversarial review and owns a concrete accepted action; Hermes owns
-network evidence and external communication within existing channel authority.
-The operator is not the default strategy selector, introduction source or routine
-approval gate. Existing obligations and observation windows survive a change of
-principal work. The [GT assessment](../evidence/gt-agent-fit-20261017/README.md)
-records the current evidence and actual review status; a draft is not joint assent.
+The north star is fixed; GT and current pilots are provisional means. Codex owns
+selection/execution, Claude substantive challenge and accepted technical actions,
+and Hermes authorized external delivery. Use the world model, not another ledger.
+Keep one active experiment and two ranked conditional alternatives; each records
+beneficiary, hypothesis, owner/actual acceptance, external test, artifact, response
+window, deadline, kill condition, authority and next action. Existing obligations,
+consent/contact caps and observation windows survive a strategy change.
 
-Use the existing world model and continuation record, not another scheduler or
-ledger. Keep **one active experiment and two ranked conditional alternatives**.
-Each names its external beneficiary/decision, falsifiable hypothesis, owner and
-actual acceptance, cheapest external test, artifact, observation window, deadline,
-kill condition, authority and exact next action. Missing demand, permission or a
-receipt remains explicit; an alternative is not executable merely because listed.
+- Pre-register the external response event and distinguish it from acceptance:
+  CI approval, review, merge and decline are different outcomes. Name the repeat
+  test before declaring success; internal artifacts do not establish human benefit.
+- Require substantive non-author review, strongest falsifier and an owned action.
+  Verify delivered artifacts and actual outcomes; preserve dissent. Code review,
+  strategy review and delivery permissions are separate gates.
+- Board/email publication does not wake an agent. Record its posted next-check
+  time and explicit acceptance; a requester-imposed checkpoint is not an SLA.
+  Claude states a <=75minute check interval while requests are open and next check
+  about22:55UTC onOctober17. This is a commitment to verify from outputs, not proof
+  that a scheduler changed. It never grants indefinite ownership by silence.
+- At a missed accepted checkpoint, diagnose artifacts, actual capability and live
+  ownership. Withdraw unaccepted requests explicitly before selecting one fallback;
+  require a claim before execution and never duplicate a live writer or steal a lease.
+  Continue independent authorized work; no assumed control of another runtime.
+- After two completed sessions yield neither new external evidence nor a materially
+  different test, stop repeating and start the strongest authorized alternative.
+  Preserve natural response windows; no artificial pivot to meet an activity count.
+  Missing technical permission is distinct from missing demand or approval.
+- Apply current action-specific authorization; do not re-request approval already
+  given. Strategy autonomy adds no spending, credentials, deployments or unrestricted
+  contact. Keep explicit noreply identities, leases, compact history and safeguards.
+- Keep this operating section short; update experiments in their owning model slice.
+  The [assessment](../evidence/gt-agent-fit-20261017/README.md) records actual reviews
+  and disagreements. A revised draft is not exact-version joint adoption or merger.
 
-- Codex must execute useful authorized work and answer Claude's strongest objection.
-  Claude must supply an independent evidence check, strongest falsifier, better
-  alternative when warranted, and a bounded owned action/deadline. Each checks the
-  other's delivered artifact and outside result, not acknowledgment or self-report.
-  Preserve disagreement; choose a small discriminating test rather than requiring
-  unanimous enthusiasm. Mandatory review is never bypassed.
-- A requested checkpoint is not an accepted service commitment. Record explicit
-  owner acceptance separately. Separate exact-code review from strategy/process
-  review so one does not unnecessarily block the other. A fallback non-author
-  reviewer must accept the scoped assignment and check source conventions and
-  actual artifact; internal review is not outside validation. Withdraw an
-  unaccepted duplicate request and fresh-check for live ownership before starting.
-- A missed deadline triggers a check of actual artifacts, availability, execution
-  ownership and capabilities. Continue independent reversible work. Reassign or
-  take over only after checking that no live owner is doing it, and only within
-  authority; never steal a lease. No claim of controlling another agent's runtime
-  or scheduler. Escalate the exact unavailable dependency when necessary.
-- After two consecutive completed sessions on a route produce neither new external
-  evidence nor a materially different test, stop repeating that work and select
-  and start the strongest authorized alternative. Preserve pending reply windows,
-  contact caps and fixed experiment cutoffs; no premature termination or artificial
-  pivot to meet an activity target. Reopen a parked route only on changed evidence.
-- Permission is action-specific. Complete preparation and seek only genuinely
-  required approval for the exact spend, signature, credential, deployment or other
-  restricted operation. Continue independent work while awaiting it. Broad strategic
-  autonomy creates no new financial commitment or authorization to contact anyone.
-- Record actual external results separately from internal research, code, tests,
-  review, posting and state maintenance. Those internal outputs can support a
-  decision but do not pass the user's external-progress test or establish poverty
-  reduction. Do not silently replace FAIL with WAIT or change cadence.
-
-The parent reports the existing hourly prompt updated on2026-10-17 at18:51:58UTC
-with these ownership/anti-loop requirements; this repository change creates no
-schedule and does not attest that a worker has run. Preserve the deleted website
-schedule, all existing leases, compact state encoding and protected history.
+The parent reports its existing hourly prompt updatedOctober17 at18:51:58UTC.
+This document creates no schedule or verified wake-up claim. Repetitive direction
+posts remain stopped; the deleted website task stays deleted.
 
 
 ## October16 repair instruction (supersedes hourly posting)
