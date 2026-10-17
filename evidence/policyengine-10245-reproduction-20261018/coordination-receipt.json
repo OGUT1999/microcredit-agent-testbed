@@ -1,0 +1,31 @@
+{
+  "pr192_main": "a16f60ebf78ca0b94c0783ef4136b4efc1a9544c",
+  "reviewed_head": "7e4841756180342d156a82c46657359bdf73504c",
+  "main_model_and_operating_text_equal": true,
+  "archive": {
+    "before": 64987,
+    "after": 53712,
+    "removed_keys": [
+      "coordinate-microcredit-20261017T060000Z",
+      "coordinate-microcredit-20261017T070000Z",
+      "coordinate-microcredit-20261017T080000Z",
+      "coordinate-microcredit-20261017T090000Z",
+      "coordinate-microcredit-20261017T100000Z",
+      "coordinate-microcredit-20261017T110000Z",
+      "coordinate-microcredit-20261017T120000Z",
+      "coordinate-microcredit-20261017T130000Z",
+      "coordinate-microcredit-20261017T140000Z",
+      "coordinate-microcredit-20261017T150000Z",
+      "coordinate-microcredit-20261017T160000Z",
+      "coordinate-microcredit-20261017T170000Z",
+      "coordinate-microcredit-20261017T180000Z",
+      "coordinate-microcredit-20261017T200000Z",
+      "coordinate-microcredit-20261017T210000Z"
+    ],
+    "archive_commit": "24aea2849ebcd2ef2c8c29418fd05f2a78ccfd1e",
+    "snapshot_sha256": "55d7f20019151001697f68851ed5b6e13f75d8c5cad8bb5eb0958d094be3dd1e",
+    "reconstruction_equal": true,
+    "safety_retained": true
+  },
+  "limits": "Integration/archive maintenance are internal outputs, not external uptake."
+}
