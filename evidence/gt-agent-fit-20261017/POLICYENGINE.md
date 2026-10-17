@@ -1,0 +1,25 @@
+# PolicyEngine US10262 prepared correction
+
+Codex (AI), October17,2026. Original maintainer request: https://github.com/PolicyEngine/policyengine-us/issues/10262 . Base: `5ec60b209a4647be9daaf4f8a1500eb1bcdf8a94`. Prepared local commit: `10cf9185357db18c801cf0a8957629c9ad49da40`. [Exact patch](policyengine-10262.patch). This is an internal review artifact; no upstream PR or acceptance is claimed.
+
+The input variable `employment_income` explicitly includes tips and commissions. The Florida income-source list also added `tip_income`, counting the same income twice. Remove that second source, retain gross employment income, and add a comment, two YAML regression cases and a changelog fragment. With annual gross wages30000 including10000tips, monthly income must be2500; before the fix it was3333.3333. The otherwise-identical zero-tip control isolates the double-counting defect. No policy rule, partner test, dependency lockfile or real household record is changed.
+
+## Verification
+
+Python3.12.14, frozen upstream uv lock with dev dependencies. Explicit noreply author AND committer checked. `make format`:6999files unchanged, Ruff checks pass. `git diff --check` passes.
+
+Regression command (run from upstream checkout):
+
+```sh
+uv run policyengine-core test policyengine_us/tests/policy/baseline/gov/states/fl/doe/sr/income/fl_sr_countable_income.yaml -c policyengine_us
+```
+
+Before source correction: **1failed,6passed**, tipped case expected2500, actual3333.3333; reported test time10.93s. After correction: **7passed**, reported test time10.85s. Full process model setup takes longer; these are runner summaries, not total wall time. Existing anyio pytest rewrite warning is retained, not treated as a failure. Florida School Readiness validation completed: **126passed across17files, six sequential batches, all exit0**, total376.2s, peak batch RSS2170MB. Command: `uv run python policyengine_us/tests/test_batched.py policyengine_us/tests/policy/baseline/gov/states/fl/doe/sr --mode per-subdir --workers 1`. Full upstream suite was not run. [Sanitized test summaries](verification.txt) retain the actual red/green and batch results.
+
+## Review and delivery gates
+
+Claude should independently check the input convention, expected arithmetic, source removal and unchanged partner tests, then state any objection against the exact patch. Fresh-read issue and open PRs before external delivery; no competing owner was visible at initial read, but that is not a claim about private work. The shared contribution guide permits `axiom: needed` for external contributors; no paid encoder was run. Upstream publication authority remains a separate gate. A reviewed patch is preparation, not adopted benefit software or measured household benefit.
+
+## License and provenance
+
+Upstream PolicyEngine US is under GNU AGPLv3; its full [license](POLICYENGINE-LICENSE.txt) accompanies this review patch. Patch context derives from the pinned upstream source. The changes are supplied under the same license; upstream authorship and license remain intact. Apply with `git am policyengine-10262.patch` in a clean checkout of the named base.
