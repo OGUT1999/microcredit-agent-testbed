@@ -1,29 +1,29 @@
-# Prepared upstream PR — not submitted
+# Authorized upstream submission — transport blocked
 
-Title: Fix double-counted tips in Florida School Readiness income
+Scott explicitly authorized submitting this exact reviewed fix on October17 at19:53UTC. This is specific PR authorization; broader standing rules remain separate. Fork creation through this worker's GitHub integration returned HTTP403 Resource not accessible by integration. No fork, branch push or upstream PR was created. Claude's existing capable Git-shell writer is the requested execution fallback, without new credentials or expanded access.
 
-Target: PolicyEngine/policyengine-us, main. Branch: fix-fl-school-readiness-tips.
-Base: 5ec60b209a4647be9daaf4f8a1500eb1bcdf8a94.
-Patch: 10cf9185357db18c801cf0a8957629c9ad49da40, exactly three files.
+Target PolicyEngine/policyengine-us main; source base5ec60b209a4647be9daaf4f8a1500eb1bcdf8a94; exact prepared commit10cf9185357db18c801cf0a8957629c9ad49da40. Use the accompanying patch, preserving explicit noreply author AND committer. Fresh-read issue10262 and competing work, create authorized fork scottonchain/policyengine-us if still absent, push fix-fl-school-readiness-tips and open one PR with the body below. Check for prior success before retrying; read back exact three files, head, identities and CI. Maintainers retain review/merge authority.
 
-## Proposed PR body
+## Exact PR title
+
+Fix double-counted tips in Florida School Readiness income
+
+## Exact PR body
 
 Fixes #10262.
 
-Florida School Readiness counted tips both within gross `employment_income` and as a separate `tip_income` source. Remove the separate source so $30,000 in gross annual wages including $10,000 in tips produces $2,500 monthly countable income, rather than $3,333.33. Add paired YAML cases with and without separately reported tips, plus a changelog fragment.
+Florida School Readiness counts tips both within gross `employment_income` and as a separate `tip_income` source. Remove the separate source so $30,000 in annual gross wages, including $10,000 in tips, produces $2,500 monthly countable income rather than $3,333.33. Add paired YAML regression cases and a changelog fragment.
 
-Validation: the tipped regression fails before the correction (six pass, one fails) and all seven countable-income tests pass after it. The Florida School Readiness folder passes 126 tests in 17 files across six sequential isolated batches (376.2 seconds, maximum reported batch RSS 2170 MB). `make format` passes; no partner tests or dependency lockfiles changed. The complete upstream suite was not run.
+This follows the existing input convention: tips are a subset of gross employment income, as documented on `employment_income` and used by Nevada CCDP and Washington's long-term-care taxable-wage calculation. It does not change that input convention or introduce a separate treatment for inconsistent tip-only inputs.
+
+Validation on base `5ec60b209a4647be9daaf4f8a1500eb1bcdf8a94`:
+
+- [x] Added tipped regression fails before the correction: one failure, six passes.
+- [x] All seven countable-income tests pass after the correction.
+- [x] Florida School Readiness folder: 126 tests pass across 17 files in six sequential isolated batches (`test_batched.py --mode per-subdir --workers 1`), 376.2 seconds, peak reported batch RSS 2170 MB.
+- [x] `make format` and `git diff --check` pass; partner tests and dependency lockfiles unchanged.
+- [ ] Full upstream suite and upstream CI have not been run locally.
 
 axiom: needed
 
-Prepared by Codex (AI), with human authorization required before submission. Non-author review status must be filled from the actual delivered review; it is not yet complete.
-
-## Delivery checklist for the authorized execution owner
-
-- Record Scott's specific approval receipt before any fork, push or PR submission.
-- Recheck current issue, main, open PRs and ownership; stop for a competing fix or live owner.
-- Verify non-author code-review disposition against the exact patch. Strategy/process review is separately tracked and is not an automatic code-review prerequisite.
-- If base changed, assess the diff; changed patch semantics require focused revalidation and reviewer disposition, not automatic reuse of old approval.
-- Publish the exact three-file patch with explicit noreply author and committer through authorized credentials; no paid encoder, dependency change, partner test edit or policy expansion.
-- Read back PR head, contents and author/committer identities. Start the seven-day observation window only on actual submission. No unanswered nudge.
-- A submitted PR is not acceptance, deployment, usage or household benefit. Preserve maintainer review authority.
+Prepared and tested by Codex (AI), submitted with the repository account owner's explicit authorization. Hermes (AI), a separate internal collaborator, reviewed the exact source patch and upstream conventions without objection; it did not independently rerun these tests. Maintainer review is requested.

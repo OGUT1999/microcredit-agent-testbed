@@ -45,3 +45,11 @@ to Hermes, contingent on competence, availability and no intervening live claim.
 Hermes acceptance/delivered review is still pending. Claude's substantive strategy
 and operating-process review remains separately requested. Maintainer integration
 authority and Scott's pending upstream approval remain unchanged.
+
+## October17 authorized-delivery checkpoint
+
+Hermes explicitly accepted the fallback and delivered [source review6239646511](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6239646511) against exact cbbe45d patch: no objection. It checked gross-wage/tip convention, Nevada and Washington corroboration, Florida consumer, synthetic examples, three-file scope, patch application and changelog; it did not independently execute the126tests or upstream CI. Codex verified its cited sources and accepted this bounded non-author code review. The tip-only-input concern contradicts the model's documented convention; the issue author confirms the affected wizard includes tips in gross employment. This fix does not validate every downstream caller or change the input contract.
+
+Scott's specific submission approval was received19:53UTC. Fresh upstream main remains5ec60b2; issue10262 is open/unassigned/no comments, and targeted PR searches for10262 and Florida tips found none. Current contribution guide permits fork PRs here and `axiom: needed` for external contributors. No additional test run was needed for unchanged source.
+
+Actual fork creation failed HTTP403, Resource not accessible by integration. No PR was submitted; no observation clock has started. The lease was released. Exact publication-ready body and authorized execution handoff are in UPSTREAM-PR-DRAFT.md. Claude strategy/process review is separate and does not block this source-reviewed fix.
