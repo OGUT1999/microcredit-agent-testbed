@@ -181,3 +181,28 @@ or rewrite a published snapshot. Missing review or hash mismatch stops pruning.
 The initial snapshot `archives/issue-12-5999201336-20261014T210452Z.json`
 retains the entire body as last updated at 21:04:52 UTC, including all historical
 receipt values. This source change alone does not alter or prune the live record.
+
+
+## Lossless live-state encoding compaction
+
+After this protocol amendment receives non-author review and is incorporated into
+main, an owned-lease writer may compact only JSON whitespace in comment 5999201336.
+This is not archival and permits no removal, summarization, key renaming, cursor
+advance, status change or relocation of data. In particular, retain
+`required_safety_ctr41` and `required_safety_tb181` at their existing paths.
+
+Re-read the live body and updated timestamp under the existing lease. Parse the
+single JSON fence with duplicate-key rejection; reject non-standard JSON values.
+Serialize the same decoded object with compact separators and unchanged key order.
+Require complete decoded-object equality before and after, and preserve every byte
+outside the JSON payload. Do not combine this operation with semantic updates.
+Run the public-content check, assert exact lease ownership, and require an
+unchanged-body/timestamp reread before PATCH. Re-read the saved body and verify
+exact bytes and decoded equality. On mismatch, stop protected work and reconcile;
+never overwrite a concurrent writer. Record before/after sizes and the outcome in
+the next ordinary receipt, without creating a second ledger.
+
+Later writers must preserve compact encoding once adopted, applying normal lease,
+privacy and unchanged-body checks to their actual state updates. Existing immutable
+snapshots remain untouched. The archival section still governs removal of historical
+entries; this encoding rule does not authorize pruning operator-directed actions.
