@@ -1,0 +1,80 @@
+Claude (AI) run log, 2026-10-18. Paths normalized; worktree HEADs are local commits whose trees are named in README.md.
+Runs A to E use /home/user/policyengine/venv (Python 3.11.15, policyengine-us 2.48.0 editable install, PYTHONPATH set to each worktree).
+Runs F and G were rebuilt from public objects only (see README) and are appended below.
+
+date_utc 2026-10-18T05:05:24Z
+test file sha256 cb75cbd099ffc216ffb8e03903aaf0547b2e428e246f61acc67dca858a8162c1
+
+== A baseline-submitted-tree (worktree pe-r2, HEAD c78a12ccf8)
+tracked diff sha256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 (empty tree diff is e3b0c442...)
+  Test 'GU FREE reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 9.479999542236328 with an absolute margin [9.48] > 0.001
+  Test 'GU REDUCED reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 8.779999732971191 with an absolute margin [8.78] > 0.001
+  Test 'PR FREE reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 9.479999542236328 with an absolute margin [9.48] > 0.001
+  Test 'PR REDUCED reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 8.779999732971191 with an absolute margin [8.78] > 0.001
+  Test 'VI FREE reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 9.479999542236328 with an absolute margin [9.48] > 0.001
+  Test 'VI REDUCED reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 8.779999732971191 with an absolute margin [8.78] > 0.001
+  Test 'GU paid daily subsidy uses the Hawaii paid rate':
+    school_meal_paid_daily_subsidy@2027: [0.] differs from 1.1100000143051147 with an absolute margin [1.11] > 0.001
+  Test 'PR paid daily subsidy uses the Hawaii paid rate':
+    school_meal_paid_daily_subsidy@2027: [0.] differs from 1.1100000143051147 with an absolute margin [1.11] > 0.001
+  Test 'VI paid daily subsidy uses the Hawaii paid rate':
+    school_meal_paid_daily_subsidy@2027: [0.] differs from 1.1100000143051147 with an absolute margin [1.11] > 0.001
+  Test 'GU FREE net subsidy is the free rate minus the paid rate':
+    school_meal_net_subsidy@2027: [0.] differs from 1506.5999755859375 with an absolute margin [1506.6] > 0.01
+=================== 10 failed, 9 passed, 1 warning in 19.40s ===================
+
+== B baseline-10238-tree (worktree pe-r2-10238, HEAD eda50e87ec)
+tracked diff sha256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 (empty tree diff is e3b0c442...)
+  Test 'GU FREE reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 9.479999542236328 with an absolute margin [9.48] > 0.001
+  Test 'GU REDUCED reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 8.779999732971191 with an absolute margin [8.78] > 0.001
+  Test 'PR FREE reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 9.479999542236328 with an absolute margin [9.48] > 0.001
+  Test 'PR REDUCED reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 8.779999732971191 with an absolute margin [8.78] > 0.001
+  Test 'VI FREE reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 9.479999542236328 with an absolute margin [9.48] > 0.001
+  Test 'VI REDUCED reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 8.779999732971191 with an absolute margin [8.78] > 0.001
+  Test 'GU paid daily subsidy uses the Hawaii paid rate':
+    school_meal_paid_daily_subsidy@2027: [0.] differs from 1.1100000143051147 with an absolute margin [1.11] > 0.001
+  Test 'PR paid daily subsidy uses the Hawaii paid rate':
+    school_meal_paid_daily_subsidy@2027: [0.] differs from 1.1100000143051147 with an absolute margin [1.11] > 0.001
+  Test 'VI paid daily subsidy uses the Hawaii paid rate':
+    school_meal_paid_daily_subsidy@2027: [0.] differs from 1.1100000143051147 with an absolute margin [1.11] > 0.001
+  Test 'GU FREE net subsidy is the free rate minus the paid rate':
+    school_meal_net_subsidy@2027: [0.] differs from 1506.5999755859375 with an absolute margin [1506.6] > 0.01
+=================== 10 failed, 9 passed, 1 warning in 19.02s ===================
+
+== C patched-submitted-tree (worktree pe-rate, HEAD c78a12ccf8)
+tracked diff sha256 e03b584ab3327a27b307d8b8ce54d432cfe7e61a71c6a781538815e155642ae2 (empty tree diff is e3b0c442...)
+======================== 19 passed, 1 warning in 18.55s ========================
+
+== D patched-10238-tree (worktree pe-rate-10238, HEAD eda50e87ec)
+tracked diff sha256 68df1b140e20448ec56de9618d29f772da8f5692ffe106c4d2b75ad956c1f21d (empty tree diff is e3b0c442...)
+======================== 19 passed, 1 warning in 18.52s ========================
+
+== E incomplete daily-only fix on submitted tree (worktree pe-rate-daily, HEAD c78a12ccf8)
+tracked diff sha256 905a7a0c57cc938a1baa4f986004ab37394320459f46e1f1bcdfb1d6bd937141
+  Test 'GU paid daily subsidy uses the Hawaii paid rate':
+    school_meal_paid_daily_subsidy@2027: [0.] differs from 1.1100000143051147 with an absolute margin [1.11] > 0.001
+  Test 'PR paid daily subsidy uses the Hawaii paid rate':
+    school_meal_paid_daily_subsidy@2027: [0.] differs from 1.1100000143051147 with an absolute margin [1.11] > 0.001
+  Test 'VI paid daily subsidy uses the Hawaii paid rate':
+    school_meal_paid_daily_subsidy@2027: [0.] differs from 1.1100000143051147 with an absolute margin [1.11] > 0.001
+  Test 'GU FREE net subsidy is the free rate minus the paid rate':
+    school_meal_net_subsidy@2027: [1706.3999] differs from 1506.5999755859375 with an absolute margin [199.79993] > 0.01
+=================== 4 failed, 15 passed, 1 warning in 18.65s ===================
+
+== F rebuilt-submitted (public 10264 head 781a91b24e0fd0df0d3c9cb8c9ca6bfa05df445d, tree 1163148ca81c4f39a67b5ba7a608e0c2509d586b, + rate-mapping-submitted-tree.patch)
+======================== 19 passed, 1 warning in 19.40s ========================
+
+== G rebuilt-10238 (public refs/pull/10238/merge 55819d3b3c305692636e565ead06077e1b0959a3, + eligibility-fix.patch sha256 129e7c42... applied with --3way, + rate-mapping-10238-tree.patch)
+======================== 19 passed, 1 warning in 17.34s ========================

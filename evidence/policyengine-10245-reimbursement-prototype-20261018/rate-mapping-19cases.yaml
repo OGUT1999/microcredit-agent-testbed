@@ -1,0 +1,149 @@
+- name: GU FREE reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: GU
+    school_meal_tier: FREE
+  output:
+    school_meal_daily_subsidy: 9.48
+- name: GU REDUCED reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: GU
+    school_meal_tier: REDUCED
+  output:
+    school_meal_daily_subsidy: 8.78
+- name: PR FREE reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: PR
+    school_meal_tier: FREE
+  output:
+    school_meal_daily_subsidy: 9.48
+- name: PR REDUCED reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: PR
+    school_meal_tier: REDUCED
+  output:
+    school_meal_daily_subsidy: 8.78
+- name: VI FREE reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: VI
+    school_meal_tier: FREE
+  output:
+    school_meal_daily_subsidy: 9.48
+- name: VI REDUCED reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: VI
+    school_meal_tier: REDUCED
+  output:
+    school_meal_daily_subsidy: 8.78
+- name: HI FREE reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: HI
+    school_meal_tier: FREE
+  output:
+    school_meal_daily_subsidy: 9.48
+- name: HI REDUCED reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: HI
+    school_meal_tier: REDUCED
+  output:
+    school_meal_daily_subsidy: 8.78
+- name: AK FREE reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: AK
+    school_meal_tier: FREE
+  output:
+    school_meal_daily_subsidy: 11.81
+- name: AK REDUCED reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: AK
+    school_meal_tier: REDUCED
+  output:
+    school_meal_daily_subsidy: 11.11
+- name: FL FREE reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: FL
+    school_meal_tier: FREE
+  output:
+    school_meal_daily_subsidy: 7.3
+- name: FL REDUCED reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: FL
+    school_meal_tier: REDUCED
+  output:
+    school_meal_daily_subsidy: 6.6
+- name: GU paid daily subsidy uses the Hawaii paid rate
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: GU
+  output:
+    school_meal_paid_daily_subsidy: 1.11
+- name: PR paid daily subsidy uses the Hawaii paid rate
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: PR
+  output:
+    school_meal_paid_daily_subsidy: 1.11
+- name: VI paid daily subsidy uses the Hawaii paid rate
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: VI
+  output:
+    school_meal_paid_daily_subsidy: 1.11
+- name: HI paid daily subsidy control
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: HI
+  output:
+    school_meal_paid_daily_subsidy: 1.11
+- name: FL paid daily subsidy control
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: FL
+  output:
+    school_meal_paid_daily_subsidy: 0.87
+- name: GU FREE net subsidy is the free rate minus the paid rate
+  period: 2027
+  absolute_error_margin: 0.01
+  input:
+    state_code: GU
+    school_meal_tier: FREE
+    is_in_k12_school: true
+  output:
+    school_meal_net_subsidy: 1506.6
+- name: HI FREE net subsidy control
+  period: 2027
+  absolute_error_margin: 0.01
+  input:
+    state_code: HI
+    school_meal_tier: FREE
+    is_in_k12_school: true
+  output:
+    school_meal_net_subsidy: 1506.6

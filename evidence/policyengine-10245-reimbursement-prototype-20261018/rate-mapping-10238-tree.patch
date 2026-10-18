@@ -1,0 +1,50 @@
+diff --git a/policyengine_us/variables/gov/usda/school_meals/school_meal_daily_subsidy.py b/policyengine_us/variables/gov/usda/school_meals/school_meal_daily_subsidy.py
+index 7678424ac4..c32ab1a3ab 100644
+--- a/policyengine_us/variables/gov/usda/school_meals/school_meal_daily_subsidy.py
++++ b/policyengine_us/variables/gov/usda/school_meals/school_meal_daily_subsidy.py
+@@ -15,7 +15,7 @@ class school_meal_daily_subsidy(Variable):
+ 
+     def formula(spm_unit, period, parameters):
+         # Get state group and per-meal tiers for SPM unit.
+-        state_group = spm_unit.household("state_group_str", period)
++        state_group = spm_unit.household("school_meal_rate_group", period)
+         breakfast_tier = spm_unit("school_meal_breakfast_tier", period).decode_to_str()
+         lunch_tier = spm_unit("school_meal_lunch_tier", period).decode_to_str()
+         p_amount = parameters(period).gov.usda.school_meals.amount
+diff --git a/policyengine_us/variables/gov/usda/school_meals/school_meal_paid_daily_subsidy.py b/policyengine_us/variables/gov/usda/school_meals/school_meal_paid_daily_subsidy.py
+index d6fa57c45a..a5121f9e91 100644
+--- a/policyengine_us/variables/gov/usda/school_meals/school_meal_paid_daily_subsidy.py
++++ b/policyengine_us/variables/gov/usda/school_meals/school_meal_paid_daily_subsidy.py
+@@ -11,7 +11,7 @@ class school_meal_paid_daily_subsidy(Variable):
+ 
+     def formula(spm_unit, period, parameters):
+         # Get state group and tier (based on poverty ratio) for SPM unit.
+-        state_group = spm_unit.household("state_group_str", period)
++        state_group = spm_unit.household("school_meal_rate_group", period)
+         p_amount = parameters(period).gov.usda.school_meals.amount
+         nslp_per_child = p_amount.nslp[state_group]["PAID"]
+         sbp_per_child = p_amount.sbp[state_group]["PAID"]
+diff --git a/policyengine_us/variables/gov/usda/school_meals/school_meal_rate_group.py b/policyengine_us/variables/gov/usda/school_meals/school_meal_rate_group.py
+new file mode 100644
+index 0000000000..37604f9b18
+--- /dev/null
++++ b/policyengine_us/variables/gov/usda/school_meals/school_meal_rate_group.py
+@@ -0,0 +1,18 @@
++from policyengine_us.model_api import *
++
++
++class school_meal_rate_group(Variable):
++    value_type = str
++    entity = Household
++    label = "School meal reimbursement rate group"
++    definition_period = YEAR
++    documentation = (
++        "Key into the school meal reimbursement rate parameters. Guam, Puerto "
++        "Rico and the Virgin Islands use the Hawaii rates; every other state "
++        "uses its own state group."
++    )
++
++    def formula(household, period, parameters):
++        state_group = household("state_group_str", period)
++        territory = np.isin(state_group, ["GU", "PR", "VI"])
++        return np.where(territory, "HI", state_group)
