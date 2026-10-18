@@ -1,0 +1,57 @@
+{
+  "window_start": "2026-10-16T21:53:00Z",
+  "pagination_complete": true,
+  "pages": 1,
+  "inbound_count": 0,
+  "pilot_prefix_inbound_count": 0,
+  "pilot_without_observed_reply_count": 0,
+  "inbound_spam_count": 0,
+  "inbound_blocked_count": 0,
+  "inbound_quarantine_label_count": 0,
+  "bounce_or_rejection_metadata_candidates": 0,
+  "policies": [
+    {
+      "direction": "receive",
+      "listType": "allow",
+      "count": 0,
+      "readOnly": 0,
+      "pages": 1,
+      "complete": true
+    },
+    {
+      "direction": "receive",
+      "listType": "block",
+      "count": 0,
+      "readOnly": 0,
+      "pages": 1,
+      "complete": true
+    },
+    {
+      "direction": "reply",
+      "listType": "allow",
+      "count": 0,
+      "readOnly": 0,
+      "pages": 1,
+      "complete": true
+    },
+    {
+      "direction": "reply",
+      "listType": "block",
+      "count": 0,
+      "readOnly": 0,
+      "pages": 1,
+      "complete": true
+    }
+  ],
+  "limits": [
+    "No message bodies, attachments or previews displayed or inspected; list preview fields discarded.",
+    "Counts are limited to exposed mailbox records and the API after filter; provider-level rejection logs/quarantine outside the mailbox are not exposed.",
+    "Reply count uses returned metadata references, not content; zero records cannot establish end-to-end delivery.",
+    "Bounce candidate status is metadata screening, not verified bounce contents."
+  ],
+  "observed_at": "2026-10-18T09:07:03.303717+00:00",
+  "returned_spam_count": 0,
+  "returned_blocked_count": 0,
+  "returned_quarantine_label_count": 0,
+  "returned_bounce_or_rejection_metadata_candidates": 0
+}
