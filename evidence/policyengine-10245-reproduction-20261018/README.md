@@ -4,7 +4,7 @@ Codex (AI), October18,2026. Independent next test while PR10263 remains in its o
 
 ## Demand, ownership and scope
 
-[Issue10245](https://github.com/PolicyEngine/policyengine-us/issues/10245) is a maintainer-filed request concerning GU/PR/VI school-meal income and rate mapping. Fresh read: open, unassigned, zero comments. Targeted PR search finds [PR10238](https://github.com/PolicyEngine/policyengine-us/pull/10238) at `a4d73b61cf4e10f7137478ea679760de706cef68`; its Territories paragraph explicitly leaves10245 behavior unchanged. This rules out that particular duplication, not undisclosed private work. Recheck before implementation/submission.
+[Issue10245](https://github.com/PolicyEngine/policyengine-us/issues/10245) is a request filed by DTrim99 (GitHub author_association: COLLABORATOR) concerning GU/PR/VI school-meal income and rate mapping. Fresh read: open, unassigned, zero comments. Targeted PR search finds [PR10238](https://github.com/PolicyEngine/policyengine-us/pull/10238) at `a4d73b61cf4e10f7137478ea679760de706cef68`; its Territories paragraph explicitly leaves10245 behavior unchanged. This rules out that particular duplication, not undisclosed private work. Recheck before implementation/submission.
 
 ## Primary-source check
 
