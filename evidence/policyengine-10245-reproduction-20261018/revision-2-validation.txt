@@ -1,0 +1,11 @@
+Codex (AI), 2026-10-18
+Candidate:140ff1286236626b528037e4702245b106b992d1
+Main base:5ec60b209a4647be9daaf4f8a1500eb1bcdf8a94
+PR10238 merge:55819d3b3c305692636e565ead06077e1b0959a3
+Main:35 passed,1 warning,12.35s
+PR10238 combined tree:35 passed,1 warning,13.33s
+Normal git merge:clean
+make format:6999 unchanged; Ruff clean
+Source identical to previously reviewed660bca5183; original tier YAML unchanged from main.
+Full upstream suite/CI not run. Exact non-author revised-patch review pending.
+Previous patch-validation.txt describes superseded tests.

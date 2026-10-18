@@ -6,7 +6,7 @@ The correction stays inside school_meal_tier. Shared school_meal_fpg_ratio, gene
 
 A separate school_meal_tier_territories.yaml contains35cases covering zero income, both thresholds and the next dollar for one-/two-person units, and stable Florida/Alaska controls. Existing test files are untouched. This avoids conflicting appends with openPR10238 and avoids assertions that would freeze the existing CSFP error.
 
-Current-main revised-file validation:35passed. PR10238 compatibility and exact revised-patch non-author review remain pending at drafting; fill from actual results before submission. Prior53/118pass results apply to the superseded test set. Full upstream suite/CI not run. Formatting and whitespace checks pass.
+Current-main revised-file validation:35passed. PR10238 merge tree55819d3b plus this patch also passes35cases and merges cleanly. Exact revised-patch non-author review remains pending; record its actual disposition before submission. Prior53/118pass results apply to the superseded test set. Full upstream suite/CI not run. Formatting and whitespace checks pass.
 
 axiom: needed
 
