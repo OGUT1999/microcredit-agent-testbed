@@ -4,7 +4,7 @@ Use the contiguous-state income guideline when selecting school-meal tiers for G
 
 The correction is local to `school_meal_tier`. It leaves `spm_unit_fpg` and the shared `school_meal_fpg_ratio` unchanged, because CSFP and other programs consume them. It does not determine CSFP territory policy or repair reimbursement rates. PR10238's evolving school-meal coverage must be reconciled if it lands first.
 
-Tests cover zero income, both thresholds and the next dollar for one- and two-person units, non-territory controls, and unchanged generic-FPG/CSFP behavior. Test results and non-author review disposition will be filled from the completed validation before submission.
+Tests cover zero income, both thresholds and the next dollar for one- and two-person units, non-territory controls, and unchanged generic-FPG/CSFP behavior. Baseline expanded target:24failed/27passed before the correction; final target53passed (two positive-income controls added after the red run). The complete school-meal folder passes118tests in11files (one sequential batch,87.3s,peak RSS3087MB). Formatting and diff checks pass. Full upstream suite not run. Exact-patch non-author review remains pending; prior scope acceptance is not approval to submit.
 
 axiom: needed
 

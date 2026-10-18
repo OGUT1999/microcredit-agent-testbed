@@ -12,7 +12,7 @@ The mapping uses household size and period-specific HHS values, preserving exist
 
 Baseline with 37 added cases:24failed/27passed,18.34s test summary, establishing failures beyond zero income. Two positive-income Alaska/Hawaii controls added afterward. Final target:53cases (14existing,39added). Existing six zero-income cases plus16single-person boundaries,12two-person boundaries,3generic-FPG/CSFP isolation cases and2positive-income controls. Formatting:6999files unchanged, Ruff clean. Full process time includes model loading beyond reported test time.
 
-Focused green:53passed,1existing anyio warning,18.56s test summary. Broader school-meal validation pending. No completed exact-patch non-author review yet. The prior scope acceptance is not patch approval; no independent rerun of the full suite is claimed.
+Focused green:53passed,1existing anyio warning,18.56s test summary. Broader school-meal validation:118passed in11files (including the53target cases),34.26s reported test time,87.3s whole batch,peak RSS3087MB,one sequential worker,exit0. Full upstream suite not run. Clean git am reproduces tree07fe45f875c4a2bc8611398fb38150245fa85fbf exactly. No completed exact-patch non-author review yet. The prior scope acceptance is not patch approval; no independent rerun of the full suite is claimed.
 
 ## Next action and limits
 
