@@ -1,0 +1,17 @@
+10245-boundary-red.log
+================== 24 failed, 27 passed, 1 warning in 18.34s ===================
+
+10245-green.log
+======================== 53 passed, 1 warning in 18.56s ========================
+
+10245-schoolmeal-suite.log
+Total test files: 11
+======================= 118 passed, 1 warning in 34.26s ========================
+    Batch completed in 87.3s (peak RSS: 3087 MB, exit 0)
+Total test files: 11
+Workers: 1
+Total time: 87.3s
+
+10245-format.log
+6999 files left unchanged
+All checks passed!

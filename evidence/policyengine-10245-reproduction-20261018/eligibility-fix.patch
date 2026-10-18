@@ -1,0 +1,418 @@
+From 140ff1286236626b528037e4702245b106b992d1 Mon Sep 17 00:00:00 2001
+From: "Codex (AI)" <5783027+scottonchain@users.noreply.github.com>
+Date: Sun, 18 Oct 2026 01:59:15 +0000
+Subject: [PATCH] Correct territory school-meal income tiers with compatible
+ controls
+
+---
+ .../fix-school-meal-territory-income.fixed.md |   1 +
+ .../school_meal_tier_territories.yaml         | 351 ++++++++++++++++++
+ .../gov/usda/school_meals/school_meal_tier.py |  17 +-
+ 3 files changed, 368 insertions(+), 1 deletion(-)
+ create mode 100644 changelog.d/fix-school-meal-territory-income.fixed.md
+ create mode 100644 policyengine_us/tests/policy/baseline/gov/usda/school_meals/school_meal_tier_territories.yaml
+
+diff --git a/changelog.d/fix-school-meal-territory-income.fixed.md b/changelog.d/fix-school-meal-territory-income.fixed.md
+new file mode 100644
+index 0000000000..325243e7c7
+--- /dev/null
++++ b/changelog.d/fix-school-meal-territory-income.fixed.md
+@@ -0,0 +1 @@
++Fixed school-meal income eligibility for Guam, Puerto Rico and the Virgin Islands without changing other programs' income ratios.
+diff --git a/policyengine_us/tests/policy/baseline/gov/usda/school_meals/school_meal_tier_territories.yaml b/policyengine_us/tests/policy/baseline/gov/usda/school_meals/school_meal_tier_territories.yaml
+new file mode 100644
+index 0000000000..91959161ac
+--- /dev/null
++++ b/policyengine_us/tests/policy/baseline/gov/usda/school_meals/school_meal_tier_territories.yaml
+@@ -0,0 +1,351 @@
++# Territory income eligibility, with stable Florida and Alaska controls.
++- name: Zero income in GU
++  period: 2027
++  input:
++    state_code: GU
++    spm_unit_size: 1
++    school_meal_countable_income: 0
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: FREE
++- name: Zero income in PR
++  period: 2027
++  input:
++    state_code: PR
++    spm_unit_size: 1
++    school_meal_countable_income: 0
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: FREE
++- name: Zero income in VI
++  period: 2027
++  input:
++    state_code: VI
++    spm_unit_size: 1
++    school_meal_countable_income: 0
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: FREE
++- name: Zero income in FL
++  period: 2027
++  input:
++    state_code: FL
++    spm_unit_size: 1
++    school_meal_countable_income: 0
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: FREE
++- name: Zero income in AK
++  period: 2027
++  input:
++    state_code: AK
++    spm_unit_size: 1
++    school_meal_countable_income: 0
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: FREE
++- name: Single-person income boundary 20748 in GU
++  period: 2026
++  input:
++    state_code: GU
++    spm_unit_size: 1
++    school_meal_countable_income: 20748
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: FREE
++- name: Single-person income boundary 20749 in GU
++  period: 2026
++  input:
++    state_code: GU
++    spm_unit_size: 1
++    school_meal_countable_income: 20749
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: REDUCED
++- name: Single-person income boundary 29526 in GU
++  period: 2026
++  input:
++    state_code: GU
++    spm_unit_size: 1
++    school_meal_countable_income: 29526
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: REDUCED
++- name: Single-person income boundary 29527 in GU
++  period: 2026
++  input:
++    state_code: GU
++    spm_unit_size: 1
++    school_meal_countable_income: 29527
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: PAID
++- name: Single-person income boundary 20748 in PR
++  period: 2026
++  input:
++    state_code: PR
++    spm_unit_size: 1
++    school_meal_countable_income: 20748
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: FREE
++- name: Single-person income boundary 20749 in PR
++  period: 2026
++  input:
++    state_code: PR
++    spm_unit_size: 1
++    school_meal_countable_income: 20749
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: REDUCED
++- name: Single-person income boundary 29526 in PR
++  period: 2026
++  input:
++    state_code: PR
++    spm_unit_size: 1
++    school_meal_countable_income: 29526
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: REDUCED
++- name: Single-person income boundary 29527 in PR
++  period: 2026
++  input:
++    state_code: PR
++    spm_unit_size: 1
++    school_meal_countable_income: 29527
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: PAID
++- name: Single-person income boundary 20748 in VI
++  period: 2026
++  input:
++    state_code: VI
++    spm_unit_size: 1
++    school_meal_countable_income: 20748
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: FREE
++- name: Single-person income boundary 20749 in VI
++  period: 2026
++  input:
++    state_code: VI
++    spm_unit_size: 1
++    school_meal_countable_income: 20749
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: REDUCED
++- name: Single-person income boundary 29526 in VI
++  period: 2026
++  input:
++    state_code: VI
++    spm_unit_size: 1
++    school_meal_countable_income: 29526
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: REDUCED
++- name: Single-person income boundary 29527 in VI
++  period: 2026
++  input:
++    state_code: VI
++    spm_unit_size: 1
++    school_meal_countable_income: 29527
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: PAID
++- name: Single-person income boundary 20748 in FL
++  period: 2026
++  input:
++    state_code: FL
++    spm_unit_size: 1
++    school_meal_countable_income: 20748
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: FREE
++- name: Single-person income boundary 20749 in FL
++  period: 2026
++  input:
++    state_code: FL
++    spm_unit_size: 1
++    school_meal_countable_income: 20749
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: REDUCED
++- name: Single-person income boundary 29526 in FL
++  period: 2026
++  input:
++    state_code: FL
++    spm_unit_size: 1
++    school_meal_countable_income: 29526
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: REDUCED
++- name: Single-person income boundary 29527 in FL
++  period: 2026
++  input:
++    state_code: FL
++    spm_unit_size: 1
++    school_meal_countable_income: 29527
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: PAID
++- name: Two-person income boundary 28132 in GU
++  period: 2026
++  input:
++    state_code: GU
++    spm_unit_size: 2
++    school_meal_countable_income: 28132
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: FREE
++- name: Two-person income boundary 28133 in GU
++  period: 2026
++  input:
++    state_code: GU
++    spm_unit_size: 2
++    school_meal_countable_income: 28133
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: REDUCED
++- name: Two-person income boundary 40034 in GU
++  period: 2026
++  input:
++    state_code: GU
++    spm_unit_size: 2
++    school_meal_countable_income: 40034
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: REDUCED
++- name: Two-person income boundary 40035 in GU
++  period: 2026
++  input:
++    state_code: GU
++    spm_unit_size: 2
++    school_meal_countable_income: 40035
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: PAID
++- name: Two-person income boundary 28132 in PR
++  period: 2026
++  input:
++    state_code: PR
++    spm_unit_size: 2
++    school_meal_countable_income: 28132
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: FREE
++- name: Two-person income boundary 28133 in PR
++  period: 2026
++  input:
++    state_code: PR
++    spm_unit_size: 2
++    school_meal_countable_income: 28133
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: REDUCED
++- name: Two-person income boundary 40034 in PR
++  period: 2026
++  input:
++    state_code: PR
++    spm_unit_size: 2
++    school_meal_countable_income: 40034
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: REDUCED
++- name: Two-person income boundary 40035 in PR
++  period: 2026
++  input:
++    state_code: PR
++    spm_unit_size: 2
++    school_meal_countable_income: 40035
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: PAID
++- name: Two-person income boundary 28132 in VI
++  period: 2026
++  input:
++    state_code: VI
++    spm_unit_size: 2
++    school_meal_countable_income: 28132
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: FREE
++- name: Two-person income boundary 28133 in VI
++  period: 2026
++  input:
++    state_code: VI
++    spm_unit_size: 2
++    school_meal_countable_income: 28133
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: REDUCED
++- name: Two-person income boundary 40034 in VI
++  period: 2026
++  input:
++    state_code: VI
++    spm_unit_size: 2
++    school_meal_countable_income: 40034
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: REDUCED
++- name: Two-person income boundary 40035 in VI
++  period: 2026
++  input:
++    state_code: VI
++    spm_unit_size: 2
++    school_meal_countable_income: 40035
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: PAID
++- name: Alaska free-income edge retains its own guideline.
++  period: 2026
++  input:
++    state_code: AK
++    spm_unit_size: 1
++    school_meal_countable_income: 25935
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: FREE
++- name: Alaska one dollar above free-income edge is reduced price.
++  period: 2026
++  input:
++    state_code: AK
++    spm_unit_size: 1
++    school_meal_countable_income: 25936
++    meets_school_meal_categorical_eligibility: false
++    state_has_universal_free_school_meals: false
++  output:
++    school_meal_tier: REDUCED
+diff --git a/policyengine_us/variables/gov/usda/school_meals/school_meal_tier.py b/policyengine_us/variables/gov/usda/school_meals/school_meal_tier.py
+index 5dbc5ee4ff..3eab2b438b 100644
+--- a/policyengine_us/variables/gov/usda/school_meals/school_meal_tier.py
++++ b/policyengine_us/variables/gov/usda/school_meals/school_meal_tier.py
+@@ -21,11 +21,27 @@ class school_meal_tier(Variable):
+     )
+     reference = (
+         "https://www.law.cornell.edu/cfr/text/7/245.2",
++        "https://www.federalregister.gov/documents/2026/04/09/2026-06842/child-nutrition-programs-income-eligibility-guidelines",
+         "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_115C/GS_115C-264.html",
+     )
+
+     def formula(spm_unit, period, parameters):
+         fpg_ratio = spm_unit("school_meal_fpg_ratio", period)
++        state = spm_unit.household("state_code_str", period)
++        territory = np.isin(state, ["GU", "PR", "VI"])
++        if territory.any():
++            # USDA uses the contiguous-state income guideline for these
++            # territories. Keep the shared ratio unchanged: CSFP and other
++            # programs also consume it and need separate policy review.
++            fpg = parameters(period).gov.hhs.fpg
++            size = spm_unit("spm_unit_size", period)
++            guideline = (
++                fpg.first_person.CONTIGUOUS_US
++                + fpg.additional_person.CONTIGUOUS_US * (size - 1)
++            )
++            income = spm_unit("school_meal_countable_income", period)
++            territory_ratio = (income / guideline).astype(fpg_ratio.dtype)
++            fpg_ratio = where(territory, territory_ratio, fpg_ratio)
+         p = parameters(period).gov.usda.school_meals
+         p_income_limit = p.income.limit
+         # Categorical eligibility provides free school meals.
+@@ -38,7 +54,6 @@ class school_meal_tier(Variable):
+         # States that cover the reduced-price copay provide the free tier
+         # to students who qualify for reduced-price meals.
+         reduced_income_eligible = fpg_ratio <= p_income_limit.REDUCED
+-        state = spm_unit.household("state_code_str", period)
+         state_covers_reduced_copay = p.state_covers_reduced_price_copay[state].astype(
+             bool
+         )

@@ -1,0 +1,65 @@
+- name: Zero-income school-meal eligibility in GU.
+  period: 2027
+  input:
+    state_code: GU
+    spm_unit_size: 1
+    school_meal_countable_income: 0
+    meets_school_meal_categorical_eligibility: false
+    state_has_universal_free_school_meals: false
+  output:
+    school_meal_tier: FREE
+
+- name: Zero-income school-meal eligibility in PR.
+  period: 2027
+  input:
+    state_code: PR
+    spm_unit_size: 1
+    school_meal_countable_income: 0
+    meets_school_meal_categorical_eligibility: false
+    state_has_universal_free_school_meals: false
+  output:
+    school_meal_tier: FREE
+
+- name: Zero-income school-meal eligibility in VI.
+  period: 2027
+  input:
+    state_code: VI
+    spm_unit_size: 1
+    school_meal_countable_income: 0
+    meets_school_meal_categorical_eligibility: false
+    state_has_universal_free_school_meals: false
+  output:
+    school_meal_tier: FREE
+
+- name: Zero-income school-meal eligibility in TX.
+  period: 2027
+  input:
+    state_code: TX
+    spm_unit_size: 1
+    school_meal_countable_income: 0
+    meets_school_meal_categorical_eligibility: false
+    state_has_universal_free_school_meals: false
+  output:
+    school_meal_tier: FREE
+
+- name: Zero-income school-meal eligibility in AK.
+  period: 2027
+  input:
+    state_code: AK
+    spm_unit_size: 1
+    school_meal_countable_income: 0
+    meets_school_meal_categorical_eligibility: false
+    state_has_universal_free_school_meals: false
+  output:
+    school_meal_tier: FREE
+
+- name: Zero-income school-meal eligibility in HI.
+  period: 2027
+  input:
+    state_code: HI
+    spm_unit_size: 1
+    school_meal_countable_income: 0
+    meets_school_meal_categorical_eligibility: false
+    state_has_universal_free_school_meals: false
+  output:
+    school_meal_tier: FREE

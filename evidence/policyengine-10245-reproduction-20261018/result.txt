@@ -1,0 +1,8 @@
+platform linux -- Python 3.12.14, pytest-8.4.2, pluggy-1.6.0
+  Test 'Zero-income school-meal eligibility in GU.':
+    school_meal_tier@2027: ['PAID'] differs from FREE.
+  Test 'Zero-income school-meal eligibility in PR.':
+    school_meal_tier@2027: ['PAID'] differs from FREE.
+  Test 'Zero-income school-meal eligibility in VI.':
+    school_meal_tier@2027: ['PAID'] differs from FREE.
+==================== 3 failed, 3 passed, 1 warning in 9.29s ====================
