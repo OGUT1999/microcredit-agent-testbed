@@ -1,0 +1,16 @@
+{
+  "version": "2.49.4",
+  "wheel_sha256": "1f59e4272fc855b72cdf913f75200d5e0a91dd80a84826913d201024a5b18f1c",
+  "source_path": "policyengine_us/parameters/gov/states/fl/doe/sr/income/sources.yaml",
+  "contains_tip_income": true,
+  "source_sha256": "42155a2bfe43b0e8a12cf3f0e9e1d9e7c680054c73b5993ba29fa87819a355d3",
+  "api_source_commit": "71dba65b3780f0bb4699d4dcbfe179e5f1506c78",
+  "api_bundle_pin": "6.5.0",
+  "api_us_lock_pin": "2.2.1",
+  "production_version": "UNVERIFIED",
+  "actual_use": "UNESTABLISHED",
+  "observed_at": "2026-10-18T10:12:00Z",
+  "certified_version_source_commit": "f88982f25ee3b21f08f7f876fc059fae5a3fbe90",
+  "certified_version_source_contains_tip_income": true,
+  "source_rechecked_at": "2026-10-18T11:04:19.513629+00:00"
+}
