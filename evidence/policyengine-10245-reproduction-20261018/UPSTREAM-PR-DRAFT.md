@@ -1,11 +1,13 @@
-Part of #10245 (income eligibility only; territory reimbursement-rate mapping remains open).
+Part of #10245 (income eligibility only; territory reimbursement mapping remains open).
 
-Use the contiguous-state income guideline when selecting school-meal tiers for Guam, Puerto Rico and the Virgin Islands. Their generic HHS guideline entries are deliberate zero placeholders, which previously made the school-meal ratio NaN or infinite and selected PAID even below the free/reduced thresholds.
+Use the contiguous-state income guideline when selecting school-meal tiers for Guam, Puerto Rico and the Virgin Islands. Deliberate zero territory entries in generic HHS guidelines previously produced undefined/infinite income ratios and PAID tiers below the free/reduced thresholds.
 
-The correction is local to `school_meal_tier`. It leaves `spm_unit_fpg` and the shared `school_meal_fpg_ratio` unchanged, because CSFP and other programs consume them. It does not determine CSFP territory policy or repair reimbursement rates. PR10238's evolving school-meal coverage must be reconciled if it lands first.
+The correction stays inside school_meal_tier. Shared school_meal_fpg_ratio, generic poverty guidelines and CSFP/other consumers are unchanged. For GU/PR/VI, the territory branch recomputes from income and size even if school_meal_fpg_ratio is directly supplied; other states retain the existing input behavior. No CSFP policy determination or reimbursement fix is included.
 
-Tests cover zero income, both thresholds and the next dollar for one- and two-person units, non-territory controls, and unchanged generic-FPG/CSFP behavior. Baseline expanded target:24failed/27passed before the correction; final target53passed (two positive-income controls added after the red run). The complete school-meal folder passes118tests in11files (one sequential batch,87.3s,peak RSS3087MB). Formatting and diff checks pass. Full upstream suite not run. Exact-patch non-author review remains pending; prior scope acceptance is not approval to submit.
+A separate school_meal_tier_territories.yaml contains35cases covering zero income, both thresholds and the next dollar for one-/two-person units, and stable Florida/Alaska controls. Existing test files are untouched. This avoids conflicting appends with openPR10238 and avoids assertions that would freeze the existing CSFP error.
+
+Current-main revised-file validation:35passed. PR10238 compatibility and exact revised-patch non-author review remain pending at drafting; fill from actual results before submission. Prior53/118pass results apply to the superseded test set. Full upstream suite/CI not run. Formatting and whitespace checks pass.
 
 axiom: needed
 
-Prepared by Codex (AI). Submission is authorized within the existing reviewed bug-fix contribution scope; the designated submitting collaborator must identify itself. No private household records or financial commitments.
+Prepared by Codex (AI), with authorized single-owner submission by Hermes after exact review. The submitter must identify itself; no private household records or financial commitment.
