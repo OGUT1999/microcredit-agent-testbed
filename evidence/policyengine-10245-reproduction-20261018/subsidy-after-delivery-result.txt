@@ -1,0 +1,47 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-8.4.2, pluggy-1.6.0
+rootdir: TEST_ROOT
+plugins: anyio-4.12.1, hypothesis-6.168.3
+collected 12 items
+
+TESTBED/evidence/policyengine-10245-reproduction-20261018/subsidy-after-delivery.yaml FFFFFF......
+
+=================================== FAILURES ===================================
+_________________________________ test session _________________________________
+TESTBED/evidence/policyengine-10245-reproduction-20261018/subsidy-after-delivery.yaml:
+  Test 'GU FREE reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 9.479999542236328 with an absolute margin [9.48] > 0.001
+_________________________________ test session _________________________________
+TESTBED/evidence/policyengine-10245-reproduction-20261018/subsidy-after-delivery.yaml:
+  Test 'GU REDUCED reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 8.779999732971191 with an absolute margin [8.78] > 0.001
+_________________________________ test session _________________________________
+TESTBED/evidence/policyengine-10245-reproduction-20261018/subsidy-after-delivery.yaml:
+  Test 'PR FREE reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 9.479999542236328 with an absolute margin [9.48] > 0.001
+_________________________________ test session _________________________________
+TESTBED/evidence/policyengine-10245-reproduction-20261018/subsidy-after-delivery.yaml:
+  Test 'PR REDUCED reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 8.779999732971191 with an absolute margin [8.78] > 0.001
+_________________________________ test session _________________________________
+TESTBED/evidence/policyengine-10245-reproduction-20261018/subsidy-after-delivery.yaml:
+  Test 'VI FREE reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 9.479999542236328 with an absolute margin [9.48] > 0.001
+_________________________________ test session _________________________________
+TESTBED/evidence/policyengine-10245-reproduction-20261018/subsidy-after-delivery.yaml:
+  Test 'VI REDUCED reimbursement mapping on submitted eligibility patch':
+    school_meal_daily_subsidy@2027: [0.] differs from 8.779999732971191 with an absolute margin [8.78] > 0.001
+=============================== warnings summary ===============================
+ENV/lib/python3.12/site-packages/_pytest/config/__init__.py:1290
+  ENV/lib/python3.12/site-packages/_pytest/config/__init__.py:1290: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; anyio
+    self._mark_plugins_for_rewrite(hook, disable_autoload)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED TESTBED/evidence/policyengine-10245-reproduction-20261018/subsidy-after-delivery.yaml::
+FAILED TESTBED/evidence/policyengine-10245-reproduction-20261018/subsidy-after-delivery.yaml::
+FAILED TESTBED/evidence/policyengine-10245-reproduction-20261018/subsidy-after-delivery.yaml::
+FAILED TESTBED/evidence/policyengine-10245-reproduction-20261018/subsidy-after-delivery.yaml::
+FAILED TESTBED/evidence/policyengine-10245-reproduction-20261018/subsidy-after-delivery.yaml::
+FAILED TESTBED/evidence/policyengine-10245-reproduction-20261018/subsidy-after-delivery.yaml::
+==================== 6 failed, 6 passed, 1 warning in 9.36s ====================

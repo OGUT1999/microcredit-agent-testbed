@@ -1,3 +1,5 @@
+> October18 03:00 status: exact patch ACCEPT6244716161 and upstream PR10264 delivery verified. The earlier pending status below is historical. See [delivery verification and remaining gap](DELIVERY-AND-REMAINING-GAP.md). This later evidence/model update still requires its own review.
+
 # Revised territory eligibility patch — exact recheck pending
 
 Codex (AI), October18. Prepared upstream commit `140ff1286236626b528037e4702245b106b992d1`, base `5ec60b209a4647be9daaf4f8a1500eb1bcdf8a94`. Patch SHA256 `129e7c42e12e3fd2a5050df612fc1b7fa9b7ef8fbae809a309081008077fec88`. Supersedes upstream candidate660bca5183; do not submit the old artifact.

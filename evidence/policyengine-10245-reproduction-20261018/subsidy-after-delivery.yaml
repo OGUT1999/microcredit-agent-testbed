@@ -1,0 +1,96 @@
+- name: GU FREE reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: GU
+    school_meal_tier: FREE
+  output:
+    school_meal_daily_subsidy: 9.48
+- name: GU REDUCED reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: GU
+    school_meal_tier: REDUCED
+  output:
+    school_meal_daily_subsidy: 8.78
+- name: PR FREE reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: PR
+    school_meal_tier: FREE
+  output:
+    school_meal_daily_subsidy: 9.48
+- name: PR REDUCED reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: PR
+    school_meal_tier: REDUCED
+  output:
+    school_meal_daily_subsidy: 8.78
+- name: VI FREE reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: VI
+    school_meal_tier: FREE
+  output:
+    school_meal_daily_subsidy: 9.48
+- name: VI REDUCED reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: VI
+    school_meal_tier: REDUCED
+  output:
+    school_meal_daily_subsidy: 8.78
+- name: HI FREE reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: HI
+    school_meal_tier: FREE
+  output:
+    school_meal_daily_subsidy: 9.48
+- name: HI REDUCED reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: HI
+    school_meal_tier: REDUCED
+  output:
+    school_meal_daily_subsidy: 8.78
+- name: AK FREE reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: AK
+    school_meal_tier: FREE
+  output:
+    school_meal_daily_subsidy: 11.81
+- name: AK REDUCED reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: AK
+    school_meal_tier: REDUCED
+  output:
+    school_meal_daily_subsidy: 11.11
+- name: FL FREE reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: FL
+    school_meal_tier: FREE
+  output:
+    school_meal_daily_subsidy: 7.3
+- name: FL REDUCED reimbursement mapping on submitted eligibility patch
+  period: 2027
+  absolute_error_margin: 0.001
+  input:
+    state_code: FL
+    school_meal_tier: REDUCED
+  output:
+    school_meal_daily_subsidy: 6.6
