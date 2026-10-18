@@ -1,0 +1,936 @@
+{
+  "generated_at": "2026-10-18T10:49:45Z",
+  "source": "https://pypi.org/pypi/policyengine/json and per-version JSON; https://pypi.org/pypi/policyengine-us/json",
+  "bundle_release_count": 171,
+  "distinct_us_pin_values_in_sequence": 23,
+  "current_us_pin": "policyengine-us==2.2.1",
+  "current_pin_first_bundle_version": "6.0.0",
+  "current_pin_first_uploaded": "2026-09-15T13:37:27.631154Z",
+  "bundle_releases_with_current_pin": 27,
+  "days_current_pin_held_at_generation": 32,
+  "us_latest_on_pypi": {
+    "version": "2.49.4",
+    "uploaded": "2026-10-16T21:33:06.904889Z",
+    "total_releases": 206
+  },
+  "completed_interval_days_between_pin_changes": {
+    "last_five": [
+      10,
+      4,
+      1,
+      7,
+      68
+    ],
+    "median_all": 2.5
+  },
+  "pin_sequence_last_ten": [
+    {
+      "first_version": "4.14.2",
+      "first_uploaded": "2026-06-07T13:59:03.653984Z",
+      "us_pin": "policyengine-us==1.715.2"
+    },
+    {
+      "first_version": "4.14.3",
+      "first_uploaded": "2026-06-08T11:37:40.206939Z",
+      "us_pin": "policyengine-us==1.722.4"
+    },
+    {
+      "first_version": "4.16.1",
+      "first_uploaded": "2026-06-12T03:41:40.374722Z",
+      "us_pin": "policyengine-us==1.723.0"
+    },
+    {
+      "first_version": "4.17.1",
+      "first_uploaded": "2026-06-14T17:34:41.185470Z",
+      "us_pin": "policyengine-us==1.726.0"
+    },
+    {
+      "first_version": "4.17.3",
+      "first_uploaded": "2026-06-15T21:56:00.646917Z",
+      "us_pin": "policyengine-us==1.729.0"
+    },
+    {
+      "first_version": "4.18.4",
+      "first_uploaded": "2026-06-26T20:35:35.918563Z",
+      "us_pin": "policyengine-us==1.745.0"
+    },
+    {
+      "first_version": "4.18.7",
+      "first_uploaded": "2026-06-30T22:57:14.677670Z",
+      "us_pin": "policyengine-us==1.729.0"
+    },
+    {
+      "first_version": "4.18.8",
+      "first_uploaded": "2026-07-01T23:11:17.789462Z",
+      "us_pin": "policyengine-us==1.752.2"
+    },
+    {
+      "first_version": "4.20.1",
+      "first_uploaded": "2026-07-09T13:03:21.386613Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "first_version": "6.0.0",
+      "first_uploaded": "2026-09-15T13:37:27.631154Z",
+      "us_pin": "policyengine-us==2.2.1"
+    }
+  ],
+  "rows_with_errors": [],
+  "releases": [
+    {
+      "version": "0.1.1",
+      "uploaded": "2025-02-21T19:26:26.310853Z",
+      "us_pin": "policyengine-us"
+    },
+    {
+      "version": "0.1.2",
+      "uploaded": "2025-03-14T12:48:25.667931Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.1.3",
+      "uploaded": "2025-04-26T16:26:30.917413Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.2.0",
+      "uploaded": "2025-04-29T13:09:27.908702Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.2.1",
+      "uploaded": "2025-04-30T11:34:51.830679Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.3.0",
+      "uploaded": "2025-05-13T23:24:26.777489Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.3.1",
+      "uploaded": "2025-05-15T15:53:39.047222Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.3.2",
+      "uploaded": "2025-05-15T21:57:23.452090Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.3.3",
+      "uploaded": "2025-05-16T12:25:21.986467Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.3.4",
+      "uploaded": "2025-05-16T12:57:07.310440Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.3.5",
+      "uploaded": "2025-05-16T14:01:50.136958Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.3.6",
+      "uploaded": "2025-05-16T16:19:37.356588Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.3.7",
+      "uploaded": "2025-05-19T16:54:28.182724Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.3.8",
+      "uploaded": "2025-05-19T22:43:51.538891Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.3.9",
+      "uploaded": "2025-05-20T08:30:02.956296Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.3.10",
+      "uploaded": "2025-05-23T00:10:36.127979Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.4.0",
+      "uploaded": "2025-05-26T21:28:05.816766Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.4.1",
+      "uploaded": "2025-05-27T11:11:42.668498Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.4.2",
+      "uploaded": "2025-05-30T21:13:58.987878Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.4.3",
+      "uploaded": "2025-06-02T07:55:07.930978Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.4.4",
+      "uploaded": "2025-06-04T07:36:56.104525Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.4.5",
+      "uploaded": "2025-06-05T05:09:36.270810Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.5.0",
+      "uploaded": "2025-06-26T20:06:28.539824Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.6.0",
+      "uploaded": "2025-07-17T10:29:19.650247Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.6.1",
+      "uploaded": "2025-08-14T08:12:38.477772Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "1.0.0",
+      "uploaded": "2025-09-20T14:00:24.615471Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.0.0",
+      "uploaded": "2025-09-23T09:36:56.872242Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.1.0",
+      "uploaded": "2025-11-17T10:26:23.670052Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.1.1",
+      "uploaded": "2025-11-17T11:46:18.577720Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.1.2",
+      "uploaded": "2025-11-18T11:09:50.636850Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.1.3",
+      "uploaded": "2025-11-18T13:46:53.399236Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.1.4",
+      "uploaded": "2025-11-20T14:07:24.970370Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.1.5",
+      "uploaded": "2025-11-21T13:00:12.849250Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.1.6",
+      "uploaded": "2025-11-24T16:24:33.541048Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.1.7",
+      "uploaded": "2025-11-24T16:35:30.308911Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.7.0",
+      "uploaded": "2025-11-27T23:36:41.816221Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.1.8",
+      "uploaded": "2025-12-02T00:20:40.915943Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.1.9",
+      "uploaded": "2025-12-02T12:49:14.483541Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.1.10",
+      "uploaded": "2025-12-02T13:03:16.099319Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.1.11",
+      "uploaded": "2025-12-02T14:04:17.385063Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.1.12",
+      "uploaded": "2025-12-10T14:44:26.372024Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.1.13",
+      "uploaded": "2025-12-10T19:30:02.314808Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.1.14",
+      "uploaded": "2025-12-10T22:00:10.675744Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.8.0",
+      "uploaded": "2025-12-12T08:54:10.105150Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.8.1",
+      "uploaded": "2025-12-12T12:52:22.465422Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.1.15",
+      "uploaded": "2025-12-14T23:51:58.977781Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.9.0",
+      "uploaded": "2026-01-14T20:29:49.436314Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.10.0",
+      "uploaded": "2026-01-14T22:19:43.532178Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.10.1",
+      "uploaded": "2026-01-15T01:59:29.669459Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.1.16",
+      "uploaded": "2026-01-25T14:21:05.299370Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.11.0",
+      "uploaded": "2026-02-04T00:22:41.812668Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.12.0",
+      "uploaded": "2026-02-05T19:35:25.715492Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.2.0",
+      "uploaded": "2026-02-24T17:34:07.489407Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.12.1",
+      "uploaded": "2026-02-24T20:13:32.978351Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.2.1",
+      "uploaded": "2026-03-10T17:16:54.742885Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.2.3",
+      "uploaded": "2026-03-17T22:02:04.499817Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.2.4",
+      "uploaded": "2026-03-17T22:28:44.561877Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.3.0",
+      "uploaded": "2026-03-20T11:14:37.752757Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.4.0",
+      "uploaded": "2026-04-08T11:45:53.315063Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "0.13.0",
+      "uploaded": "2026-04-08T13:41:59.620291Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.4.1",
+      "uploaded": "2026-04-09T15:05:41.167802Z",
+      "us_pin": "policyengine-us>=1.213.1"
+    },
+    {
+      "version": "3.4.2",
+      "uploaded": "2026-04-12T00:51:46.189539Z",
+      "us_pin": "policyengine-us==1.602.0"
+    },
+    {
+      "version": "3.4.3",
+      "uploaded": "2026-04-13T11:13:23.331971Z",
+      "us_pin": "policyengine-us==1.602.0"
+    },
+    {
+      "version": "3.4.4",
+      "uploaded": "2026-04-13T23:18:46.697776Z",
+      "us_pin": "policyengine-us==1.602.0"
+    },
+    {
+      "version": "3.4.5",
+      "uploaded": "2026-04-16T14:29:48.016696Z",
+      "us_pin": "policyengine-us==1.602.0"
+    },
+    {
+      "version": "3.5.0",
+      "uploaded": "2026-04-18T11:10:46.801035Z",
+      "us_pin": "policyengine-us==1.647.0"
+    },
+    {
+      "version": "3.6.0",
+      "uploaded": "2026-04-18T17:20:01.251361Z",
+      "us_pin": "policyengine-us==1.653.3"
+    },
+    {
+      "version": "3.7.0",
+      "uploaded": "2026-04-19T20:58:59.274488Z",
+      "us_pin": "policyengine-us==1.653.3"
+    },
+    {
+      "version": "4.1.0",
+      "uploaded": "2026-04-20T13:57:26.077341Z",
+      "us_pin": "policyengine-us==1.653.3"
+    },
+    {
+      "version": "4.1.1",
+      "uploaded": "2026-04-20T14:44:36.736106Z",
+      "us_pin": "policyengine-us==1.653.3"
+    },
+    {
+      "version": "4.2.0",
+      "uploaded": "2026-04-20T15:23:13.269465Z",
+      "us_pin": "policyengine-us==1.653.3"
+    },
+    {
+      "version": "4.2.1",
+      "uploaded": "2026-04-20T15:46:05.545454Z",
+      "us_pin": "policyengine-us==1.653.3"
+    },
+    {
+      "version": "4.3.0",
+      "uploaded": "2026-04-20T17:45:55.193467Z",
+      "us_pin": "policyengine-us==1.653.3"
+    },
+    {
+      "version": "4.3.1",
+      "uploaded": "2026-04-21T13:44:09.990795Z",
+      "us_pin": "policyengine-us==1.653.3"
+    },
+    {
+      "version": "4.4.0",
+      "uploaded": "2026-05-09T07:38:18.615465Z",
+      "us_pin": "policyengine-us==1.687.0"
+    },
+    {
+      "version": "4.4.1",
+      "uploaded": "2026-05-09T08:52:47.081098Z",
+      "us_pin": "policyengine-us==1.687.0"
+    },
+    {
+      "version": "4.4.2",
+      "uploaded": "2026-05-09T10:18:48.493431Z",
+      "us_pin": "policyengine-us==1.687.0"
+    },
+    {
+      "version": "4.4.3",
+      "uploaded": "2026-05-11T19:53:37.569229Z",
+      "us_pin": "policyengine-us==1.690.7"
+    },
+    {
+      "version": "4.4.4",
+      "uploaded": "2026-05-13T12:56:36.144232Z",
+      "us_pin": "policyengine-us==1.691.3"
+    },
+    {
+      "version": "4.5.0",
+      "uploaded": "2026-05-16T04:21:33.762736Z",
+      "us_pin": "policyengine-us==1.691.3"
+    },
+    {
+      "version": "4.5.1",
+      "uploaded": "2026-05-16T05:40:40.020053Z",
+      "us_pin": "policyengine-us==1.691.10"
+    },
+    {
+      "version": "4.6.0",
+      "uploaded": "2026-05-18T03:33:52.698790Z",
+      "us_pin": "policyengine-us==1.691.12"
+    },
+    {
+      "version": "4.7.0",
+      "uploaded": "2026-05-18T20:18:49.834359Z",
+      "us_pin": "policyengine-us==1.691.12"
+    },
+    {
+      "version": "4.8.0",
+      "uploaded": "2026-05-19T14:36:28.680510Z",
+      "us_pin": "policyengine-us==1.691.12"
+    },
+    {
+      "version": "4.8.1",
+      "uploaded": "2026-05-19T17:59:38.598106Z",
+      "us_pin": "policyengine-us==1.691.12"
+    },
+    {
+      "version": "4.9.0",
+      "uploaded": "2026-05-19T19:50:23.197605Z",
+      "us_pin": "policyengine-us==1.691.12"
+    },
+    {
+      "version": "4.9.1",
+      "uploaded": "2026-05-20T20:47:20.111242Z",
+      "us_pin": "policyengine-us==1.700.0"
+    },
+    {
+      "version": "4.9.2",
+      "uploaded": "2026-05-20T21:35:41.866763Z",
+      "us_pin": "policyengine-us==1.700.0"
+    },
+    {
+      "version": "4.10.0",
+      "uploaded": "2026-05-21T19:04:07.296027Z",
+      "us_pin": "policyengine-us==1.700.0"
+    },
+    {
+      "version": "4.11.0",
+      "uploaded": "2026-05-23T12:42:44.043620Z",
+      "us_pin": "policyengine-us==1.700.0"
+    },
+    {
+      "version": "4.12.0",
+      "uploaded": "2026-05-28T12:37:41.716131Z",
+      "us_pin": "policyengine-us==1.700.0"
+    },
+    {
+      "version": "4.12.1",
+      "uploaded": "2026-05-30T00:19:15.395886Z",
+      "us_pin": "policyengine-us==1.700.0"
+    },
+    {
+      "version": "4.13.0",
+      "uploaded": "2026-06-01T14:41:13.783509Z",
+      "us_pin": "policyengine-us==1.700.0"
+    },
+    {
+      "version": "4.13.1",
+      "uploaded": "2026-06-01T19:22:08.692284Z",
+      "us_pin": "policyengine-us==1.715.2"
+    },
+    {
+      "version": "4.14.0",
+      "uploaded": "2026-06-04T17:21:29.413370Z",
+      "us_pin": "policyengine-us==1.715.2"
+    },
+    {
+      "version": "4.14.1",
+      "uploaded": "2026-06-05T16:36:13.114733Z",
+      "us_pin": "policyengine-us==1.715.3"
+    },
+    {
+      "version": "4.14.2",
+      "uploaded": "2026-06-07T13:59:03.653984Z",
+      "us_pin": "policyengine-us==1.715.2"
+    },
+    {
+      "version": "4.14.3",
+      "uploaded": "2026-06-08T11:37:40.206939Z",
+      "us_pin": "policyengine-us==1.722.4"
+    },
+    {
+      "version": "4.15.0",
+      "uploaded": "2026-06-10T20:27:56.465673Z",
+      "us_pin": "policyengine-us==1.722.4"
+    },
+    {
+      "version": "4.16.0",
+      "uploaded": "2026-06-11T16:21:25.349788Z",
+      "us_pin": "policyengine-us==1.722.4"
+    },
+    {
+      "version": "4.16.1",
+      "uploaded": "2026-06-12T03:41:40.374722Z",
+      "us_pin": "policyengine-us==1.723.0"
+    },
+    {
+      "version": "4.16.2",
+      "uploaded": "2026-06-12T10:02:03.948458Z",
+      "us_pin": "policyengine-us==1.723.0"
+    },
+    {
+      "version": "4.17.0",
+      "uploaded": "2026-06-14T16:41:29.516516Z",
+      "us_pin": "policyengine-us==1.723.0"
+    },
+    {
+      "version": "4.17.1",
+      "uploaded": "2026-06-14T17:34:41.185470Z",
+      "us_pin": "policyengine-us==1.726.0"
+    },
+    {
+      "version": "4.17.2",
+      "uploaded": "2026-06-15T03:39:40.188414Z",
+      "us_pin": "policyengine-us==1.726.0"
+    },
+    {
+      "version": "4.17.3",
+      "uploaded": "2026-06-15T21:56:00.646917Z",
+      "us_pin": "policyengine-us==1.729.0"
+    },
+    {
+      "version": "4.17.4",
+      "uploaded": "2026-06-16T14:02:38.484108Z",
+      "us_pin": "policyengine-us==1.729.0"
+    },
+    {
+      "version": "4.17.5",
+      "uploaded": "2026-06-16T20:08:39.942127Z",
+      "us_pin": "policyengine-us==1.729.0"
+    },
+    {
+      "version": "4.17.6",
+      "uploaded": "2026-06-17T04:17:11.319320Z",
+      "us_pin": "policyengine-us==1.729.0"
+    },
+    {
+      "version": "4.17.7",
+      "uploaded": "2026-06-17T11:04:51.588668Z",
+      "us_pin": "policyengine-us==1.729.0"
+    },
+    {
+      "version": "4.17.8",
+      "uploaded": "2026-06-18T15:47:23.059752Z",
+      "us_pin": "policyengine-us==1.729.0"
+    },
+    {
+      "version": "4.17.10",
+      "uploaded": "2026-06-19T13:52:01.438088Z",
+      "us_pin": "policyengine-us==1.729.0"
+    },
+    {
+      "version": "4.17.11",
+      "uploaded": "2026-06-20T21:19:29.196919Z",
+      "us_pin": "policyengine-us==1.729.0"
+    },
+    {
+      "version": "4.18.2",
+      "uploaded": "2026-06-23T21:32:36.043948Z",
+      "us_pin": "policyengine-us==1.729.0"
+    },
+    {
+      "version": "4.18.3",
+      "uploaded": "2026-06-25T19:05:17.906356Z",
+      "us_pin": "policyengine-us==1.729.0"
+    },
+    {
+      "version": "4.18.4",
+      "uploaded": "2026-06-26T20:35:35.918563Z",
+      "us_pin": "policyengine-us==1.745.0"
+    },
+    {
+      "version": "4.18.5",
+      "uploaded": "2026-06-27T06:44:20.607601Z",
+      "us_pin": "policyengine-us==1.745.0"
+    },
+    {
+      "version": "4.18.6",
+      "uploaded": "2026-06-28T13:05:12.440663Z",
+      "us_pin": "policyengine-us==1.745.0"
+    },
+    {
+      "version": "4.18.7",
+      "uploaded": "2026-06-30T22:57:14.677670Z",
+      "us_pin": "policyengine-us==1.729.0"
+    },
+    {
+      "version": "4.18.8",
+      "uploaded": "2026-07-01T23:11:17.789462Z",
+      "us_pin": "policyengine-us==1.752.2"
+    },
+    {
+      "version": "4.18.9",
+      "uploaded": "2026-07-02T23:34:10.119970Z",
+      "us_pin": "policyengine-us==1.752.2"
+    },
+    {
+      "version": "4.18.10",
+      "uploaded": "2026-07-06T13:38:15.602342Z",
+      "us_pin": "policyengine-us==1.752.2"
+    },
+    {
+      "version": "4.18.11",
+      "uploaded": "2026-07-07T13:11:35.523389Z",
+      "us_pin": "policyengine-us==1.752.2"
+    },
+    {
+      "version": "4.19.0",
+      "uploaded": "2026-07-07T14:50:38.430291Z",
+      "us_pin": "policyengine-us==1.752.2"
+    },
+    {
+      "version": "4.20.0",
+      "uploaded": "2026-07-07T15:31:33.310946Z",
+      "us_pin": "policyengine-us==1.752.2"
+    },
+    {
+      "version": "4.20.1",
+      "uploaded": "2026-07-09T13:03:21.386613Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "4.20.2",
+      "uploaded": "2026-07-09T19:15:08.725885Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "4.20.3",
+      "uploaded": "2026-07-09T20:16:50.520700Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "4.20.4",
+      "uploaded": "2026-07-10T12:14:25.737695Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "4.21.0",
+      "uploaded": "2026-07-12T18:19:32.978493Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "4.21.1",
+      "uploaded": "2026-07-17T15:21:13.954646Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "4.22.0",
+      "uploaded": "2026-07-20T14:59:27.282054Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "4.22.1",
+      "uploaded": "2026-07-22T13:12:23.188702Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "4.22.2",
+      "uploaded": "2026-07-23T09:42:46.099791Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "4.22.3",
+      "uploaded": "2026-07-24T15:16:35.761474Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "5.0.0",
+      "uploaded": "2026-07-27T16:00:40.902366Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "5.0.1",
+      "uploaded": "2026-07-28T15:59:24.336820Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "5.0.2",
+      "uploaded": "2026-08-14T10:36:47.788594Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "5.0.3",
+      "uploaded": "2026-08-21T11:39:37.838846Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "5.0.4",
+      "uploaded": "2026-08-27T11:49:26.790027Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "5.1.0",
+      "uploaded": "2026-08-29T13:10:00.772599Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "5.2.0",
+      "uploaded": "2026-08-29T17:24:51.377335Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "5.3.0",
+      "uploaded": "2026-08-30T11:57:28.980697Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "5.3.1",
+      "uploaded": "2026-09-10T04:42:16.215383Z",
+      "us_pin": "policyengine-us==1.764.6"
+    },
+    {
+      "version": "6.0.0",
+      "uploaded": "2026-09-15T13:37:27.631154Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.1.0",
+      "uploaded": "2026-09-21T22:47:26.821246Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.1.1",
+      "uploaded": "2026-09-22T17:27:26.646236Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.1.2",
+      "uploaded": "2026-09-27T03:54:51.197449Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.2.0",
+      "uploaded": "2026-09-29T18:02:25.546378Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.2.1",
+      "uploaded": "2026-09-30T22:19:56.610973Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.2.2",
+      "uploaded": "2026-10-07T22:29:58.775849Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.2.3",
+      "uploaded": "2026-10-09T01:50:18.851794Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.2.4",
+      "uploaded": "2026-10-09T06:37:24.670136Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.2.5",
+      "uploaded": "2026-10-09T17:57:19.651282Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.2.6",
+      "uploaded": "2026-10-10T11:31:54.781574Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.2.7",
+      "uploaded": "2026-10-12T04:33:07.577496Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.3.0",
+      "uploaded": "2026-10-12T11:58:38.824326Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.3.1",
+      "uploaded": "2026-10-12T19:56:01.187939Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.3.2",
+      "uploaded": "2026-10-12T23:14:20.126179Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.3.3",
+      "uploaded": "2026-10-13T11:34:56.225675Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.3.4",
+      "uploaded": "2026-10-13T20:25:12.422929Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.4.0",
+      "uploaded": "2026-10-14T15:40:47.272241Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.4.1",
+      "uploaded": "2026-10-15T03:20:24.489137Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.4.2",
+      "uploaded": "2026-10-15T04:34:22.854957Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.4.3",
+      "uploaded": "2026-10-15T05:50:58.484495Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.5.0",
+      "uploaded": "2026-10-15T16:32:54.945900Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.6.0",
+      "uploaded": "2026-10-16T19:15:43.651224Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.7.0",
+      "uploaded": "2026-10-16T20:27:17.951991Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.7.1",
+      "uploaded": "2026-10-17T00:31:05.435818Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.7.2",
+      "uploaded": "2026-10-17T14:35:18.714816Z",
+      "us_pin": "policyengine-us==2.2.1"
+    },
+    {
+      "version": "6.7.3",
+      "uploaded": "2026-10-17T16:59:49.492857Z",
+      "us_pin": "policyengine-us==2.2.1"
+    }
+  ]
+}
