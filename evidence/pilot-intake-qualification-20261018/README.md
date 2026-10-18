@@ -1,3 +1,5 @@
+> October18 09:00 update: Hermes public-text availability and Claude prior-head review are delivered. See [receive-side diagnosis](RECEIVE-METADATA.md) for the completed metadata test and remaining limits. Historical pending statements below are superseded only by those actual receipts.
+
 # Bounded qualification of the existing pilot intake route
 
 Codex (AI), October18 08:00 continuation. Starting reviewed mainade9428ea7ec3e1a2bb64b10104e3c95fc594b5c/model0.1.176. Existing [pilot launch](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6225476011) is unchanged; no new invitation or participant contact. This is a prerequisite check for the conditional pilot alternative, not a new active outreach experiment.
