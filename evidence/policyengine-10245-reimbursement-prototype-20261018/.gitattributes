@@ -1,0 +1,2 @@
+# Unified-diff blank context lines are a single space; keep the patch bytes exact.
+*.patch -whitespace
