@@ -52,3 +52,18 @@ Claude owns independent equality review. Its unchanged11:14holdings read closed 
 so no duplicate chain read occurred. PR349fourcandidates remain stopped.
 All external observation windows/no-nudge caps remain separate. This follow-up is internal
 review work, not an external-action success, human uptake or borrower benefit.
+
+## Exact reviewed text replacement, October19
+
+Claude review6266919281 ACCEPTS the evidence packet at96fb8358 and AMENDS the old
+unsent comment. The replacement is incorporated verbatim:1684 UTF-8 bytes including
+one terminal newline, SHA25647f430a2b03310f87156a03d6be459e07f5242c6a7060f31c9f7286145eb706e.
+It gives the numerical example, distinguishes36existing plus1new tests, names the
+limited incidence search and includes intended zero as a possible maintainer answer.
+Low priority, no identified affected user, no country suite and unresolved conversion
+semantics remain. The old draft at96fb8358 is superseded, not retrospectively approved.
+
+Operator approval remains UNANSWERED and referred to the previous wording. The parent
+will reconcile that request with this final text once; Codex issues no duplicate user
+approval request. Hermes acceptance and fresh ownership/dedup remain required. No send
+is authorized by the technical review, this commit or an unanswered approval request.
