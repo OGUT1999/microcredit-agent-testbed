@@ -1,0 +1,227 @@
+{
+  "format": "issue12-archive-pointer-index-v1",
+  "source_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336",
+  "version": 1,
+  "previous": null,
+  "entry_count": 13,
+  "entries_sha256": "420303664a840a14f5640b1054f7320e9ddc9650201951253a6afe02d8a59730",
+  "entries": [
+    {
+      "commit": "d9c71d85b5858bc373c63bdc2a0001b23abeaa6d",
+      "path": "coordination/archives/issue-12-5999201336-20261014T210452Z.json",
+      "source_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336",
+      "source_updated_at": "2026-10-14T21:04:52Z",
+      "body_utf8_sha256": "5b6f2b1a3620b68762d732c88bf918adf18066542eed8d9f4d0d053f073e0be2",
+      "receipt_keys": [
+        "microcredit-contributions-20261013T230000Z",
+        "microcredit-contributions-20261014T000000Z",
+        "microcredit-contributions-20261014T010000Z",
+        "microcredit-contributions-20261014T020000Z",
+        "microcredit-contributions-20261014T030000Z",
+        "microcredit-contributions-20261014T040000Z",
+        "microcredit-contributions-20261014T050000Z",
+        "microcredit-contributions-20261014T060000Z",
+        "microcredit-contributions-20261014T070000Z",
+        "microcredit-contributions-20261014T090000Z",
+        "microcredit-contributions-20261014T100000Z",
+        "microcredit-contributions-20261014T110000Z",
+        "microcredit-contributions-20261014T190000Z",
+        "microcredit-contributions-20261014T200000Z"
+      ],
+      "review_url": "https://github.com/scottonchain/microcredit-agent-testbed/pull/118#issuecomment-6180422631"
+    },
+    {
+      "commit": "6ba7b543c87968bb5f223bf9483d5b47075432e2",
+      "path": "coordination/archives/issue-12-5999201336-20261015T125819Z.json",
+      "source_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336",
+      "source_updated_at": "2026-10-15T12:58:19Z",
+      "body_utf8_sha256": "562cf0c0b770a96d0d2288ff2705fb1ce71b71dbacb0ce95751cd77d5b1c2fb7",
+      "receipt_keys": [
+        "microcredit-contributions-20261014T220000Z",
+        "microcredit-contributions-20261014T230000Z",
+        "microcredit-contributions-20261014T210000Z",
+        "microcredit-contributions-20261015T000000Z",
+        "microcredit-contributions-20261015T010000Z",
+        "microcredit-contributions-20261015T020000Z",
+        "microcredit-contributions-20261015T030000Z",
+        "microcredit-contributions-20261015T040000Z",
+        "microcredit-contributions-20261015T050000Z",
+        "microcredit-contributions-20261015T070000Z",
+        "microcredit-contributions-20261015T080000Z",
+        "microcredit-contributions-20261015T100000Z",
+        "microcredit-contributions-20261015T110000Z",
+        "microcredit-contributions-20261015T120000Z"
+      ],
+      "review_url": "https://github.com/scottonchain/microcredit-agent-testbed/pull/133#issuecomment-6196758779"
+    },
+    {
+      "commit": "562a592f6f842f5cb6b2e4b844e8ac132f275133",
+      "path": "coordination/archives/issue-12-5999201336-20261016T033905Z.json",
+      "source_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336",
+      "source_updated_at": "2026-10-16T03:39:05Z",
+      "body_utf8_sha256": "97a795088c95afcb93f8d1345c5460fa9f78b6e969b965202d2da2269989d0f6",
+      "receipt_keys": [
+        "microcredit-contributions-20261015T130000Z",
+        "microcredit-contributions-20261015T140000Z",
+        "microcredit-contributions-20261015T170000Z",
+        "microcredit-contributions-20261015T190000Z",
+        "microcredit-contributions-20261015T200000Z",
+        "microcredit-contributions-20261015T210000Z",
+        "microcredit-contributions-20261015T220000Z",
+        "microcredit-contributions-20261015T230000Z",
+        "microcredit-contributions-20261016T000000Z",
+        "microcredit-contributions-20261016T010000Z",
+        "microcredit-contributions-20261016T020000Z"
+      ],
+      "review_url": "https://github.com/scottonchain/microcredit-agent-testbed/pull/175#issuecomment-6207877119"
+    },
+    {
+      "commit": "ac3ccf605a56b61c6d8a5cd1681709776eeb2750",
+      "path": "coordination/archives/issue-12-5999201336-20261016T080957Z.json",
+      "source_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336",
+      "source_updated_at": "2026-10-16T08:09:57Z",
+      "body_utf8_sha256": "4c528fdb30b4f5ae4847c60d0a00b9e50c8f55796461682239ee86d1766de0c4",
+      "receipt_keys": [
+        "microcredit-contributions-20261016T030000Z",
+        "microcredit-contributions-20261016T040000Z",
+        "microcredit-contributions-20261016T060000Z"
+      ],
+      "review_url": "https://github.com/scottonchain/microcredit-agent-testbed/pull/180#issuecomment-6211470568"
+    },
+    {
+      "commit": "98cbe9b692619d0fb85fbb6f7d8a0dc4f29c54a8",
+      "path": "coordination/archives/issue-12-5999201336-20261016T100249Z.json",
+      "source_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336",
+      "source_updated_at": "2026-10-16T10:02:49Z",
+      "body_utf8_sha256": "11ce1b1e9be23213c44318332cf6d679d569dc647925f4bba595f6f91c3fc25c",
+      "receipt_keys": [
+        "microcredit-contributions-20261016T070000Z",
+        "microcredit-contributions-20261016T080000Z",
+        "microcredit-contributions-20261016T090000Z"
+      ],
+      "review_url": "https://github.com/scottonchain/microcredit-agent-testbed/pull/182#issuecomment-6213440190"
+    },
+    {
+      "commit": "acee6c255e91b9e67b599f6af3c5c7a1957b8f11",
+      "path": "coordination/archives/issue-12-5999201336-20261017T060706Z.json",
+      "source_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336",
+      "source_updated_at": "2026-10-17T06:07:06Z",
+      "body_utf8_sha256": "75c8f3157dcddd53243f8219c01aadd001db64e6f0a9ce9137711b540a24548d",
+      "receipt_keys": [
+        "coordinate-microcredit-20261017T030000Z",
+        "coordinate-microcredit-20261017T050000Z"
+      ],
+      "review_url": "https://github.com/scottonchain/microcredit-agent-testbed/pull/186#issuecomment-6230895100"
+    },
+    {
+      "commit": "24aea2849ebcd2ef2c8c29418fd05f2a78ccfd1e",
+      "path": "coordination/archives/issue-12-5999201336-20261017T220622Z.json",
+      "source_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336",
+      "source_updated_at": "2026-10-17T22:06:22Z",
+      "body_utf8_sha256": "55d7f20019151001697f68851ed5b6e13f75d8c5cad8bb5eb0958d094be3dd1e",
+      "receipt_keys": [
+        "coordinate-microcredit-20261017T060000Z",
+        "coordinate-microcredit-20261017T070000Z",
+        "coordinate-microcredit-20261017T080000Z",
+        "coordinate-microcredit-20261017T090000Z",
+        "coordinate-microcredit-20261017T100000Z",
+        "coordinate-microcredit-20261017T110000Z",
+        "coordinate-microcredit-20261017T120000Z",
+        "coordinate-microcredit-20261017T130000Z",
+        "coordinate-microcredit-20261017T140000Z",
+        "coordinate-microcredit-20261017T150000Z",
+        "coordinate-microcredit-20261017T160000Z",
+        "coordinate-microcredit-20261017T170000Z",
+        "coordinate-microcredit-20261017T180000Z",
+        "coordinate-microcredit-20261017T200000Z",
+        "coordinate-microcredit-20261017T210000Z"
+      ],
+      "review_url": "https://github.com/scottonchain/microcredit-agent-testbed/pull/193#issuecomment-6242819327"
+    },
+    {
+      "source_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336",
+      "source_updated_at": "2026-10-18T05:02:13Z",
+      "body_utf8_sha256": "031f7887e1d6b36bc47ab9b7448e9c3bd79cfedce9d9005bc87044f8c063b33c",
+      "commit": "18958814ae54241fbd66f1373198a897974e1bbb",
+      "path": "coordination/archives/issue-12-5999201336-20261018T050213Z.json",
+      "receipt_keys": [
+        "coordinate-microcredit-20261017T220000Z",
+        "coordinate-microcredit-20261017T230000Z",
+        "coordinate-microcredit-20261018T000000Z",
+        "coordinate-microcredit-20261018T010000Z",
+        "coordinate-microcredit-20261018T020000Z",
+        "coordinate-microcredit-20261018T030000Z",
+        "coordinate-microcredit-20261018T040000Z"
+      ],
+      "review_url": "https://github.com/scottonchain/microcredit-agent-testbed/pull/197#issuecomment-6246173930"
+    },
+    {
+      "source_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336",
+      "source_updated_at": "2026-10-18T10:11:47Z",
+      "body_utf8_sha256": "77fe275fa72fff7a5a344f5235b75f4a275864ff74edffc9a1891e1a40d0608c",
+      "commit": "8658be206a0b033e745a8a98cfa73e19651a775d",
+      "path": "coordination/archives/issue-12-5999201336-20261018T101147Z.json",
+      "receipt_keys": [
+        "coordinate-microcredit-20261018T050000Z",
+        "coordinate-microcredit-20261018T060000Z",
+        "coordinate-microcredit-20261018T070000Z",
+        "coordinate-microcredit-20261018T080000Z",
+        "coordinate-microcredit-20261018T090000Z"
+      ],
+      "review_url": "https://github.com/scottonchain/microcredit-agent-testbed/pull/200#issuecomment-6248966085"
+    },
+    {
+      "source_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336",
+      "source_updated_at": "2026-10-18T13:07:22Z",
+      "body_utf8_sha256": "16f0b7076f6d96e19dedede013b5b55ee69c659d6369d3ab1e471373dcdbc050",
+      "commit": "d4b0da5e2e7f266fd95f40d98a19ff11aa5e2acc",
+      "path": "coordination/archives/issue-12-5999201336-20261018T130722Z.json",
+      "receipt_keys": [
+        "coordinate-microcredit-20261018T100000Z",
+        "coordinate-microcredit-20261018T110000Z",
+        "coordinate-microcredit-20261018T120000Z"
+      ],
+      "review_url": "https://github.com/scottonchain/microcredit-agent-testbed/pull/283#issuecomment-6250806552"
+    },
+    {
+      "source_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336",
+      "source_updated_at": "2026-10-18T16:07:13Z",
+      "body_utf8_sha256": "b6aebff9125b9348c66a9ad8e8e432ead5b1054a4b41597f45703328deeb2b17",
+      "commit": "50c63c3b1c2a35f7185ed315fe5f685c187c3df0",
+      "path": "coordination/archives/issue-12-5999201336-20261018T160713Z.json",
+      "receipt_keys": [
+        "coordinate-microcredit-20261018T130000Z",
+        "coordinate-microcredit-20261018T140000Z",
+        "coordinate-microcredit-20261018T150000Z"
+      ],
+      "review_url": "https://github.com/scottonchain/microcredit-agent-testbed/pull/337#issuecomment-6252230333"
+    },
+    {
+      "source_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336",
+      "source_updated_at": "2026-10-18T19:59:42Z",
+      "body_utf8_sha256": "f6b1aa8d9d566d8539abf1b9a5c59f39ed4857b485d67a3efadf37980b265583",
+      "commit": "4fa2cf11228e8582abaf7ae5b4ca9f4fc1c8bf52",
+      "path": "coordination/archives/issue-12-5999201336-20261018T195942Z.json",
+      "receipt_keys": [
+        "coordinate-microcredit-20261018T160000Z",
+        "coordinate-microcredit-20261018T170000Z",
+        "coordinate-microcredit-20261018T180000Z",
+        "coordinate-microcredit-20261018T190000Z"
+      ],
+      "review_url": "https://github.com/scottonchain/microcredit-agent-testbed/pull/338#issuecomment-6254739067"
+    },
+    {
+      "source_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336",
+      "source_updated_at": "2026-10-19T00:45:49Z",
+      "body_utf8_sha256": "5522eb999b8cca15b6b9e910561f6bade0ff688c802a46e402b98670f0c8e86d",
+      "commit": "bd7ff00fa2ec11e471d7fc9625cafc87f87ab5dd",
+      "path": "coordination/archives/issue-12-5999201336-20261019T004549Z.json",
+      "receipt_keys": [
+        "coordinate-microcredit-20261018T200000Z",
+        "coordinate-microcredit-20261018T210000Z",
+        "coordinate-microcredit-20261018T220000Z"
+      ],
+      "review_url": "https://github.com/scottonchain/microcredit-agent-testbed/pull/340#issuecomment-6257369680"
+    }
+  ]
+}

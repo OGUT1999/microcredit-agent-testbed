@@ -206,3 +206,67 @@ Later writers must preserve compact encoding once adopted, applying normal lease
 privacy and unchanged-body checks to their actual state updates. Existing immutable
 snapshots remain untouched. The archival section still governs removal of historical
 entries; this encoding rule does not authorize pruning operator-directed actions.
+
+
+## Archive pointer index
+
+The `continuation_receipt_archives` list grows by one reference per pruning step and
+now holds about a sixth of the comment (its list serializes to 10,108 of 65,008
+characters at 03:03:59Z). This amendment lets its older entries
+live in an immutable repository file that a single pointer names. It is not a
+migration: it moves no live data until a separate, reviewed step below, and it adds
+no lock, controller, cursor or permission. The tool is
+`coordination/issue12_archive_index.py`; its tests run with the coordination suite.
+
+Index files are `coordination/archives/index/issue-12-5999201336-v###.json`
+(format `issue12-archive-pointer-index-v1`, serialized with `indent=2`,
+`ensure_ascii=False` and one trailing newline). Each holds the exact entries, in live
+order and with every field, plus a count and the SHA-256 of their compact
+serialization. A merged index file is never edited or deleted. A later version is a
+new file that holds every entry of the one before it and names that one in `previous`
+(commit, path, SHA-256); only the version the live pointer names is current.
+
+The pointer is the first element of the list and has exactly these fields:
+`index_commit` (the merge commit that added the file), `index_path`, `index_sha256`,
+`entries` (the count) and `last_snapshot_sha256`. The lookup rule is unambiguous: the
+full archive list is the pointed-to index's entries followed by the remaining inline
+elements, in order. A pointer anywhere else, a second pointer, or a pointer that
+disagrees with its file in any field is an error. Readers and writers use
+`resolve --body-file BODY --repo CHECKOUT` to rebuild the list; `check` reports the
+state and, with `--ancestor-of origin/main`, requires the pinned commit to be on main.
+They fail closed: a missing file, a changed byte, a non-canonical serialization or an
+unreachable commit stops the work and the comment is read as unresolved, never guessed.
+
+Pruning is unchanged. After the pointer exists, a pruning step appends its own
+reference inline after the pointer exactly as before, under the snapshot, review and
+unchanged-body rules above. Nothing about snapshots, the retained receipts, the
+`required_safety_ctr41` and `required_safety_tb181` fields, operator-directed
+actions, missed triggers or completed-trigger identifiers changes. Only the archive
+references move, and this amendment does not authorize relocating anything else.
+
+The first replacement may happen only after all of these hold:
+
+1. The index file and this amendment are on main through non-author exact-head review,
+   and the pointer's `index_commit` is that merge commit.
+2. An owned-lease writer rereads the comment body and `updated_at`, then runs
+   `migrate`. The leading `entries` elements of the live list must equal the index
+   entries exactly; newer inline elements stay in place. A difference inside the
+   indexed run means stop, rebuild as a new reviewed version and never overwrite.
+3. The tool's dry run proves that `resolve` of the new body returns the old body byte
+   for byte, and the new body is checked against the 65,536-character limit and the
+   public-content check. `migrate` makes this check before it writes `--out`, so a
+   refused command leaves no candidate file.
+4. PATCH only after an unchanged-body and timestamp reread, then reread the saved body
+   and verify its bytes and that `resolve` of it equals the pre-replacement body.
+   Record the before and after sizes and hashes in the next ordinary receipt; do not
+   create a second ledger. On any mismatch stop protected work and reconcile.
+
+When inline references accumulate again, a roll-up is the same procedure with
+`build --version N+1 --previous-json ...`: build the next index from the full
+resolved list with `previous` set to the live one, review it, merge it, then replace the pointer and the inline
+references it covers with the new pointer. The equality test differs by case. The
+first migration compares bytes: `resolve` of the new body must equal the old body,
+which has no pointer. A roll-up compares expanded forms: the old body still holds
+the previous pointer, so `resolve` of the new body must equal `resolve` of the old
+body, and both must name the same full list. `migrate` prints that expanded hash
+(`expanded_sha256`) for the receipt.
