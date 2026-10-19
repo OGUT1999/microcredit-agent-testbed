@@ -207,8 +207,24 @@ def report(before, after, expanded):
             'expanded_sha256': sha256(expanded)}
 
 
+def read_text(path):
+    """Read UTF-8 text with no newline translation, so the bytes verified are the bytes in the file."""
+    try:
+        return Path(path).read_bytes().decode('utf-8')
+    except UnicodeDecodeError as error:
+        raise ArchiveIndexError('File is not UTF-8: ' + str(path)) from error
+
+
+def write_text(path, text):
+    """Write UTF-8 text with no newline translation, so the file holds exactly the verified string."""
+    try:
+        Path(path).write_bytes(text.encode('utf-8'))
+    except UnicodeEncodeError as error:
+        raise ArchiveIndexError('Text is not encodable as UTF-8') from error
+
+
 def read_body(args):
-    text = Path(args.body_file).read_text(encoding='utf-8')
+    text = read_text(args.body_file)
     return loads(text)['body'] if args.comment_json else text
 
 
@@ -231,8 +247,8 @@ def main(argv=None):
     sub.choices['resolve'].add_argument('--out', required=True)
     sub.choices['check'].add_argument('--ancestor-of', help='require the pinned commit to be reachable from this ref')
     args = parser.parse_args(argv)
-    body, fetch = read_body(args), git_fetch(args.repo)
     try:
+        body, fetch = read_body(args), git_fetch(args.repo)
         if args.command == 'build':
             _, state, _ = split_body(body)
             full, _, _ = expand(state[KEY], fetch)
@@ -243,10 +259,10 @@ def main(argv=None):
             raw = Path(args.index_file).read_bytes()
             after = migrate(body, raw, args.index_path, args.commit, fetch)
             expanded = resolve(after, lambda commit, path: raw if path == args.index_path else fetch(commit, path))
-            Path(args.out).write_text(after, encoding='utf-8')
+            write_text(args.out, after)
             print(json.dumps(report(body, after, expanded)))
         elif args.command == 'resolve':
-            Path(args.out).write_text(resolve(body, fetch), encoding='utf-8')
+            write_text(args.out, resolve(body, fetch))
             print(json.dumps({'sha256': sha256(Path(args.out).read_bytes())}))
         else:
             _, state, _ = split_body(body)

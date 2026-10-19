@@ -195,9 +195,8 @@ def main(argv=None):
     sub.choices['resolve'].add_argument('--out', required=True)
     sub.choices['check'].add_argument('--ancestor-of', help='require the pinned commit to be reachable from this ref')
     args = parser.parse_args(argv)
-    text = Path(args.body_file).read_text(encoding='utf-8')
-    body, fetch = (ai.loads(text)['body'] if args.comment_json else text), ai.git_fetch(args.repo)
     try:
+        body, fetch = ai.read_body(args), ai.git_fetch(args.repo)
         if args.command == 'build':
             _, state, _ = ai.split_body(body)
             full, _, _ = expand(state[KEY], fetch)
@@ -213,10 +212,10 @@ def main(argv=None):
             raw = Path(args.index_file).read_bytes()
             after = migrate(body, raw, args.index_path, args.commit, fetch)
             expanded = resolve(after, lambda commit, path: raw if path == args.index_path else fetch(commit, path))
-            Path(args.out).write_text(after, encoding='utf-8')
+            ai.write_text(args.out, after)
             print(json.dumps(report(body, after, expanded)))
         elif args.command == 'resolve':
-            Path(args.out).write_text(resolve(body, fetch), encoding='utf-8')
+            ai.write_text(args.out, resolve(body, fetch))
             print(json.dumps({'sha256': ai.sha256(Path(args.out).read_bytes())}))
         else:
             _, state, _ = ai.split_body(body)

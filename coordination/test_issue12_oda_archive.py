@@ -233,6 +233,44 @@ class CommandLineTests(unittest.TestCase):
             self.assertEqual(code, 1)
             self.assertIn('not reachable', err)
 
+    def test_file_bytes_are_verified_and_written_without_newline_translation(self):
+        acts = actions()
+        original = body(acts).replace('AI disclosure: test body.\n\n', 'AI disclosure: test body.\r\n\r\n')
+        self.assertIn('\r\n', original)
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            repo = tmp / 'repo'
+            subprocess.run(['git', 'init', '-q', str(repo)], check=True)
+            git = ['git', '-C', str(repo), '-c', 'user.name=t', '-c', 'user.email=t@example.test']
+            (repo / PATH1).parent.mkdir(parents=True)
+            (repo / PATH1).write_bytes(index_for(acts, ['k-01', 'k-02', 'k-03']))
+            subprocess.run(git + ['add', '.'], check=True)
+            subprocess.run(git + ['commit', '-q', '-m', 'index'], check=True)
+            commit = subprocess.run(git + ['rev-parse', 'HEAD'], check=True, capture_output=True, text=True).stdout.strip()
+            (tmp / 'body.md').write_bytes(original.encode('utf-8'))
+            code, out, err = self.run_cli('migrate', '--body-file', tmp / 'body.md', '--repo', repo, '--index-file', repo / PATH1,
+                                          '--index-path', PATH1, '--commit', commit, '--out', tmp / 'after.md')
+            self.assertEqual((code, err), (0, ''))
+            report = json.loads(out)
+            self.assertEqual(report['before_sha256'], ai.sha256((tmp / 'body.md').read_bytes()))
+            self.assertEqual(report['after_sha256'], ai.sha256((tmp / 'after.md').read_bytes()))
+            self.assertIn(b'\r\n', (tmp / 'after.md').read_bytes())
+            code, out, err = self.run_cli('resolve', '--body-file', tmp / 'after.md', '--repo', repo, '--out', tmp / 'back.md')
+            self.assertEqual((code, err), (0, ''))
+            self.assertEqual((tmp / 'back.md').read_bytes(), original.encode('utf-8'))
+            self.assertEqual(json.loads(out)['sha256'], ai.sha256(original))
+
+    def test_body_file_that_is_not_utf8_is_refused_without_output(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            (tmp / 'body.md').write_bytes(body(actions()).encode('utf-8') + b'\xff')
+            (tmp / 'index.json').write_bytes(index_for(actions(), ['k-01']))
+            code, out, err = self.run_cli('migrate', '--body-file', tmp / 'body.md', '--repo', tmp, '--index-file', tmp / 'index.json',
+                                          '--index-path', PATH1, '--commit', COMMIT, '--out', tmp / 'after.md')
+            self.assertEqual(code, 1)
+            self.assertIn('REFUSED', err)
+            self.assertFalse((tmp / 'after.md').exists())
+
     def test_refusal_writes_no_output(self):
         acts = actions()
         with tempfile.TemporaryDirectory() as tmp:

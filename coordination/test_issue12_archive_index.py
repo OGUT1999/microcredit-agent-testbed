@@ -248,6 +248,28 @@ class GitBackedTests(unittest.TestCase):
                 self.assertEqual(migrate(src, index, path, commit2, work / out), 1)
                 self.assertFalse((work / out).exists())
 
+    def test_command_line_keeps_the_line_endings_of_the_body_file(self):
+        entries = [entry(n) for n in range(1, 5)]
+        raw = index_for(entries)
+        original = body(entries + [entry(5)]).replace('\n\n```json', '\r\n\r\n```json')
+        self.assertIn('\r\n', original)
+        with tempfile.TemporaryDirectory() as tmp:
+            repo, work = Path(tmp) / 'repo', Path(tmp)
+            git = lambda *a: subprocess.run(['git', '-C', str(repo), *a], check=True, capture_output=True, text=True).stdout.strip()
+            subprocess.run(['git', 'init', '-q', str(repo)], check=True)
+            (repo / PATH1).parent.mkdir(parents=True)
+            (repo / PATH1).write_bytes(raw)
+            git('add', '.')
+            git('-c', 'user.name=T', '-c', 'user.email=t@example.test', 'commit', '-q', '-m', 'index')
+            commit = git('rev-parse', 'HEAD')
+            (work / 'body.txt').write_bytes(original.encode('utf-8'))
+            run = lambda *a: self.run_main(list(a))
+            self.assertEqual(run('migrate', '--body-file', str(work / 'body.txt'), '--repo', str(repo), '--index-file', str(repo / PATH1),
+                                 '--index-path', PATH1, '--commit', commit, '--out', str(work / 'migrated.txt')), 0)
+            self.assertIn(b'\r\n', (work / 'migrated.txt').read_bytes())
+            self.assertEqual(run('resolve', '--body-file', str(work / 'migrated.txt'), '--repo', str(repo), '--out', str(work / 'back.txt')), 0)
+            self.assertEqual((work / 'back.txt').read_bytes(), original.encode('utf-8'))
+
     @staticmethod
     def run_main(argv):
         with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
