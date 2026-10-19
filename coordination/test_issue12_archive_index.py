@@ -200,6 +200,54 @@ class GitBackedTests(unittest.TestCase):
             git('-c', 'user.name=T', '-c', 'user.email=t@example.test', 'commit', '-q', '--allow-empty', '-m', 'other')
             self.assertEqual(run('check', '--body-file', str(work / 'migrated.txt'), '--repo', str(repo), '--ancestor-of', 'other'), 1)
 
+    def test_command_line_rollup_matches_expanded_forms_and_refusals_write_nothing(self):
+        entries = [entry(n) for n in range(1, 5)]
+        raw1 = index_for(entries[:3])
+        with tempfile.TemporaryDirectory() as tmp:
+            repo, work = Path(tmp) / 'repo', Path(tmp)
+            git = lambda *a: subprocess.run(['git', '-C', str(repo), *a], check=True, capture_output=True, text=True).stdout.strip()
+            commit_as = lambda message: git('-c', 'user.name=T', '-c', 'user.email=t@example.test', 'commit', '-q', '-m', message)
+            subprocess.run(['git', 'init', '-q', str(repo)], check=True)
+            (repo / PATH1).parent.mkdir(parents=True)
+            (repo / PATH1).write_bytes(raw1)
+            git('add', '.')
+            commit_as('v001')
+            commit1 = git('rev-parse', 'HEAD')
+            original = body(entries)
+            (work / 'body.txt').write_text(original, encoding='utf-8')
+            run = lambda *a: self.run_main(list(a))
+            migrate = lambda src, index, path, commit, out: run(
+                'migrate', '--body-file', str(src), '--repo', str(repo), '--index-file', str(index), '--index-path', path,
+                '--commit', commit, '--out', str(out))
+            self.assertEqual(migrate(work / 'body.txt', repo / PATH1, PATH1, commit1, work / 'first.txt'), 0)
+            first = (work / 'first.txt').read_text(encoding='utf-8')
+            self.assertEqual(ai.split_body(first)[1][ai.KEY][1:], [entries[3]])
+            # Version 2 holds every entry and names version 1; the input body still holds the version 1 pointer.
+            previous = {'index_commit': commit1, 'index_path': PATH1, 'index_sha256': ai.sha256(raw1)}
+            raw2 = index_for(entries, 2, previous)
+            (repo / PATH2).write_bytes(raw2)
+            git('add', '.')
+            commit_as('v002')
+            commit2 = git('rev-parse', 'HEAD')
+            self.assertEqual(migrate(work / 'first.txt', repo / PATH2, PATH2, commit2, work / 'second.txt'), 0)
+            second = (work / 'second.txt').read_text(encoding='utf-8')
+            archives = ai.split_body(second)[1][ai.KEY]
+            self.assertEqual((len(archives), archives[0]['index_path'], archives[0]['entries']), (1, PATH2, 4))
+            fetch = ai.git_fetch(repo)
+            self.assertEqual(ai.resolve(second, fetch), original)
+            self.assertEqual(ai.resolve(second, fetch), ai.resolve(first, fetch))
+            self.assertEqual(run('check', '--body-file', str(work / 'second.txt'), '--repo', str(repo), '--ancestor-of', 'HEAD'), 0)
+            # Refusals leave no candidate behind: wrong previous, a changed entry inside the indexed run, no live pointer source.
+            wrong = index_for(entries, 2, dict(previous, index_sha256='b' * 64))
+            (work / 'wrong.json').write_bytes(wrong)
+            changed = body(entries[:2] + [dict(entries[2], review_url='https://example.test/x')] + entries[3:])
+            (work / 'changed.txt').write_text(changed, encoding='utf-8')
+            for src, index, path, out in ((work / 'first.txt', work / 'wrong.json', PATH2, 'refused-a.txt'),
+                                          (work / 'changed.txt', repo / PATH1, PATH1, 'refused-b.txt'),
+                                          (work / 'first.txt', repo / PATH1, PATH1, 'refused-c.txt')):
+                self.assertEqual(migrate(src, index, path, commit2, work / out), 1)
+                self.assertFalse((work / out).exists())
+
     @staticmethod
     def run_main(argv):
         with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):

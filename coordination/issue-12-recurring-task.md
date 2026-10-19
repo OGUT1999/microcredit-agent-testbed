@@ -211,7 +211,8 @@ entries; this encoding rule does not authorize pruning operator-directed actions
 ## Archive pointer index
 
 The `continuation_receipt_archives` list grows by one reference per pruning step and
-now holds about a sixth of the comment (11,407 of 65,008 characters at 03:03:59Z). This amendment lets its older entries
+now holds about a sixth of the comment (its list serializes to 10,108 of 65,008
+characters at 03:03:59Z). This amendment lets its older entries
 live in an immutable repository file that a single pointer names. It is not a
 migration: it moves no live data until a separate, reviewed step below, and it adds
 no lock, controller, cursor or permission. The tool is
@@ -253,7 +254,8 @@ The first replacement may happen only after all of these hold:
    indexed run means stop, rebuild as a new reviewed version and never overwrite.
 3. The tool's dry run proves that `resolve` of the new body returns the old body byte
    for byte, and the new body is checked against the 65,536-character limit and the
-   public-content check.
+   public-content check. `migrate` makes this check before it writes `--out`, so a
+   refused command leaves no candidate file.
 4. PATCH only after an unchanged-body and timestamp reread, then reread the saved body
    and verify its bytes and that `resolve` of it equals the pre-replacement body.
    Record the before and after sizes and hashes in the next ordinary receipt; do not
@@ -262,4 +264,9 @@ The first replacement may happen only after all of these hold:
 When inline references accumulate again, a roll-up is the same procedure with
 `build --version N+1 --previous-json ...`: build the next index from the full
 resolved list with `previous` set to the live one, review it, merge it, then replace the pointer and the inline
-references it covers with the new pointer.
+references it covers with the new pointer. The equality test differs by case. The
+first migration compares bytes: `resolve` of the new body must equal the old body,
+which has no pointer. A roll-up compares expanded forms: the old body still holds
+the previous pointer, so `resolve` of the new body must equal `resolve` of the old
+body, and both must name the same full list. `migrate` prints that expanded hash
+(`expanded_sha256`) for the receipt.

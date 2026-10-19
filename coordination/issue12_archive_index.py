@@ -157,6 +157,8 @@ def expand(archives, fetch):
         raise ArchiveIndexError('A pointer is valid only once, as the first element')
     pointer = archives[0]
     check_pointer(pointer)
+    if fetch is None:
+        raise ArchiveIndexError('The list starts with a pointer and no source for the index was given')
     index = check_index(fetch(pointer['index_commit'], pointer['index_path']), pointer)
     return index['entries'] + archives[1:], pointer, index
 
@@ -169,7 +171,12 @@ def resolve(body, fetch):
 
 
 def migrate(body, raw, path, commit, fetch=None):
-    """Replace the leading run of entries named by the index with one pointer."""
+    """Replace the leading run of entries named by the index with one pointer.
+
+    Returns nothing unless the result expands to exactly what the input expands to. For the
+    first migration the input has no pointer, so that is byte equality with the input body;
+    for a roll-up both sides are compared fully expanded, since the input still holds the
+    older pointer."""
     prefix, state, suffix = split_body(body)
     index = loads(raw.decode('utf-8'))
     pointer = make_pointer(raw, index, path, commit)
@@ -187,12 +194,17 @@ def migrate(body, raw, path, commit, fetch=None):
         if index['previous'] != {k: old[k] for k in PREVIOUS_KEYS}:
             raise ArchiveIndexError('The index does not name the live index as previous')
     state[KEY] = [pointer] + full[count:]
-    return join_body(prefix, state, suffix)
+    after = join_body(prefix, state, suffix)
+    served = lambda c, p: raw if p == path else fetch(c, p)
+    if resolve(after, served) != resolve(body, served):
+        raise ArchiveIndexError('Round trip differs from the original body')
+    return after
 
 
-def report(before, after):
+def report(before, after, expanded):
     return {'before_chars': len(before), 'after_chars': len(after), 'saved_chars': len(before) - len(after),
-            'headroom_after': LIMIT - len(after), 'before_sha256': sha256(before), 'after_sha256': sha256(after)}
+            'headroom_after': LIMIT - len(after), 'before_sha256': sha256(before), 'after_sha256': sha256(after),
+            'expanded_sha256': sha256(expanded)}
 
 
 def read_body(args):
@@ -230,11 +242,9 @@ def main(argv=None):
         elif args.command == 'migrate':
             raw = Path(args.index_file).read_bytes()
             after = migrate(body, raw, args.index_path, args.commit, fetch)
+            expanded = resolve(after, lambda commit, path: raw if path == args.index_path else fetch(commit, path))
             Path(args.out).write_text(after, encoding='utf-8')
-            local = lambda commit, path: raw if path == args.index_path else fetch(commit, path)
-            if resolve(after, local) != body:
-                raise ArchiveIndexError('Round trip differs from the original body')
-            print(json.dumps(report(body, after)))
+            print(json.dumps(report(body, after, expanded)))
         elif args.command == 'resolve':
             Path(args.out).write_text(resolve(body, fetch), encoding='utf-8')
             print(json.dumps({'sha256': sha256(Path(args.out).read_bytes())}))
