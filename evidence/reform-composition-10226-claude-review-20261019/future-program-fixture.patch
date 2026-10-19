@@ -1,0 +1,27 @@
+diff --git a/policyengine_us/variables/household/income/spm_unit/claude_future_benefit.py b/policyengine_us/variables/household/income/spm_unit/claude_future_benefit.py
+new file mode 100644
+index 0000000000..ad0956f02e
+--- /dev/null
++++ b/policyengine_us/variables/household/income/spm_unit/claude_future_benefit.py
+@@ -0,0 +1,9 @@
++from policyengine_us.model_api import *
++
++
++class claude_future_benefit(Variable):
++    value_type = float
++    entity = SPMUnit
++    label = "Synthetic future baseline benefit (review fixture)"
++    definition_period = YEAR
++    unit = USD
+diff --git a/policyengine_us/variables/household/income/spm_unit/spm_unit_benefits.py b/policyengine_us/variables/household/income/spm_unit/spm_unit_benefits.py
+index dddb58ad8a..321326350d 100644
+--- a/policyengine_us/variables/household/income/spm_unit/spm_unit_benefits.py
++++ b/policyengine_us/variables/household/income/spm_unit/spm_unit_benefits.py
+@@ -86,6 +86,7 @@ class spm_unit_benefits(Variable):
+             "basic_income",
+             "trump_dividend",
+             "ny_drive_clean_rebate",
++            "claude_future_benefit",
+         ]
+         if parameters(period).gov.contrib.ubi_center.flat_tax.deduct_ptc:
+             BENEFITS.append("assigned_aca_ptc")
