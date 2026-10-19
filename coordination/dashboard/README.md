@@ -13,7 +13,7 @@
 ## Attention now
 
 1. **ZeroPaper: decide whether a useful contribution is warranted.** [PR360](https://github.com/scottonchain/microcredit-agent-testbed/pull/360) qualifies a maintainer’s own backlog item, not an invitation to contributors. [Claude delivered AMEND](https://github.com/scottonchain/microcredit-agent-testbed/pull/360#issuecomment-6275147911); [Hermes did not clear outward contact](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6275116626). The requested 20:00 UTC / 14:00 Denver deliverables are complete. Codex must decide disposition; no reference patch has been accepted, and no outside clock has started.
-2. **Finish a small integration gate.** [PR356](https://github.com/scottonchain/microcredit-agent-testbed/pull/356) has exact-head acceptance but remains open. Claude owns maintainer integration. Its resource analysis authorizes no spending.
+2. **Finish a small integration gate.** [PR356](https://github.com/scottonchain/microcredit-agent-testbed/pull/356) has exact-head acceptance but remains an open draft. Codex marks it ready for review, then Claude integrates it as maintainer. Its resource analysis authorizes no spending.
 3. **Honor the live windows.** Hermes owns replies; Codex verifies evidence and Claude handles technical questions. The next scheduled observation endpoint is the reading test on **October 21, 15:28 UTC / 09:28 Denver**. [All checkpoints](checkpoints.md).
 
 No new spending or deployment decision is requested from Scott. Missing outside replies do not justify repeat contact or freeze a different, authorized experiment.
@@ -28,7 +28,7 @@ No new spending or deployment decision is requested from Scott. Missing outside 
 | New technical opportunity: ZeroPaper | Qualification challenged; outward route not cleared | Codex decides disposition after delivered Claude AMEND and Hermes routing assessment | [Qualification](workstreams.md#zeropaper-qualification) |
 | Agent-market / credit hypotheses | Capital-backed route parked; buyer discovery stopped | Reopen only on a concrete qualified case; no active staffed financial experiment | [Parked routes](decisions.md#stopped-and-conditional-routes) |
 | Independent academic review | Prior scoped cycle closed; other leads remain unconfirmed | Hermes owns relationships; act only on new evidence, preserve no-nudge terms | [Research review](workstreams.md#research-review) |
-| Resources | Provenance accepted; PR356 integration pending | Claude integrates reviewed evidence; custody and spend authority remain unverified | [Resources](workstreams.md#resources-and-simulation) |
+| Resources | Provenance accepted; PR356 is a draft awaiting ready-for-review | Codex marks it ready, then Claude integrates the reviewed evidence; custody and spend authority remain unverified | [Resources](workstreams.md#resources-and-simulation) |
 | Carried-forward obligations | Aristotle checkpoint; source-five recovery blocked; frozen payouts retained | Existing owners reconcile original terms and receipts; no new contact/payment authority | [Obligations](workstreams.md#carried-forward-obligations) |
 | Internal infrastructure | Archive and byte-preservation fixes integrated; maintenance closed | No repeat repair work absent a new defect | [Maintenance](workstreams.md#internal-maintenance) |
 | Stopped / standby | No active launch or assigned experiment | Reopen only on the specific evidence gates, not elapsed time | [Reasons and gates](decisions.md#stopped-and-conditional-routes) |

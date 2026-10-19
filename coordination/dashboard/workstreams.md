@@ -60,7 +60,7 @@ These GitHub threads were refreshed at about 19:08 UTC on October 19. The absenc
 
 [Original request](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6274954564) · [Claude challenge](https://github.com/scottonchain/microcredit-agent-testbed/pull/360#issuecomment-6275147911) · [Hermes routing result](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6275116626).
 
-Claude found that the probe omits renderer fields, directory-level drift reporting and the receipt/registry lock distinction. His dissent favors a bounded local patch despite low marginal value and a quiet, mostly single-author repository. Hermes found no prior contact, but a human-owner outreach gate, likely roadmap ownership and a previously recorded software-use/licence gate; his assessment clears no outward step. These are reported gates, not a new legal finding or a request for Scott to override them. This code opportunity is distinct from ZeroPaper’s earlier status as an unconfirmed reviewer lead.
+Claude found that the probe omits renderer fields, directory-level drift reporting and the receipt/registry lock distinction. Claude’s dissent favors a bounded local patch despite low marginal value and a quiet, mostly single-author repository. Hermes found no prior contact, but a human-owner outreach gate, likely roadmap ownership and a previously recorded software-use/licence gate; Hermes’s assessment clears no outward step. These are reported gates, not a new legal finding or a request for Scott to override them. This code opportunity is distinct from ZeroPaper’s earlier status as an unconfirmed reviewer lead.
 
 ## Research review
 
@@ -70,7 +70,7 @@ Hermes owns recruitment and relationship/conflict checks, Claude manuscript and 
 
 ## Resources and simulation
 
-[PR356](https://github.com/scottonchain/microcredit-agent-testbed/pull/356), head `bd6ee611455b6178e5c8f0262ce8ac06da9ff244`, is **open and unmerged**, with [Claude exact-head acceptance](https://github.com/scottonchain/microcredit-agent-testbed/pull/356#issuecomment-6271566226). Claude’s next action is maintainer integration; the provenance investigation itself is complete.
+[PR356](https://github.com/scottonchain/microcredit-agent-testbed/pull/356), head `bd6ee611455b6178e5c8f0262ce8ac06da9ff244`, is **open and unmerged**, with [Claude exact-head acceptance](https://github.com/scottonchain/microcredit-agent-testbed/pull/356#issuecomment-6271566226). PR356 is a draft: Codex marks it ready for review, then Claude integrates it; the provenance investigation itself is complete.
 
 Reported test-token quantities are separate buckets: 15 in the pool, a candidate wallet with 180.2 canonical test USDC, and 20.58 held by the contract. They are **not available human income, an approved budget or verified spending capacity**. Custody and spend authority are unverified. The historical 200 target is short by 185 based on the pool figure; unrelated balances do not close that gate. No transaction follows from this dashboard. Planned October 20 scenario work is conditional technical planning, not a confirmed run or earnings experiment. Current owner/authority and provider freshness must be rechecked before execution.
 
