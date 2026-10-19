@@ -1,0 +1,25 @@
+== base uses: <scratch>/pe-10226-base/policyengine_us/__init__.py
+== patched uses: <scratch>/pe-10226-patched/policyengine_us/__init__.py
+== mut uses: <scratch>/pe-10226-mut/policyengine_us/__init__.py
+== A base + new yaml (expect baseline pass, Texas fail) (base, policyengine_us/tests/policy/reform/tx_rebate/spm_unit_benefits.yaml)
+    spm_unit_benefits@2027: [0. 0. 0. 0. 0. 0.] differs from [101. 102. 103. 104. 105. 106.] with an absolute margin [101. 102. 103. 104. 105. 106.] > 0.001
+============== 1 failed, 1 passed, 1 warning in 131.97s (0:02:11) ==============
+exit 1
+== B patched + new yaml (expect 2 pass) (patched, policyengine_us/tests/policy/reform/tx_rebate/spm_unit_benefits.yaml)
+=================== 2 passed, 1 warning in 141.17s (0:02:21) ===================
+exit 0
+== C patched + trump dividend control (expect 2 pass) (patched, policyengine_us/tests/policy/reform/trump_dividend_in_tx_rebate_benefit_aggregates.yaml)
+=================== 2 passed, 1 warning in 268.96s (0:04:28) ===================
+exit 0
+== D mutant without tx_rebate add + trump dividend control (expect fail) (mut, policyengine_us/tests/policy/reform/trump_dividend_in_tx_rebate_benefit_aggregates.yaml)
+    spm_unit_benefits@2027: [0.] differs from 1500.0 with an absolute margin [1500.] > 0.001
+    spm_unit_benefits@2027: [10000.] differs from 11500.0 with an absolute margin [1500.] > 0.001
+=================== 2 failed, 1 warning in 269.30s (0:04:29) ===================
+exit 1
+== E patched AST guard
+.....................                                                    [100%]
+21 passed in 0.46s
+== F base AST guard
+......................                                                   [100%]
+22 passed in 0.85s
+DONE

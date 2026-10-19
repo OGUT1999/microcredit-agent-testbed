@@ -1,0 +1,4 @@
+== T-proto (worktree dated-proto, claude-dated.yaml) exit 1
+    spm_unit_benefits@2027: [100.99999 102.      103.00001 103.99999 105.      106.00001] differs from [5101. 5102. 5103. 5104. 5105. 5106.] with an absolute margin [5000. 5000. 5000. 5000. 5000. 5000.] > 0.001
+============== 1 failed, 1 passed, 1 warning in 137.06s (0:02:17) ==============
+DONE

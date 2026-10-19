@@ -1,0 +1,4 @@
+== V-base (worktree future-base, claude-future.yaml) exit 1
+    spm_unit_benefits@2027: [0. 0. 0. 0. 0. 0.] differs from [ 0.  0.  0.  0.  0. 77.] with an absolute margin [ 0.  0.  0.  0.  0. 77.] > 0.001
+=================== 1 failed, 1 warning in 140.15s (0:02:20) ===================
+DONE
