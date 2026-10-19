@@ -1,0 +1,61 @@
+# Synthetic component test, not a real taxpayer or complete tax-return determination.
+- name: 2021 component-derived federal deduction retains NIIT after credits and add-backs
+  period: 2021
+  absolute_error_margin: 0.01
+  input:
+    people:
+      head:
+        age: 40
+        is_tax_unit_head: true
+        ia_net_income: 50000
+        self_employment_tax: 200
+    tax_units:
+      unit:
+        members:
+        - head
+        income_tax_before_credits: 6000
+        net_investment_income_tax: 500
+        income_tax_capped_non_refundable_credits: 1000
+        unreported_payroll_tax: 300
+        qualified_retirement_penalty: 200
+        recapture_of_investment_credit: 100
+        additional_medicare_tax: 100
+        non_refundable_ctc: 0
+    households:
+      hh:
+        members:
+        - head
+        state_code: IA
+  output:
+    income_tax_before_refundable_credits: 6100
+    ia_fedtax_deduction: 5500
+- name: 2022 component-derived federal deduction retains NIIT after credits and add-backs
+  period: 2022
+  absolute_error_margin: 0.01
+  input:
+    people:
+      head:
+        age: 40
+        is_tax_unit_head: true
+        ia_net_income: 50000
+        self_employment_tax: 200
+    tax_units:
+      unit:
+        members:
+        - head
+        income_tax_before_credits: 6000
+        net_investment_income_tax: 500
+        income_tax_capped_non_refundable_credits: 1000
+        unreported_payroll_tax: 300
+        qualified_retirement_penalty: 200
+        recapture_of_investment_credit: 100
+        additional_medicare_tax: 100
+        non_refundable_ctc: 0
+    households:
+      hh:
+        members:
+        - head
+        state_code: IA
+  output:
+    income_tax_before_refundable_credits: 6100
+    ia_fedtax_deduction: 5500

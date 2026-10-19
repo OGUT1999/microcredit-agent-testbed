@@ -1,0 +1,7 @@
+{
+  "acquired": "af5af0d9196340386b9c5945cfd6cdd800cd5fd7",
+  "competing_cas": "rejected",
+  "nonowner_release": "rejected",
+  "live_recovery": "rejected",
+  "release": "eb3800f203a5e4a26126c00566d5a7c2a01ae763"
+}
