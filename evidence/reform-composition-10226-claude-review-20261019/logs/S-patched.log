@@ -1,0 +1,4 @@
+== S-patched (worktree patched, claude-stack.yaml) exit 1
+    spm_unit_benefits@2027: [100.99999 102.      103.00001 103.99999 105.      106.00001] differs from [1101. 1102. 1103. 1104. 1105. 1106.] with an absolute margin [1000. 1000. 1000. 1000. 1000. 1000.] > 0.001
+============== 1 failed, 1 passed, 1 warning in 274.41s (0:04:34) ==============
+DONE
