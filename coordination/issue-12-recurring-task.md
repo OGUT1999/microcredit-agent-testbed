@@ -314,6 +314,15 @@ entries (`strategy-repair-20261016T003547Z`, `scott-access-recheck-20261017T0207
 gives 62,961 to 50,785 characters and `resolve` returns the original body byte for byte.
 That example is not a selection; the writer chooses from the body it reads.
 
+The first index, `issue-12-5999201336-oda-v001.json` (sha256
+`a73774b178b66ac12a4a693216ec4b6124163243bf57cb3d28b68547ec2b1652`, entries hash
+`ee9b5aa3199f428dc2d1497fcb800317cf396836f741e1762199720a9d298cff`), holds exactly those
+eight entries, built from the 16:07:10Z body, which still held them byte for byte as at
+15:32:59Z. It is added by the same change as this section, so one reviewed merge gives
+the pointer its `index_commit`: the merge commit that first holds the file. The writer
+checks the entries against the body it reads at the time and, if any differs, builds a
+new reviewed version instead.
+
 The first replacement may happen only after all of these hold:
 
 1. The index file and this amendment are on main through non-author exact-head review,
