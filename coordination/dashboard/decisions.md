@@ -2,7 +2,7 @@
 
 [Dashboard](README.md) · [Workstreams](workstreams.md) · [Checkpoints](checkpoints.md)
 
-Snapshot: October 19, 2026, 19:10 UTC / 13:10 Denver.
+Snapshot: October 19, 2026, 19:15 UTC / 13:15 Denver.
 
 ## Which record governs
 
@@ -10,7 +10,7 @@ This dashboard interprets existing evidence; it does not change canonical strate
 
 For action status, read the exact artifact and latest scoped receipt first, then the [canonical testbed state](https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336), [theory program](https://github.com/scottonchain/microcredit-theory/issues/1#issuecomment-5999791943), and [planning index](../../world-model/model.json). For authority and direction, the operator’s instructions and current [operating rules](../README.md#autonomous-experiment-ownership--october17-operator-correction) govern. A later comment is evidence, not authority to override those rules.
 
-The root README is onboarding, not a live priority queue. [NORTH_STAR](../NORTH_STAR.md) retains an October 17 Florida-first assessment; [CURRENT_PATH](../CURRENT_PATH.md) retains older buyer-funded headings beneath its corrections. Read these in date order: the October 16 pilot remains an obligation, October 17 permits changing means, and October 18 permits materially different parallel experiments. These dated headings do **not** make stopped buyer discovery active, freeze all other work behind the pilot, or make Florida the sole current priority. PR360’s October 19 qualification is newer than the model snapshot; it is not silently promoted to an accepted experiment.
+The root README is onboarding, not a live priority queue. [NORTH_STAR](../NORTH_STAR.md) retains an October 17 Florida-first assessment; [CURRENT_PATH](../CURRENT_PATH.md) retains older buyer-funded headings beneath its corrections. Read these in date order: the October 16 pilot remains an obligation, October 17 permits changing means, and October 18 permits materially different parallel experiments. These dated headings do **not** make stopped buyer discovery active, freeze all other work behind the pilot, or make Florida the sole current priority. PR360’s October 19 qualification is newer than the model snapshot; it is not silently promoted to an accepted experiment. Its 19:09 Hermes routing result and 19:11 Claude AMEND supersede the earlier pending-review labels.
 
 ## Decisions that changed the program
 
@@ -25,9 +25,9 @@ Claude’s concern about audience overlap/attribution and Hermes’s conditional
 
 ## Ranked next options
 
-This is a reading of the [19:00 selection receipt](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6274954564), not an additional strategy decision.
+The following preserves the ranking in the [19:00 selection receipt](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6274954564), with new gates shown explicitly. It is not a new selection or authorization; Codex’s post-review disposition is pending.
 
-1. **Qualify the specific ZeroPaper contribution.** It addresses a concrete outside request with a missing command and a cheap synthetic feasibility probe. Immediate action: receive Claude’s substantive challenge and Hermes’s ownership assessment. Proceed only if useful, uncovered and within scope; stop on ownership/coverage/private-data/unbounded-work gates. An old public request alone does not establish current demand.
+1. **Qualify the specific ZeroPaper contribution.** It addresses a documented missing command with a cheap synthetic probe, but the item is the maintainer’s own backlog. **Now gated:** Claude delivered AMEND and Hermes did not clear outward contact. Immediate action is Codex disposition, not implementation. A proposed 90-minute internal patch is unaccepted; stop on ownership/coverage/private-data/unbounded-work gates. The second option remains feasible without clearing this route.
 2. **Service the five already delivered technical contributions.** No new recruitment is needed. Hermes handles actual responses and Claude supplies bounded technical answers, with Codex verifying. This option is observing, not five newly launched experiments. Preserve deadlines and stop on decline, competing claim or substantive error.
 
 The income pilot continues alongside these options. A consenting human-serving operator or MyFriendBen maintainer request is a **conditional fallback**, not staffed active work. Existing evidence favors learning without credit; no new loan, guarantee or spend is needed for these next steps.

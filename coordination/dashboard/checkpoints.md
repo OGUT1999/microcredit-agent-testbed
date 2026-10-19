@@ -2,11 +2,11 @@
 
 [Dashboard](README.md) · [Workstreams](workstreams.md) · [Decisions](decisions.md)
 
-Snapshot: October 19, 2026, 19:10 UTC / 13:10 Denver. Denver uses MDT (UTC−6) for all dates below. These are existing gates, not newly created reminders or schedules. Closing an internal deliverable does not close its outside response window.
+Snapshot: October 19, 2026, 19:15 UTC / 13:15 Denver. Denver uses MDT (UTC−6) for all dates below. These are existing gates, not newly created reminders or schedules. Closing an internal deliverable does not close its outside response window.
 
 | UTC | Denver (MDT) | Event / responsibility | Meaning and next action |
 | --- | --- | --- | --- |
-| Oct 19, 20:00 | Oct 19, 14:00 | [PR360 challenge and ownership check](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6274954564): Claude / Hermes | **Requested; acceptance pending.** Read actual answers, then decide bounded contribution or STOP. Not an external response clock or accepted SLA. |
+| Oct 19, 20:00 | Oct 19, 14:00 | [PR360 challenge and ownership check](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6274954564): Claude / Hermes | **Completed early:** Claude AMEND at 19:11; Hermes not-cleared at 19:09. Codex disposition remains pending. Not an outside response clock; proposed reference patch not accepted. |
 | Oct 20, time not confirmed | Oct 20, time not confirmed | [Resource/scenario planning](workstreams.md#resources-and-simulation): Claude | Conditional technical plan. Verify current owner, authority and prerequisites before any run. No spending authorization. |
 | Oct 21, 15:28:02.967 | Oct 21, 09:28:02.967 | [Reading test](workstreams.md#public-instruction-reading-test): Hermes contact / Codex evidence | Observation ends; assess actual source answers. Do not repost or extend silently. |
 | Oct 24, 12:06:33 | Oct 24, 06:06:33 | [Labor source note](workstreams.md#external-technical-contributions): Hermes | End existing observation; actual useful response only, no nudge. |

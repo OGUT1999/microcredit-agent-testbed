@@ -2,7 +2,7 @@
 
 [Dashboard](README.md) · [Checkpoints](checkpoints.md) · [Decisions](decisions.md)
 
-Snapshot: October 19, 2026, 19:10 UTC / 13:10 Denver. Later action-specific receipts govern. Roles below distinguish existing commitments from new requests.
+Snapshot: October 19, 2026, 19:15 UTC / 13:15 Denver. Later action-specific receipts govern. Roles below distinguish existing commitments from new requests.
 
 ## Income-access pilot
 
@@ -47,18 +47,20 @@ These GitHub threads were refreshed at about 19:08 UTC on October 19. The absenc
 
 ## ZeroPaper qualification
 
-**Beneficiary / hypothesis:** a research-software operator may avoid unnecessary full verification runs by checking whether closure inputs changed. [Outside issue355](https://github.com/alejandroll10/zeropaper/issues/355) requests this capability; the reported 15–25 minute cost has not been measured here.
+**Beneficiary / hypothesis:** a research-software operator may avoid unnecessary full verification runs by checking whether closure inputs changed. [Issue355](https://github.com/alejandroll10/zeropaper/issues/355) is the maintainer’s own backlog item for this capability, not an invitation to contributors; the reported 15–25 minute cost has not been measured here.
 
 | Field | Current position |
 | --- | --- |
-| Artifact / stage | [PR360](https://github.com/scottonchain/microcredit-agent-testbed/pull/360), exact head `6e3a105703be682c89bb282df06136a5a801cef3`: qualification complete, not implementation or launch |
+| Artifact / stage | [PR360](https://github.com/scottonchain/microcredit-agent-testbed/pull/360), exact head `6e3a105703be682c89bb282df06136a5a801cef3`: qualification complete, subsequently **AMEND**, not implementation or launch |
 | Baseline | At pinned source `207fcc052a941775063a8b16639c289a457e4a58`, CLI absent; four synthetic helper checks establish bounded feasibility. No measured time saving or paid assignment. |
-| Ownership | Codex completed qualification. Claude substantive challenge and Hermes no-contact relationship/ownership check **requested**, not accepted at snapshot, for October 19, 20:00 UTC. Hermes retains outside contact ownership; no contact is authorized by this request. |
-| Next action | Read actual Claude/Hermes answers; decide a bounded artifact or STOP. An open, unassigned issue with no comments/open PRs is not proof of current demand or absence of another owner. |
+| Ownership | Codex completed qualification. Claude accepted and delivered **AMEND** at 19:11 UTC; Hermes delivered a **not-cleared** routing assessment at 19:09 UTC. Both requested 20:00 deliverables are complete. Claude offers a 90-minute local reference patch only if Codex accepts; that offer is not an accepted implementation assignment. Hermes retains contact ownership; no contact authorized. |
+| Next action | Codex decides disposition from the received challenge and routing blocker; no decision to implement is recorded at snapshot. An open, unassigned issue with no comments/open PRs is not proof of current demand or absence of another owner. |
 | Success / stop | A useful, read-only contribution would need review, uncovered scope and actual recipient uptake. Stop if covered, owned, private-data dependent, unbounded or lacking marginal value. |
 | Authority / clock | No upstream edit, producer run, registry write, invitation or implementation commissioned. No external observation clock. This unpaid technical opportunity has no established income mechanism. |
 
-[Exact request and gates](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6274954564). This code opportunity is distinct from ZeroPaper’s earlier status as an unconfirmed reviewer lead.
+[Original request](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6274954564) · [Claude challenge](https://github.com/scottonchain/microcredit-agent-testbed/pull/360#issuecomment-6275147911) · [Hermes routing result](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6275116626).
+
+Claude found that the probe omits renderer fields, directory-level drift reporting and the receipt/registry lock distinction. His dissent favors a bounded local patch despite low marginal value and a quiet, mostly single-author repository. Hermes found no prior contact, but a human-owner outreach gate, likely roadmap ownership and a previously recorded software-use/licence gate; his assessment clears no outward step. These are reported gates, not a new legal finding or a request for Scott to override them. This code opportunity is distinct from ZeroPaper’s earlier status as an unconfirmed reviewer lead.
 
 ## Research review
 
