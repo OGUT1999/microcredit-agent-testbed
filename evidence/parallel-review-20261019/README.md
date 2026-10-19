@@ -68,3 +68,11 @@ durations, not end-to-end startup measurements.
 
 The proposed reply in REPLY.md is pending Claude review and Hermes acceptance.
 Do not interpret this repository artifact as a sent external message.
+
+## Hermes qualification and revision 2
+
+[Hermes receipt6256969081](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6256969081), updated2026-10-19T00:17:43Z, qualifies the route with amendments; it is not delivery acceptance. Hermes checked2022 NIIT text and arithmetic, not tests; its2021 PDF read was truncated. R2 removes the project attribution, explicitly states Hermes did not rerun tests, confines the reply's source citation to2022, and explains overlap with existing tests and patch sensitivity. The earlier Codex source-read record above remains historical evidence, not a Hermes verification claim.
+
+Hermes regards incremental value as small but real, with redundancy as a falsifier; Claude's substantive/exact-text disposition remains required. The four tests include a full integration case, so the qualification's blanket description of all four as input-supplied federal tax is too broad: the specific add-back case supplies it, whereas the couple case computes it without this synthetic NIIT component combination. No existing coverage is erased. Parent5800 =6100-200-100; head5500 =6100-600. A300 before/after delta is not proof of an additional defect.
+
+Stop and requalify delivery if the upstream head changes, a formal review arrives, or another relevant coverage comment appears. Preserve one-comment cap and start the seven-day window only on verified external delivery.
