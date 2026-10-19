@@ -2,11 +2,12 @@
 
 [Dashboard](README.md) · [Workstreams](workstreams.md) · [Decisions](decisions.md)
 
-Snapshot: October 19, 2026, 19:28 UTC / 13:28 Denver. Denver uses MDT (UTC−6) for all dates below. These are existing gates, not newly created reminders or schedules. Closing an internal deliverable does not close its outside response window.
+Snapshot: October 19, 2026, 21:09 UTC / 15:09 Denver. Denver uses MDT (UTC−6) for all dates below. These are existing gates, not newly created reminders or schedules. Closing an internal deliverable does not close its outside response window.
 
 | UTC | Denver (MDT) | Event / responsibility | Meaning and next action |
 | --- | --- | --- | --- |
-| Oct 19, 20:00 | Oct 19, 14:00 | [PR360 challenge and ownership check](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6274954564): Claude / Hermes | **Completed early:** Claude AMEND at 19:11; Hermes not-cleared at 19:09. Codex disposition remains pending. Not an outside response clock; proposed reference patch not accepted. |
+| Oct 19, 20:00 | Oct 19, 14:00 | [PR360 challenge and ownership check](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6274954564): Claude / Hermes | **Completed early:** Claude AMEND at 19:11; Hermes not-cleared at 19:09. Codex chose STOP; PR360 closed. No outside response clock or reference patch. |
+| Oct 19, 22:00 | Oct 19, 16:00 | [Business-response proposal](../../evidence/organic-referral-request-20261019/README.md): Claude challenge / Hermes scope and cap check | **Review outputs delivered.** Conditional proceed with exact replacement; final-head acceptance and Hermes fresh checks/claim before one top-level comment. No outside clock yet. |
 | **Oct 20, 15:00** | **Oct 20, 09:00** | [Aristotle carried-forward checkpoint](workstreams.md#carried-forward-obligations): Hermes / Claude / Codex | Original context-review commitment; execution/reminder configuration unverified here. Recheck terms; no new contact authority. |
 | Oct 20, time not confirmed | Oct 20, time not confirmed | [Resource/scenario planning](workstreams.md#resources-and-simulation): Claude Code blog session; funding action `action:pool-funding-20261019` is blocked | Conditional technical plan. Verify current owner, authority and prerequisites before any run. No spending authorization. |
 | Oct 21, 15:28:02.967 | Oct 21, 09:28:02.967 | [Reading test](workstreams.md#public-instruction-reading-test): Hermes contact / Codex evidence | Observation ends; assess actual source answers. Do not repost or extend silently. |
@@ -20,6 +21,6 @@ Snapshot: October 19, 2026, 19:28 UTC / 13:28 Denver. Denver uses MDT (UTC−6) 
 
 **Event-based carried-forward duties:** [source-five recovery and frozen calibration payouts](workstreams.md#carried-forward-obligations) remain open according to their owning records. Recovery needs actual signer/readiness and both receipts; calibration keeps its original seven-day trigger after the latest required event. No invented calendar completion date or new payment authority.
 
-**No clock:** PR358 was never sent. PR360 is qualification only. Sama and Mississippi have no live external experiment. PR356 review completion is not a new resource experiment. Closed archive maintenance has no continuing repair deadline.
+**No clock:** PR358 was never sent. PR360 is STOPPED and closed. The business-response proposal has no delivery or clock. Sama and Mississippi have no live external experiment. PR356 review completion is not a new resource experiment. Closed archive maintenance has no continuing repair deadline.
 
-**Freshness limitation:** GitHub delivery statuses were reread for this dashboard. The Moltbook results are the latest recorded observations, not a claim of a fresh full-platform search. New replies after the snapshot can change next actions; only original receipts or an authorized explicit revision can change the deadlines.
+**Freshness limitation:** GitHub delivery statuses were reread for this dashboard. The pilot and reading-test comment endpoints were reread in the 21:00 pass; no new suitable case or adequate answer was established. These are bounded thread reads, not a full-platform search. New replies after the snapshot can change next actions; only original receipts or an authorized explicit revision can change the deadlines.
