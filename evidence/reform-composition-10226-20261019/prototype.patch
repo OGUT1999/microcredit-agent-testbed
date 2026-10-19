@@ -106,6 +106,82 @@ index 4d5d1f4c86a..dd9b3bf59d9 100644
  
      class reform(Reform):
          def apply(self):
+diff --git a/policyengine_us/tests/fixtures/tx_rebate_future.yaml b/policyengine_us/tests/fixtures/tx_rebate_future.yaml
+new file mode 100644
+index 00000000000..db73aaa1c66
+--- /dev/null
++++ b/policyengine_us/tests/fixtures/tx_rebate_future.yaml
+@@ -0,0 +1,70 @@
++# Claude review: the stated repeat test. A program added to the baseline list later must survive the Texas reform without a Texas edit.
++- name: Texas reform counts a program added to the baseline list later
++  period: 2027
++  reforms: policyengine_us.reforms.states.tx.rebate.tx_rebate.tx_rebate
++  input:
++    social_security: [0, 0, 0, 0, 0, 0]
++    ssi: [0, 0, 0, 0, 0, 0]
++    in_ssp: [0, 0, 0, 0, 0, 0]
++    ct_ssp: [0, 0, 0, 0, 0, 0]
++    ga_ssp: [0, 0, 0, 0, 0, 0]
++    al_ssp: [0, 0, 0, 0, 0, 0]
++    ak_ssp: [0, 0, 0, 0, 0, 0]
++    dc_ossp: [0, 0, 0, 0, 0, 0]
++    id_aabd: [0, 0, 0, 0, 0, 0]
++    ky_ssp: [0, 0, 0, 0, 0, 0]
++    de_ssp: [0, 0, 0, 0, 0, 0]
++    fl_oss: [0, 0, 0, 0, 0, 0]
++    nj_ssp: [0, 0, 0, 0, 0, 0]
++    pa_ssp: [0, 0, 0, 0, 0, 0]
++    wy_ssp: [0, 0, 0, 0, 0, 0]
++    nc_sa: [0, 0, 0, 0, 0, 0]
++    ks_sspp: [0, 0, 0, 0, 0, 0]
++    hi_oss: [0, 0, 0, 0, 0, 0]
++    la_oss: [0, 0, 0, 0, 0, 0]
++    ma_state_supplement: [0, 0, 0, 0, 0, 0]
++    md_paa: [0, 0, 0, 0, 0, 0]
++    wa_ssp: [0, 0, 0, 0, 0, 0]
++    mi_ssp: [0, 0, 0, 0, 0, 0]
++    me_ssp: [0, 0, 0, 0, 0, 0]
++    mo_ssp: [0, 0, 0, 0, 0, 0]
++    mn_msa: [0, 0, 0, 0, 0, 0]
++    ne_aabd: [0, 0, 0, 0, 0, 0]
++    nv_oss: [0, 0, 0, 0, 0, 0]
++    ca_cvrp: [0, 0, 0, 0, 0, 0]
++    ca_state_supplement: [0, 0, 0, 0, 0, 0]
++    co_ccap_subsidy: [0, 0, 0, 0, 0, 0]
++    co_state_supplement: [0, 0, 0, 0, 0, 0]
++    co_oap: [0, 0, 0, 0, 0, 0]
++    wa_child_care_subsidies: [0, 0, 0, 0, 0, 0]
++    nm_ssi_state_supplement: [0, 0, 0, 0, 0, 0]
++    sc_ssi_state_supplement: [0, 0, 0, 0, 0, 0]
++    tx_ssi_state_supplement: [0, 0, 0, 0, 0, 0]
++    wv_child_care_subsidies: [0, 0, 0, 0, 0, 0]
++    snap: [0, 0, 0, 0, 0, 0]
++    wic: [0, 0, 0, 0, 0, 0]
++    free_school_meals: [0, 0, 0, 0, 0, 0]
++    reduced_price_school_meals: [0, 0, 0, 0, 0, 0]
++    child_support_received: [0, 0, 0, 0, 0, 0]
++    workers_compensation: [0, 0, 0, 0, 0, 0]
++    educational_assistance: [0, 0, 0, 0, 0, 0]
++    financial_assistance: [0, 0, 0, 0, 0, 0]
++    survivor_benefits: [0, 0, 0, 0, 0, 0]
++    spm_unit_energy_subsidy: [0, 0, 0, 0, 0, 0]
++    tanf: [0, 0, 0, 0, 0, 0]
++    wa_sfa: [0, 0, 0, 0, 0, 0]
++    wa_rca: [0, 0, 0, 0, 0, 0]
++    high_efficiency_electric_home_rebate: [0, 0, 0, 0, 0, 0]
++    residential_efficiency_electrification_rebate: [0, 0, 0, 0, 0, 0]
++    total_unemployment_compensation: [0, 0, 0, 0, 0, 0]
++    ak_energy_relief: [0, 0, 0, 0, 0, 0]
++    basic_income: [0, 0, 0, 0, 0, 0]
++    trump_dividend: [0, 0, 0, 0, 0, 0]
++    ny_drive_clean_rebate: [0, 0, 0, 0, 0, 0]
++    state_code: [CA, NC, NJ, NV, PA, WY]
++    age: [40, 40, 40, 40, 40, 40]
++    spm_unit_capped_housing_subsidy: [0, 0, 0, 0, 0, 0]
++    assigned_aca_ptc: [0, 0, 0, 0, 0, 0]
++    claude_future_benefit: [0, 0, 0, 0, 0, 77]
++  output:
++    spm_unit_benefits: [0, 0, 0, 0, 0, 77]
 diff --git a/policyengine_us/tests/policy/reform/trump_dividend_in_tx_rebate_benefit_aggregates.yaml b/policyengine_us/tests/policy/reform/trump_dividend_in_tx_rebate_benefit_aggregates.yaml
 index 35a7dff884b..ded7fb754bf 100644
 --- a/policyengine_us/tests/policy/reform/trump_dividend_in_tx_rebate_benefit_aggregates.yaml
@@ -274,3 +350,65 @@ index 0f8fface8ac..dff92be655b 100644
          f"expected the reform-side benefit aggregate copies, found {sorted(found)}"
      )
  
+diff --git a/policyengine_us/tests/test_tx_rebate_future_baseline.py b/policyengine_us/tests/test_tx_rebate_future_baseline.py
+new file mode 100644
+index 00000000000..278b8ceb83f
+--- /dev/null
++++ b/policyengine_us/tests/test_tx_rebate_future_baseline.py
+@@ -0,0 +1,56 @@
++"""Guard baseline extensions without changing production benefit lists.
++
++YAML cannot temporarily extend the baseline Python formula with a new input
++variable. This six-household test uses a test-only variable and scoped formula
++replacement. It tests baseline preservation, not arbitrary reform stacking.
++"""
++
++from pathlib import Path
++
++import pytest
++import yaml
++
++
++def test_tx_rebate_preserves_future_baseline_program(monkeypatch):
++    from policyengine_us import Simulation
++    from policyengine_us.model_api import Reform, SPMUnit, Variable, YEAR, add
++    from policyengine_us.reforms.states.tx.rebate.tx_rebate import tx_rebate
++    from policyengine_us.variables.household.income.spm_unit.spm_unit_benefits import (
++        spm_unit_benefits,
++    )
++
++    class claude_future_benefit(Variable):
++        value_type = float
++        label = "Test-only future baseline benefit"
++        entity = SPMUnit
++        definition_period = YEAR
++
++    original_formula = spm_unit_benefits.formula
++
++    def extended_baseline(spm_unit, period, parameters):
++        return original_formula(spm_unit, period, parameters) + add(
++            spm_unit, period, ["claude_future_benefit"]
++        )
++
++    # Simulate a future upstream baseline, not an earlier policy reform.
++    # Restore the imported class even if an assertion or model build fails.
++    monkeypatch.setattr(spm_unit_benefits, "formula", extended_baseline)
++
++    class future_baseline(Reform):
++        def apply(self):
++            # Country-system construction reapplies the reform set.
++            self.update_variable(claude_future_benefit)
++            self.update_variable(spm_unit_benefits)
++
++    # Exact six-state future-program case supplied by the non-author review.
++    # The fixture stays outside policy/ so the YAML runner does not execute it
++    # without this test-only baseline extension.
++    fixture = Path(__file__).parent / "fixtures/tx_rebate_future.yaml"
++    case = yaml.safe_load(fixture.read_text())[0]
++    inputs = case["input"]
++    simulation = Simulation(
++        situation=inputs, reform=(future_baseline, tx_rebate), default_input_period=2027
++    )
++    assert simulation.calculate("spm_unit_benefits", 2027) == pytest.approx(
++        case["output"]["spm_unit_benefits"]
++    )
