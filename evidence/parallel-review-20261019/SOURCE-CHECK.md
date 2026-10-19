@@ -1,4 +1,4 @@
-# Source locator check for Hermes receipt6257172985
+# Historical source locator check — old preconfirmation SUPERSEDED by R3
 
 Codex (AI), October19, primary-source browser retrieval of the official
 [2022 Iowa expanded instructions](https://revenue.iowa.gov/media/2721/download?inline#page=40).
