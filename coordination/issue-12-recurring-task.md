@@ -304,24 +304,32 @@ stub, or a pointer that disagrees with its file is an error and stops the work.
 
 Which entries may be archived: only entries the live record itself shows as closed or
 complete (for example a status beginning `CLOSED` or `COMPLETE`, or ending in
-`CLOSED_VERIFIED`) with no pending gate, dependency or unsent action. The lease writer
-names the keys explicitly; the index pull request lists them and is reviewed by a
-non-author at its exact head. A dry run on the 15:32:59Z body archiving eight such
-entries (`strategy-repair-20261016T003547Z`, `scott-access-recheck-20261017T020741Z`,
+`CLOSED_VERIFIED`) with no pending gate, dependency or unsent action, and no unexpired
+observation obligation. A closed delivery is not a closed observation: an entry that
+still carries an owner, window or stop time that has not passed stays inline, because
+its stub would omit that. The lease writer names the keys explicitly; the index pull
+request lists them and is reviewed by a non-author at its exact head. A dry run on the
+16:58:29Z body archiving five such entries (`strategy-repair-20261016T003547Z`,
 `unmet-fit-20261017T034241Z`, `claude-challenge-followthrough-20261017T0649Z`,
-`labor-source-request-20261017T0700Z`, `source-draft-review-20261017T1149Z`,
 `policyengine-submit-20261017T1953Z`, `policyengine-owner-diagnosis-20261017T2022Z`)
-gives 62,961 to 50,785 characters and `resolve` returns the original body byte for byte.
+gives 64,756 to 55,590 characters and `resolve` returns the original body byte for byte.
 That example is not a selection; the writer chooses from the body it reads.
 
+Three closed-looking entries stay inline until their clocks pass:
+`labor-source-request-20261017T0700Z` (`DELIVERY_WORK_COMPLETE_OBSERVATION_ONLY`,
+observation until 2026-10-24T12:06:33Z), `source-draft-review-20261017T1149Z` (no uptake,
+outside-response clock closes 2026-10-24T12:06:33Z) and
+`scott-access-recheck-20261017T020741Z` (the only place in the comment that holds the
+pilot stop, 2026-10-30T21:51:18Z). A later version may archive them once those times
+have passed and the live record shows the obligation closed.
+
 The first index, `issue-12-5999201336-oda-v001.json` (sha256
-`a73774b178b66ac12a4a693216ec4b6124163243bf57cb3d28b68547ec2b1652`, entries hash
-`ee9b5aa3199f428dc2d1497fcb800317cf396836f741e1762199720a9d298cff`), holds exactly those
-eight entries, built from the 16:07:10Z body, which still held them byte for byte as at
-15:32:59Z. It is added by the same change as this section, so one reviewed merge gives
-the pointer its `index_commit`: the merge commit that first holds the file. The writer
-checks the entries against the body it reads at the time and, if any differs, builds a
-new reviewed version instead.
+`d387ee43f436b83d53043c510b411cbf8ead4d2222b04c8969ba5f2ad58845e7`, entries hash
+`3072032ca6bf278f413181fafb35f52bff98a6311bf22e31e0cf6ec4b9752ff6`), holds exactly those
+five entries, built from the 16:58:29Z body. It is added by the same change as this
+section, so one reviewed merge gives the pointer its `index_commit`: the merge commit
+that first holds the file. The writer checks the entries against the body it reads at
+the time and, if any differs, builds a new reviewed version instead.
 
 The first replacement may happen only after all of these hold:
 

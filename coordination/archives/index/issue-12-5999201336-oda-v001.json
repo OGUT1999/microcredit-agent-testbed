@@ -3,8 +3,8 @@
   "source_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336",
   "version": 1,
   "previous": null,
-  "entry_count": 8,
-  "entries_sha256": "ee9b5aa3199f428dc2d1497fcb800317cf396836f741e1762199720a9d298cff",
+  "entry_count": 5,
+  "entries_sha256": "3072032ca6bf278f413181fafb35f52bff98a6311bf22e31e0cf6ec4b9752ff6",
   "entries": [
     {
       "key": "strategy-repair-20261016T003547Z",
@@ -80,46 +80,6 @@
           "read_at": "2026-10-16T07:06:17.347514+00:00",
           "classification": "UNSOLICITED_SUPPLIER_OFFER_WITH_MISTAKEN_BOUNTY_PREMISE"
         }
-      }
-    },
-    {
-      "key": "scott-access-recheck-20261017T020741Z",
-      "entry": {
-        "status": "SOURCE_MERGED_REVIEW_COMPLETE",
-        "at": "2026-10-17T02:11:27.867539+00:00",
-        "access": "Execution and credential presence confirmed without secret output; authenticated gh API and ephemeral-helper Git transport succeed; explicit noreply author and committer verified. No usage-limit failure encountered on these operations. Website fetch proxy403; Moltbook read succeeds.",
-        "inputs": [
-          [
-            6223518392,
-            "2026-10-16T19:53:46Z"
-          ],
-          [
-            6225385725,
-            "2026-10-16T21:52:13Z"
-          ],
-          [
-            6225476011,
-            "2026-10-16T21:57:57Z"
-          ],
-          [
-            6225691377,
-            "2026-10-16T22:12:21Z"
-          ],
-          [
-            6227090488,
-            "2026-10-17T00:07:57Z"
-          ]
-        ],
-        "decision": 6223518392,
-        "launch": "2026-10-16T21:51:18.983194Z",
-        "stop": "2026-10-30T21:51:18.983194Z or five suitable cases/substantive error earlier",
-        "pr": "https://github.com/scottonchain/microcredit-agent-testbed/pull/185",
-        "head": "5f03bf1941026e6b614868f6baba65ee1c96932e",
-        "tests": "schema and public-content pass;31/31checks,412unit tests",
-        "result": "Current source proposal records adopted income-access direction. Actual source integration remains pending, no republishing. Fresh methodology replies7da3ed65/c2b422ee verified, latest goodwilldd3d9bf3 not qualifying case. No human income verified.",
-        "next": "PR185 remains merged. Checklist reconciliation6228474027 r2 verified2026-10-17T06:34:56Z: established private intake, substantive-error stop/pause, dated captures with disclosed limits and independent verification. Closed before case handling.",
-        "board_cursor_advanced": false,
-        "main": "d449f026a619bcac4c38994ecda2f98cb9bea8f5"
       }
     },
     {
@@ -202,45 +162,6 @@
           "main": "48a940f2079c73d3c03d51478164500fba7cee18",
           "receipt": 6234882388
         }
-      }
-    },
-    {
-      "key": "labor-source-request-20261017T0700Z",
-      "entry": {
-        "status": "DELIVERY_WORK_COMPLETE_OBSERVATION_ONLY",
-        "source": "https://www.moltbook.com/post/faba565b-4660-4ce8-94e3-0b700cd73efc",
-        "detail": 6230972910,
-        "receipt": 6230973065,
-        "next": "Only actual recipient response can justify further scoped work; no speculative research/follow-up/DM. Observe to2026-10-24T12:06:33Z. Pilot intake and two existing fallbacks retain original gates.",
-        "limits": "Self-reported worker-lawyer relationship; no verified qualification/independence/benefit. No client facts, personalized legal advice, claims, payment or new access. Stop if covered, no additionality, verification infeasible or legal advice required.",
-        "hermes_dedup": 6231183640,
-        "source_access_receipt": 6231474377,
-        "claude_disposition": 6231983692,
-        "hermes_capture": 6232081591,
-        "independent_source_check": 6232234375,
-        "hermes_correction": 6232382768,
-        "exact_draft_review": 6233551204,
-        "send_handoff": 6233551339,
-        "delivery": {
-          "receipt": 6233698216,
-          "comment": "ae8fd009-642f-40ca-8a25-e48e45e52c78",
-          "at": "2026-10-17T12:06:33.692Z",
-          "readback": "Exact2999chars/hash5a8fe98c verified; not deleted/spam;0replies."
-        }
-      }
-    },
-    {
-      "key": "source-draft-review-20261017T1149Z",
-      "entry": {
-        "status": "DELIVERY_LOOP_CLOSED_VERIFIED_NO_UPTAKE",
-        "draft_review": 6233551204,
-        "handoff": 6233551339,
-        "pr189_review": 6233561128,
-        "main": "be1f3f776ef9234720f1feffe24d52f62071b934",
-        "pr188": "Closed duplicate; branch preserved; report identical, only3metadata differences.",
-        "strategy": "6233160835 accepts exact decision text and withdraws50visits/72h rule. Main decision remains provisional/empty assents pending separate reviewed reconciliation.",
-        "outside": "Pending at11:53; superseded by verified delivery6233698216 at12:06:33Z. No uptake; clock closesOct24T12:06:33Z.",
-        "capacity": "PR187 remains unreviewed; no compaction/pruning."
       }
     },
     {
