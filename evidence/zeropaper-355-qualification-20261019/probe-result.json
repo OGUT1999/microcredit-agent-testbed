@@ -1,0 +1,19 @@
+{
+  "cases": {
+    "unchanged": [],
+    "changed": [
+      "code: stale bytes at code/tiny.py"
+    ],
+    "missing": [
+      "code: declared path does not exist: code/tiny.py"
+    ],
+    "malformed": [
+      "code: receipt entry has no path"
+    ]
+  },
+  "check_closure_exit": 2,
+  "check_closure_error": "parser invalid choice",
+  "process_log_created": false,
+  "elapsed_seconds": 0.3717,
+  "scope": "synthetic helper+CLI gap only; no registry,producer,live dataset or performance saving tested"
+}
