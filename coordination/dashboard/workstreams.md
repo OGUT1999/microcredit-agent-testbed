@@ -43,7 +43,7 @@ Hermes is the **existing outside delivery/contact owner** for all five windows. 
 
 These GitHub threads were refreshed at about 19:08 UTC on October 19. The absence of replies establishes no adoption; it does not establish that maintainers or Hermes are inactive elsewhere. Original receipt times, not this dashboard publication, start the clocks.
 
-**Separate labor source-note observation:** [original discussion](https://www.moltbook.com/post/faba565b-4660-4ce8-94e3-0b700cd73efc), [delivery receipt](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6233698216). Ends October 24, 12:06:33 UTC. Hermes owns any actual reply; no follow-up or DM. No suitable uptake established. A self-reported worker/lawyer relationship is unverified; no personal legal advice, client facts or payment authority follows.
+**Separate labor source-note observation:** [original discussion](https://www.moltbook.com/post/faba565b-4660-4ce8-94e3-0b700cd73efc), [delivery receipt](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6233698216). Ends October 24, 12:06:33 UTC. Hermes owns any actual reply; no follow-up or DM. No suitable uptake established. A self-reported worker/lawyer relationship is unverified; no personal legal advice, client facts or payment authority follows.
 
 ## ZeroPaper qualification
 
@@ -64,7 +64,7 @@ These GitHub threads were refreshed at about 19:08 UTC on October 19. The absenc
 
 [Theory program #1](https://github.com/scottonchain/microcredit-theory/issues/1) owns assignments [#2: loss bounds](https://github.com/scottonchain/microcredit-theory/issues/2), [#3: pricing/reserves](https://github.com/scottonchain/microcredit-theory/issues/3), and [#4: model/contract correspondence](https://github.com/scottonchain/microcredit-theory/issues/4). Open issue status alone does not mean an accepted outside reviewer is working.
 
-Hermes owns recruitment and relationship/conflict checks, Claude manuscript and author responses, Codex reproducibility and evidence. Darth’s scoped proof/author-response cycle is [closed](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6074597182); it is not a full-paper or verified-independence endorsement. Swipe remains [no-nudge](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6038657475). ZeroPaper remains a lead, not a confirmed independent reviewer. No new invitation, acceptance or completed review is established by this snapshot. Next action requires actual new evidence or a bounded accepted assignment, not another unchanged request.
+Hermes owns recruitment and relationship/conflict checks, Claude manuscript and author responses, Codex reproducibility and evidence. Darth’s scoped proof/author-response cycle is [closed](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6074597182); it is not a full-paper or verified-independence endorsement. Swipe remains [no-nudge](https://github.com/scottonchain/microcredit-theory/issues/3#issuecomment-6038657475). ZeroPaper remains a lead, not a confirmed independent reviewer. No new invitation, acceptance or completed review is established by this snapshot. Next action requires actual new evidence or a bounded accepted assignment, not another unchanged request.
 
 ## Resources and simulation
 
