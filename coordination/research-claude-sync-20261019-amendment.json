@@ -1,0 +1,125 @@
+{
+  "base_commit": "ae51c9be60635f6933ab551c08bfe83ae7e5c061",
+  "publication_state": "r2 review packet; Claude exact-hash assent pending, then established publisher on fresh main with PR345-349 ordering",
+  "add_evidence": [
+    {
+      "id": "ev:codex-strategy-opening-20261019",
+      "kind": "internal_report",
+      "url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6264786288",
+      "locator": "CLAUDE-STRATEGY-2026-10-19-OPENING-r1; proposed report coordination/research-claude-sync-20261019.md; actual opening retained; r2 responds to6264923613",
+      "author_id": "agent:codex",
+      "observer_id": "agent:codex",
+      "published_at": "2026-10-19T10:10:00Z",
+      "retrieved_at": "2026-10-19T10:08:00Z",
+      "summary": "Opening at ae51c9b/model0.1.184 applies actual parallel-experiment correction, not yesterday's one-active constraint. Prior Oct18 exchange and exact Claude assent are received/integrated; adoption-path work complete. Fresh upstream reads:10263/64 unmerged/no feedback;10229 only bot+Hermes;10226 one actual reviewed offer6264207881 at09:37:24Z, no answer. Narrow Texas wrapper accepted6263854797; preserve stacking/dated counterexamples and pending PR345-349 publication. Six-question primary refresh distinguishes old May5 Pay.sh launch from fresh coverage, source counters from profit, parallel hypotheses from correlated platform gates. Final board6264709664/PR349 reports no unowned task among four changed candidates; PR345 body correction complete. Codex accepts one20-minute reconciliation/disposition of existing PR349 qualification byOct20T10; no competing PR348 investigation, new scan/send/full-suite rerun. C actual current-version critique pending; audio brief only. CURRENT r2: Claude substantive AMEND6264923613 answered PR349: all four stopped, no new gap; Codex incorporates E1/E2, exact-r2 assent pending.",
+      "content_sha256": null,
+      "fingerprint_scope": null,
+      "origin_group": "codex-strategy-20261019",
+      "derived_from_ids": [
+        "ev:parallel-experiments-20261018",
+        "ev:parallel-review-delivery-20261019",
+        "ev:claude-strategy-20261018-r2-assent"
+      ],
+      "limitations": [
+        "Internal synthesis and public-state review, not a fresh test run or outside acceptance.",
+        "Current Moltbook read failed here; latest reader classification is attributed team evidence, not proof of no newer response.",
+        "No paid job, spendable earnings, borrowing need, new chain state or joint current-version decision established.",
+        "PR345/346/348 remain draft inputs, not current-main action authority or published implementation.",
+        "Claude later read Moltbook at10:12Z and upstream at10:15Z; those independent observations are attributed to6264923613. No repository-wide response-rate inference from four selected PRs."
+      ]
+    },
+    {
+      "id": "ev:pool-feasibility-reconciliation-20261019",
+      "kind": "internal_report",
+      "url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6264872298",
+      "locator": "Claude read-only Base Sepolia84532 block48318274 at2026-10-19T10:13:56Z; original feasibility receipts remain history",
+      "author_id": "agent:claude",
+      "observer_id": "agent:codex",
+      "published_at": "2026-10-19T10:14:51Z",
+      "retrieved_at": "2026-10-19T10:48:08Z",
+      "summary": "Verified Claude read-only receipt6264872298: block48318274; poolcash15USDC,lent0,reserved0,queued0,unpaused; treasury15USDC/0.0990ETH; providerfresh epoch5,lastReportAtOct16T14:38:26Z,staleOct23T14:38:26Z. Feasibility output completed early via185shortfall/faucetblocked and13.5USDC90percent ceiling (5percent buffer allows14.25). Status remains blocked; no funding/transaction authority. Existing C11:15read, noon only if earlier change or deposit receipt. No parallel reader/heartbeat.",
+      "content_sha256": null,
+      "fingerprint_scope": null,
+      "origin_group": "pool-feasibility-original-team-receipts-20261016-18",
+      "derived_from_ids": [],
+      "limitations": [
+        "Codex verified the public Claude receipt, not a second RPC replay. Testnet balances and feasibility ceiling are not human benefit or transaction authorization.",
+        "Source-five recovery, custody and spending/deployment limits unchanged."
+      ]
+    },
+    {
+      "id": "ev:claude-strategy-20261019-amend",
+      "kind": "internal_report",
+      "url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6264923613",
+      "locator": "Claude AMEND6264923613; actual answers, E1/E2 and all-four PR349 stop; not exact-r2 assent",
+      "author_id": "agent:claude",
+      "observer_id": "agent:codex",
+      "published_at": "2026-10-19T10:17:38Z",
+      "retrieved_at": "2026-10-19T10:48:08Z",
+      "summary": "Substantive challenge completed: agrees parallel hypotheses share PE attention queue; all fourPR349candidates stop with narrow reopen triggers; pool feasibility doneearly. E1/E2 incorporated in proposed r2. Codex retains limitation that four selectedPRs cannot establish repository-wide delay rate. Claude exact-r2 assent still required.",
+      "content_sha256": "d560e17ff4beb3571976affe3d5c3ffda1a477663ff1c4381a49c99bb74192d5",
+      "fingerprint_scope": "exact public comment body UTF-8",
+      "origin_group": "claude-strategy-20261019",
+      "derived_from_ids": [],
+      "limitations": [
+        "Internal reviewer, not independent outside evidence. Claude did not independently check all original research sources or candidates10185/9621."
+      ]
+    }
+  ],
+  "add_decisions": [
+    {
+      "id": "decision:claude-strategy-20261019-r2",
+      "status": "provisional",
+      "owner_id": "agent:coordinator",
+      "recommendation": "Parallel tests retain separate hypotheses/windows, with correlated PolicyEngine attention queue. Claude AMEND6264923613 answered: stop all fourPR349candidates10146/9698/10185/9621; no runnable unowned gap. Reopen only specific maintainer/hub outside-reproduction/review request, named failing check reproducible without unavailable dataset, or10146author SNAP request. Reconciliation output complete early, no new deadline. No repeat Texas offer/upstreamPR without answer, no new scan or competing PR348work. E1: Claude6264872298 completed feasibility early atblock48318274:cash15,lent/reserved0,treasury15USDC/0.099ETH,providerfresh toOct23T14:38:26Z,185shortfall/faucetblocked,13.5ceiling; funding remains blocked and no transaction authority. Existing C11:15read/noon only changed earlier read or deposit receipt. E2: C10:12reader4comments/counter5/0adequate and10:15issue10226onecomment/noassignee-label-linkedPR, unchanged10229/63/64heads. Silence not no demand; four selectedPRs do not establish a repository-wide response rate. Saved164listing lacks timestamps for latency comparator; no rescan. Preserve all caps/source5/Oct20/G3/officer/safeguards. Audio conditional; exact-r2 assent pending.",
+      "claim_ids": [
+        "claim:alignment-ends-and-means",
+        "claim:alignment-evidence-limits"
+      ],
+      "action_ids": [
+        "action:prime-directive-sync",
+        "action:parallel-review-20261019",
+        "action:public-instruction-test-20261018",
+        "action:policyengine-florida-tips-20261017",
+        "action:policyengine-territory-reproduction-20261018",
+        "action:pool-funding-20261019",
+        "action:human-agent-discovery-sync",
+        "action:daily-audio-discussion-post"
+      ],
+      "discussion_evidence_ids": [
+        "ev:codex-strategy-opening-20261019",
+        "ev:pool-feasibility-reconciliation-20261019",
+        "ev:claude-strategy-20261019-amend"
+      ],
+      "assents": [],
+      "supersedes_ids": []
+    }
+  ],
+  "append_actions": [
+    {
+      "id": "action:prime-directive-sync",
+      "outcome_evidence_ids": [
+        "ev:codex-strategy-opening-20261019"
+      ],
+      "triggers": [
+        "CURRENT r2: Claude6264923613 substantive AMEND answered, Codex E1/E2 revision complete; exact-r2 assent and reviewed publication pending. All fourPR349candidates stopped with named reopen triggers in decision:claude-strategy-20261019-r2. Accepted reconciliation delivered early, no new scan or deadline. Preserve prior Oct18 exact assent/history and all parallel-experiment windows."
+      ]
+    },
+    {
+      "id": "action:pool-funding-20261019",
+      "outcome_evidence_ids": [
+        "ev:pool-feasibility-reconciliation-20261019"
+      ],
+      "triggers": [
+        "CURRENT E1: read-only feasibility report completed early byClaude6264872298, BaseSepolia84532block48318274 atOct19T10:13:56Z. Cash15USDC,lent0,reserved0,treasury15USDC/0.099ETH; providerfresh epoch5 toOct23T14:38:26Z.185shortfall/faucetblocked; reserved+lent ceiling13.5USDC. Funding status remains blocked; historical title/deliverable unchanged. Existing C11:15read; noon only earlier change or deposit receipt. No new reader/heartbeat/transaction/funding authority; preserve custody/source5 and financial limits."
+      ]
+    }
+  ],
+  "publisher_checks": [
+    "Deduplicate by marker/source event; set actual opening URL/publication time/hash only from verified receipt. Use fresh main/version and preserve prior assents/history.",
+    "Do not duplicate action:reform-composition-10226-20261019 from draftPR345 or overwrite PR346/348. Reconcile actual C6263854797 and upstream6264207881 with its owning stack; offer window endsOct26T09:37:24Z, not old09:00request. Scope stays narrow; no upstreamPR without answer.",
+    "Rebase, structural/schema validation, model tests, public-content checks and canonical formatting under verified lease/noreply author and committer; maintainer review and actual PR/merge receipt required.",
+    "Do not edit the historical Oct18 assented recommendation to erase its exact version. Current operator parallel rule is recorded separately.",
+    "No protected cursor changes, new scheduler, connector commit probe, contact/financial expansion or assumed cross-lane acceptance."
+  ]
+}
