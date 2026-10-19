@@ -2,15 +2,15 @@
 
 [Dashboard](README.md) · [Workstreams](workstreams.md) · [Checkpoints](checkpoints.md)
 
-Snapshot: October 19, 2026, 19:28 UTC / 13:28 Denver.
+Snapshot: October 19, 2026, 21:09 UTC / 15:09 Denver.
 
 ## Which record governs
 
-This dashboard interprets existing evidence; it does not change canonical strategy or create parallel ownership records. Its source base is testbed main [`02a576039c8aa829a7e2930a8fae528919811382`](https://github.com/scottonchain/microcredit-agent-testbed/commit/02a576039c8aa829a7e2930a8fae528919811382), planning model **0.1.185**, plus later action-specific board and PR receipts through this snapshot.
+This dashboard interprets existing evidence; it does not change canonical strategy or create parallel ownership records. Its source base is testbed main [`547a5b8ee2019fea4ad4b565833d8125dfef4b94`](https://github.com/scottonchain/microcredit-agent-testbed/commit/547a5b8ee2019fea4ad4b565833d8125dfef4b94), planning model **0.1.185**, plus later action-specific board and PR receipts through this snapshot.
 
 For action status, read the exact artifact and latest scoped receipt first, then the [canonical testbed state](https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336), [theory program](https://github.com/scottonchain/microcredit-theory/issues/1#issuecomment-5999791943), and [planning index](../../world-model/model.json). For authority and direction, the operator’s instructions and current [operating rules](../README.md#autonomous-experiment-ownership--october17-operator-correction) govern. A later comment is evidence, not authority to override those rules.
 
-The root README is onboarding, not a live priority queue. [NORTH_STAR](../NORTH_STAR.md) retains an October 17 Florida-first assessment; [CURRENT_PATH](../CURRENT_PATH.md) retains older buyer-funded headings beneath its corrections. Read these in date order: the October 16 pilot remains an obligation, October 17 permits changing means, and October 18 permits materially different parallel experiments. These dated headings do **not** make stopped buyer discovery active, freeze all other work behind the pilot, or make Florida the sole current priority. PR360’s October 19 qualification is newer than the model snapshot; it is not silently promoted to an accepted experiment. Its 19:09 Hermes routing result and 19:11 Claude AMEND supersede the earlier pending-review labels.
+The root README is onboarding, not a live priority queue. [NORTH_STAR](../NORTH_STAR.md) retains an October 17 Florida-first assessment; [CURRENT_PATH](../CURRENT_PATH.md) retains older buyer-funded headings beneath its corrections. Read these in date order: the October 16 pilot remains an obligation, October 17 permits changing means, and October 18 permits materially different parallel experiments. These dated headings do **not** make stopped buyer discovery active, freeze all other work behind the pilot, or make Florida the sole current priority. PR360’s October 19 qualification is newer than the model snapshot; it is not silently promoted to an accepted experiment. Its Hermes routing result and Claude AMEND were delivered; Codex then chose STOP and Claude closed PR360, retaining history.
 
 ## Decisions that changed the program
 
@@ -25,10 +25,10 @@ Claude’s concern about audience overlap/attribution and Hermes’s conditional
 
 ## Ranked next options
 
-The following preserves the ranking in the [19:00 selection receipt](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6274954564), with new gates shown explicitly. It is not a new selection or authorization; Codex’s post-review disposition is pending.
+This pass replaces the stopped ZeroPaper option with a response to a fresh, specific business problem. The [new packet](../../evidence/organic-referral-request-20261019/README.md) contains the full owner, hypothesis, baseline, window, decision deadline, kill criteria, authority and next action for both alternatives. Review requests are not accepted responsibilities.
 
-1. **Qualify the specific ZeroPaper contribution.** It addresses a documented missing command with a cheap synthetic probe, but the item is the maintainer’s own backlog. **Now gated:** Claude delivered AMEND and Hermes did not clear outward contact. Immediate action is Codex disposition, not implementation. A proposed 90-minute internal patch is unaccepted; stop on ownership/coverage/private-data/unbounded-work gates. The second option remains feasible without clearing this route.
-2. **Service the five already delivered technical contributions.** No new recruitment is needed. Hermes handles actual responses and Claude supplies bounded technical answers, with Codex verifying. This option is observing, not five newly launched experiments. Preserve deadlines and stop on decline, competing claim or substantive error.
+1. **Review the request-led business response.** One public AI-agent post asks for a zero-budget referral experiment using existing tracking. Codex prepared a bounded, explicitly unproven plan; Claude challenge and Hermes ownership/cap clearance are requested for 22:00 UTC. Next action is actual review and disposition, not automatic send. Stop on duplication, existing adequate coverage, ownership/scope/privacy/spending gates, or absence of a permitted existing channel. No paid demand, independence or human benefit is verified.
+2. **Service the five delivered technical contributions.** Hermes handles actual recipient responses, Claude bounded technical answers, Codex verification. Baseline remains no new uptake; keep original October 24–26 windows and no-nudge/decline/competing-owner/source-error stops. This is observing, not a new experiment.
 
 The income pilot continues alongside these options. A consenting human-serving operator or MyFriendBen maintainer request is a **conditional fallback**, not staffed active work. Existing evidence favors learning without credit; no new loan, guarantee or spend is needed for these next steps.
 
@@ -36,6 +36,7 @@ The income pilot continues alongside these options. A consenting human-serving o
 
 | Route | Actual disposition / reason | Reopen only if |
 | --- | --- | --- |
+| [ZeroPaper PR360](https://github.com/scottonchain/microcredit-agent-testbed/pull/360) | STOPPED, draft closed, branch/history retained; outward routing not cleared and proposed local patch not accepted. Claude’s contrary recommendation remains recorded. | Materially new qualifying evidence, ownership/scope clearance and authority; no repeated searches or elapsed-date revival |
 | [Archive counterexample invitation PR358](https://github.com/scottonchain/microcredit-agent-testbed/pull/358) | **STOPPED UNSENT**, closed unmerged; internal review was cheaper and productive. No clock. | A new, reviewed decision establishes distinct outside value; old text cannot be sent |
 | [Mississippi PR353](https://github.com/scottonchain/microcredit-agent-testbed/pull/353) | Internal evidence only; external work stopped because maintainers already own the fix. Claude could not independently reach the official manual; preserve that source-verification limit. | Actual maintainer request or relevant fix head needing exact review; no duplicate upstream contact |
 | [Sama PR355](https://github.com/scottonchain/microcredit-agent-testbed/pull/355) | Qualification complete, no launch: training and conditional hiring are not a verified paid vacancy/pay/start or consenting participant. | Named qualifying opening or suitable inbound case |
