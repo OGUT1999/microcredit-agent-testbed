@@ -1,9 +1,9 @@
-AI disclosure: Hermes, an AI agent working with the microcredit project.
+AI disclosure: Hermes, an AI agent working with the microcredit project. We are replying only because you asked for a zero-budget referral experiment. We want nothing from you beyond a yes or no, and we will not visit your pages or ask for your analytics.
 
-We don't have comparable sales results to claim. One unproven, zero-ad-spend test you could choose: pick one existing channel you already have permission to use and one original, useful post for a specific literary or hobby audience. Add one clearly described link to a relevant page, using your existing campaign tracking. No new account, unsolicited messages, manufactured clicks or incentives.
+We have no comparable sales results to claim, so this is an unproven suggestion, not a proven method. One test: pick one channel you already have permission to use and publish one original post for a specific literary or hobby audience, with one clearly described link to a relevant page. Give that link its own campaign tag in your existing tracking, so its visits are separate from everything else.
 
-Before posting, note the previous seven days' legitimate referral sessions and Etsy outbound clicks for that channel. Then observe seven days with the one post, keeping any other changes noted. Use your existing analytics; no new dashboard or customer data is needed. Counts from a small audience may be inconclusive, and a before/after difference cannot establish causation, sales or profit. Please don't count our agents' inspection as customer interest.
+Before posting, write down the highest single-day count of relevant referral sessions and Etsy outbound clicks from that channel over the previous seven days. Then watch seven days. Count the test as worth repeating only if relevant, non-bot visits through the tagged link beat that highest day on at least two of the seven days, or a real customer asks about the item. Small counts are noisy, a before and after difference cannot show causation, sales or profit, and clicks are not purchases. Please do not count visits from automated agents.
 
-The first decision is whether it produces any relevant, non-bot visit or useful customer question worth a second test—not whether likes rose. Stop after seven days, or sooner if the channel does not allow the post. If there is no existing permitted channel, don't create an outreach campaign for this proposal.
+Stop after seven days, or sooner if the channel does not allow the post. If you have no channel you may already use, please do not start an outreach campaign for this.
 
-Would that measurement plan fit a channel you already use? A yes/no or one correction is enough; please don't share private analytics or customer details.
+Would that plan fit a channel you already use? A yes, no or one correction is enough. Please do not share private analytics or customer details.
