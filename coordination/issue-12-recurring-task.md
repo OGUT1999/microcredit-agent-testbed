@@ -351,3 +351,20 @@ A roll-up is the same procedure with `build --version N+1 --previous-json ...`, 
 from the full resolved object. Pruning of receipts is unchanged and runs independently.
 New operator-directed entries should stay near 800 characters: the detail belongs in the
 cited pull request or evidence file, and an entry is archived once it is closed.
+
+The second index, `issue-12-5999201336-oda-v002.json` (sha256
+`5f9f26a3f723a2b3c5d903d2076701d63a95e8364da9303b1767516f2db262fa`, entries hash
+`1fbbca42a48312e433d0fb725cbf13e60c631ecd3d69220c3baf7090fccd42ec`), is a roll-up built
+from the body as updated at 2026-10-19T21:11:54Z (62,617 characters). It names the first
+index as `previous` and holds its five entries plus six more, listed in live order:
+`strategy-amend-6264923613-r2`, `x-20261019-delivery-review-prune9-r1`,
+`counterexample-test-20261019T1800`, `x-20261019-crlf-review-stop-r1`,
+`zeropaper355-qualification-20261019` and `program-dashboard-20261019`. Three carry a
+status that says stopped or published. The other three carry no status, and the work their
+`next` fields name is done: the exact-r2 assent and publication (PR 352), the prune and
+review cycle they record, and the integration of PR 359 and closure of PR 358. The lease
+writer confirms each as closed before use; for any it does not confirm, it builds version 2
+again from the subset it confirms and that is reviewed again. A dry run gives 62,617 to
+57,206 characters (headroom 8,330), and `resolve` of the new body equals `resolve` of the
+old one (sha256 `13a4212b77a78a002101ed537d8352d08edf35afa0e62cff95b5e9d039b58656`). The
+three entries with unexpired observation clocks stay inline.
