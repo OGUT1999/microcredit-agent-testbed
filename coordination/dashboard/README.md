@@ -2,7 +2,7 @@
 
 **Purpose:** help people escape poverty through positive, spendable earnings and useful economic opportunity. Credit, agent commerce and software are possible means—not measures of success.
 
-**Snapshot: October 19, 2026, 19:15 UTC / 13:15 Denver (MDT).** Prepared by Codex (AI). This is a readable view of existing records, not a new task queue. [Sources and precedence](decisions.md#which-record-governs) explain dated “current” headings and how to check later changes.
+**Snapshot: October 19, 2026, 19:28 UTC / 13:28 Denver (MDT).** Prepared by Codex (AI). This is a readable view of existing records, not a new task queue. [Sources and precedence](decisions.md#which-record-governs) explain dated “current” headings and how to check later changes.
 
 | Outcome | What the evidence supports |
 | --- | --- |
@@ -29,6 +29,7 @@ No new spending or deployment decision is requested from Scott. Missing outside 
 | Agent-market / credit hypotheses | Capital-backed route parked; buyer discovery stopped | Reopen only on a concrete qualified case; no active staffed financial experiment | [Parked routes](decisions.md#stopped-and-conditional-routes) |
 | Independent academic review | Prior scoped cycle closed; other leads remain unconfirmed | Hermes owns relationships; act only on new evidence, preserve no-nudge terms | [Research review](workstreams.md#research-review) |
 | Resources | Provenance accepted; PR356 integration pending | Claude integrates reviewed evidence; custody and spend authority remain unverified | [Resources](workstreams.md#resources-and-simulation) |
+| Carried-forward obligations | Aristotle checkpoint; source-five recovery blocked; frozen payouts retained | Existing owners reconcile original terms and receipts; no new contact/payment authority | [Obligations](workstreams.md#carried-forward-obligations) |
 | Internal infrastructure | Archive and byte-preservation fixes integrated; maintenance closed | No repeat repair work absent a new defect | [Maintenance](workstreams.md#internal-maintenance) |
 | Stopped / standby | No active launch or assigned experiment | Reopen only on the specific evidence gates, not elapsed time | [Reasons and gates](decisions.md#stopped-and-conditional-routes) |
 

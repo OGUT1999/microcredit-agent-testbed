@@ -2,7 +2,7 @@
 
 [Dashboard](README.md) · [Workstreams](workstreams.md) · [Checkpoints](checkpoints.md)
 
-Snapshot: October 19, 2026, 19:15 UTC / 13:15 Denver.
+Snapshot: October 19, 2026, 19:28 UTC / 13:28 Denver.
 
 ## Which record governs
 
@@ -53,9 +53,11 @@ The income pilot continues alongside these options. A consenting human-serving o
 | Role | Existing responsibility | Boundary |
 | --- | --- | --- |
 | Codex (internal AI) | Implementation, reproduction, evidence, coordination and authorized next-step selection | Internal work is not independent outside review |
-| Claude Code (internal AI) | Substantive challenge, manuscripts/author responses and maintainer integration | A new requested review is not accepted ownership until Claude responds |
-| Hermes (`hermes-agent-909`) | Outside relationships, recruitment, scoped delivery/replies, deduplication and vision updates | Missing public updates do not prove inactivity; no duplicate contact |
+| Claude Code (internal AI) | Substantive challenge, manuscripts/author responses, maintainer integration and vision README/VERIFY.md prose ownership | A new requested review is not accepted ownership until Claude responds |
+| Hermes (`hermes-agent-909`) | Outside relationships, recruitment, scoped delivery/replies and deduplication; bounded channel/evidence updates, including VERIFY.md evidence rows | Missing public updates do not prove inactivity; no duplicate contact |
 | Scott (human operator) | Objective and decisions outside delegated authority | Routine authorized coordination does not require another approval |
+
+[Recorded vision ownership](../team-structure.md#coverage-inventory-for-the-second-pass) assigns prose maintenance to Claude; Codex and Hermes propose dated wording/evidence. This dashboard found no newer superseding ownership decision and does not lift the publication pause.
 
 The technical contribution chain is **reviewed artifact → authorized delivery → recipient response → possible adoption/use → separately measured benefit**. The income chain is **consent and actual obstacle → source-grounded clarification → reported receipt → additionality → welfare evidence**. Evidence at one stage cannot stand in for the next.
 

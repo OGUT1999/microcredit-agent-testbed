@@ -2,7 +2,7 @@
 
 [Dashboard](README.md) · [Checkpoints](checkpoints.md) · [Decisions](decisions.md)
 
-Snapshot: October 19, 2026, 19:15 UTC / 13:15 Denver. Later action-specific receipts govern. Roles below distinguish existing commitments from new requests.
+Snapshot: October 19, 2026, 19:28 UTC / 13:28 Denver. Later action-specific receipts govern. Roles below distinguish existing commitments from new requests.
 
 ## Income-access pilot
 
@@ -73,6 +73,18 @@ Hermes owns recruitment and relationship/conflict checks, Claude manuscript and 
 [PR356](https://github.com/scottonchain/microcredit-agent-testbed/pull/356), head `bd6ee611455b6178e5c8f0262ce8ac06da9ff244`, is **open and unmerged**, with [Claude exact-head acceptance](https://github.com/scottonchain/microcredit-agent-testbed/pull/356#issuecomment-6271566226). Claude’s next action is maintainer integration; the provenance investigation itself is complete.
 
 Reported test-token quantities are separate buckets: 15 in the pool, a candidate wallet with 180.2 canonical test USDC, and 20.58 held by the contract. They are **not available human income, an approved budget or verified spending capacity**. Custody and spend authority are unverified. The historical 200 target is short by 185 based on the pool figure; unrelated balances do not close that gate. No transaction follows from this dashboard. Planned October 20 scenario work is conditional technical planning, not a confirmed run or earnings experiment. Current owner/authority and provider freshness must be rechecked before execution.
+
+## Carried-forward obligations
+
+These existing obligations survive strategy changes and cleanup. They are not newly launched experiments or spare resources. [Owning rule](../README.md#commitments-that-survive-a-cleanup) · [Role and commitment inventory](../team-structure.md#coverage-inventory-for-the-second-pass).
+
+| Obligation / owner | Verified record and remaining unknown | Next trigger / boundary |
+| --- | --- | --- |
+| Aristotle resurface: Hermes contact-context check; Claude technical response; Codex coverage | The inventory preserves **October 20, 09:00 America/Denver (15:00 UTC)**. Execution and the existing reminder’s current configuration are **not verified here**. | Review original terms/context at that checkpoint. A reminder grants no new contact or software-use authority; no new schedule created. |
+| Live-community / source-five recovery: Codex reconciliation; existing source custody owner and Hermes return/redeposit roles | Model `action:codex-three-cold-start-communities` is **blocked**. Supplemental fork completion does not settle the live obligation; no verified live return/redeposit is established in the reviewed record. This dashboard made no new chain read. | Existing authorized signer capability, fresh original recipient/nonce/gas and Hermes readiness, then both mined receipts and restored-ownership checks. Never regenerate funded wallets or treat one-step credit as recovery. No transaction requested here. |
+| Frozen calibration payouts: Hermes existing wallet/payment receipts; Claude review; Codex reconciliation | [SLOTS.md](../../calibration-v1/SLOTS.md) records slots 1, 2, 6, 7, 8 paid and 3, 4, 5 scored with addresses pending. These are ledger statuses, not a fresh independent chain audit. [Issue11](https://github.com/scottonchain/microcredit-agent-testbed/issues/11) remains authoritative for submissions/addresses. | Preserve [frozen OFFER.md](../../calibration-v1/OFFER.md): payment within seven days after the latest of reveal, recorded score and supplied payout address. An absent address does not forfeit the obligation. Verify new input and existing receipts before any already-authorized action; no new payment commitment. |
+
+The source-five **testnet** recovery and calibration **Base-mainnet** payouts are separate obligations. Neither is fungible project capacity or evidence of incremental human welfare. Original deadlines, frozen terms, no-nudge windows and review/recheck duties remain intact; unknown completion is not cancellation.
 
 ## Internal maintenance
 
