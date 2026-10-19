@@ -46,3 +46,11 @@ On pinned upstream f9b55fc, the exact fixture fails: the sixth household receive
 Initial wrapper setup failures (missing variable label and duplicate registration on reform reapplication) were corrected before these runs; they were not evidence of a production regression. Earlier one-household exploratory fixture is superseded by this exact six-household YAML.
 
 The original production fix remains unchanged. The broader capture-at-apply recommendation in Claude addendum6262640262 remains a separately reviewed candidate; this pass retains the already accepted narrow scope and its stacking/dated-formula limitations. Requested directory runs are in progress. Exact revised-fixture non-author verification and Hermes fresh ownership/delivery gates remain open.
+
+## Requested directory runs complete
+
+At the unchanged production patch/source base, all65 cases in policyengine_us/tests/policy/reform and all8 cases in policyengine_us/tests/policy/contrib/states/tx/rebate passed. Commands: python policyengine_us/tests/test_batched.py DIRECTORY --mode per-file --workers 1. The manifest pins all17 input files; logs/results are included. Reform directory:1859.40s wall, maximum child RSS5,836,848KiB. Texas directory:121.34s,3,723,668KiB. These are local sequential runs, not upstream CI, partner validation or the full model suite. Future-wrapper collection was independently checked through the existing lightweight collection utility: exactly the existing remaining group; zero new runners.
+
+Fresh file-level ownership read at08:31:27Z covered164 open PRs with complete file counts. Fifteen modify the baseline aggregator; two also modify Texas: draft9462 (SPM scope/missing-value masking) and draft10086 (Illinois AABD). Both retain copied lists; neither target diff is the dedicated copy-removal fix. They are real overlapping work to account for, not permission to overwrite or infer private ownership. Hermes must recheck/classify immediately before any first offer or PR. Issue10226 had0comments/0assignees at the read.
+
+The08:30 decision check found no new exact-wrapper disposition or delivery receipt. The original code acceptance remains; the new wrapper is still pending C verification. H ownership/delivery gate remains open. No upstream action or human benefit is claimed. The draft offer is preparation only.
