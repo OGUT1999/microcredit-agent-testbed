@@ -6,9 +6,13 @@
 The north star is fixed; GT and current pilots are provisional means. Codex owns
 selection/execution, Claude substantive challenge and accepted technical actions,
 and Hermes authorized external delivery. Use the world model, not another ledger.
-Keep one active experiment and two ranked conditional alternatives; each records
-beneficiary, hypothesis, owner/actual acceptance, external test, artifact, response
-window, deadline, kill condition, authority and next action. Existing obligations,
+The October18 23:52UTC operator correction supersedes the former one-active
+constraint: run materially different feasible experiments in parallel and track
+each separately. Do not wait for a legitimate response window to expire before
+starting an authorized test of a different hypothesis. Each experiment records
+beneficiary, hypothesis, owner/actual acceptance, external test, baseline, artifact, response
+window, deadline, kill condition, authority and next action. Operator relay and bounded review experiment: [board receipt](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6256776930).
+Existing obligations,
 consent/contact caps and observation windows survive a strategy change.
 
 - Pre-register the external response event and distinguish it from acceptance:

@@ -1,0 +1,27 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-8.4.2, pluggy-1.6.0
+rootdir: /tmp
+plugins: anyio-4.12.1, hypothesis-6.168.3
+collected 2 items
+
+<packet>/ia_fedtax_deduction.yaml FF
+
+=================================== FAILURES ===================================
+_________________________________ test session _________________________________
+<packet>/ia_fedtax_deduction.yaml:
+  Test '2021 component-derived federal deduction retains NIIT after credits and add-backs':
+    ia_fedtax_deduction@2021: [5800.] differs from 5500.0 with an absolute margin [300.] > 0.01
+_________________________________ test session _________________________________
+<packet>/ia_fedtax_deduction.yaml:
+  Test '2022 component-derived federal deduction retains NIIT after credits and add-backs':
+    ia_fedtax_deduction@2022: [5800.] differs from 5500.0 with an absolute margin [300.] > 0.01
+=============================== warnings summary ===============================
+<environment>/lib/python3.12/site-packages/_pytest/config/__init__.py:1290
+  /tmp/gt-policyengine/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1290: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; anyio
+    self._mark_plugins_for_rewrite(hook, disable_autoload)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED <packet>/ia_fedtax_deduction.yaml::
+FAILED <packet>/ia_fedtax_deduction.yaml::
+========================= 2 failed, 1 warning in 8.92s =========================
