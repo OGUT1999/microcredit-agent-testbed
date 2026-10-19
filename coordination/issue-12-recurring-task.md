@@ -270,3 +270,67 @@ which has no pointer. A roll-up compares expanded forms: the old body still hold
 the previous pointer, so `resolve` of the new body must equal `resolve` of the old
 body, and both must name the same full list. `migrate` prints that expanded hash
 (`expanded_sha256`) for the receipt.
+
+## Operator-actions archive
+
+After the receipt pruning above, `operator_directed_actions` is the largest part of
+comment 5999201336: 35,309 of 62,961 characters at 15:32:59Z, in 21 entries that only
+grow, while pruning can no longer free more than the previous hourly receipt. This
+amendment lets closed entries of that object live in an immutable repository file that
+one pointer names. It is lossless and it relocates nothing else: it adds no lock,
+controller, cursor or permission, it summarizes nothing, and it does not touch the
+retained receipts, `required_safety_ctr41`, `required_safety_tb181`, missed triggers,
+completed-trigger identifiers, the receipt archive list or any other live field. The
+encoding rule above, which says it does not authorize pruning operator-directed actions,
+is unchanged; this section is the separate, reviewed authorization and applies only to
+the entries chosen below. The tool is `coordination/issue12_oda_archive.py`; its tests
+run with the coordination suite and it reuses `issue12_archive_index.py`.
+
+Index files are `coordination/archives/index/issue-12-5999201336-oda-v###.json`
+(format `issue12-oda-archive-index-v1`, `indent=2`, `ensure_ascii=False`, one trailing
+newline). Each holds `{key, entry}` items, in live order and with every field, plus a
+count and the SHA-256 of their compact serialization. A merged index is never edited or
+deleted; a later version holds every entry of the one before it and names that one in
+`previous` (commit, path, SHA-256).
+
+In the live object each archived key stays in its place with the stub
+`{"archived":true,"status":<the entry's status, when it has one>}`. The object's first
+key is `_archive`, the pointer, with exactly `index_commit`, `index_path`,
+`index_sha256`, `entries` and `keys_sha256`. A stub tells a reader that the entry is
+closed and what its status was; the full entry is `resolve --body-file BODY --repo
+CHECKOUT`, which rebuilds the whole object. A stub without a pointer, a stub that
+differs from its entry, a stub missing for an indexed key, an indexed key that is not a
+stub, or a pointer that disagrees with its file is an error and stops the work.
+
+Which entries may be archived: only entries the live record itself shows as closed or
+complete (for example a status beginning `CLOSED` or `COMPLETE`, or ending in
+`CLOSED_VERIFIED`) with no pending gate, dependency or unsent action. The lease writer
+names the keys explicitly; the index pull request lists them and is reviewed by a
+non-author at its exact head. A dry run on the 15:32:59Z body archiving eight such
+entries (`strategy-repair-20261016T003547Z`, `scott-access-recheck-20261017T020741Z`,
+`unmet-fit-20261017T034241Z`, `claude-challenge-followthrough-20261017T0649Z`,
+`labor-source-request-20261017T0700Z`, `source-draft-review-20261017T1149Z`,
+`policyengine-submit-20261017T1953Z`, `policyengine-owner-diagnosis-20261017T2022Z`)
+gives 62,961 to 50,785 characters and `resolve` returns the original body byte for byte.
+That example is not a selection; the writer chooses from the body it reads.
+
+The first replacement may happen only after all of these hold:
+
+1. The index file and this amendment are on main through non-author exact-head review,
+   and the pointer's `index_commit` is that merge commit.
+2. An owned-lease writer rereads the comment body and `updated_at`, then runs
+   `build` and `migrate`. Every chosen live entry must equal its indexed entry exactly;
+   a difference means stop, rebuild and re-review, never overwrite.
+3. The dry run proves that `resolve` of the new body equals the old body, and the new
+   body is checked against the 65,536-character limit and the public-content check.
+   `migrate` verifies the round trip before it writes `--out`, so a refused command
+   leaves no candidate file.
+4. PATCH only after an unchanged-body and timestamp reread, then reread the saved body
+   and verify its bytes and that `resolve` of it equals the pre-replacement body.
+   Record the before and after sizes and hashes in the next ordinary receipt; do not
+   create a second ledger. On any mismatch stop protected work and reconcile.
+
+A roll-up is the same procedure with `build --version N+1 --previous-json ...`, built
+from the full resolved object. Pruning of receipts is unchanged and runs independently.
+New operator-directed entries should stay near 800 characters: the detail belongs in the
+cited pull request or evidence file, and an entry is archived once it is closed.
