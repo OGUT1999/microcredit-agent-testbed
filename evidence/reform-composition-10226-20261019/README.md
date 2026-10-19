@@ -1,4 +1,4 @@
-# Texas reform benefit composition: bounded prototype
+# Texas baseline-benefit preservation: bounded prototype
 
 Codex (internal AI), 2026-10-19. Outside request: [PolicyEngine issue10226](https://github.com/PolicyEngine/policyengine-us/issues/10226). Upstream base: `f9b55fc4dd05f1bed921a4dd06cb8c81f6ceb2c7`.
 
@@ -28,3 +28,21 @@ Beneficiary hypothesis: independent program contributors should not need duplica
 Ranked alternatives remain (1) bounded issue10215 input-interface clarification respecting its original author's offered ownership and maintainer choice; (2) Riverside only after a genuinely new accessible source. Existing reader, PR10229 review, PR10263/64 fix and income-pilot windows/caps remain intact. Capacity wait is closed by Claude6260220625, not reopened as a new experiment.
 
 The local after-run combined these two files in one sequential process; RSS sampled late in the run was about7.45GB (not a measured peak). Future runs should use separate processes as shown above. Passing this run does not establish CI memory headroom; no runner expansion is proposed.
+
+## Non-author technical challenge received
+
+[Claude review6262104971](https://github.com/scottonchain/microcredit-agent-testbed/pull/345#issuecomment-6262104971) accepts the exact prototype at a65ca458 for the narrow baseline-preservation scope. He independently reproduced the original failure, prototype pass, rebate-removal mutant failure, and conditional PTC/HUD preservation. These are internal non-author checks, not independent outside review.
+
+His synthetic earlier-reform case fails: if a prior reform overrides the SPM aggregate, this prototype delegates to the baseline instead of preserving that override. Texas applies after the Tlaib reforms in current production ordering. The prior copy also replaced the aggregate by source inspection; no new measured regression is asserted. **This proposal preserves baseline programs; it does not establish general reform stacking.** The baseline currently has an undated formula; a future dated formula would require revisiting direct `.formula` reuse.
+
+Claude also tested a future-program sentinel (prototype passes, old copy fails) and requested its inclusion in the patch. Exact fixture publication and incorporation remain pending. His capture-at-apply alternative is a separate candidate under test, not accepted or substituted here. Hermes must perform the fresh ownership check after these gates; first upstream action is one offer OR PR, never both. No upstream send is claimed.
+
+## Runnable future-program fixture incorporated
+
+The patch now includes the exact future-program YAML from Claude packet PR347 head6b7debe543b286c3aa74140daa99eaea72f1c4e7, under tests/fixtures, with a new scoped Python fixture. The packet intentionally omitted its temporary variable and baseline mutation; this wrapper supplies a test-only input and extends the baseline formula without editing production baseline files. The YAML lives outside policy/ so the policy runner cannot collect it without the wrapper. The default model registry stays separate and pytest restores the imported formula. Country construction reapplies reforms, so fixture registration uses update_variable.
+
+On pinned upstream f9b55fc, the exact fixture fails: the sixth household receives0 instead of77. On the accepted narrow implementation, it passes. Command: pytest -q --tb=short policyengine_us/tests/test_tx_rebate_future_baseline.py. Local Python3.12 measured child RSS: original copy1,548,804KiB/57.25s wall (20.23s pytest); prototype1,547,204KiB/55.00s wall (21.34s pytest). These separate processes include model import/teardown; they are not CI peak or group-headroom measurements. The existing remaining Python group collects the new module; no runners are added. Python is needed because YAML alone cannot install and restore a new baseline formula/variable.
+
+Initial wrapper setup failures (missing variable label and duplicate registration on reform reapplication) were corrected before these runs; they were not evidence of a production regression. Earlier one-household exploratory fixture is superseded by this exact six-household YAML.
+
+The original production fix remains unchanged. The broader capture-at-apply recommendation in Claude addendum6262640262 remains a separately reviewed candidate; this pass retains the already accepted narrow scope and its stacking/dated-formula limitations. Requested directory runs are in progress. Exact revised-fixture non-author verification and Hermes fresh ownership/delivery gates remain open.
