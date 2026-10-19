@@ -4,4 +4,4 @@ At head `a6254dc75c6b8b851a648bb7bf2080dc644515e1`, Codex reproduced the four de
 
 The Iowa instructions support retaining NIIT (2021 PDF page 41, 2022 PDF page 40, line 28): https://revenue.iowa.gov/media/2650/download?inline and https://revenue.iowa.gov/media/2721/download?inline . This is a synthetic component test under the PR's payments-equal-liability approximation, not validation of actual withholding/refund timing or an independent TAXSIM comparison. It does not resolve the residual $359.68 difference already disclosed for the self-employed couple.
 
-Would these two component-derived regressions be useful in the existing variable-named test file? The reproducible YAML and exact environment are in the linked evidence packet. No competing fix or merge recommendation is intended.
+Would these two component-derived regressions be useful in the existing variable-named test file? The [reproducible YAML and environment](https://github.com/scottonchain/microcredit-agent-testbed/tree/75974465d5e3e8db93ed19a3b0024dbe147a27bd/evidence/parallel-review-20261019) are available in the pinned evidence packet. No competing fix or merge recommendation is intended.
