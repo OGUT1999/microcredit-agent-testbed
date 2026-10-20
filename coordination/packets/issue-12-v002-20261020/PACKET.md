@@ -89,15 +89,32 @@ baseline and public PR state at about 10:05Z:
 | `zeropaper355-qualification-20261019` | `STOPPED_DRAFT_CLOSED_HISTORY_RETAINED` | `next` says PR 360 closed; no clock |
 | `program-dashboard-20261019` | `PUBLISHED_MAIN_VERIFIED` | PR 361 merged; `next` names no blocker |
 
-One point for the reviewer to confirm, not assume: the `counterexample-test-20261019T1800` entry
+One point for the reviewer to decide, not assume: the `counterexample-test-20261019T1800` entry
 also carries standing text that the stub omits (`gates`: "no automatic re-pin/relaunch"; `owners`:
 "H no send"). The stub keeps the status `STOPPED_UNSENT_AFTER_C_AMEND_H_CONDITIONAL`, and the full
-entry stays one `resolve` away, but the restriction text would no longer sit in the live comment.
-If that is not acceptable, the alternative is to rebuild v002 from the other five and review it
-again (a new index file and a new packet); this packet does not do that. The three entries with
-unexpired clocks (`labor-source-request-20261017T0700Z`, `source-draft-review-20261017T1149Z`,
-`scott-access-recheck-20261017T020741Z`) and every other inline entry stay inline and
-byte-identical (section 4).
+entry stays one `resolve` away and in the immutable index, but the restriction text would no
+longer sit in the live comment.
+
+Correction to the first revision of this packet (head `2b3a35bd`), which offered "rebuild v002 from
+the other five" as the alternative: that is not available. The tool ties an index's version to its
+file name (`...-oda-v###.json`, enforced by `make_pointer`) and requires the next version to be the
+live version plus one (`migrate`), so the only version a roll-up from the live v001 can have is 2,
+whose path is already occupied by the merged, immutable v002 file. A subset index would need a
+change to the tool or an edit of a merged index; neither is proposed. The real choices are:
+
+- A. Accept the omission and apply v002 as built (my recommendation: the status text in the stub
+  still says stopped and unsent, the entry is intact in the immutable index and in PR 358, and
+  the saving is 5,411 characters with the live comment at 63,484 of 65,536).
+- B. Defer this roll-up and leave the live comment as it is. This keeps the standing text inline,
+  at the cost of the 2,052 characters of headroom that the hourly receipt pruning already works
+  within. Nothing else in this packet changes.
+
+Restating the restriction in a field that survives archiving would be a third, separate content
+change; it is outside this packet's scope ("only the existing v002 roll-up").
+
+The three entries with unexpired clocks (`labor-source-request-20261017T0700Z`,
+`source-draft-review-20261017T1149Z`, `scott-access-recheck-20261017T020741Z`) and every other
+inline entry stay inline and byte-identical (section 4).
 
 ## 3. The verify command
 
