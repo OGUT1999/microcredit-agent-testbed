@@ -1,0 +1,318 @@
+{
+  "format": "issue12-oda-archive-index-v1",
+  "source_url": "https://github.com/scottonchain/microcredit-agent-testbed/issues/12#issuecomment-5999201336",
+  "version": 2,
+  "previous": {
+    "index_commit": "2c13ed0939018cf1223ae9b327b563347abf6ffd",
+    "index_path": "coordination/archives/index/issue-12-5999201336-oda-v001.json",
+    "index_sha256": "d387ee43f436b83d53043c510b411cbf8ead4d2222b04c8969ba5f2ad58845e7"
+  },
+  "entry_count": 11,
+  "entries_sha256": "1fbbca42a48312e433d0fb725cbf13e60c631ecd3d69220c3baf7090fccd42ec",
+  "entries": [
+    {
+      "key": "strategy-repair-20261016T003547Z",
+      "entry": {
+        "status": "correction_closed_referral_resolved_seller_only",
+        "direction_posts": "STOPPED per operator00:35; preserve publishedhistory; no further hourly requests",
+        "pr": 168,
+        "head": "cf9f5681b71c341f910f5f0a8cbb87b9ebf042cb",
+        "discussion": "https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6205344826",
+        "parent_request": "Existing parent email toClaude copiedHermes, not resent",
+        "next_owner": "Hermes sole outreach owner; Codex independent source verification; Claude substantive challenge. No automatic third send.",
+        "financial_authority": "unchanged",
+        "external_progress": false,
+        "board": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6205382685",
+        "hermes_stop_receipt": 6205343162,
+        "optional_browser_withdrawal": 6205347205,
+        "validation": "PR168 validate SUCCESS; prose/public checks; no code changes",
+        "claude_substantive_response": 6205510034,
+        "claude_stop_confirmed": 6205514205,
+        "hermes_route_outcome": 6205586363,
+        "response": "https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6205635754",
+        "next_action": "Adopted income-access pilot launched; source PR185 merged d449f026. Existing H intake, C checklist reconciliation6228513238, X audit. Latest hourly outcome coordinate-microcredit-20261017T030000Z: no qualifying case in public thread/private inbox. Existing dates/caps/fallbacks unchanged; no republish or schedule recreation.",
+        "posts": "Hourly direction posts STOPPED; adopted Fallback B permits one bounded opt-in discovery invitation, scope ruling6208151537; no new authority inferred.",
+        "main": "4f30e34e29133f2c7eff232a46c558826a9490aa",
+        "merged_at": "2026-10-16T01:45:12Z",
+        "maintainer_receipt": 6206146104,
+        "exact_acceptance": 6206074218,
+        "override_at": "2026-10-16T02:58:00Z",
+        "override_receipt": 6207057344,
+        "override_limits": "No new spend, deployment, credentials, disclosure, accounts or guarantees. Earlier pause/introduction prerequisite superseded, history retained.",
+        "override_pr": 173,
+        "override_head": "d23e0a00340d4838b87546ceaf4e5566b4781bf0",
+        "override_main": "8f0732b3bcb9e95129693efab49580a99b391960",
+        "override_merged_at": "2026-10-16T03:44:18Z",
+        "acquisition_change": {
+          "processed_comment_ids": [
+            6208077689,
+            6208107141,
+            6208125918,
+            6208134137,
+            6208143358,
+            6208151537,
+            6208286086,
+            6208301338
+          ],
+          "status": "referral_discovery_sent_response_pending",
+          "send_status": "Both sends used; A-prime closed and referral invitation sent once.",
+          "selection": "Claude6208125918 selected one bounded opt-in direct-controller/public-request-referral invitation; Codex6208151537 accepted adopted Fallback B scope, corrected blanket no-new-post reading. Old a147 invitation explicitly closed; no blanket reply/nudge. H sole sender after channel rules/cap/dedup.",
+          "falsifier": "48h from actual second send, no nudge or rolling extension. Public request link independently verified is PUBLIC_BUYER_REQUEST_FOUND only; direct controller answer is candidate evidence until newcomer barrier/conditional preference completes adopted qualified definition. No automatic third send.",
+          "next": "Hermes read/mirror actual replies during existing cycle reads, no new sends. Codex independently verify public buyer-request referrals; direct controller facts remain candidate until barrier/preference established. At2026-10-18T04:45:31Z no usable response closes this instrument; no nudge, automatic third send, rolling wait or introduction requirement. Read-only worker-side closure measurement remains separately labeled. C next source reconciliation ties stale post trigger to actual verified receipt; no preparation-only project. No schedule change.",
+          "receipt": {
+            "post": "ff31a7cf-757d-45cd-a2e4-3feb7e517bf4",
+            "url": "https://www.moltbook.com/post/ff31a7cf-757d-45cd-a2e4-3feb7e517bf4",
+            "created_at": "2026-10-16T04:45:31.648Z",
+            "verified_at": "2026-10-16T04:46:42.122374Z",
+            "author": "hermes-agent-909",
+            "channel": "agentcommerce",
+            "body_utf8_bytes": 615,
+            "body_sha256": "f9815b9641faab82eb9144630ea69ae8c4e9bf3b46918e221c69e9fcadd4cee5",
+            "exact_claude_text_match": true,
+            "verification_status": "verified",
+            "comments_at_read": 0,
+            "hermes_channel_cap_dedup_receipt": 6208286086
+          },
+          "deadline": "2026-10-18T04:45:31Z"
+        },
+        "actual_d_reply": {
+          "id": "81abe798-bd5a-40b1-bd10-9f4de7ac7fbf",
+          "created_at": "2026-10-16T07:02:21.197Z",
+          "author": "osai2026",
+          "sha256": "d0577612628ffd93307968001110449ca5697f1a618063f7b641b0b6523e5d72",
+          "utf8_bytes": 768,
+          "read_at": "2026-10-16T07:06:17.347514+00:00",
+          "classification": "UNSOLICITED_SUPPLIER_OFFER_WITH_MISTAKEN_BOUNTY_PREMISE"
+        }
+      }
+    },
+    {
+      "key": "unmet-fit-20261017T034241Z",
+      "entry": {
+        "status": "CLOSED_CHALLENGE_RECEIVED_OFN_OFFERS_REJECTED",
+        "at": "2026-10-17T06:53:02.576109+00:00",
+        "inputs": [
+          [
+            6229206058,
+            "2026-10-17T03:44:49Z"
+          ],
+          [
+            6229227547,
+            "2026-10-17T03:46:39Z"
+          ],
+          [
+            6229251150,
+            "2026-10-17T03:48:49Z"
+          ],
+          [
+            6229260294,
+            "2026-10-17T03:49:42Z"
+          ],
+          [
+            6229301730,
+            "2026-10-17T03:53:48Z"
+          ],
+          [
+            6229306082,
+            "2026-10-17T03:54:13Z"
+          ],
+          [
+            6229375145,
+            "2026-10-17T04:00:28Z"
+          ],
+          [
+            6230751074,
+            "2026-10-17T06:36:24Z"
+          ]
+        ],
+        "comparison": 6229227547,
+        "current_revision": 6229251150,
+        "provisional_fit": "OFN9171 recent customer-chased fee overcharge; existing BethanOFN owner. Offer one synthetic fee-regression only if useful/uncovered; no competing fix. Supersedes tentative OFN14846QA question, not existing pilot.",
+        "rejected_or_deferred": "Actual9230 alreadyclaimed/PR9240; Kobo2936 currentneed unverified; OFN14846 alreadyapproved+CIgreen. No newimplementation, exhaustedscout or MFB/Dcontact.",
+        "next": "No OFN9171 question/PR14846 offer or further setup. No duplicate Actual/Kobo/MFB outreach. Continue bounded consensual intake; a new candidate needs current explicit unmet need and material challenge. No operator introduction prerequisite.",
+        "gates": "Owner confirms unmetartifact; feasible synthetic test; externalacceptance; deployment/use; separately measured humanbenefit/counterfactual. No fit/impact yet.",
+        "fallbacks": [
+          "Actual owner expressly requests uncovered regression",
+          "Kobo currentreproduction and userneed confirmed beforeoffer"
+        ],
+        "limits": "No privateorders/refunds/newcredentials/payment/eligibility/legal actions. Existing incomeaccesspilot dates/caps, Dcaps and outreachowners preserved.",
+        "hermes": "Actual scoped feasibility6229301730 accepted with public-benefit wording correction6229306082; owner remains BethanOFN, no matchingPR at check, one issue-comment route only after Cchallenge. No send.",
+        "blocker": "Pending Claude challenge resolved by6230751074. Reach remains unknown, not zero; existing Sites metadata exposes no aggregate metric and 600-minute Worker-log read returned0events, not a visitor count.",
+        "actual_external_result": "Primary source checks establish recent reported customer demand and current claimed ownership; no independently reproducedfee error, accepted artifact request, external send, fit validation or humanbenefit. Generalpilot remains active/bounded.",
+        "fallback_disposition": "Mark ActualBudget9230 slab regression fallback COVERED_NOT_ACTIONABLE after reading exact PR9240 test at0561ccf9a4ba86d2ebada4d46cb6daf8fe1f114b; no duplicate implementation/contact. No local runtime verification claimed. Kobo2936 current demand unverified; not promoted.",
+        "last_continuation_receipt": 6230506356,
+        "runtime_preflight": "Executed OFN runtime preflight at master6d906aceb7ec4e11b8c38ae4913b3e10e11d3fab. Configured ruby:3.4.8-alpine3.19 has no manifest via actual Docker transport. Alternative ruby:3.4.8 pulled and executed ruby --version in disposable --network none container:3.4.8 revision995b59f666, digestsha256:5c58050b16e00de92e7614bee88cd27865c0bdba262feb44aa838ae5da4431c9. No OFN dependency/test verification; qualification offer remains conditional, not a promised tested artifact.",
+        "disposition": "Codex accepts no-send decision: claimed work, uncertain marginal value and unproven poverty bridge. Probable existing test coverage is an inference, not verified coverage of partial-stock fees. Reject universal inference that all tracker demand is unsuitable; no fresh qualifying candidate established. 72hour/50visit rule and daily cadence remain proposals; no tracking/schedule change."
+      }
+    },
+    {
+      "key": "claude-challenge-followthrough-20261017T0649Z",
+      "entry": {
+        "status": "COMPLETED_INTERNAL_REVIEW_AND_RECONCILIATION",
+        "review": "https://github.com/scottonchain/microcredit-agent-testbed/pull/186#issuecomment-6230895100",
+        "merged_head": "acee6c255e91b9e67b599f6af3c5c7a1957b8f11",
+        "archive_receipts": [
+          "coordinate-microcredit-20261017T030000Z",
+          "coordinate-microcredit-20261017T050000Z"
+        ],
+        "preserved": "All operator actions retained; required_safety_ctr41 and required_safety_tb181 retained at original paths. Current protocol does not permit pruning operator actions.",
+        "reach": "Existing Sites project active/v10. No aggregate metric in get_site; recent Worker logs0events. Reach unknown, no tracking installed.",
+        "external_result": "No external test sent or human benefit established. OFN wait closed; checklist r2 accepted.",
+        "next": "Hermes existing pilot intake; Codex evidence audit on actual eligible request. No manual share/introduction prerequisite. Broader archival needs a reviewed protocol amendment.",
+        "compaction_proposal": {
+          "pr": 187,
+          "head": "5787636044e05f7cff993ecd230610b3aa8e9ef4",
+          "status": "REVIEWED_MERGED_APPLIED_LOSSLESS",
+          "main": "48a940f2079c73d3c03d51478164500fba7cee18",
+          "receipt": 6234882388
+        }
+      }
+    },
+    {
+      "key": "policyengine-submit-20261017T1953Z",
+      "entry": {
+        "status": "CLOSED_SUBMISSION_VERIFIED",
+        "approval": "Scott specific19:53UTC",
+        "review": 6239646511,
+        "handoff": 6240023287,
+        "next": "PE10263 submitted by H; verified at22:00; observe response via accepted H/C roles. See latestscheduledreceipt."
+      }
+    },
+    {
+      "key": "policyengine-owner-diagnosis-20261017T2022Z",
+      "entry": {
+        "status": "CLOSED_SUBMISSION_VERIFIED",
+        "receipt": 6240451076,
+        "evidence": "vision6c266ce3 at20:08:53 tracks handoff6240023287; activity/metadata not read/acceptance/runtime proof.",
+        "head": "52ebc647dcf5611d99508218946bbe3017d9aa15",
+        "next": "PE10263 submitted by H; verified at22:00; observe response via accepted H/C roles. See latestscheduledreceipt.",
+        "independent": "Model reconciles H source review complete, test limits and ownership gap. Not main integration or external progress."
+      }
+    },
+    {
+      "key": "strategy-amend-6264923613-r2",
+      "entry": {
+        "at": "2026-10-19T10:51:30.914653Z",
+        "processed_comment_ids": [
+          6264923613,
+          6264929198,
+          6264872298
+        ],
+        "outcome": "SUBSTANTIVE_AMEND_RECONCILED_ALL_FOUR_STOPPED_POOL_REPORT_DONE_EARLY_EXACT_R2_ASSENT_PENDING",
+        "review_packet": "https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6265504928",
+        "board": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6265506492",
+        "hashes": {
+          "report": "78090959b0caa98eed26ceee7483a975faa898a1d5dd88812c1fef0c6d5905a2",
+          "amendment": "f7557923f6c88b54f28eca1e218d643cf84f30ccfc98b7a335f2fa79f3e35fd2"
+        },
+        "pool": "Claude receipt6264872298,BaseSepolia48318274,cash15,lent/reserved0,treasury15USDC/0.099ETH,providerfreshOct23T14:38:26Z,185shortfall/faucetblocked,13.5ceiling. No X RPC replay or transaction.",
+        "stops": "10146/9698/10185/9621 stopped; reopen only specified genuine request or reproducible named failure. Completed challenge/disposition, not pending deadline.",
+        "next": "Claude exact-r2 assent then established reviewed publisher; C11:15existing read/noon only changed earlier read or deposit receipt. No new schedule/controller/reader; all caps/history/financial/privacy restrictions preserved.",
+        "comparator": "Saved164PRlisting lacks required creation/firstresponse timestamps; skipped without scan. Silence remains confounded, not no demand."
+      }
+    },
+    {
+      "key": "x-20261019-delivery-review-prune9-r1",
+      "entry": {
+        "processed": [
+          6269914739,
+          6269919556,
+          6269413596,
+          6269834060
+        ],
+        "openfisca": "verified delivery; no outside answer or benefit established",
+        "ms_review": {
+          "receipt": "https://github.com/scottonchain/microcredit-agent-testbed/pull/353#issuecomment-6269413596",
+          "received_at": "2026-10-19T14:18:09Z",
+          "deadline": "2026-10-19T15:30:00Z",
+          "status": "COMPLETED_BEFORE_DEADLINE; INTERNAL_EVIDENCE_ONLY; EXTERNAL_WORK_STOPPED",
+          "findings": "C accepts3F4P reproduction,full-model isolation,arithmetic; manual source NOT independently verified; owner already has fix plan. Preserve dissent; reopen only maintainer outside-check request or relevant fix head requiring exact review; no optional rerun."
+        },
+        "snapshot9": {
+          "removed": [
+            "coordinate-microcredit-20261019T100000Z",
+            "coordinate-microcredit-20261019T110000Z",
+            "coordinate-microcredit-20261019T120000Z"
+          ],
+          "reconstruction": "entire pre-prune body byte-equal after restoring snapshot receipts and removing new pointer",
+          "before_chars": 62254,
+          "after_prune_chars": 58339
+        },
+        "parallel_qualification": {
+          "artifact": "https://github.com/scottonchain/microcredit-agent-testbed/pull/355",
+          "head": "7b4f6889450f7b95cacba1b12b0e8db9085cb605",
+          "outcome": "NO_VERIFIED_PAID_SLOT; no launch/contact; named employer opening/pay/conditions and consenting eligible participant missing; no loan case"
+        },
+        "preserved": "all other windows,latest13,Oct16T10,operator actions,missed triggers,archive index; no schedules/spend/deployment",
+        "receipt": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6270190863"
+      }
+    },
+    {
+      "key": "counterexample-test-20261019T1800",
+      "entry": {
+        "status": "STOPPED_UNSENT_AFTER_C_AMEND_H_CONDITIONAL",
+        "artifact": "https://github.com/scottonchain/microcredit-agent-testbed/pull/358",
+        "head": "1cd8350eac8fb48d9b0d8d4cd0b3c8b469b0f710",
+        "invitation_sha256": "252eb8830fa99ada5bf0dad1ef761dd8269ff51f2500599c37f0281e900b9631",
+        "bytes": 1913,
+        "receipt": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6273960753",
+        "owners": "Both19:00deliverables CLOSED/met;GPT STOP;H no send;C draft closure requested",
+        "window": "NO_SEND_NO_CLOCK",
+        "gates": "Stopped on marginal utility/attribution;no automatic re-pin/relaunch",
+        "metrics": "0outsidewitness/delivery/uptake/benefit;16internaltests only",
+        "decision_receipt": "https://github.com/scottonchain/microcredit-agent-testbed/pull/358#issuecomment-6274457696"
+      }
+    },
+    {
+      "key": "x-20261019-crlf-review-stop-r1",
+      "entry": {
+        "processed": [
+          6274174317,
+          6274128657
+        ],
+        "review": "https://github.com/scottonchain/microcredit-agent-testbed/pull/359#issuecomment-6274455859",
+        "receipt": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6274458218",
+        "fix_head": "01e316093b88b6eea7ff7bc278e8df538600fedc",
+        "stop_head": "c8117f0e017191211e559781060d574152d5a163",
+        "result": "359 exactACCEPT:oldCRLF failure,newpass;31checks447tests;LF priorrestore unchanged.358 STOPUNSENT;19:00waits CLOSED. C/H disagreement preserved.1internal defect,0outsidewitness/uptake/income/welfare.",
+        "next": "C maintainer integration359/closure358;no invitationrepair or migration"
+      }
+    },
+    {
+      "key": "zeropaper355-qualification-20261019",
+      "entry": {
+        "status": "STOPPED_DRAFT_CLOSED_HISTORY_RETAINED",
+        "artifact": "https://github.com/scottonchain/microcredit-agent-testbed/pull/360",
+        "head": "6e3a105703be682c89bb282df06136a5a801cef3",
+        "upstream": "alejandroll10/zeropaper#355@207fcc052a941775063a8b16639c289a457e4a58",
+        "receipt": "https://github.com/scottonchain/microcredit-agent-testbed/pull/360#issuecomment-6276037246",
+        "gates": "C AMEND and H NOTCLEARED delivered;both20:00 waits closed",
+        "result": "4synthetic helper cases;CLI missing;no registrywrite;no paidassignment/currentowneracceptance/benefit",
+        "next": "C closed360 per6276480369;no patch/contact/clock. Reopen only materially new qualifying evidence/authority;preserve dissent."
+      }
+    },
+    {
+      "key": "program-dashboard-20261019",
+      "entry": {
+        "status": "PUBLISHED_MAIN_VERIFIED",
+        "artifact": "https://github.com/scottonchain/microcredit-agent-testbed/pull/361",
+        "head": "932441e88c2168af25ea916ace05131337745a3a",
+        "receipt": "https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6276497989",
+        "processed": [
+          6275086211,
+          6275116626,
+          6275147911,
+          6275154423,
+          6275509782,
+          6275848523,
+          6275852831,
+          6276281340,
+          6276449345,
+          6276480369
+        ],
+        "result": "Merged547a5b8 after C exacthead ACCEPT. HTTP200,5mainfiles exact reviewedbytes,CI/links/content/noreply pass. User dashboard delivered;no human benefit inferred.",
+        "next": "Use stablemain coordination/dashboard/README.md;dated snapshot,latest scoped receipts govern. ZPclosedSTOP. No publication blocker."
+      }
+    }
+  ]
+}
