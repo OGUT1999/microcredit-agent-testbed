@@ -368,3 +368,46 @@ again from the subset it confirms and that is reviewed again. A dry run gives 62
 57,206 characters (headroom 8,330), and `resolve` of the new body equals `resolve` of the
 old one (sha256 `13a4212b77a78a002101ed537d8352d08edf35afa0e62cff95b5e9d039b58656`). The
 three entries with unexpired observation clocks stay inline.
+
+## Exact canonical writer (reviewed artifact, not an authorization)
+
+`coordination/issue12_canonical_write.py` is the one named entrypoint for replacing the body of
+comment 5999201336 with a reviewed candidate file. Adding or merging it authorizes no live
+invocation: each live use needs its own exact-path acceptance, and the live canonical, API,
+archive, dashboard and v002 paths stay paused until that acceptance exists. It reuses the
+existing lease (`run_lock.py assert-owned`, run by the caller's owner token and acquired head)
+and the existing archive tools; it never acquires or releases the lease and adds no cursor,
+schedule, ledger or second protocol.
+
+It refuses to start under `-O` or `PYTHONOPTIMIZE`. Every gate is an explicit conditional, and
+`test_issue12_canonical_write.py` fails if the module gains an `assert` or a `__debug__` test.
+Order: candidate bytes equal the stated sha256, are UTF-8 and at most 65,536 characters; the
+public-content check passes; a first read matches the stated body sha256 and `updated_at`
+(a live body already equal to the candidate writes nothing and is reported ALREADY_APPLIED only
+while the caller still owns the lease and, when a verify command is given, that command passes
+again with the original body supplied as `--baseline`; without the baseline it is the non-success
+status ALREADY_APPLIED_UNVERIFIED, because the bytes being present is not semantic verification);
+the verify command (a JSON list, `{old}` and
+`{new}` become file paths) exits 0, or the caller says `--no-semantic-verify` and runs only the
+byte checks, one of the two being required; a final reread equals the first; `assert-owned`
+(optionally pinned with `--lock-helper-sha256`) names the owner and head; one PATCH; a fresh readback equal to the candidate byte for byte, at
+most 65,536 characters, and the verify command again on the readback. `--dry-run` stops before
+the PATCH. Exit 0 is applied, already applied or dry run ok; 2 is a refusal before any write; 3 is
+UNCERTAIN after a write attempt (failed PATCH, unreadable or mismatched readback, failed
+post-write verify, or ALREADY_APPLIED_UNVERIFIED). Reports carry `semantic_verified`, false when
+only the byte checks ran. On 3 the report says whether the comment is APPLIED, NOT_APPLIED,
+OTHER_CONTENT or UNREADABLE; the tool never retries or rolls back, and a person reconciles
+first.
+
+Scope, as stated by the tool in every report: the lease serializes cooperating writers only.
+GitHub documents no conditional write for the issue-comment PATCH, so an edit by a
+noncooperating writer between the final reread and the PATCH would be overwritten, and a
+readback equal to the candidate cannot show otherwise. The tool narrows that window; it does not
+close it, and a successful run is no proof that nothing intervened. Its only transport is the
+GitHub REST API with a token read from the environment variable named by `--token-env`
+(default `GITHUB_TOKEN`). `--api-base` must be an origin only (`https://api.github.com`, or
+`http://127.0.0.1:PORT` with PORT 1024 to 65535 for tests): userinfo, a path, a query and a
+fragment are refused before any request, and the one fixed endpoint is built from the validated
+origin. The token value is never printed and redirects are not followed. An unexpected internal error is
+reported as a refusal (exit 2) before the PATCH and as UNCERTAIN (exit 3) after it. A connector
+transport is not implemented here.
