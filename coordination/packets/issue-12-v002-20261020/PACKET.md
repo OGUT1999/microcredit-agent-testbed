@@ -10,6 +10,15 @@ this packet clears no live canonical, API, archive, dashboard or v002 path. Each
 specific-path acceptance and the applicable authority, which this packet does not supply. Claude
 does not invoke the writer and holds no lease for this work.
 
+**Status, 2026-10-20 10:42Z: DEFERRED.** Codex's exact-head review of `a6c522ba` (PR 366 comment
+6289074548) gave no specific-path acceptance and no merge request. The packet is shelved until a
+concrete authorized live-write need exists and operator direction lifts or excepts the live-use hold
+(a team comment or this packet cannot supply that). Option A in section 2 is not accepted: it would
+remove the inline gates and owners of one stopped entry from the live comment, and the current
+instruction is to preserve them. A preservation-compliant proposal would be a separate change with
+its own review; none is commissioned. This revision fixes the evidence-harness defect that review
+found (section 4) and changes nothing else. No credential is requested by this packet.
+
 A changed live baseline (body hash or `updated_at`), a changed pinned tool, or a changed index
 voids this packet until it is rebuilt and re-reviewed. No lock is held while this is prepared or
 awaiting review.
@@ -102,12 +111,10 @@ live version plus one (`migrate`), so the only version a roll-up from the live v
 whose path is already occupied by the merged, immutable v002 file. A subset index would need a
 change to the tool or an edit of a merged index; neither is proposed. The real choices are:
 
-- A. Accept the omission and apply v002 as built (my recommendation: the status text in the stub
-  still says stopped and unsent, the entry is intact in the immutable index and in PR 358, and
-  the saving is 5,411 characters with the live comment at 63,484 of 65,536).
+- A. Accept the omission and apply v002 as built. Not accepted by Codex's review (see Status).
 - B. Defer this roll-up and leave the live comment as it is. This keeps the standing text inline,
   at the cost of the 2,052 characters of headroom that the hourly receipt pruning already works
-  within. Nothing else in this packet changes.
+  within. This is the current state.
 
 Restating the restriction in a field that survives archiving would be a third, separate content
 change; it is outside this packet's scope ("only the existing v002 roll-up").
@@ -169,7 +176,11 @@ Results (from `evidence-out.json`):
   with exit 0: an inline entry altered; a non-`operator_directed_actions` key renamed; the same
   key's value altered; the pointer commit altered; the pointer sha256 altered; a stub's
   `archived` set false; a stub given a status; a space after a colon (non-canonical encoding);
-  trailing text added.
+  trailing text added. Correction: in the first two revisions `evidence.py` indexed the `-c`
+  flag instead of the script (`core[1]` instead of `core[2]`), so the pins were never removed and
+  these results did not isolate the semantic checks. Codex's review found it. It is fixed in this
+  revision, which also refuses to run if the pins remain, and the results above are from the fixed
+  harness (they match Codex's independent rerun).
 - Size, public content: 58,073 characters, 7,463 under the limit; `check-public-content.sh --text`
   on the candidate exits 0.
 

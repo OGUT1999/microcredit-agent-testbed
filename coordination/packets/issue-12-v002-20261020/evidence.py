@@ -34,7 +34,9 @@ out['verify_exact'] = {
 
 # 2. semantic core of the same argv (hash pins removed) against mutated candidates
 core = list(argv)
-core[1] = '\n'.join(l for l in argv[1].split('\n') if 'sha256sum "$old"' not in l and 'sha256sum "$new"' not in l)
+core[2] = '\n'.join(l for l in argv[2].split('\n') if 'sha256sum "$old"' not in l and 'sha256sum "$new"' not in l)
+if argv[:2] != ['bash', '-c'] or core[2] == argv[2] or 'sha256sum' in core[2]:
+    raise SystemExit('the hash pins were not removed from the semantic core')
 text = new.decode('utf-8')
 _, state, _ = ai.split_body(text)
 mut = {}
