@@ -4,8 +4,10 @@ Each case runs `issue12_canonical_write.py` as a subprocess against a local loop
 fixture that imitates the one comment, and against a throwaway git remote holding a real
 `run_lock.py` lock. Nothing here touches GitHub, the real lock or any real comment."""
 import ast
+import contextlib
 import hashlib
 import http.server
+import io
 import json
 import os
 from pathlib import Path
@@ -15,6 +17,12 @@ import sys
 import tempfile
 import threading
 import unittest
+from unittest import mock
+
+if __package__:
+    from . import issue12_canonical_write as writer
+else:
+    import issue12_canonical_write as writer
 
 ROOT = Path(__file__).resolve().parent.parent
 WRITER = ROOT / 'coordination' / 'issue12_canonical_write.py'
@@ -38,6 +46,9 @@ class Comment:
         self.on_get = None
         self.patch_mode = 'ok'
         self.revision = 0
+        self.redirect = False
+        self.elsewhere_hits = 0
+        self.lone_surrogate = False
 
     def apply(self, text):
         self.body = text
@@ -62,6 +73,9 @@ def make_handler(state):
             return self.path == PATH and self.headers.get('Authorization') == 'Bearer ' + TOKEN
 
         def do_GET(self):
+            if self.path == '/elsewhere':
+                state.elsewhere_hits += 1
+                return self.send(200, {'body': 'redirect target', 'updated_at': 'later'})
             if not self.authorized():
                 return self.send(401, {'message': 'no'})
             state.gets += 1
@@ -69,7 +83,14 @@ def make_handler(state):
                 state.on_get(state, state.gets)
             if state.gets in state.fail_get:
                 return self.send(500, {'message': 'boom'})
-            self.send(200, {'body': state.body, 'updated_at': state.stamp})
+            if state.redirect:
+                self.send_response(302)
+                self.send_header('Location', '/elsewhere')
+                self.send_header('Content-Length', '0')
+                self.end_headers()
+                return
+            body = '\ud800 lone surrogate' if state.lone_surrogate else state.body
+            self.send(200, {'body': body, 'updated_at': state.stamp})
 
         def do_PATCH(self):
             if not self.authorized():
@@ -156,21 +177,29 @@ class Fixture:
         path.write_bytes(text.encode('utf-8') if isinstance(text, str) else text)
         return path
 
-    def run(self, candidate_text='<!-- fixture -->\nstate two\n', head=None, mode='normal', verify=None, dry=False,
-            token=TOKEN, base=None, expected_body=BODY, expected_stamp=STAMP, candidate_sha=None, owner=OWNER,
-            candidate_bytes=None):
+    def args(self, candidate_text='<!-- fixture -->\nstate two\n', head=None, verify=None, dry=False, base=None,
+             expected_body=BODY, expected_stamp=STAMP, candidate_sha=None, owner=OWNER, candidate_bytes=None,
+             semantic='default', helper_sha=None):
         data = candidate_bytes if candidate_bytes is not None else candidate_text.encode('utf-8')
         path = self.candidate(data)
         head = head or self.default_head()
-        argv = [sys.executable] + (['-O'] if mode == 'O' else ['-OO'] if mode == 'OO' else []) + [str(WRITER),
-                '--candidate', str(path), '--candidate-sha256', candidate_sha or sha(data),
+        argv = ['--candidate', str(path), '--candidate-sha256', candidate_sha or sha(data),
                 '--expected-body-sha256', sha(expected_body.encode('utf-8')), '--expected-updated-at', expected_stamp,
                 '--owner', owner, '--acquired-head', head, '--repo', str(self.work),
                 '--api-base', base or self.base]
         if verify is not None:
             argv += ['--verify-cmd', json.dumps(verify)]
+        if semantic == 'default' and verify is None or semantic == 'both':
+            argv.append('--no-semantic-verify')
+        if helper_sha is not None:
+            argv += ['--lock-helper-sha256', helper_sha]
         if dry:
             argv.append('--dry-run')
+        return argv
+
+    def run(self, mode='normal', token=TOKEN, **kwargs):
+        argv = ([sys.executable] + (['-O'] if mode == 'O' else ['-OO'] if mode == 'OO' else []) + [str(WRITER)]
+                + self.args(**kwargs))
         env = {k: v for k, v in os.environ.items() if k not in ('PYTHONOPTIMIZE', 'GITHUB_TOKEN')}
         if mode == 'env2':
             env['PYTHONOPTIMIZE'] = '2'
@@ -354,6 +383,58 @@ class CanonicalWriterTests(unittest.TestCase):
                  'open(p,"w").write(str(n+1)); sys.exit(0 if n == 0 else 1)', '{old}', '{new}', counter]
         report = self.uncertain('VERIFY_FAILED_AFTER_WRITE', verify=flaky)
         self.assertEqual(report['comment']['state'], 'APPLIED')
+
+    def test_a_semantic_check_choice_is_required_and_exclusive(self):
+        for semantic in ('none', 'both'):
+            with self.subTest(semantic=semantic):
+                kwargs = {'semantic': semantic}
+                if semantic == 'both':
+                    kwargs['verify'] = [sys.executable, '-c', 'pass', '{old}', '{new}']
+                code, report, done = self.fx.run(**kwargs)
+                self.assertEqual(code, 2, done.stdout + done.stderr)
+                self.assertIsNone(report)
+                self.assertEqual((self.fx.state.gets, self.fx.state.patches), (0, 0))
+
+    def test_token_only_goes_to_the_github_api_host(self):
+        self.refused('API_BASE', base='https://example.com')
+        self.refused('API_BASE', base='https://api.github.com:444')
+        self.refused('API_BASE', base='https://api.github.com.evil.example')
+
+    def test_redirects_are_not_followed(self):
+        self.fx.state.redirect = True
+        code, report, done = self.fx.run()
+        self.assertEqual((code, report['reason']), (2, 'API_READ_FAILED'))
+        self.assertEqual((self.fx.state.gets, self.fx.state.patches), (1, 0))
+        self.assertEqual(self.fx.state.elsewhere_hits, 0, 'the redirect target must never be requested')
+
+    def test_unicode_that_cannot_be_encoded_is_an_api_failure(self):
+        self.fx.state.lone_surrogate = True
+        self.refused('API_READ_FAILED')
+
+    def test_lock_helper_hash_pin(self):
+        installed = sha((self.fx.work / 'coordination' / 'run_lock.py').read_bytes())
+        self.refused('LOCK_HELPER_HASH', helper_sha='0' * 64)
+        self.refused('SHA256_ARGUMENT', helper_sha='not-a-hash')
+        code, report, done = self.fx.run(helper_sha=installed)
+        self.assertEqual(code, 0, done.stdout + done.stderr)
+
+    def run_in_process(self, **kwargs):
+        out = io.StringIO()
+        with mock.patch.dict(os.environ, {'GITHUB_TOKEN': TOKEN}), contextlib.redirect_stdout(out):
+            code = writer.main(self.fx.args(**kwargs))
+        return code, json.loads(out.getvalue())
+
+    def test_unexpected_error_before_the_write_is_a_refusal(self):
+        with mock.patch.object(writer.Transport, 'read', side_effect=RuntimeError('boom')):
+            code, report = self.run_in_process()
+        self.assertEqual((code, report['reason']), (2, 'INTERNAL_ERROR'))
+        self.assertEqual(self.fx.state.patches, 0)
+
+    def test_unexpected_error_after_the_write_attempt_is_uncertain(self):
+        with mock.patch.object(writer.Transport, 'write', side_effect=RuntimeError('boom')):
+            code, report = self.run_in_process()
+        self.assertEqual((code, report['reason']), (3, 'INTERNAL_ERROR_AFTER_WRITE'))
+        self.assertEqual(report['comment']['state'], 'UNKNOWN')
 
     def test_writer_source_has_no_assert_and_no_debug_guard(self):
         tree = ast.parse(WRITER.read_text(encoding='utf-8'))

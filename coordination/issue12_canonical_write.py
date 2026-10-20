@@ -47,6 +47,7 @@ TOKEN = re.compile(r'[a-z0-9][a-z0-9-]{7,79}')
 HEAD = re.compile(r'[0-9a-f]{40}')
 SHA = re.compile(r'[0-9a-f]{64}')
 LOOPBACK = ('127.0.0.1', 'localhost')
+API_HOST = 'api.github.com'
 
 
 class Refusal(Exception):
@@ -67,6 +68,11 @@ class Uncertain(Exception):
 
 class ApiError(Exception):
     pass
+
+
+class NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, *args, **kwargs):
+        return None
 
 
 def sha256_hex(data):
@@ -106,8 +112,15 @@ def check_public_content(repo, candidate_path):
         raise Refusal('PUBLIC_CONTENT', 'check-public-content.sh exited %d' % done.returncode)
 
 
-def assert_owned(repo, owner, head):
+def assert_owned(repo, owner, head, helper_sha256=None):
     script = Path(repo) / 'coordination' / 'run_lock.py'
+    if helper_sha256 is not None:
+        try:
+            installed = sha256_hex(script.read_bytes())
+        except OSError:
+            raise Refusal('LOCK_HELPER_HASH', 'helper unreadable')
+        if installed != helper_sha256:
+            raise Refusal('LOCK_HELPER_HASH', 'installed run_lock.py differs from --lock-helper-sha256')
     done = subprocess.run([sys.executable, str(script), '--repo', str(repo), 'assert-owned',
                            '--owner', owner, '--acquired-head', head],
                           capture_output=True, text=True)
@@ -142,8 +155,8 @@ class Transport:
         self.url = base.rstrip('/') + '/repos/%s/issues/comments/%d' % (REPO_SLUG, COMMENT_ID)
         self.token = token
         loopback = urllib.parse.urlsplit(base).hostname in LOOPBACK
-        self.open = (urllib.request.build_opener(urllib.request.ProxyHandler({})) if loopback
-                     else urllib.request.build_opener()).open
+        handlers = [NoRedirect()] + ([urllib.request.ProxyHandler({})] if loopback else [])
+        self.open = urllib.request.build_opener(*handlers).open
 
     def request(self, method, payload=None):
         data = None if payload is None else json.dumps(payload, ensure_ascii=False).encode('utf-8')
@@ -174,6 +187,10 @@ class Transport:
         body, stamp = value.get('body'), value.get('updated_at')
         if not isinstance(body, str) or not isinstance(stamp, str) or not stamp:
             raise ApiError('response lacks body or updated_at')
+        try:
+            body.encode('utf-8')
+        except UnicodeEncodeError:
+            raise ApiError('body is not valid Unicode text')
         return body, stamp
 
     def write(self, text):
@@ -182,11 +199,11 @@ class Transport:
 
 def check_api_base(base):
     parts = urllib.parse.urlsplit(base)
-    if parts.scheme == 'https' and parts.hostname:
+    if parts.scheme == 'https' and parts.hostname == API_HOST and not parts.port:
         return
     if parts.scheme == 'http' and parts.hostname in LOOPBACK:
         return
-    raise Refusal('API_BASE', 'https required (plain http only for loopback tests)')
+    raise Refusal('API_BASE', 'https://%s only (plain http only for loopback tests)' % API_HOST)
 
 
 def describe(transport, pre_bytes, candidate_bytes):
@@ -204,14 +221,15 @@ def uncertain_after_write(reason, detail=''):
     return Uncertain(reason + '_AFTER_WRITE', {'state': 'APPLIED'}, detail)
 
 
-def execute(args):
+def execute(args, progress):
     refuse_optimized()
     if not TOKEN.fullmatch(args.owner):
         raise Refusal('OWNER_TOKEN')
     if not HEAD.fullmatch(args.acquired_head):
         raise Refusal('ACQUIRED_HEAD')
-    for name in ('candidate_sha256', 'expected_body_sha256'):
-        if not SHA.fullmatch(getattr(args, name)):
+    for name in ('candidate_sha256', 'expected_body_sha256', 'lock_helper_sha256'):
+        value = getattr(args, name)
+        if value is not None and not SHA.fullmatch(value):
             raise Refusal('SHA256_ARGUMENT', name)
     check_api_base(args.api_base)
     token = os.environ.get(args.token_env, '')
@@ -240,11 +258,12 @@ def execute(args):
         raise Refusal('API_READ_FAILED', str(exc))
     if again_body.encode('utf-8') != first_bytes or again_stamp != first_stamp:
         raise Refusal('BODY_CHANGED_BEFORE_PATCH', 'the final reread differs from the first read')
-    assert_owned(repo, args.owner, args.acquired_head)
+    assert_owned(repo, args.owner, args.acquired_head, args.lock_helper_sha256)
     if args.dry_run:
         return {'outcome': 'DRY_RUN_OK', 'before_sha256': sha256_hex(first_bytes),
                 'candidate_sha256': sha256_hex(candidate_bytes), 'scope': SCOPE}
 
+    progress['patch_attempted'] = True
     try:
         transport.write(candidate_text)
     except ApiError as exc:
@@ -277,7 +296,11 @@ def parse(argv):
     p.add_argument('--repo', default=str(here), help='checkout holding coordination/run_lock.py and world-model/')
     p.add_argument('--api-base', default='https://api.github.com')
     p.add_argument('--token-env', default='GITHUB_TOKEN', help='name of the environment variable holding the token')
-    p.add_argument('--verify-cmd', default=None, help='JSON list; {old} and {new} become file paths; exit 0 required')
+    check = p.add_mutually_exclusive_group(required=True)
+    check.add_argument('--verify-cmd', default=None, help='JSON list; {old} and {new} become file paths; exit 0 required')
+    check.add_argument('--no-semantic-verify', action='store_true',
+                       help='say plainly that no semantic check beyond the byte checks is run')
+    p.add_argument('--lock-helper-sha256', default=None, help='refuse unless run_lock.py has exactly this sha256')
     p.add_argument('--dry-run', action='store_true', help='run every gate up to the PATCH and stop')
     args = p.parse_args(argv)
     if args.verify_cmd is not None:
@@ -292,10 +315,11 @@ def parse(argv):
 
 
 def main(argv=None):
+    progress = {'patch_attempted': False}
     try:
         refuse_optimized()
         args = parse(sys.argv[1:] if argv is None else argv)
-        report = execute(args)
+        report = execute(args, progress)
     except Refusal as exc:
         print(json.dumps({'outcome': 'REFUSED', 'reason': exc.reason, 'detail': exc.detail}, sort_keys=True))
         return 2
@@ -303,6 +327,15 @@ def main(argv=None):
         print(json.dumps({'outcome': 'UNCERTAIN', 'reason': exc.reason, 'comment': exc.state,
                           'detail': exc.detail, 'action': 'stop protected work and reconcile; no retry'}, sort_keys=True))
         return 3
+    except Exception as exc:
+        kind = type(exc).__name__
+        if progress['patch_attempted']:
+            print(json.dumps({'outcome': 'UNCERTAIN', 'reason': 'INTERNAL_ERROR_AFTER_WRITE', 'detail': kind,
+                              'comment': {'state': 'UNKNOWN'},
+                              'action': 'stop protected work and reconcile; no retry'}, sort_keys=True))
+            return 3
+        print(json.dumps({'outcome': 'REFUSED', 'reason': 'INTERNAL_ERROR', 'detail': kind}, sort_keys=True))
+        return 2
     print(json.dumps(report, sort_keys=True))
     return 0
 

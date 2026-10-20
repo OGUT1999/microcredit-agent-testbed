@@ -384,9 +384,10 @@ It refuses to start under `-O` or `PYTHONOPTIMIZE`. Every gate is an explicit co
 Order: candidate bytes equal the stated sha256, are UTF-8 and at most 65,536 characters; the
 public-content check passes; a first read matches the stated body sha256 and `updated_at`
 (a live body already equal to the candidate is reported ALREADY_APPLIED and nothing is
-written, which also refuses a duplicate trigger); the optional verify command (a JSON list,
-`{old}` and `{new}` become file paths) exits 0; a final reread equals the first; `assert-owned`
-names the owner and head; one PATCH; a fresh readback equal to the candidate byte for byte, at
+written, which also refuses a duplicate trigger); the verify command (a JSON list, `{old}` and
+`{new}` become file paths) exits 0, or the caller says `--no-semantic-verify` and runs only the
+byte checks, one of the two being required; a final reread equals the first; `assert-owned`
+(optionally pinned with `--lock-helper-sha256`) names the owner and head; one PATCH; a fresh readback equal to the candidate byte for byte, at
 most 65,536 characters, and the verify command again on the readback. `--dry-run` stops before
 the PATCH. Exit 0 is applied, already applied or dry run ok; 2 is a refusal before any write; 3 is
 UNCERTAIN after a write attempt (failed PATCH, unreadable or mismatched readback, failed
@@ -399,6 +400,8 @@ GitHub documents no conditional write for the issue-comment PATCH, so an edit by
 noncooperating writer between the final reread and the PATCH would be overwritten, and a
 readback equal to the candidate cannot show otherwise. The tool narrows that window; it does not
 close it, and a successful run is no proof that nothing intervened. Its only transport is the
-GitHub REST API with a token read from the environment variable named by `--token-env`
-(default `GITHUB_TOKEN`); the value is never printed, and plain http is accepted only for
-loopback tests. A connector transport is not implemented here.
+GitHub REST API at `https://api.github.com` with a token read from the environment variable
+named by `--token-env` (default `GITHUB_TOKEN`); the value is never printed, redirects are not
+followed, and plain http is accepted only for loopback tests. An unexpected internal error is
+reported as a refusal (exit 2) before the PATCH and as UNCERTAIN (exit 3) after it. A connector
+transport is not implemented here.
