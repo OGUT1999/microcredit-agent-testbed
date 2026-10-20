@@ -18,8 +18,11 @@ Scope, stated plainly: the lease serializes cooperating writers only. GitHub doc
 conditional write for the issue-comment PATCH, so an edit by a noncooperating writer made
 between the final read and the PATCH would be overwritten, and a readback equal to the
 candidate cannot show otherwise. This tool narrows that window; it cannot close it.
-Exit codes: 0 applied, already applied or dry run ok; 2 refused before any write;
-3 uncertain after a write attempt (reconcile before anything else)."""
+Status contract. Exit 0: APPLIED, DRY_RUN_OK, or ALREADY_APPLIED (the live bytes equal the candidate, the
+caller still owns the lease and the verify command, if any, passed again with the original baseline; with
+--no-semantic-verify only the byte checks ran, and the report says semantic_verified false). Exit 2: refused
+before any write. Exit 3: UNCERTAIN after a write attempt, including ALREADY_APPLIED_UNVERIFIED (bytes present
+but the verify command could not be re-run without --baseline, or failed): reconcile before anything else."""
 import sys
 
 if sys.flags.optimize:
@@ -46,8 +49,9 @@ SCOPE = ('cooperative lease only; edits by noncooperating writers between the fi
 TOKEN = re.compile(r'[a-z0-9][a-z0-9-]{7,79}')
 HEAD = re.compile(r'[0-9a-f]{40}')
 SHA = re.compile(r'[0-9a-f]{64}')
-LOOPBACK = ('127.0.0.1', 'localhost')
+LOOPBACK_HOST = '127.0.0.1'
 API_HOST = 'api.github.com'
+ENDPOINT = '/repos/%s/issues/comments/%d' % (REPO_SLUG, COMMENT_ID)
 
 
 class Refusal(Exception):
@@ -151,10 +155,10 @@ def run_verify(repo, command, old_bytes, new_bytes, failure):
 class Transport:
     """GitHub REST for the one comment. Token from the named environment variable, never printed."""
 
-    def __init__(self, base, token):
-        self.url = base.rstrip('/') + '/repos/%s/issues/comments/%d' % (REPO_SLUG, COMMENT_ID)
+    def __init__(self, origin, token):
+        self.url = origin + ENDPOINT
         self.token = token
-        loopback = urllib.parse.urlsplit(base).hostname in LOOPBACK
+        loopback = origin.startswith('http://' + LOOPBACK_HOST)
         handlers = [NoRedirect()] + ([urllib.request.ProxyHandler({})] if loopback else [])
         self.open = urllib.request.build_opener(*handlers).open
 
@@ -198,12 +202,21 @@ class Transport:
 
 
 def check_api_base(base):
-    parts = urllib.parse.urlsplit(base)
-    if parts.scheme == 'https' and parts.hostname == API_HOST and not parts.port:
-        return
-    if parts.scheme == 'http' and parts.hostname in LOOPBACK:
-        return
-    raise Refusal('API_BASE', 'https://%s only (plain http only for loopback tests)' % API_HOST)
+    """Return the validated origin. The one endpoint is built from it, never from the raw string."""
+    if base != base.strip() or any(ord(c) <= 32 or c in '\\?#@' for c in base):
+        raise Refusal('API_BASE', 'origin only: no whitespace, userinfo, query, fragment or backslash')
+    try:
+        parts = urllib.parse.urlsplit(base)
+        port = parts.port
+    except ValueError:
+        raise Refusal('API_BASE', 'unparseable')
+    if parts.path not in ('', '/') or parts.query or parts.fragment or parts.username or parts.password:
+        raise Refusal('API_BASE', 'origin only: no path, query, fragment or userinfo')
+    if parts.scheme == 'https' and parts.hostname == API_HOST and port is None:
+        return 'https://' + API_HOST
+    if parts.scheme == 'http' and parts.hostname == LOOPBACK_HOST and port is not None and 1024 <= port <= 65535:
+        return 'http://%s:%d' % (LOOPBACK_HOST, port)
+    raise Refusal('API_BASE', 'https://%s only (plain http only for %s test ports 1024 to 65535)' % (API_HOST, LOOPBACK_HOST))
 
 
 def describe(transport, pre_bytes, candidate_bytes):
@@ -231,14 +244,22 @@ def execute(args, progress):
         value = getattr(args, name)
         if value is not None and not SHA.fullmatch(value):
             raise Refusal('SHA256_ARGUMENT', name)
-    check_api_base(args.api_base)
+    origin = check_api_base(args.api_base)
     token = os.environ.get(args.token_env, '')
     if not token:
         raise Refusal('TOKEN_MISSING', 'environment variable %s is empty' % args.token_env)
     repo = Path(args.repo).resolve()
+    baseline_bytes = None
+    if args.baseline is not None:
+        try:
+            baseline_bytes = Path(args.baseline).read_bytes()
+        except OSError:
+            raise Refusal('BASELINE_UNREADABLE')
+        if sha256_hex(baseline_bytes) != args.expected_body_sha256:
+            raise Refusal('BASELINE_HASH', 'baseline bytes differ from --expected-body-sha256')
     candidate_bytes, candidate_text = read_candidate(args.candidate, args.candidate_sha256)
     check_public_content(repo, args.candidate)
-    transport = Transport(args.api_base, token)
+    transport = Transport(origin, token)
 
     try:
         first_body, first_stamp = transport.read()
@@ -246,8 +267,16 @@ def execute(args, progress):
         raise Refusal('API_READ_FAILED', str(exc))
     first_bytes = first_body.encode('utf-8')
     if first_bytes == candidate_bytes:
+        assert_owned(repo, args.owner, args.acquired_head, args.lock_helper_sha256)
+        if args.verify_cmd is not None:
+            if baseline_bytes is None:
+                raise Uncertain('ALREADY_APPLIED_UNVERIFIED', {'state': 'APPLIED', 'sha256': sha256_hex(first_bytes)},
+                                'the bytes are present but the verify command needs the original baseline (--baseline) '
+                                'to run again; byte presence is not semantic verification')
+            run_verify(repo, args.verify_cmd, baseline_bytes, first_bytes, uncertain_after_write)
         return {'outcome': 'ALREADY_APPLIED', 'sha256': sha256_hex(candidate_bytes),
-                'characters': len(candidate_text), 'updated_at': first_stamp, 'scope': SCOPE}
+                'characters': len(candidate_text), 'updated_at': first_stamp,
+                'semantic_verified': args.verify_cmd is not None, 'scope': SCOPE}
     if sha256_hex(first_bytes) != args.expected_body_sha256 or first_stamp != args.expected_updated_at:
         raise Refusal('BODY_CHANGED', 'live body hash or updated_at differs from the values the candidate was built from')
     run_verify(repo, args.verify_cmd, first_bytes, candidate_bytes, Refusal)
@@ -281,7 +310,8 @@ def execute(args, progress):
     return {'outcome': 'APPLIED', 'before_sha256': sha256_hex(first_bytes), 'after_sha256': sha256_hex(saved_bytes),
             'before_characters': len(first_body), 'after_characters': len(saved_body),
             'updated_at_before': first_stamp, 'updated_at_after': saved_stamp,
-            'updated_at_advanced': saved_stamp != first_stamp, 'scope': SCOPE}
+            'updated_at_advanced': saved_stamp != first_stamp,
+            'semantic_verified': args.verify_cmd is not None, 'scope': SCOPE}
 
 
 def parse(argv):
@@ -300,6 +330,9 @@ def parse(argv):
     check.add_argument('--verify-cmd', default=None, help='JSON list; {old} and {new} become file paths; exit 0 required')
     check.add_argument('--no-semantic-verify', action='store_true',
                        help='say plainly that no semantic check beyond the byte checks is run')
+    p.add_argument('--baseline', default=None,
+                   help='file holding the original live body (sha256 must equal --expected-body-sha256); lets the '
+                        'verify command run again when the candidate is already in place')
     p.add_argument('--lock-helper-sha256', default=None, help='refuse unless run_lock.py has exactly this sha256')
     p.add_argument('--dry-run', action='store_true', help='run every gate up to the PATCH and stop')
     args = p.parse_args(argv)

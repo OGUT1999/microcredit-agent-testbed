@@ -383,15 +383,19 @@ It refuses to start under `-O` or `PYTHONOPTIMIZE`. Every gate is an explicit co
 `test_issue12_canonical_write.py` fails if the module gains an `assert` or a `__debug__` test.
 Order: candidate bytes equal the stated sha256, are UTF-8 and at most 65,536 characters; the
 public-content check passes; a first read matches the stated body sha256 and `updated_at`
-(a live body already equal to the candidate is reported ALREADY_APPLIED and nothing is
-written, which also refuses a duplicate trigger); the verify command (a JSON list, `{old}` and
+(a live body already equal to the candidate writes nothing and is reported ALREADY_APPLIED only
+while the caller still owns the lease and, when a verify command is given, that command passes
+again with the original body supplied as `--baseline`; without the baseline it is the non-success
+status ALREADY_APPLIED_UNVERIFIED, because the bytes being present is not semantic verification);
+the verify command (a JSON list, `{old}` and
 `{new}` become file paths) exits 0, or the caller says `--no-semantic-verify` and runs only the
 byte checks, one of the two being required; a final reread equals the first; `assert-owned`
 (optionally pinned with `--lock-helper-sha256`) names the owner and head; one PATCH; a fresh readback equal to the candidate byte for byte, at
 most 65,536 characters, and the verify command again on the readback. `--dry-run` stops before
 the PATCH. Exit 0 is applied, already applied or dry run ok; 2 is a refusal before any write; 3 is
 UNCERTAIN after a write attempt (failed PATCH, unreadable or mismatched readback, failed
-post-write verify). On 3 the report says whether the comment is APPLIED, NOT_APPLIED,
+post-write verify, or ALREADY_APPLIED_UNVERIFIED). Reports carry `semantic_verified`, false when
+only the byte checks ran. On 3 the report says whether the comment is APPLIED, NOT_APPLIED,
 OTHER_CONTENT or UNREADABLE; the tool never retries or rolls back, and a person reconciles
 first.
 
@@ -400,8 +404,10 @@ GitHub documents no conditional write for the issue-comment PATCH, so an edit by
 noncooperating writer between the final reread and the PATCH would be overwritten, and a
 readback equal to the candidate cannot show otherwise. The tool narrows that window; it does not
 close it, and a successful run is no proof that nothing intervened. Its only transport is the
-GitHub REST API at `https://api.github.com` with a token read from the environment variable
-named by `--token-env` (default `GITHUB_TOKEN`); the value is never printed, redirects are not
-followed, and plain http is accepted only for loopback tests. An unexpected internal error is
+GitHub REST API with a token read from the environment variable named by `--token-env`
+(default `GITHUB_TOKEN`). `--api-base` must be an origin only (`https://api.github.com`, or
+`http://127.0.0.1:PORT` with PORT 1024 to 65535 for tests): userinfo, a path, a query and a
+fragment are refused before any request, and the one fixed endpoint is built from the validated
+origin. The token value is never printed and redirects are not followed. An unexpected internal error is
 reported as a refusal (exit 2) before the PATCH and as UNCERTAIN (exit 3) after it. A connector
 transport is not implemented here.

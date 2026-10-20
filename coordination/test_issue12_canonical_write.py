@@ -179,7 +179,7 @@ class Fixture:
 
     def args(self, candidate_text='<!-- fixture -->\nstate two\n', head=None, verify=None, dry=False, base=None,
              expected_body=BODY, expected_stamp=STAMP, candidate_sha=None, owner=OWNER, candidate_bytes=None,
-             semantic='default', helper_sha=None):
+             semantic='default', helper_sha=None, baseline=None):
         data = candidate_bytes if candidate_bytes is not None else candidate_text.encode('utf-8')
         path = self.candidate(data)
         head = head or self.default_head()
@@ -193,6 +193,10 @@ class Fixture:
             argv.append('--no-semantic-verify')
         if helper_sha is not None:
             argv += ['--lock-helper-sha256', helper_sha]
+        if baseline is not None:
+            baseline_path = self.root / 'baseline.txt'
+            baseline_path.write_bytes(baseline)
+            argv += ['--baseline', str(baseline_path)]
         if dry:
             argv.append('--dry-run')
         return argv
@@ -255,6 +259,7 @@ class CanonicalWriterTests(unittest.TestCase):
         second = self.fx.run(head=head)
         self.assertEqual(second[0], 0)
         self.assertEqual(second[1]['outcome'], 'ALREADY_APPLIED')
+        self.assertFalse(second[1]['semantic_verified'], 'only the byte checks ran; the report must say so')
         self.assertEqual(self.fx.state.patches, 1)
 
     def test_dry_run_stops_before_patch(self):
@@ -400,6 +405,23 @@ class CanonicalWriterTests(unittest.TestCase):
         self.refused('API_BASE', base='https://api.github.com:444')
         self.refused('API_BASE', base='https://api.github.com.evil.example')
 
+    def test_api_base_must_be_an_origin_and_never_reaches_the_network_otherwise(self):
+        port = self.fx.base.rsplit(':', 1)[1]
+        bad = [self.fx.base + '/other-comment', self.fx.base + '/other-comment?x=', self.fx.base + '?x=',
+               self.fx.base + '?', self.fx.base + '#frag', 'http://user:pw@127.0.0.1:' + port, 'http://127.0.0.1',
+               'http://127.0.0.1:80', 'http://localhost:' + port, self.fx.base + '/..',
+               'https://api.github.com/other', 'https://api.github.com?x=', 'https://user@api.github.com',
+               'https://api.github.com\\@evil.example', ' ' + self.fx.base]
+        for base in bad:
+            with self.subTest(base=base):
+                self.refused('API_BASE', base=base)
+                self.assertEqual((self.fx.state.gets, self.fx.state.patches, self.fx.state.elsewhere_hits), (0, 0, 0))
+
+    def test_a_trailing_slash_origin_still_targets_the_one_fixed_endpoint(self):
+        code, report, done = self.fx.run(base=self.fx.base + '/')
+        self.assertEqual(code, 0, done.stdout + done.stderr)
+        self.assertEqual(self.fx.state.patches, 1)
+
     def test_redirects_are_not_followed(self):
         self.fx.state.redirect = True
         code, report, done = self.fx.run()
@@ -435,6 +457,52 @@ class CanonicalWriterTests(unittest.TestCase):
             code, report = self.run_in_process()
         self.assertEqual((code, report['reason']), (3, 'INTERNAL_ERROR_AFTER_WRITE'))
         self.assertEqual(report['comment']['state'], 'UNKNOWN')
+
+    def test_already_applied_still_needs_the_owned_lease(self):
+        head = self.fx.acquire()
+        self.assertEqual(self.fx.run(head=head)[0], 0)
+        self.fx.release(head)
+        code, report, done = self.fx.run(head=head)
+        self.assertEqual((code, report['reason']), (2, 'LEASE_NOT_OWNED'))
+        self.assertEqual(self.fx.state.patches, 1)
+
+    def flaky_verify(self):
+        counter = str(self.fx.root / 'count')
+        return counter, [sys.executable, '-c',
+                         'import sys,os; p=sys.argv[3]; n=int(open(p).read()) if os.path.exists(p) else 0; '
+                         'open(p,"w").write(str(n+1)); sys.exit(0 if n == 0 else 1)', '{old}', '{new}', counter]
+
+    def test_failed_postverify_then_rerun_is_not_a_success(self):
+        counter, flaky = self.flaky_verify()
+        head = self.fx.acquire()
+        code, report, done = self.fx.run(head=head, verify=flaky)
+        self.assertEqual((code, report['reason']), (3, 'VERIFY_FAILED_AFTER_WRITE'))
+        self.assertEqual(self.fx.state.body, '<!-- fixture -->\nstate two\n')
+        code, report, done = self.fx.run(head=head, verify=flaky)
+        self.assertEqual(code, 3, done.stdout + done.stderr)
+        self.assertEqual((report['outcome'], report['reason']), ('UNCERTAIN', 'ALREADY_APPLIED_UNVERIFIED'))
+        self.assertEqual(report['comment']['state'], 'APPLIED')
+        self.assertEqual(self.fx.state.patches, 1, 'no duplicate write')
+        self.assertEqual(Path(counter).read_text(), '2', 'the verifier is not called with a substituted baseline')
+
+    def test_rerun_with_the_original_baseline_runs_the_verifier_again(self):
+        head = self.fx.acquire()
+        baseline_check = [sys.executable, '-c',
+                          'import sys,hashlib; sys.exit(0 if hashlib.sha256(open(sys.argv[1],"rb").read()).hexdigest() '
+                          '== sys.argv[3] else 1)', '{old}', '{new}', sha(BODY.encode('utf-8'))]
+        first = self.fx.run(head=head, verify=baseline_check, baseline=BODY.encode('utf-8'))
+        self.assertEqual(first[0], 0, first[2].stdout + first[2].stderr)
+        second = self.fx.run(head=head, verify=baseline_check, baseline=BODY.encode('utf-8'))
+        self.assertEqual(second[0], 0, second[2].stdout + second[2].stderr)
+        self.assertEqual((second[1]['outcome'], second[1]['semantic_verified']), ('ALREADY_APPLIED', True))
+        failing = [sys.executable, '-c', 'import sys; sys.exit(1)', '{old}', '{new}']
+        third = self.fx.run(head=head, verify=failing, baseline=BODY.encode('utf-8'))
+        self.assertEqual((third[0], third[1]['reason']), (3, 'VERIFY_FAILED_AFTER_WRITE'))
+        self.assertEqual(self.fx.state.patches, 1)
+
+    def test_baseline_must_match_the_expected_body_hash(self):
+        self.refused('BASELINE_HASH', baseline=b'not the original body')
+        self.assertEqual(self.fx.state.gets, 0)
 
     def test_writer_source_has_no_assert_and_no_debug_guard(self):
         tree = ast.parse(WRITER.read_text(encoding='utf-8'))
