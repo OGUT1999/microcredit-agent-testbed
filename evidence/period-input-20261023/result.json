@@ -1,0 +1,58 @@
+[
+  {
+    "input": "month:2015-09-01",
+    "serialized": "2015-09",
+    "same_period": true,
+    "original_start": "2015-09-01",
+    "roundtrip_start": "2015-09-01"
+  },
+  {
+    "input": "month:2015-09-02",
+    "serialized": "2015-09",
+    "same_period": false,
+    "original_start": "2015-09-02",
+    "roundtrip_start": "2015-09-01"
+  },
+  {
+    "input": "month:2015-09-12",
+    "serialized": "2015-09",
+    "same_period": false,
+    "original_start": "2015-09-12",
+    "roundtrip_start": "2015-09-01"
+  },
+  {
+    "input": "month:2015-09-28",
+    "serialized": "2015-09",
+    "same_period": false,
+    "original_start": "2015-09-28",
+    "roundtrip_start": "2015-09-01"
+  },
+  {
+    "input": "year:2015-09-01",
+    "serialized": "year:2015-09",
+    "same_period": true,
+    "original_start": "2015-09-01",
+    "roundtrip_start": "2015-09-01"
+  },
+  {
+    "input": "year:2015-09-02",
+    "serialized": "year:2015-09",
+    "same_period": false,
+    "original_start": "2015-09-02",
+    "roundtrip_start": "2015-09-01"
+  },
+  {
+    "input": "year:2015-09-12",
+    "serialized": "year:2015-09",
+    "same_period": false,
+    "original_start": "2015-09-12",
+    "roundtrip_start": "2015-09-01"
+  },
+  {
+    "input": "year:2015-09-28",
+    "serialized": "year:2015-09",
+    "same_period": false,
+    "original_start": "2015-09-28",
+    "roundtrip_start": "2015-09-01"
+  }
+]
