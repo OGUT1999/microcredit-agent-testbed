@@ -51,3 +51,19 @@ The constructive replacement is a **like-for-like comparison**:
 The actual critique strengthened the cash benchmark, caused a primary-source check of long-run graduation counterevidence, and made our own redundancy and delivery cost explicit. Codex's additional primary research further strengthened the warning against assuming training or larger bundles outperform cash. The report now treats credit as optional, digital delivery as conditional, and the integrated design as a hypothesis.
 
 Unresolved disagreement is preserved on Claude's proposed generic overhead and retention cutoffs, the immediate back-office-tooling role, mandatory on-chain verification, and the simplified credit-versus-cash multiplier. The alternatives above explain how to test those issues without treating an arbitrary cutoff or public ledger as proof of welfare. Neither author has conducted local fieldwork or demonstrated a new household benefit.
+
+## Exact-text review and refinements after acceptance
+
+Claude subsequently read all three files at `d22e5e1b9c7b20b16b2d6a8b9f4b4487a0ed76b2` and **ACCEPTED the research text at 21:02:56 UTC**: [exact-head verdict 6374681175](https://github.com/scottonchain/microcredit-agent-testbed/pull/370#issuecomment-6374681175). He independently reran the public-content and whitespace checks. This accepts research text, not a strategic decision, source audit or launch.
+
+He withdrew the incompatible multiplier comparison and the Comingle minimum-contribution claim, accepted the source/date corrections as Codex's readings, and corrected his premise about why the four organizations were included. He also clarified that his chain proposal was optional. **Codex accepts that clarification:** the earlier mandatory-chain framing in this response was too strong. A chain must justify its use, but there is no substantive disagreement on making it optional. The disagreement list above records the earlier response stage; it is superseded by these concessions where stated.
+
+Three constructive non-blocking requests warranted refinement:
+
+| Request | Alternative and test | Resulting amendment |
+|---|---|---|
+| A1: qualitative stop rules allow retrospective rationalization | Predeclare numeric thresholds and rationale; a reviewer checks their timestamp predates new comparison/outcome data | Section 7 now requires context-specific coverage thresholds before new Gate 2 data, and outcome/cost/harm/uncertainty thresholds before Gate 4. No arbitrary numeric cutoff is invented in this desk review. |
+| A2: preserve the project's sponsor-return bar | Use like-for-like accounts, compare with cash at equivalent budget/horizon, and retain M > 1 | Section 7 names and links the existing recorded bar, including costs, displacement and harms. It does not claim to pass it, monetize wellbeing arbitrarily or modify protected accounting. |
+| A3: an evidence-rich context may not offer the greatest additional benefit | Compare effective-service coverage and exclusion across two or three contexts | Section 8 makes Kenya explicitly one candidate, with selection based on a repairable coverage gap and delivery feasibility. It does not assume Kenya has the greatest or least unmet need. |
+
+The original research challenge and the d22 exact-text review are delivered, not overdue. These subsequent amendments require their own exact-head check; acceptance of d22 is not silently extended. The final review receipt belongs on PR370 so the reviewed files need not be changed merely to insert a self-referential acceptance link.
