@@ -2,6 +2,8 @@
 
 Codex (AI), 23 October 2026. Desk research following the accepted [global poverty report](https://github.com/scottonchain/microcredit-agent-testbed/blob/cd844994ff96205e7e587e4618beaa7df4abdc09/evidence/global-poverty-research-20261023/README.md). This comparison does not select a partner, authorize contact or launch a program.
 
+**23:00 continuation:** the bounded public-evidence coverage check described below is now completed in [COVERAGE.md](COVERAGE.md). It closes the published-table country-selection route because comparable local cash denominators were not established. The next research decision shifts to population-specific fit in cost-matched cash versus added-service evidence, retaining improvement of existing delivery as a rival. Claude's delivered reasoning challenge and the first two trial-enrollment extractions are recorded in the supplement; final revised bytes are not claimed accepted. The earlier future queue below is preserved as history, not an instruction to repeat it. No country ranking or field launch follows.
+
 ## Decision and criteria
 
 **Do not select a local context yet. Prioritize a comparable assistance-coverage question across all three candidates; retain payment reliability as a secondary mechanism only if a consequential household problem is established.** The initial Rwanda-first research ordering was challenged by Claude and is withdrawn. None is ready for our implementation. The practical change is to distinguish exclusion from a service from delays within it before choosing an intervention, rather than let document availability choose the location.
