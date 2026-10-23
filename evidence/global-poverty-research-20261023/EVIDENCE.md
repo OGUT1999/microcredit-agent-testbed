@@ -16,15 +16,19 @@ Research cut: **23 October 2026**. Links in the report are the claim-level refer
 |---|---|---|
 | [World Bank global update](https://blogs.worldbank.org/en/opendata/september-2026-global-poverty-update-from-the-world-bank--one-in) | September 2026; observations through 2024, later nowcasts | Population measurement; read full web text. October table-label correction noted. |
 | [Poverty-line revision](https://www.worldbank.org/en/news/factsheet/2025/06/05/june-2025-update-to-global-poverty-lines) | June 2025 | Definitions, not current headcount vintage. |
-| [UNDP/OPHI MPI](https://hdr.undp.org/content/2026-global-multidimensional-poverty-index) | October 2026; underlying surveys vary | Population measurement; regional percentage ambiguity omitted. |
+| [UNDP/OPHI MPI](https://hdr.undp.org/content/2026-global-multidimensional-poverty-index) | October 2026; underlying surveys vary | Population measurement; full PDF checked for regional distribution. |
 | [Conflict and instability analysis](https://www.worldbank.org/en/news/press-release/2025/06/27/fragile-and-conflict-affected-situations-intertwined-crises-multiple-vulnerabilities) | June 2025 | Older estimates; not merged with latest global totals. |
 | [Social protection report](https://www.worldbank.org/en/topic/socialprotection/publication/state-of-social-protection-2025-2-billion-person-challenge) | 2025 | Coverage/adequacy estimates; distinct from impact. |
 | [Economic inclusion report](https://openknowledge.worldbank.org/entities/publication/e7d7c0e7-7885-479f-86da-42d0f4f1b65e) | 2024 program survey | Direct and indirect reach; not graduates out of poverty. |
+| [ID4D dataset](https://id4d.worldbank.org/global-dataset) | 2025 edition; 2024 evidence | Identity-access estimates; overlapping populations not added. |
 | [Global Findex](https://www.worldbank.org/en/publication/globalfindex/report) | 2025 report, 2024 surveys | Financial-access survey; account use is not net benefit. |
 | [GSMA mobile connectivity release](https://www.gsma.com/newsroom/press-release/gsma-warns-of-emerging-global-ai-divide-as-three-billion-people-remain-offline-and-smartphone-component-costs-soar/) | September 2026 | Official indexed excerpt; direct access blocked. |
 | [Cash-transfer experiment](https://emiguel.econ.berkeley.edu/research/general-equilibrium-effects-of-cash-transfers-experimental-evidence-from-kenya/) | Published 2022 | Randomized Kenyan study; use published estimate, not older working-paper value. |
 | [Graduation evaluation](https://emerge.ucsd.edu/wp-content/uploads/2018/08/banerjee-a-multifaceted-program-causes-lasting-progress-for-the-very-poor.pdf) | Published 2015 | Six-country randomized evaluation; not a test of our bundle. |
 | [Niger multifaceted support](https://www.nature.com/articles/s41586-022-04647-8) | Published 2022 | Randomized evaluation among existing cash recipients. |
+| [Rwanda cash benchmarking](https://andrewzeitlin.io/papers/) | 2022 publication and medium-term follow-up listed as published in 2025 | Author primary summaries; journal follow-up page inaccessible. |
+| [Indian long-run graduation](https://pubs.aeaweb.org/doi/10.1257/aeri.20200667) | Published 2021 | Ten-year randomized follow-up; primary abstract read. |
+| [Bangladesh hybrid graduation](https://bigd.bracu.ac.bd/wp-content/uploads/2026/06/b7704990-fbc3-4d1a-ad3f-ba1f58d495c5_verixiv_2196.pdf) | November 2025 preprint, 2026 institutional summary | Author preprint; not independently audited or treated as settled replication. |
 | [Microcredit synthesis](https://www.aeaweb.org/articles?id=10.1257/app.20170299) | Published 2019 | Seven experiments; heterogeneity matters. |
 | [Uganda long-term grant follow-up](https://www.aeaweb.org/articles?id=10.1257/aeri.20190224) | Published 2020 | Nine-year randomized follow-up; long-term counterevidence retained. |
 | [Savings groups](https://www.pnas.org/doi/10.1073/pnas.1611520114) | Published 2017 | Three-country randomized evaluation; indexed abstract used. |
