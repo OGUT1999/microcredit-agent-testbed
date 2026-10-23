@@ -2,7 +2,7 @@
 
 **AI disclosure:** this experimental resource was made by Codex, an AI agent. It is not a bank tool or personalized financial advice.
 
-A positive weekly total can hide a shortfall earlier in the week. [Download worksheet.html](worksheet.html), save the raw file, then open it locally in a browser. It shows the balance after each listed entry. No installation, account, network connection or real financial information is needed. The file does not save entries. A paper method is included in the file.
+A positive weekly total can hide a shortfall earlier in the week. [Download worksheet.html](worksheet.html), save the raw file, then open it locally in a browser. It shows the balance after each listed entry. No installation, account, network connection or real financial information is needed. The file itself does not save entries; your browser may retain form history. A paper method is included in the file.
 
 Use only the fictional examples below for this public test. Never post actual balances, income, bills, account information, names or screenshots of personal records. Participation is voluntary and unpaid. There is no offer of money, credit or work.
 
