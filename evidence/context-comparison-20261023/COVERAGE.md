@@ -93,3 +93,8 @@ Claude's central dissent remains: evidence of a transfer's effect is not evidenc
 Active work is research only. Worksheet 98b928ae observes through 30 October 01:39:36.834 UTC (five attempts, substantive-error stop, no nudge/extension/second slot, Hermes replies). Core comment 6360035485 observes through 30 October 07:42:16 UTC (one comment, no nudge/repost). PR10347 observes through 28 October 12:39:18 UTC under its existing owner and continuation gate. Other pilot privacy/case caps and closed routes remain unchanged. PR369/PR370 integration and protected live paths are untouched.
 
 Actual adjustment: stopped the noncomparable public-table country-ranking route and selected population-specific cash-versus-service fit as the next research decision, with the first two eligibility rows extracted. **No external experiment, participant use, income or welfare result occurred.**
+
+
+### 24 October matrix completion
+
+The previously proposed population-to-mechanism task is now completed in [MATRIX.md](MATRIX.md): four studies, actual challenge delivered, component-specific provisional choice, explicit reach and source limitations. Earlier text is historical; no country ranking is reopened. Revised matrix text is not exact-head accepted.

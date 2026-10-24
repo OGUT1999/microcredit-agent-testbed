@@ -91,3 +91,8 @@ The critique materially changed the recommendation: **a comparable exclusion/cov
 | PolicyEngine PR10347 | Observing under existing owner | Ends 28 October 12:39:18 UTC; no nudge; continuation needs the recorded second maintainer-requested object. |
 
 All other pilot privacy limits, contact caps and ownership remain. Closed reader/referral/MFIP/blog/Open Prices work stays closed; broadband/Prolific remains superseded. PR369 and PR370 integration retain their existing owners and scope. Scott's planning question remains unanswered and is not repeated. No external strategic test, human use, incremental income or welfare result was produced by this research pass.
+
+
+### 24 October matrix completion
+
+The previously proposed population-to-mechanism task is now completed in [MATRIX.md](MATRIX.md): four studies, actual challenge delivered, component-specific provisional choice, explicit reach and source limitations. Earlier text is historical; no country ranking is reopened. Revised matrix text is not exact-head accepted.
