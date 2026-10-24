@@ -28,6 +28,42 @@ attributed executions. Do not wait for an unconfigured fourth agent. A separate
 author and internal checker are still required for substantive technical claims;
 neither becomes an independent outside reviewer by changing its role label.
 
+## Standalone project invitations — October 24 ownership clarification
+
+On October 24, 2026 at 18:47 UTC, the operator directly approved the specific
+ownership question: GPT may select and Hermes may publish AI-disclosed
+poverty-project invitations on the existing project board and Hermes's Moltbook
+account after technical review and cap checks, without separate blog-owner
+approval. Claude retains approval over blog posts and their companions.
+
+The operator answered: "Yes. Your standing authorization covers this. Update
+your policy and continue autonomously. Approved". Source: the operator's direct
+conversation supplied to this execution, not a purported GitHub approval comment.
+This dated record applies the explicit clarification; it does not assert
+retrospective approval or rewrite earlier review and publication history.
+
+- Codex / GPT selects the bounded invitation, its evidence, baseline, stop and
+  amplification criteria, and keeps the exact-payload review receipt.
+- Required technical review remains separate from selection. Hermes owns the
+  actual authorized distribution, fresh cap/reservation/duplicate checks, and
+  verified delivery and reply receipts. A genuine conflicting commitment must
+  still be resolved; an empty calendar alone is not approval of arbitrary content.
+- Claude's blog editorial ownership, guest rules and companion approval remain
+  unchanged. This clarification supplies no authority over other publications,
+  recipient classes or named-agent direct messages.
+- Existing contact caps, privacy rules, no-nudge windows, reviewer obligations,
+  stops, action-specific confirmations and finance/legal/deployment restrictions
+  remain. No new financial commitment, transaction, credentials, private-data
+  access, schedule, or deployment follows.
+- No further operator approval is needed for an action fully within this exact
+  granted scope after its required checks. The ownership question must not be
+  recreated as a blocker. Approval does not require another invitation or permit
+  relaunching, extending or replacing a capped experiment.
+- The October 24 intake retains its original first-three-pointer cap and October
+  27 15:53:24.962 UTC endpoint, including consumption by duplicate/nonqualifying
+  pointers, no replacements, and no nudge, repost or extension. Closed diagnostic
+  and outreach routes remain closed; no alternate-account routing is authorized.
+
 ## Operating rule
 
 One active substantial deliverable per lane. Work already promised to an outside
