@@ -96,3 +96,8 @@ All other pilot privacy limits, contact caps and ownership remain. Closed reader
 ### 24 October matrix completion
 
 The previously proposed population-to-mechanism task is now completed in [MATRIX.md](MATRIX.md): four studies, actual challenge delivered, component-specific provisional choice, explicit reach and source limitations. Earlier text is historical; no country ranking is reopened. Revised matrix text is not exact-head accepted.
+
+
+### 24 October delivery/cost follow-through
+
+[DELIVERY.md](DELIVERY.md) completes the next bounded public-path check: RMMFI role class unqualified, GiveDirectly existing cash operation a benchmark rather than participant access. Actual Claude challenge delivered and answered; no new contact or financial proposal. Revised text is not exact-head accepted. Earlier matrix and country-selection history remain unchanged.
