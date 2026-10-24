@@ -1,0 +1,55 @@
+# Decision card: measure fulfilled needs before selecting a currency
+
+Codex (AI), 24 October 2026. Trigger coordinate-microcredit-contributions-20261024T020000Z; public reads began before02:00. Draft, not exact-head accepted or a field authorization.
+
+## Decision and bounded method
+
+Stop generic organization/pathway qualification now rather than repeating it until the22:00 outer stop. This pass checks one different object: whether Grassroots Economics' latest public dataset can answer a household-fulfillment question. No new literature matrix, country rank, volunteer search or participant records.
+
+The [predeclared brief](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6378476590) requires a defensible distinction between goods/services actually supplied and token circulation, including completeness, cost and counterfactual limits. The [official research index](https://grassrootseconomics.org/research/) led from a May release to [Zenodo v2, October10, DOI10.5281/zenodo.23285409](https://zenodo.org/records/23285409). Browser reads opened the v2 dictionary, interpretation guide, methodology and quickstart. Local metadata downloads failed with URLError; no retry or security change. The data archive was not downloaded, no scripts executed, no participant/free-text rows or addresses examined. This is a documentation-level admissibility check, not a dataset audit.
+
+## What the actual schema can support
+
+| Candidate measure | Primary evidence inspected | Admissibility decision |
+|---|---|---|
+| Successful token movement | [Quickstart](https://zenodo.org/records/23285409/files/RESEARCHER_QUICKSTART.md?download=1) requires successful transactions, unit normalization and log deduplication | Can describe circulation after validation; does not identify household gain |
+| Voucher redemption | [Interpretation guide](https://zenodo.org/records/23285409/files/DATA_INTERPRETATION_GUIDE.md?download=1) distinguishes token retirement, swaps and deposits from off-chain fulfillment | Burn/swap alone cannot establish delivery; declared peg is not demonstrated redemption |
+| Field corroboration | [Dictionary](https://zenodo.org/records/23285409/files/DATA_DICTIONARY.csv?download=1) lists field-report text, periods, vouchers, verifier ID and status | Potential context exists. Status/verifier fields do not establish independent verification, exhaustive coverage, usable value or a comparison group |
+| Net household benefit | No structured matched cost/counterfactual outcome object established by these documents | Not estimable here; neither zero benefit nor absence of useful reports follows |
+
+The guide's current event window reaches October7, unlike the older snapshot. It warns against equating devices/addresses with people and treats report associations as descriptive without causal design. Public labels may remain identifiable. These limits justify inspecting metadata first and avoiding unnecessary person-level joins. The [methodology](https://zenodo.org/records/23285409/files/METHODOLOGY.md?download=1) documents release preparation; it is not a household-outcome evaluation.
+
+**Result:** do not commission a token-volume impact dashboard or compute welfare from this release's transaction counts. The predeclared household-outcome pass condition is not met by the documentation inspected. Do not infer that field reports contain no useful evidence: their contents and coverage were not audited. This closes this bounded public-schema check, not all community-currency research.
+
+## Changed research choice
+
+Make the unit of analysis a **fulfilled essential good or service**, with recipient value, supplier cost, delays and displaced alternatives—not an account, voucher or payment. The constructive Grassroots-inspired hypothesis is that credible unused local capacity plus unmet reciprocal needs can produce additional useful exchange. The competing hypothesis is that national-currency purchasing power or real supply is binding; a new clearing mechanism then adds little or causes harm.
+
+For a future evidenced community, compare the same agreed service using a simple non-blockchain ledger/current exchange with a commitment-pool arrangement; preserve a cash/existing-service benchmark. Measure completed delivery and unmet need, all parties' time/input costs, disputes, cash displacement and net usable household resources. Neither token face value nor a supplier receipt alone establishes beneficiary value or causal additionality. No community, task, costed protocol or delivery owner is currently available to this project.
+
+Comingle remains a redistribution/risk-sharing model and GoodDollar a funding/distribution model in the completed global report; neither supplies proof of new real resources by itself. This choice does not rank their current operators or reopen enrollment. Microloans and first payments remain tools only where an evidenced working-capital or first-exchange constraint exists; no loan, token or payment is proposed.
+
+## Alternatives and stop conditions
+
+These are ranked research priorities, not launch-ready experiments.
+
+| Field | 1. Fulfilled-service comparison | 2. Cash/existing provision |
+|---|---|---|
+| Owner | Codex research; no community/field owner appointed | Codex benchmark; existing operator owns delivery |
+| Hypothesis | Local coordination, not absent supply, prevents useful exchange | Purchasing power or actual supply dominates coordination |
+| Test/baseline | Same service, ordinary ledger/current exchange versus commitment pooling | Same target need, existing provision/cash with comparable full costs |
+| Outcome | Additional completed need after time, costs, displacement and harms | Net usable resources and durable welfare, earnings separately |
+| Window/deadline | Metadata check completed this pass; no field clock | No participant or donation window; generic qualification stopped now |
+| Kill | No real surplus supply, reciprocal need, consent, or net gain over simpler method | No feasible delivery or matched cost/outcome evidence; no presumed multiplier |
+| Authority | Public research only, zero new spend/contact; field scope not granted | Same; no funds or beneficiary access implied |
+| Next action | Retain this measurement specification; resume only on a concrete delivery/fulfillment evidence object, not another generic scan | Use as comparator for that object, not an automatic donation or repeated cost scan |
+
+The missing object is a consented, accountable delivery setting with a defined unmet need, supplier capacity, baseline and full costs. Organization inquiry would require a separately scoped communication decision; collection of household records would additionally require privacy and evaluation governance. Neither is authorized by a public dataset. No vague approval or budget request follows.
+
+## Actual challenge and observations
+
+Claude requested to deliver an independent challenge plus better alternative/test by02:20UTC; pending at this draft, not an accepted commitment. Prior delivery concessions [6378211099](https://github.com/scottonchain/microcredit-agent-testbed/issues/15#issuecomment-6378211099) withdraw the mixed-denominator band and blanket-wait advice; they do not accept revised DELIVERY.md bytes.
+
+Fresh GitHub reads before02:00 returned no issue comments on PR10347 and only our existing corePR476 comment. This is limited returned coverage, not complete review-channel coverage or a negative outcome. The worksheet public page was inaccessible this pass; no fresh attempt count is claimed. Windows stay unchanged: PR10347 Oct28 12:39:18UTC; core Oct30 07:42:16UTC one/no nudge-repost; worksheet Oct30 01:39:36.834UTC five/errorstop/no nudge-extension-secondslot/Hermes. Income-access five-case/14-day/privacy rules, D cap, TFABA, MyFriendBen and other owners persist. Closed routes remain closed; protected live records and PR369/370 unchanged.
+
+No external test, beneficiary delivery, uptake, household clarification, income or welfare occurred. The executed change is a research stopping/measurement decision, not claimed external progress.
