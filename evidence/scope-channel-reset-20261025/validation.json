@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-10-25T18:49:24.687328+00:00",
+  "tests": {
+    "unittest_cases": 4,
+    "result": "pass",
+    "synthetic_scenarios": 7,
+    "unresolved": 5
+  },
+  "scope": "No real data, file inputs, network or Kobo execution; no actual diagnosis or welfare inference",
+  "sha256": {
+    "synthetic_mapping.py": "72a24b0feeb3248e1f27c010649811259ed2855ddda2a45168675e8c53c02154",
+    "test_synthetic_mapping.py": "27a2ed9cf6a8b842a8854d776671749d471638154a10a3154438aa444e56e40d",
+    "synthetic-results.json": "ffb2607395247865f71040e4fb123a053603e07b8791f04e4d3486d43e05113b",
+    "README.md": "4f7142071307b0e3afdc582af7798c003a384f4a359509aa2189292a1434d10a"
+  }
+}

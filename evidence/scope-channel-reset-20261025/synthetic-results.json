@@ -1,0 +1,79 @@
+[
+  {
+    "case": "old_version",
+    "original": {
+      "case": "old_version",
+      "version": "example_v1",
+      "code": "s1",
+      "parent": "w1"
+    },
+    "status": "CONSISTENT_WITH_SYNTHETIC_DICTIONARY",
+    "label": "Example School A"
+  },
+  {
+    "case": "new_version",
+    "original": {
+      "case": "new_version",
+      "version": "example_v2",
+      "code": "s1",
+      "parent": "w2"
+    },
+    "status": "CONSISTENT_WITH_SYNTHETIC_DICTIONARY",
+    "label": "Example School B"
+  },
+  {
+    "case": "unknown_version",
+    "original": {
+      "case": "unknown_version",
+      "version": "example_v3",
+      "code": "s1",
+      "parent": "w1"
+    },
+    "status": "UNRESOLVED_UNKNOWN_VERSION",
+    "label": null
+  },
+  {
+    "case": "missing_version",
+    "original": {
+      "case": "missing_version",
+      "version": "",
+      "code": "s1",
+      "parent": "w1"
+    },
+    "status": "UNRESOLVED_MISSING_VERSION",
+    "label": null
+  },
+  {
+    "case": "unknown_code",
+    "original": {
+      "case": "unknown_code",
+      "version": "example_v2",
+      "code": "s9",
+      "parent": "w2"
+    },
+    "status": "UNRESOLVED_UNKNOWN_CODE",
+    "label": null
+  },
+  {
+    "case": "duplicate_key",
+    "original": {
+      "case": "duplicate_key",
+      "version": "example_v2",
+      "code": "dup",
+      "parent": "w2"
+    },
+    "status": "UNRESOLVED_DUPLICATE_KEY",
+    "label": null
+  },
+  {
+    "case": "parent_mismatch",
+    "original": {
+      "case": "parent_mismatch",
+      "version": "example_v2",
+      "code": "s1",
+      "parent": "w1"
+    },
+    "status": "UNRESOLVED_PARENT_MISMATCH",
+    "label": null
+  }
+]
