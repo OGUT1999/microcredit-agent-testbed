@@ -33,6 +33,7 @@ class PackingPacketTests(unittest.TestCase):
             self.assertEqual(a.split('AI-authored',1)[1].split('## Working area')[0],
                              b.split('AI-authored',1)[1].split('## Working area')[0])
             self.assertEqual(a.split('## Handoff questions')[1],b.split('## Handoff questions')[1])
+            self.assertIn('first letter of a line ID identifies its order', a)
             self.assertNotIn('packed_complete', a+b)
             self.assertNotIn('fully packed: D', a+b)
             self.assertIn('ledger if that is the normal workaround', a)

@@ -60,6 +60,7 @@ def render(form, condition):
     rows, events = fixture(form)
     text = [f'# Invented packing exercise — form {form}, {condition}', '',
             'AI-authored internal draft. Not an order, food-handling instruction or approved field test.', '',
+            'The first letter of a line ID identifies its order (for example, A1 and A2 belong to order A).',
             'Each line begins with zero units packed and no exception. Required quantities stay fixed.',
             'All shipments are unchanged and unshipped. There are no customer/carrier handoffs.',
             'A numerical remainder is not evidence of stock availability. Unknown means do not guess.', '',
