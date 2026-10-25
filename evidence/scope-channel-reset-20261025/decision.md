@@ -1,0 +1,51 @@
+# Decision after actual independent outputs
+
+October 25, 2026. AI-authored by Codex. This supersedes the initial ranking in README; it preserves the drafts and their history. No external recipient use, income or welfare effect has been verified.
+
+## Change actually made
+
+A1's passive allocation is superseded by Scott's direct instruction to broaden scope and channels. We have opened three distinct preparation streams: existing-service access, food-enterprise operations and humanitarian service-data workflows. Public service/community sources replace technical issue hunting as the discovery starting point. No standing campaign cap or protected live path changed.
+
+Completed work: primary-source qualification, a seven-case synthetic mapping demonstration with four passing tests, a paper packing-handoff comparison, and actual independent Claude and Hermes deliverables. PR376 holds the artifacts. Repository checks passed: 31/31 checks and 483 unit tests, no live operations. These are preparation and project delivery, not three launched field experiments.
+
+## Actual collaboration and consequential response
+
+[Hermes delivered at 19:00:47 UTC](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6401827589). He inspected the Spanish-support thread and found a working Spanish import guide, a UK login destination for the English template link, and no existing forum sending account. GPT independently read the guide and forum rules. The link explanation is plausible, not a diagnosis of the user's session. Hermes's proposed sample-row request, extra reply allowance, account creation and human-proxy alternative were NOT adopted. [GPT's disposition](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6401851807) preserves that distinction.
+
+[Claude delivered at 19:13:56 UTC](https://github.com/scottonchain/microcredit-agent-testbed/issues/17#issuecomment-6401976557), before the requested 19:25 checkpoint. He first saw the brief at 19:08; no earlier deadline acceptance was inferred. He ran the four synthetic tests successfully. His primary-site requests were blocked by his proxy, so his external-source assessment is second hand; his artifact/logic review is actual. He ACCEPTED the packing exercise at 3ca64d9c only as an internal illustration and required AMEND before use. He selected packing over a new benefits or Spanish guide. No acceptance of these later revised bytes is claimed.
+
+| Challenge | Better alternative and comparison | GPT decision/change |
+| --- | --- | --- |
+| Four packing lines may produce perfect answers in both conditions and reveal nothing. | Use representative workload and compare the operator's real notes/report against an added annotation, including recording burden. | Adopt the ceiling concern. Four lines are illustration only. A ceiling result stops expansion; do not make a screen/build decision. A scored exercise needs representative complexity confirmed before use, equal information and both recording and handoff effort. |
+| Workflow tidiness has an unmeasured path to spendable resources. | Favor an actual earnings or avoidable-loss bottleneck; measure each causal link. | Adopt the causal challenge, not a universal one-unobserved-link exclusion or an invented hourly value. Record task success, actual effort/cost changes and income separately. A benefit calculation requires observed local inputs. |
+| Public forums omit disconnected people and may already serve visible users. | Examine residual need in the specific task and compare existing help with our added contribution. | Do not run the proposed 50-thread census or adopt its arbitrary 10-percent channel kill rule. Answer counts cannot establish exclusion, usefulness or no residual need. A working link can be additional delivery even when a new guide would duplicate content; recipient use remains unknown. |
+| Publication rules and review attention constrain delivery. | Check rules before drafting for a new channel; obtain explicit owner clarification when ambiguous. | Adopt rule-first preparation. Reject any human-account exception inferred without an actual rule and any acceptance-rate experiment on prohibited channels. No outward resource posting now. |
+| UK support may not own global forum policy. | Inspect the forum's own ownership page and use an appropriate published contact. | The about page lists global admins/moderators, including the packing-thread author as a moderator, but does not establish UK policy authority. Narrow any UK email to a general routing inquiry for a public policy/contact, never a request that UK staff waive global terms. |
+
+Claude's view that the Spanish resource path duplicates existing help remains a substantive disagreement: GPT agrees not to write another guide, but considers restoring access to the existing guide a distinct, smaller hypothesis. A recipient reporting that the existing link solves the task would discriminate; our discovering the URL does not.
+
+## Ranked paths and next tests
+
+1. **Food-enterprise service access/operations — first priority, not launched.** Hermes owns any permitted delivery; GPT owns the artifact and choice. Public evidence is an existing support request and a separate packing scoping question. First prefer the existing Spanish resource over a new guide. Keep the packing illustration as an alternative if an operator identifies a remaining handoff problem. Baselines are the existing guide, peer response, packing reports and actual notes. The immediate external step under consideration is one permission/routing inquiry, not a claim of service delivery. Proposed window is seven days from actual send; none is running. Stop on decline, wrong remit, no substantive answer, duplication or a rule preventing participation. No automatic forwarding, follow-up, new account or invitation. Scale only after independent useful clarification or opted-in task use, and only within a separately valid scope.
+2. **Existing benefits/advice-service access — preparation comparison complete, no launch.** Claude owned the comparison. The current calculator directory and existing help are the baseline. Do not produce another checklist without a demonstrated usability or reach gap. The next legitimate test would compare a bounded aid with the existing service on a synthetic task, then seek consent through a permitted human-facing channel if a real gap appears. No participant, individualized advice, launch date or response window is invented. Stop duplication; no fresh generic search is commissioned here.
+3. **Humanitarian service-data workflow — prepared, delivery gated.** GPT owns the synthetic Kobo example; four tests cover seven invented cases, five unresolved. It is not a reproduction or repair. The next external test would be one reviewed diagnostic clarification and recipient feedback, only with actual comprehensive human review required by Kobo, an authorized sending identity and current reply/duplication checks. Those gates are not met. No response window starts, no bypass or substitute account is allowed.
+
+All routes have a household-benefit hypothesis, not evidence of household benefit. Existing cash/service provision remains the benchmark; no credit or new payment rail is presumed necessary.
+
+## Exact new-channel proposal — NOT SENT
+
+**Destination:** hello@openfoodnetwork.org.uk, published for general enquiries on the [official support page](https://about.openfoodnetwork.org.uk/support-2/). This is a proposed routing inquiry, not a claim that this address owns global forum policy. Hermes's actual existing sender/readiness check must be verified before delivery. No new credentials or account.
+
+**Subject:** Public policy/contact for AI-disclosed OFN contributions?
+
+> Hello OFN UK team. I am Hermes, an AI assistant working with a poverty-focused public-service project. Your website lists this address for general enquiries. Is there a public policy link or appropriate published contact for AI-disclosed contributions to the global OFN forum? We found a public request about Spanish import guidance, and the existing Spanish guide is available, but the forum terms exclude machine-generated content. We have not posted or created an account. We are not asking your team to waive global rules or to post for us. A public policy/contact link, or a suggestion that we refrain, would be enough. No forwarding, customer information, account access or partnership is requested. This would be one inquiry with no automatic follow-up. Thank you.
+
+**Approval boundary:** one message to this new outside audience is not covered by the existing project-board/Moltbook publication grant. The required decision is this exact message/destination, with zero money, no attachments, no private data and no automatic follow-on action. Do not ask for blanket outreach or account authority. A reply identifies a possible channel; it does not itself authorize a further message or a field test.
+
+The global [contact page](https://openfoodnetwork.org/contact/) instead offers a contact form. The browser research tool could read that page, but this executor's ordinary GET returned proxy CONNECT 403 while checking form feasibility. That attempted GET did not submit anything. Do not retry it through alternate tools, accounts or routing. No global form submission is proposed as a workaround. The earlier UK email proposal predated that failed GET; its narrowed purpose is public contact routing, not submitting blocked form content by another route.
+
+## Status and preserved obligations
+
+Actual attempts: public reads, local synthetic checks, project PR and team requests. Actual delivery: artifacts and team outputs. External recipient delivery, uptake, useful recipient clarification, incremental income and durable welfare: none verified. No outside message, account, spend, deployment, private-data collection or live data change.
+
+The original intake and other valid observations retain their exact caps/endpoints and owners. This is not another intake slot, scout campaign, scheduler or competing canonical queue. All owned publication leases were released. PR376 remains a draft; revised bytes are not merged or independently accepted for outward use.

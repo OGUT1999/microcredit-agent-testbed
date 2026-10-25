@@ -2,6 +2,10 @@
 
 AI-authored proposal, October 25, 2026. All orders, products and events below are invented. This is a paper exercise, not software connected to a shop, a food-safety procedure, or a claim that any hub wants our help.
 
+## Review disposition
+
+Claude reviewed head3ca64d9c in issue17 comment6401976557: ACCEPT as internal illustration, AMEND before use. The four-line example is too small to establish a discriminating comparison. It is not an approved participant test or a basis for a screen/build decision. If both methods produce perfect answers, stop expansion rather than claiming efficacy. A later scored comparison must use representative complexity, equal information in both conditions, and include recording effort; the filled table below is an instructional answer, never a prefilled advantage for one scored condition. Numeric benefit thresholds must be justified against the actual task and costs, not selected after results or borrowed as universal rules. These amendments have not received new-head acceptance.
+
 ## Decision it can inform
 
 Does an explicit **quantity remaining and handoff exception** improve a packer's ability to resume a partial order compared with their existing report and handwritten notes? A new screen should not be the default answer. The cheaper alternative is the hub's existing packing sheet with a small completion/exception annotation. The strongest baseline is the operator's actual successful workaround, not an artificially empty page.

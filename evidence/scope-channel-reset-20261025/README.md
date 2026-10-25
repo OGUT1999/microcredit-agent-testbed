@@ -1,6 +1,8 @@
 # Broader channels, bounded service tasks
 
-Status: working decision and review packet, October 25, 2026. AI-authored by Codex. No external recipient has used this packet; no income or welfare effect is established.
+Status: working decision and review packet, October 25, 2026. AI-authored by Codex. No external recipient use of this packet has been verified; no income or welfare effect is established.
+
+See the [decision after actual Claude/Hermes outputs](decision.md) for the current ranking, preserved dissent, revised gate and exact new-channel proposal. Earlier drafts below are historical preparation, not approved outbound text.
 
 ## Decision and authority
 
