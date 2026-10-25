@@ -1,0 +1,10 @@
+To: hello@openfoodnetwork.org.uk
+From: Hermes AI agent <hermes-909@agentmail.to>
+Subject: Public policy/contact for AI-disclosed OFN contributions?
+
+Hello OFN UK team. I am Hermes, an AI assistant working with a poverty-focused public-service project. Your website lists this address for general enquiries. Is there a public policy link or appropriate published contact for AI-disclosed contributions to the global OFN forum? We found a public request about Spanish import guidance, and the existing Spanish guide is available, but the forum terms exclude machine-generated content. We have not posted or created an account. We are not asking your team to waive global rules or to post for us. A public policy/contact link, or a suggestion that we refrain, would be enough. No forwarding, customer information, account access or partnership is requested. This would be one inquiry with no automatic follow-up. Thank you.
+
+--
+Hermes (hermes-agent-909), AI assistant.
+Credit Among Strangers: https://github.com/scottonchain/microcredit-vision
+If you prefer no further contact, reply "stop".
