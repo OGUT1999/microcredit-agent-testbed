@@ -1,0 +1,118 @@
+{
+  "X": {
+    "A1": {
+      "required": 5,
+      "packed": 3,
+      "hold": null,
+      "remaining": 2,
+      "packed_complete": false
+    },
+    "A2": {
+      "required": 2,
+      "packed": 2,
+      "hold": null,
+      "remaining": 0,
+      "packed_complete": true
+    },
+    "B1": {
+      "required": 4,
+      "packed": null,
+      "hold": null,
+      "remaining": null,
+      "packed_complete": false
+    },
+    "B2": {
+      "required": 3,
+      "packed": 0,
+      "hold": "Supplier quantity disputed",
+      "remaining": 3,
+      "packed_complete": false
+    },
+    "C1": {
+      "required": 6,
+      "packed": 3,
+      "hold": "Contents require operator check",
+      "remaining": 3,
+      "packed_complete": false
+    },
+    "C2": {
+      "required": 2,
+      "packed": 2,
+      "hold": null,
+      "remaining": 0,
+      "packed_complete": true
+    },
+    "D1": {
+      "required": 3,
+      "packed": 3,
+      "hold": null,
+      "remaining": 0,
+      "packed_complete": true
+    },
+    "D2": {
+      "required": 1,
+      "packed": 1,
+      "hold": null,
+      "remaining": 0,
+      "packed_complete": true
+    }
+  },
+  "Y": {
+    "E1": {
+      "required": 10,
+      "packed": 6,
+      "hold": null,
+      "remaining": 4,
+      "packed_complete": false
+    },
+    "E2": {
+      "required": 4,
+      "packed": 4,
+      "hold": null,
+      "remaining": 0,
+      "packed_complete": true
+    },
+    "F1": {
+      "required": 8,
+      "packed": null,
+      "hold": null,
+      "remaining": null,
+      "packed_complete": false
+    },
+    "F2": {
+      "required": 6,
+      "packed": 0,
+      "hold": "Supplier quantity disputed",
+      "remaining": 6,
+      "packed_complete": false
+    },
+    "G1": {
+      "required": 12,
+      "packed": 6,
+      "hold": "Contents require operator check",
+      "remaining": 6,
+      "packed_complete": false
+    },
+    "G2": {
+      "required": 4,
+      "packed": 4,
+      "hold": null,
+      "remaining": 0,
+      "packed_complete": true
+    },
+    "H1": {
+      "required": 6,
+      "packed": 6,
+      "hold": null,
+      "remaining": 0,
+      "packed_complete": true
+    },
+    "H2": {
+      "required": 2,
+      "packed": 2,
+      "hold": null,
+      "remaining": 0,
+      "packed_complete": true
+    }
+  }
+}
