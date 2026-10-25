@@ -8,7 +8,13 @@ Scott's direct instruction at 18:43:31 UTC was: "You are spinning.  Broaden scop
 
 We will investigate people-facing services, livelihood operations and humanitarian workflows in parallel. We do not need a personal invitation or guaranteed evaluator to investigate or prepare a reversible draft. We do need evidence, safe scope, actual contribution rules and applicable authority before sending or deploying it. Existing campaign caps survive. This is not a replacement controller, schedule, canonical queue or live-state update.
 
-## Three paths and channels
+## Primary-rule update, 18:53 UTC
+
+[Kobo community guidelines](https://community.kobotoolbox.org/guidelines) require comprehensive human review of AI-generated resources. AI peer review cannot satisfy that requirement. The draft below remains NOT SENT and blocked for forum delivery absent actual human review plus destination/identity authority. This is a platform rule, not an invented requirement for all research. It changes the provisional ranking: food-hub workflow support is now first for further preparation; Kobo is retained as a prepared but gated alternative. No human review has been claimed.
+
+A separate [packing handoff comparison](packing-comparison.md) is prepared for the OFN decision. It is a paper exercise against existing reports and notes, not another software build, launch or outcome.
+
+## Initial three-path ranking, before the primary-rule update
 
 | Rank | Path / owner | Concrete evidence and proposed test | Baseline / benefit hypothesis | Effort, window and decision | Kill / scale criterion | Authority and next step |
 | --- | --- | --- | --- | --- | --- | --- |
