@@ -1,4 +1,4 @@
-# Invented packing exercise — form Y, ledger
+# Recorder-only invented packing exercise — form Y, ledger
 
 AI-authored internal draft. Not an order, food-handling instruction or approved field test.
 

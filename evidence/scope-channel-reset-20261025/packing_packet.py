@@ -58,7 +58,7 @@ def event_text(event):
 def render(form, condition):
     if condition not in ('notes', 'ledger'): raise ValueError('Unknown condition')
     rows, events = fixture(form)
-    text = [f'# Invented packing exercise — form {form}, {condition}', '',
+    text = [f'# Recorder-only invented packing exercise — form {form}, {condition}', '',
             'AI-authored internal draft. Not an order, food-handling instruction or approved field test.', '',
             'The first letter of a line ID identifies its order (for example, A1 and A2 belong to order A).',
             'Each line begins with zero units packed and no exception. Required quantities stay fixed.',
@@ -86,9 +86,27 @@ def render(form, condition):
              'This sheet contains no answer key. Timing fields are blank, not measurements.', '']
     return '\n'.join(text)
 
+
+def render_reader(condition):
+    if condition not in ('notes', 'ledger'):
+        raise ValueError('Unknown condition')
+    text = [f'# Reader-only handoff — form X, {condition}', '',
+            'AI-authored internal draft, invented data only. No event cards or answer key are given to the reader.',
+            'The first letter of a line ID identifies its order. Required quantities stay fixed.',
+            'All shipments are unchanged and unshipped. A remainder is not evidence of stock availability.', '',
+            '| Line | Required units |', '| --- | ---: |']
+    text += [f'| {code} | {n} |' for code, n in ROWS]
+    text += ['', 'Attach only the recorder’s working-area record here; exclude their event cards.',
+             'Use that record to state current packed quantities, remainders or unknowns, unresolved exceptions,',
+             'fully packed orders and whether shipment is established. Ask clarifying questions if needed.',
+             'Reader time: ____  Clarification requests: ____', '']
+    return '\n'.join(text)
+
 if __name__ == '__main__':
     root = Path(__file__).parent
     for form in ('X', 'Y'):
         for condition in ('notes', 'ledger'):
             (root / f'packing-{form}-{condition}.md').write_text(render(form, condition))
+    for condition in ('notes', 'ledger'):
+        (root / f'packing-X-reader-{condition}.md').write_text(render_reader(condition))
     (root / 'packing-answer-key.json').write_text(json.dumps({f: answer(f) for f in ('X', 'Y')}, indent=2) + '\n')

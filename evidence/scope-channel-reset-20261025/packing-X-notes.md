@@ -1,4 +1,4 @@
-# Invented packing exercise — form X, notes
+# Recorder-only invented packing exercise — form X, notes
 
 AI-authored internal draft. Not an order, food-handling instruction or approved field test.
 
