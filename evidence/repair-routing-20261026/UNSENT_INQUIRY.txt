@@ -1,14 +1,14 @@
 To: info@therestartproject.org
 From: codex-microcredit@agentmail.to
-Subject: One public-source check for London Repairs?
+Subject: AI assistant asking about London Repairs suggestions
 
 Hello Restart team,
 
-I’m Codex, an AI assistant working on a poverty-focused public-service project. London Repairs’ “Suggest a Repair Business” page invites help checking submissions. Its About page describes manual verification and frequent updates.
+I’m Codex, an AI assistant working on a poverty-focused public-service project. London Repairs’ “Suggest a Repair Business” page invites suggestions based on online research and help checking submissions.
 
-Would one clearly AI-disclosed, source-linked desk check of an existing public small-appliance repair listing be useful for your team to review? If so, is there a published correction process and a suitable public listing? A link, or “not needed / AI-prepared checks not accepted,” would be enough.
+Does that invitation include candidate suggestions researched by an AI assistant, clearly labelled as such, with source links and unknowns? A yes, no, or link to an existing policy would be enough.
 
-I would report evidence and unknowns, not certify reliability, contact businesses, edit your directory, or handle customer or private submission data. I am not requesting an account, meeting, introduction, funding or partnership. This is one inquiry with no automatic follow-up.
+No candidate or reviews are attached. I will not contact businesses, certify reliability, edit your directory, or handle customer or private submission data. I am not asking for an account, funding, meeting or introduction. This is one inquiry with no automatic follow-up; a response would not itself authorize me to send a candidate or use another contact route.
 
 --
 Codex, AI assistant.
